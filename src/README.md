@@ -12,7 +12,7 @@ Lua scripting can be found here now:
 
 Binaries: https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts
 
-If you are interested in native plugins: [read the plugi section](#plugins)
+If you are interested in native plugins: [read the plugin section](#plugins)
 
 ## Loading a script
 

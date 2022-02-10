@@ -1,0 +1,218 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>vrmod - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="../api/index.html"><strong aria-hidden="true">4.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/draw.html"><strong aria-hidden="true">4.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../api/fs.html"><strong aria-hidden="true">4.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../api/imgui.html"><strong aria-hidden="true">4.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../api/json.html"><strong aria-hidden="true">4.4.</strong> json</a></li><li class="chapter-item expanded "><a href="../api/log.html"><strong aria-hidden="true">4.5.</strong> log</a></li><li class="chapter-item expanded "><a href="../api/re.html"><strong aria-hidden="true">4.6.</strong> re</a></li><li class="chapter-item expanded "><a href="../api/reframework.html"><strong aria-hidden="true">4.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../api/sdk.html"><strong aria-hidden="true">4.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../api/vrmod.html" class="active"><strong aria-hidden="true">4.9.</strong> vrmod</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types/index.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/types/Matrix4x4f.html"><strong aria-hidden="true">5.1.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../api/types/Quaternion.html"><strong aria-hidden="true">5.2.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../api/types/REComponent.html"><strong aria-hidden="true">5.3.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../api/types/REField.html"><strong aria-hidden="true">5.4.</strong> REField</a></li><li class="chapter-item expanded "><a href="../api/types/REManagedObject.html"><strong aria-hidden="true">5.5.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../api/types/REMethodDefinition.html"><strong aria-hidden="true">5.6.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/REResource.html"><strong aria-hidden="true">5.7.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../api/types/SystemArray.html"><strong aria-hidden="true">5.8.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../api/types/ValueType.html"><strong aria-hidden="true">5.9.</strong> ValueType</a></li><li class="chapter-item expanded "><a href="../api/types/VectorXf.html"><strong aria-hidden="true">5.10.</strong> VectorXf</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Bindings to access VR from lua.</p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<h3 id="vrmodget_controllers"><a class="header" href="#vrmodget_controllers"><code>vrmod:get_controllers()</code></a></h3>
+<p>Returns a list of device indices for the active controllers.</p>
+<h3 id="vrmodget_positionindex"><a class="header" href="#vrmodget_positionindex"><code>vrmod:get_position(index)</code></a></h3>
+<p>Returns the position for a given device index.</p>
+<h3 id="vrmodget_rotationindex"><a class="header" href="#vrmodget_rotationindex"><code>vrmod:get_rotation(index)</code></a></h3>
+<p>Returns the rotation for a given device index.</p>
+<h3 id="vrmodget_left_stick_axis"><a class="header" href="#vrmodget_left_stick_axis"><code>vrmod:get_left_stick_axis()</code></a></h3>
+<p>Returns a <code>Vector2f</code>.</p>
+<h3 id="vrmodget_right_stick_axis"><a class="header" href="#vrmodget_right_stick_axis"><code>vrmod:get_right_stick_axis()</code></a></h3>
+<p>Returns a <code>Vector2f</code>.</p>
+<h3 id="vrmodget_current_eye_transform"><a class="header" href="#vrmodget_current_eye_transform"><code>vrmod:get_current_eye_transform()</code></a></h3>
+<h3 id="vrmodget_current_projection_matrix"><a class="header" href="#vrmodget_current_projection_matrix"><code>vrmod:get_current_projection_matrix()</code></a></h3>
+<h3 id="vrmodget_standing_origin"><a class="header" href="#vrmodget_standing_origin"><code>vrmod:get_standing_origin()</code></a></h3>
+<h3 id="vrmodset_standing_originpos"><a class="header" href="#vrmodset_standing_originpos"><code>vrmod:set_standing_origin(pos)</code></a></h3>
+<p><code>pos</code> is a Vector4f.</p>
+<h3 id="vrmodget_rotation_offset"><a class="header" href="#vrmodget_rotation_offset"><code>vrmod:get_rotation_offset()</code></a></h3>
+<h3 id="vrmodset_rotation_offsetquat"><a class="header" href="#vrmodset_rotation_offsetquat"><code>vrmod:set_rotation_offset(quat)</code></a></h3>
+<h3 id="vrmodrecenter_view"><a class="header" href="#vrmodrecenter_view"><code>vrmod:recenter_view()</code></a></h3>
+<h3 id="vrmodget_action_set"><a class="header" href="#vrmodget_action_set"><code>vrmod:get_action_set()</code></a></h3>
+<h3 id="vrmodget_active_action_set"><a class="header" href="#vrmodget_active_action_set"><code>vrmod:get_active_action_set()</code></a></h3>
+<h3 id="vrmodget_action_trigger"><a class="header" href="#vrmodget_action_trigger"><code>vrmod:get_action_trigger()</code></a></h3>
+<h3 id="vrmodget_action_grip"><a class="header" href="#vrmodget_action_grip"><code>vrmod:get_action_grip()</code></a></h3>
+<h3 id="vrmodget_action_joystick"><a class="header" href="#vrmodget_action_joystick"><code>vrmod:get_action_joystick()</code></a></h3>
+<h3 id="vrmodget_action_joystick_click"><a class="header" href="#vrmodget_action_joystick_click"><code>vrmod:get_action_joystick_click()</code></a></h3>
+<h3 id="vrmodget_action_a_button"><a class="header" href="#vrmodget_action_a_button"><code>vrmod:get_action_a_button()</code></a></h3>
+<h3 id="vrmodget_action_b_button"><a class="header" href="#vrmodget_action_b_button"><code>vrmod:get_action_b_button()</code></a></h3>
+<h3 id="vrmodget_left_joystick"><a class="header" href="#vrmodget_left_joystick"><code>vrmod:get_left_joystick()</code></a></h3>
+<p>Returns a <code>vr::VRInputValueHandle_t</code>. To be used in <code>vrmod:is_action_active</code> as the <code>source</code>.</p>
+<h3 id="vrmodget_right_joystick"><a class="header" href="#vrmodget_right_joystick"><code>vrmod:get_right_joystick()</code></a></h3>
+<p>Returns a <code>vr::VRInputValueHandle_t</code>. To be used in <code>vrmod:is_action_active</code> as the <code>source</code>.</p>
+<h3 id="vrmodget_right_joystick-1"><a class="header" href="#vrmodget_right_joystick-1"><code>vrmod:get_right_joystick()</code></a></h3>
+<h3 id="vrmodis_using_controllers"><a class="header" href="#vrmodis_using_controllers"><code>vrmod:is_using_controllers()</code></a></h3>
+<p>Returns <code>true</code> if the user has issued any inputs to the controllers within the last 10 seconds.</p>
+<h3 id="vrmodis_hmd_active"><a class="header" href="#vrmodis_hmd_active"><code>vrmod:is_hmd_active()</code></a></h3>
+<p>Returns <code>true</code> if the user currently has their VR headset on.</p>
+<h3 id="vrmodis_action_activeaction-source"><a class="header" href="#vrmodis_action_activeaction-source"><code>vrmod:is_action_active(action, source)</code></a></h3>
+<p>Returns <code>true</code> if the <code>action</code> belonging to <code>source</code> is active. </p>
+<p>Active meaning that the user is e.g. holding the A button down if the A button was the <code>action</code>.</p>
+<h3 id="vrmodis_using_hmd_oriented_audio"><a class="header" href="#vrmodis_using_hmd_oriented_audio"><code>vrmod:is_using_hmd_oriented_audio()</code></a></h3>
+<h3 id="vrmodtoggle_hmd_oriented_audio"><a class="header" href="#vrmodtoggle_hmd_oriented_audio"><code>vrmod:toggle_hmd_oriented_audio()</code></a></h3>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../api/sdk.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../api/types/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../api/sdk.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../api/types/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

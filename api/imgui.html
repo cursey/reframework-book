@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>imgui - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="../api/index.html"><strong aria-hidden="true">4.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/draw.html"><strong aria-hidden="true">4.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../api/fs.html"><strong aria-hidden="true">4.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../api/imgui.html" class="active"><strong aria-hidden="true">4.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../api/json.html"><strong aria-hidden="true">4.4.</strong> json</a></li><li class="chapter-item expanded "><a href="../api/log.html"><strong aria-hidden="true">4.5.</strong> log</a></li><li class="chapter-item expanded "><a href="../api/re.html"><strong aria-hidden="true">4.6.</strong> re</a></li><li class="chapter-item expanded "><a href="../api/reframework.html"><strong aria-hidden="true">4.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../api/sdk.html"><strong aria-hidden="true">4.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../api/vrmod.html"><strong aria-hidden="true">4.9.</strong> vrmod</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types/index.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/types/Matrix4x4f.html"><strong aria-hidden="true">5.1.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../api/types/Quaternion.html"><strong aria-hidden="true">5.2.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../api/types/REComponent.html"><strong aria-hidden="true">5.3.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../api/types/REField.html"><strong aria-hidden="true">5.4.</strong> REField</a></li><li class="chapter-item expanded "><a href="../api/types/REManagedObject.html"><strong aria-hidden="true">5.5.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../api/types/REMethodDefinition.html"><strong aria-hidden="true">5.6.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/REResource.html"><strong aria-hidden="true">5.7.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../api/types/SystemArray.html"><strong aria-hidden="true">5.8.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../api/types/ValueType.html"><strong aria-hidden="true">5.9.</strong> ValueType</a></li><li class="chapter-item expanded "><a href="../api/types/VectorXf.html"><strong aria-hidden="true">5.10.</strong> VectorXf</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Bindings for ImGui. Can be used in the <code>re.on_draw_ui</code> callback.</p>
+<p>Some methods can be used in <code>re.on_frame</code> if <code>begin_window</code>/<code>end_window</code> is used.</p>
+<p>Example:</p>
+<pre><code>local thing = 1
+local things = { &quot;hi&quot;, &quot;hello&quot;, &quot;howdy&quot;, &quot;hola&quot;, &quot;aloha&quot; }
+
+re.on_draw_ui(function()
+    if imgui.button(&quot;Whats up&quot;) then 
+        thing = 1
+    end
+
+    local changed, new_thing = imgui.combo(&quot;Greeting&quot;, thing, things) 
+    if changed then thing = new_thing end
+end)
+</code></pre>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<h3 id="imguibegin_windowname-open-flags"><a class="header" href="#imguibegin_windowname-open-flags"><code>imgui.begin_window(name, open, flags)</code></a></h3>
+<p>Creates a new window with the title of <code>name</code>.</p>
+<p><code>open</code> is a bool. Can be <code>nil</code>. If not <code>nil</code>, a close button will be shown in the top right of the window.</p>
+<p><code>flags</code> - ImGuiWindowFlags.</p>
+<p><code>begin_window</code> must have a corresponding <code>end_window</code> call.</p>
+<p>This function may only be called in <code>on_frame</code>, not <code>on_draw_ui</code>.</p>
+<p>Returns a bool. Returns <code>false</code> if the user wants to close the window.</p>
+<h3 id="imguiend_window"><a class="header" href="#imguiend_window"><code>imgui.end_window()</code></a></h3>
+<p>Ends the last <code>begin_window</code> call. Required.</p>
+<h3 id="imguibegin_child_windowsize-border-flags"><a class="header" href="#imguibegin_child_windowsize-border-flags"><code>imgui.begin_child_window(size, border, flags)</code></a></h3>
+<p><code>size</code> - Vector2f</p>
+<p><code>border</code> - bool</p>
+<p><code>flags</code> - ImGuiWindowFlags</p>
+<h3 id="imguiend_child_window"><a class="header" href="#imguiend_child_window"><code>imgui.end_child_window()</code></a></h3>
+<h3 id="imguibegin_group"><a class="header" href="#imguibegin_group"><code>imgui.begin_group()</code></a></h3>
+<h3 id="imguiend_group"><a class="header" href="#imguiend_group"><code>imgui.end_group()</code></a></h3>
+<h3 id="imguibegin_rect"><a class="header" href="#imguibegin_rect"><code>imgui.begin_rect()</code></a></h3>
+<h3 id="imguiend_rectadditional_size-rounding"><a class="header" href="#imguiend_rectadditional_size-rounding"><code>imgui.end_rect(additional_size, rounding)</code></a></h3>
+<p>These two methods draw a rectangle around the elements between <code>begin_rect</code> and <code>end_rect</code></p>
+<h3 id="imguibuttonlabel"><a class="header" href="#imguibuttonlabel"><code>imgui.button(label)</code></a></h3>
+<p>Draws a button with <code>label</code> text.</p>
+<p>Returns <code>true</code> when the user presses the button.</p>
+<h3 id="imguitexttext"><a class="header" href="#imguitexttext"><code>imgui.text(text)</code></a></h3>
+<p>Draws text.</p>
+<h3 id="imguicheckboxlabel-value"><a class="header" href="#imguicheckboxlabel-value"><code>imgui.checkbox(label, value)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_floatlabel-value-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_floatlabel-value-speed-min-max-display_format-optional"><code>imgui.drag_float(label, value, speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float2label-value-vector2f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float2label-value-vector2f-speed-min-max-display_format-optional"><code>imgui.drag_float2(label, value (Vector2f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float3label-value-vector3f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float3label-value-vector3f-speed-min-max-display_format-optional"><code>imgui.drag_float3(label, value (Vector3f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float4label-value-vector4f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float4label-value-vector4f-speed-min-max-display_format-optional"><code>imgui.drag_float4(label, value (Vector4f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_intlabel-value-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_intlabel-value-speed-min-max-display_format-optional"><code>imgui.drag_int(label, value, speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguislider_floatlabel-value-min-max-display_format-optional"><a class="header" href="#imguislider_floatlabel-value-min-max-display_format-optional"><code>imgui.slider_float(label, value, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguislider_intlabel-value-min-max-display_format-optional"><a class="header" href="#imguislider_intlabel-value-min-max-display_format-optional"><code>imgui.slider_int(label, value, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguiinput_textlabel-value-flags-optional"><a class="header" href="#imguiinput_textlabel-value-flags-optional"><code>imgui.input_text(label, value, flags (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicombolabel-selection-values"><a class="header" href="#imguicombolabel-selection-values"><code>imgui.combo(label, selection, values)</code></a></h3>
+<p>Returns a tuple of <code>changed, value</code>. </p>
+<p><code>changed</code> = true when selection changes. </p>
+<p><code>value</code> is the selection index within <code>values</code> (a table)</p>
+<h3 id="imguicolor_pickerlabel-color-flags"><a class="header" href="#imguicolor_pickerlabel-color-flags"><code>imgui.color_picker(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ABGR which <code>imgui</code> and <code>draw</code> APIs expect.</p>
+<h3 id="imguicolor_picker_argblabel-color-flags"><a class="header" href="#imguicolor_picker_argblabel-color-flags"><code>imgui.color_picker_argb(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ARGB.</p>
+<h3 id="imguicolor_picker3label-color-vector3f-flags"><a class="header" href="#imguicolor_picker3label-color-vector3f-flags"><code>imgui.color_picker3(label, color (Vector3f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_picker4label-color-vector4f-flags"><a class="header" href="#imguicolor_picker4label-color-vector4f-flags"><code>imgui.color_picker4(label, color (Vector4f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_editlabel-color-flags"><a class="header" href="#imguicolor_editlabel-color-flags"><code>imgui.color_edit(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ABGR which <code>imgui</code> and <code>draw</code> APIs expect.</p>
+<h3 id="imguicolor_edit_argblabel-color-flags"><a class="header" href="#imguicolor_edit_argblabel-color-flags"><code>imgui.color_edit_argb(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ARGB.</p>
+<h3 id="imguicolor_edit3label-color-vector3f-flags"><a class="header" href="#imguicolor_edit3label-color-vector3f-flags"><code>imgui.color_edit3(label, color (Vector3f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_edit4label-color-vector4f-flags"><a class="header" href="#imguicolor_edit4label-color-vector4f-flags"><code>imgui.color_edit4(label, color (Vector4f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<p><code>flags</code> for <code>color_picker/edit</code> APIs: <code>ImGuiColorEditFlags</code></p>
+<h3 id="imguitree_nodelabel"><a class="header" href="#imguitree_nodelabel"><code>imgui.tree_node(label)</code></a></h3>
+<h3 id="imguitree_node_ptr_idid-label"><a class="header" href="#imguitree_node_ptr_idid-label"><code>imgui.tree_node_ptr_id(id, label)</code></a></h3>
+<h3 id="imguitree_node_str_idid-label"><a class="header" href="#imguitree_node_str_idid-label"><code>imgui.tree_node_str_id(id, label)</code></a></h3>
+<h3 id="imguitree_pop"><a class="header" href="#imguitree_pop"><code>imgui.tree_pop()</code></a></h3>
+<p>All of the above <code>tree</code> functions must have a corresponding <code>tree_pop</code>!</p>
+<h3 id="imguisame_line"><a class="header" href="#imguisame_line"><code>imgui.same_line()</code></a></h3>
+<h3 id="imguispacing"><a class="header" href="#imguispacing"><code>imgui.spacing()</code></a></h3>
+<h3 id="imguinew_line"><a class="header" href="#imguinew_line"><code>imgui.new_line()</code></a></h3>
+<h3 id="imguiis_item_hovered"><a class="header" href="#imguiis_item_hovered"><code>imgui.is_item_hovered()</code></a></h3>
+<h3 id="imguicollapsing_headername"><a class="header" href="#imguicollapsing_headername"><code>imgui.collapsing_header(name)</code></a></h3>
+<h3 id="imguiload_fontfilepath-size-ranges"><a class="header" href="#imguiload_fontfilepath-size-ranges"><code>imgui.load_font(filepath, size, [ranges])</code></a></h3>
+<p>Loads a font file from the <code>reframework/fonts</code> subdirectory at the specified <code>size</code> with optional Unicode <code>ranges</code> (an array of start, end pairs ending with 0). Returns a handle for use with <code>imgui.push_font()</code>. If <code>filepath</code> is nil, it will load the default font at the specified size.</p>
+<h3 id="imguipush_fontfont"><a class="header" href="#imguipush_fontfont"><code>imgui.push_font(font)</code></a></h3>
+<p>Sets the font to be used for the next set of ImGui widgets/draw commands until <code>imgui.pop_font</code> is called.</p>
+<h3 id="imguipop_font"><a class="header" href="#imguipop_font"><code>imgui.pop_font()</code></a></h3>
+<p>Unsets the previously pushed font.</p>
+<h3 id="imguiget_default_font_size"><a class="header" href="#imguiget_default_font_size"><code>imgui.get_default_font_size()</code></a></h3>
+<p>Returns size of the default font for REFramework's UI.</p>
+<h3 id="imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><a class="header" href="#imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><code>imgui.set_next_window_pos(pos (Vector2f or table), condition, pivot (Vector2f or table))</code></a></h3>
+<p><code>condition</code> is the <code>ImGuiCond</code> enum.</p>
+<pre><code>enum ImGuiCond_
+{
+    ImGuiCond_None          = 0,        // No condition (always set the variable), same as _Always
+    ImGuiCond_Always        = 1 &lt;&lt; 0,   // No condition (always set the variable)
+    ImGuiCond_Once          = 1 &lt;&lt; 1,   // Set the variable once per runtime session (only the first call will succeed)
+    ImGuiCond_FirstUseEver  = 1 &lt;&lt; 2,   // Set the variable if the object/window has no persistently saved data (no entry in .ini file)
+    ImGuiCond_Appearing     = 1 &lt;&lt; 3    // Set the variable if the object/window is appearing after being hidden/inactive (or the first time)
+};
+</code></pre>
+<h3 id="imguiset_next_window_sizesize-vector2f-or-table-condition"><a class="header" href="#imguiset_next_window_sizesize-vector2f-or-table-condition"><code>imgui.set_next_window_size(size (Vector2f or table), condition)</code></a></h3>
+<p><code>condition</code> is the <code>ImGuiCond</code> enum.</p>
+<h3 id="imguipush_idid"><a class="header" href="#imguipush_idid"><code>imgui.push_id(id)</code></a></h3>
+<p><code>id</code> can be an <code>int</code>, <code>const char*</code>, or <code>void*</code>.</p>
+<h3 id="imguipop_id"><a class="header" href="#imguipop_id"><code>imgui.pop_id()</code></a></h3>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../api/fs.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../api/json.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../api/fs.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../api/json.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

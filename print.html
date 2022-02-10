@@ -1,0 +1,1546 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>REFramework</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="api/index.html"><strong aria-hidden="true">4.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="api/draw.html"><strong aria-hidden="true">4.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="api/fs.html"><strong aria-hidden="true">4.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="api/imgui.html"><strong aria-hidden="true">4.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="api/json.html"><strong aria-hidden="true">4.4.</strong> json</a></li><li class="chapter-item expanded "><a href="api/log.html"><strong aria-hidden="true">4.5.</strong> log</a></li><li class="chapter-item expanded "><a href="api/re.html"><strong aria-hidden="true">4.6.</strong> re</a></li><li class="chapter-item expanded "><a href="api/reframework.html"><strong aria-hidden="true">4.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="api/sdk.html"><strong aria-hidden="true">4.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="api/vrmod.html"><strong aria-hidden="true">4.9.</strong> vrmod</a></li></ol></li><li class="chapter-item expanded "><a href="api/types/index.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="api/types/Matrix4x4f.html"><strong aria-hidden="true">5.1.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="api/types/Quaternion.html"><strong aria-hidden="true">5.2.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="api/types/REComponent.html"><strong aria-hidden="true">5.3.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="api/types/REField.html"><strong aria-hidden="true">5.4.</strong> REField</a></li><li class="chapter-item expanded "><a href="api/types/REManagedObject.html"><strong aria-hidden="true">5.5.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="api/types/REMethodDefinition.html"><strong aria-hidden="true">5.6.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="api/types/REResource.html"><strong aria-hidden="true">5.7.</strong> REResource</a></li><li class="chapter-item expanded "><a href="api/types/SystemArray.html"><strong aria-hidden="true">5.8.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="api/types/ValueType.html"><strong aria-hidden="true">5.9.</strong> ValueType</a></li><li class="chapter-item expanded "><a href="api/types/VectorXf.html"><strong aria-hidden="true">5.10.</strong> VectorXf</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>This is the REFramework wiki. It will mostly serve as documentation for the scripting and plugin system.</p>
+<p><a href="troubleshooting/VR-Troubleshooting.html">VR Troubleshooting</a></p>
+<h2 id="lua-scripting"><a class="header" href="#lua-scripting">Lua Scripting</a></h2>
+<p>REFramework comes with a scripting system using Lua. </p>
+<p>Leveraging the RE Engine's IL2CPP implementation, REFramework gives developers powerful control over the game engine.</p>
+<p>Lua scripting can be found here now:</p>
+<p>Binaries: https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts</p>
+<p>If you are interested in native plugins: https://github.com/praydog/REFramework/wiki#plugins</p>
+<h2 id="loading-a-script"><a class="header" href="#loading-a-script">Loading a script</a></h2>
+<h3 id="manual-loading"><a class="header" href="#manual-loading">Manual Loading</a></h3>
+<p>Click on <code>ScriptRunner</code> from the main REFramework menu. From there, press <code>Run Script</code> and locate the corresponding <code>*.lua</code> file you wish to load.</p>
+<h3 id="automatic-loading"><a class="header" href="#automatic-loading">Automatic Loading</a></h3>
+<p>Create an <code>autorun</code> folder in your game directory. REFramework will automatically load whatever <code>*.lua</code> scripts are in here during initialization.</p>
+<h2 id="handling-lua-errors"><a class="header" href="#handling-lua-errors">Handling Lua errors</a></h2>
+<h3 id="during-script-startup"><a class="header" href="#during-script-startup">During script startup</a></h3>
+<p>When a Lua error occurs here, a MessageBox will pop up explaining what the error is.</p>
+<h3 id="during-callback-execution"><a class="header" href="#during-callback-execution">During callback execution</a></h3>
+<p>When a Lua error occurs here, the reason will be written to a debug log. <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DebugView</a> is required to view these.</p>
+<p>We don't pop a MessageBox here so the user doesn't lock their game.</p>
+<h2 id="finding-game-functions-to-call-and-fields-to-grab"><a class="header" href="#finding-game-functions-to-call-and-fields-to-grab">Finding game functions to call, and fields to grab</a></h2>
+<p>Use the <code>ObjectExplorer</code> that's in the <a href="https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts">developer builds</a>. It can be found under <code>DeveloperTools</code> in the REFramework menu.</p>
+<p>Poke around the singletons until you find something you're interested in. </p>
+<p>Objects under <code>Singletons</code> can be obtained with <code>sdk.get_managed_singleton(&quot;name&quot;)</code></p>
+<p>Objects under <code>Native Singletons</code> can be obtained with <code>sdk.get_native_singleton(&quot;name&quot;)</code></p>
+<p>Do note that the <code>Singletons</code> (AKA Managed Singletons) are the usually the most exposed. They were originally written in C#.</p>
+<p><code>Native Singletons</code> have fields and methods exposed, but they are usually hand picked. These ones were written in C++, and have the least amount of data exposed about them.</p>
+<p>Anything under <code>TDB Methods</code> or <code>TDB Fields</code> of something within the <code>ObjectExplorer</code> can be called or grabbed using the various call and field getter/setter methods found here in the wiki. </p>
+<p>You <strong>CANNOT</strong> use the <code>Reflection Methods</code> or <code>Reflection Properties</code> yet without direct memory reading/writing, only the TDB versions are fully supported.</p>
+<p>Good APIs to start on: <a href="https://github.com/praydog/REFramework/wiki/sdk">sdk</a> and <a href="https://github.com/praydog/REFramework/wiki/re">re</a></p>
+<p><a href="https://github.com/praydog/REFramework/wiki/Example-Scripts">Example Scripts</a></p>
+<h2 id="plugins"><a class="header" href="#plugins">Plugins</a></h2>
+<p>REFramework has the ability to run native DLL plugins. This can also just be used as a loose DLL loader, with no awareness of REF.</p>
+<p>The plugins can perform much of what Lua can, with much more freedom. They have access to much of the important SDK functionality of REFramework, as well as useful callbacks for rendering/input/game code.</p>
+<h3 id="loading-a-plugin"><a class="header" href="#loading-a-plugin">Loading a plugin</a></h3>
+<p>Drop the <code>.dll</code> file into the <code>reframework/plugins</code> directory.</p>
+<h3 id="using-the-plugin-api"><a class="header" href="#using-the-plugin-api">Using the plugin API</a></h3>
+<p>Include the <code>include</code> directory from the root REFramework project directory in your plugin. Include <code>API.hpp</code> if you are using C++ and want a more C++ approach to using the SDK.</p>
+<p>From there, you have the option to export these functions:</p>
+<pre><code class="language-cpp">// OPTIONAL
+// Enforces plugin versioning
+// If REF's major version does not match the plugin's required version, the plugin will not load
+// If REF's minor version is less than the plugin's required version, the plugin will not load
+// If REF's patch version does not match, the plugin will load but a warning will be displayed in the plugin menu
+extern &quot;C&quot; __declspec(dllexport) void reframework_plugin_required_version(REFrameworkPluginVersion* version) {
+    version-&gt;major = REFRAMEWORK_PLUGIN_VERSION_MAJOR;
+    version-&gt;minor = REFRAMEWORK_PLUGIN_VERSION_MINOR;
+    version-&gt;patch = REFRAMEWORK_PLUGIN_VERSION_PATCH;
+
+    // Optionally, specify a specific game name that this plugin is compatible with.
+    //version-&gt;game_name = &quot;MHRISE&quot;;
+}
+</code></pre>
+<pre><code class="language-cpp">using namespace reframework; // For API class
+
+// OPTIONAL
+// Used for initializing the REFramework SDK and additional functions
+extern &quot;C&quot; __declspec(dllexport) bool reframework_plugin_initialize(const REFrameworkPluginInitializeParam* param) {
+    API::initialize(param);
+
+    // Example usage of param functions
+    const auto functions = param-&gt;functions;
+    functions-&gt;on_lua_state_created(on_lua_state_created);
+    functions-&gt;on_lua_state_destroyed(on_lua_state_destroyed);
+    functions-&gt;on_frame(on_frame);
+    functions-&gt;on_pre_application_entry(&quot;BeginRendering&quot;, on_pre_begin_rendering); // Look at via.ModuleEntry or the wiki for valid names here
+    functions-&gt;on_post_application_entry(&quot;EndRendering&quot;, on_post_end_rendering);
+    functions-&gt;on_device_reset(on_device_reset);
+    functions-&gt;on_message((REFOnMessageCb)on_message);
+    functions-&gt;log_error(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;error&quot;);
+    functions-&gt;log_warn(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;warning&quot;);
+    functions-&gt;log_info(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;info&quot;);
+    API::get()-&gt;log_error(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;error&quot;);
+    API::get()-&gt;log_warn(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;warning&quot;);
+    API::get()-&gt;log_info(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;info&quot;);
+
+    return true;
+}
+</code></pre>
+<p>Optionally, you can specify a DllMain if for example your plugin absolutely needs to load immediately, or do not want the additional functionality of REFramework's plugin API.</p>
+<h3 id="example-of-using-native-sdk-functionality"><a class="header" href="#example-of-using-native-sdk-functionality">Example of using native SDK functionality</a></h3>
+<pre><code class="language-cpp">// Grabbing the game window size with a C++ call and invoke
+auto&amp; api = API::get();
+const auto tdb = api-&gt;tdb();
+
+auto vm_context = api-&gt;get_vm_context();
+
+const auto scene_manager = api-&gt;get_native_singleton(&quot;via.SceneManager&quot;);
+const auto scene_manager_type = tdb-&gt;find_type(&quot;via.SceneManager&quot;);
+
+const auto scene_manager_full_name = scene_manager_type-&gt;get_full_name();
+
+OutputDebugString((std::stringstream{} &lt;&lt; scene_manager_full_name &lt;&lt; &quot; Size: &quot; &lt;&lt; scene_manager_full_name.size()).str().c_str());
+
+const auto get_main_view = scene_manager_type-&gt;find_method(&quot;get_MainView&quot;);
+const auto main_view = get_main_view-&gt;call&lt;API::ManagedObject*&gt;(vm_context, scene_manager);
+
+if (main_view == nullptr) {
+    return;
+}
+
+// Method 1: Call
+float size[3]{};
+main_view-&gt;call(&quot;get_Size&quot;, &amp;size, vm_context, main_view);
+
+// Method 2: Invoke
+auto get_size_invoke_result = main_view-&gt;invoke(&quot;get_Size&quot;, {});
+float* size_invoke = (float*)&amp;get_size_invoke_result;
+</code></pre>
+<h3 id="example-plugins"><a class="header" href="#example-plugins">Example plugins</a></h3>
+<p>https://github.com/praydog/REFramework/tree/master/example_plugin</p>
+<p>https://github.com/cursey/reframework-d2d</p>
+<h3 id="plugin-headers"><a class="header" href="#plugin-headers">Plugin headers</a></h3>
+<p>https://github.com/praydog/REFramework/tree/master/include/reframework</p>
+<h2 id="side-notes"><a class="header" href="#side-notes">Side notes</a></h2>
+<p>Everything is subject to change and maybe refactored over time.</p>
+<p>Lua uses a shared state across all scripts. Use <code>local</code> variables so as to not cause conflicts with other scripts.</p>
+<p>If there's something you find you can't do without native code, Lua can <code>require</code> native DLLs. Native plugins are also an option.</p>
+<p>RE Engine's IL2CPP implementation is not the same as Unity's. While RE Engine and Unity have many similarities, they are not the same, and no existing tooling for Unity or IL2CPP will work on the RE Engine.</p>
+<p>C# scripting maybe a possibility in the future for more natural interaction with the engine, but is not currently being looked at. REFramework is open source, so any developer wishing to do that can try.</p>
+<p>While REFramework's scripting API can do all sorts of things, <a href="https://github.com/alphazolam/RE_RSZ">RE_RSZ</a> is another powerful tool that may be more suitable in some scenarios. 
+For example:</p>
+<ul>
+<li>Inserting/cloning more game objects into a specific scene</li>
+<li>Edits that don't require runtime awareness of the game's state</li>
+<li>Time-sensitive edits to files (like something REFramework can't capture during startup)</li>
+<li>Using it for base edits with an REFramework script on top for additional functionality</li>
+<li>Changes that are impossible with REFramework's scripting system</li>
+</ul>
+<h2 id="thanks"><a class="header" href="#thanks">Thanks</a></h2>
+<p><a href="https://github.com/cursey/">cursey</a> for helping build the scripting system.</p>
+<p><a href="https://github.com/youwereeatenbyalid/">The Hitchhiker</a> for testing/writing scripts/finding bugs/helpful suggestions.</p>
+<p><a href="https://github.com/alphazolam">alphaZomega</a> for testing/writing scripts/finding bugs/helpful suggestions.</p>
+<h2 id="discords"><a class="header" href="#discords">Discords</a></h2>
+<p><a href="https://discord.gg/9Vr2SJ3">Modding Haven</a> (General RE Engine modding)</p>
+<p><a href="https://discord.com/invite/nX5EzVU">Infernal Warks</a> (DMC5 modding)</p>
+<p><a href="https://discord.gg/gJwMdhK">Monster Hunter Modding Discord</a></p>
+<div style="break-before: page; page-break-before: always;"></div><p>Here you'll find various solutions and FAQ to various problems you may encounter with the VR mod.</p>
+<p><a href="https://beastsaber.notion.site/beastsaber/Praydog-s-Resident-Evil-2-3-VR-mod-3db8bd110ebf4a38870e1a5114b16998">Getting Started Guide</a></p>
+<p>Newer builds (dinput8.dll only) can be found <a href="https://ci.appveyor.com/project/praydog/reframework/branch/master/artifacts">here</a></p>
+<p>Newer builds (dinput8.dll only) with devmode enabled <a href="https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts">here</a></p>
+<h2 id="reporting-a-bug"><a class="header" href="#reporting-a-bug">Reporting a bug</a></h2>
+<p>Report it on the <a href="https://github.com/praydog/REFramework/issues">Issues</a> page.</p>
+<p>If you are crashing, or are having a technical problem then upload these files from your game folder:</p>
+<ul>
+<li><code>re2_framework_log.txt</code></li>
+<li><code>reframework_crash.dmp</code> if you are crashing</li>
+</ul>
+<p>If you do not have an <code>reframework_crash.dmp</code> and are crashing, download a newer build, links at the top of the page.</p>
+<h2 id="opening-the-in-game-menu-with-motion-controllers"><a class="header" href="#opening-the-in-game-menu-with-motion-controllers">Opening the in-game menu with motion controllers</a></h2>
+<p>Aim at the palm of your left hand with your head and your right hand. Do not press anything, and an overlay menu should show up.</p>
+<p>If that doesn't work, you can use the desktop version of the menu using the Insert key. This method won't work in the headset.</p>
+<p>If that still doesn't work, options can be changed in the <code>re2_fw_config.txt</code> in your game directory.</p>
+<h2 id="common-fixes"><a class="header" href="#common-fixes">Common fixes</a></h2>
+<ul>
+<li>Restarting SteamVR</li>
+<li>Disabling overlay software</li>
+<li>Disabling SteamVR theater</li>
+<li>Disabling &quot;Hardware-accelerated GPU scheduling&quot;</li>
+<li>Swapping between DX11 and DX12</li>
+<li>Taking the headset off and putting it back on</li>
+<li>If you are using an HDR monitor, unplugging the monitor temporarily has been a reported fix</li>
+<li>If your screen looks squished with black bars turn off Borderless window mode</li>
+<li>Make sure no graphical settings are being forced globally (e.g. from Nvidia Control Panel)
+<ul>
+<li>The exception to this is disabling HDR</li>
+</ul>
+</li>
+</ul>
+<h3 id="in-re2"><a class="header" href="#in-re2">In RE2</a></h3>
+<p>There is a known issue of a softlock sometimes occurring in the Birkin fight if it goes on too long. It can be fixed simply by disabling FirstPerson until he spawns again.</p>
+<h2 id="what-is-the-status-of-re7-and-re8"><a class="header" href="#what-is-the-status-of-re7-and-re8">What is the status of RE7 and RE8?</a></h2>
+<p>RE7 and RE8 are fully 6DOF and playable with a gamepad, but with a few caveats:</p>
+<ul>
+<li>RE7 has no motion controls at the moment</li>
+<li>RE8's motion controls are in an experimental and incomplete state</li>
+<li>There is no full body IK yet like RE2/RE3</li>
+<li><del>The audio positioning will not match up with your HMD rotation</del> <strong>fixed in a recent update</strong></li>
+<li>You cannot aim with your head yet</li>
+</ul>
+<p>You've been warned!</p>
+<h2 id="what-about-the-others-like-dmc5-and-mhrise"><a class="header" href="#what-about-the-others-like-dmc5-and-mhrise">What about the others like DMC5 and MHRise?</a></h2>
+<p>They are both fully 6DOF but with the least support.</p>
+<p><del>They have the same issue of audio positioning being incorrect</del> <strong>only in MHRise now</strong>.</p>
+<p>DMC5 has some issues with some incorrect UI elements.</p>
+<h2 id="gameplay"><a class="header" href="#gameplay">Gameplay</a></h2>
+<p>RE2 and RE3:</p>
+<ul>
+<li>Motion controller support</li>
+<li>Head-based movement</li>
+<li>Smooth locomotion</li>
+<li>Smooth turning</li>
+<li>Mostly right-handed</li>
+</ul>
+<p>Playing with a gamepad is supported. IK gets disabled when using one.</p>
+<h2 id="bindings"><a class="header" href="#bindings">Bindings</a></h2>
+<p>Bindings can be changed in SteamVR's controller bindings section.</p>
+<p>Known working default bindings:</p>
+<ul>
+<li>Oculus Touch</li>
+<li>Valve Index Knuckles</li>
+</ul>
+<p>Needs additional testing:</p>
+<ul>
+<li>Vive Wands</li>
+</ul>
+<p>If a set of controllers don't work as expected, they can be set up in the SteamVR controller bindings.</p>
+<h2 id="performance"><a class="header" href="#performance">Performance</a></h2>
+<p>One of the most taxing parts of these mods is the <strong>resolution</strong> you have set. The in-game resolution has no effect, it must be changed in SteamVR.</p>
+<p>To modify the resolution in your headset:</p>
+<ul>
+<li>Open the SteamVR overlay</li>
+<li>Click on the cogwheel on the bottom right</li>
+<li>Click on &quot;Video&quot;</li>
+<li>Change &quot;Render Resolution&quot; to &quot;Custom&quot; and then lower the resolution until it is playable</li>
+</ul>
+<p>You can also use <a href="https://github.com/fholger/openvr_fsr">openvr_fsr</a> with this mod.</p>
+<p>There are other demanding in-game quality settings (ranked by approximate performance impact):</p>
+<ul>
+<li>Image Quality (set this to 100% if you're not sure, lower it if it improves performance)</li>
+<li>Shadow Quality</li>
+<li>Screen Space Reflections</li>
+<li>Ambient Occlusion</li>
+<li>Subsurface Scattering</li>
+</ul>
+<p>Some other ones:</p>
+<ul>
+<li>Mesh Quality</li>
+</ul>
+<p>You may want to start on all low or use the &quot;Performance Priority&quot; preset and work your way up to acceptable settings.</p>
+<p>The Lua scripts can have a minor impact on performance. If you don't mind playing without physical knifing and physical grenade throwing, you can remove their respective scripts from the <code>autorun</code> folder in your game directory.</p>
+<p>Enabling AFR/AER can be done under the &quot;VR&quot; section of the menu.</p>
+<h2 id="what-graphical-settings-are-broken"><a class="header" href="#what-graphical-settings-are-broken">What graphical settings are broken?</a></h2>
+<p>Volumetric Lighting, Lens Flares, TAA, and Motion Blur. Will need the help of someone more experienced with shaders to fix these.</p>
+<h2 id="what-graphical-settings-are-forced"><a class="header" href="#what-graphical-settings-are-forced">What graphical settings are forced?</a></h2>
+<p>These are forced, but the forcing can be toggled off in REFramework's menu, under VR.</p>
+<ul>
+<li>FPS, gets forced to &quot;Variable&quot; (uncapped)</li>
+<li>Antialiasing, gets forced to &quot;None&quot; if using any TAA variant</li>
+<li>Motion Blur, gets forced to &quot;Off&quot;</li>
+<li>VSync, gets forced to &quot;Off&quot;</li>
+<li>Lens Distortion, gets forced to &quot;Off&quot;</li>
+<li>Lens Flares, gets forced to &quot;Off&quot;</li>
+<li>Volumetric Lighting, gets forced to &quot;Off&quot;</li>
+</ul>
+<p>These forced changes are not visual in the options menu, but will take effect.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>http://praydog.com/projects/reframework-scripts/</p>
+<p>https://github.com/praydog/REFramework/tree/master/scripts</p>
+<p>https://infernalwarks.boards.net/thread/572/enhanced-model-viewer-dmc5?page=1&amp;scrollTo=1005</p>
+<p>https://www.nexusmods.com/residentevilvillage/mods/162</p>
+<p>https://github.com/Sarayalth/mhr_scripts</p>
+<p>https://www.nexusmods.com/monsterhunterrise/mods/39</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="re-engine"><a class="header" href="#re-engine">RE Engine</a></h2>
+<h3 id="grabbing-components-from-a-game-object"><a class="header" href="#grabbing-components-from-a-game-object">Grabbing components from a game object</a></h3>
+<pre><code>-- Find a component contained in a game object by its type name
+local function get_component(game_object, type_name)
+    local t = sdk.typeof(type_name)
+
+    if t == nil then 
+        return nil
+    end
+
+    return game_object:call(&quot;getComponent(System.Type)&quot;, t)
+end
+
+-- Get all components of a game object as a table
+local function get_components(game_object)
+    local transform = game_object:call(&quot;get_Transform&quot;)
+
+    if not transform then
+        return {}
+    end
+
+    return game_object:call(&quot;get_Components&quot;):get_elements()
+end
+</code></pre>
+<h3 id="getting-the-current-elapsed-time-in-seconds"><a class="header" href="#getting-the-current-elapsed-time-in-seconds">Getting the current elapsed time in seconds</a></h3>
+<p>In newer builds, <code>os.clock</code> is available.</p>
+<pre><code>local app_type = sdk.find_type_definition(&quot;via.Application&quot;)
+local get_elapsed_second = app_type:get_method(&quot;get_UpTimeSecond&quot;)
+
+local function get_time()
+    return get_elapsed_second:call(nil)
+end
+</code></pre>
+<h3 id="generating-enumsstatic-fields"><a class="header" href="#generating-enumsstatic-fields">Generating enums/static fields</a></h3>
+<pre><code>local function generate_enum(typename)
+    local t = sdk.find_type_definition(typename)
+    if not t then return {} end
+
+    local fields = t:get_fields()
+    local enum = {}
+
+    for i, field in ipairs(fields) do
+        if field:is_static() then
+            local name = field:get_name()
+            local raw_value = field:get_data(nil)
+
+            log.info(name .. &quot; = &quot; .. tostring(raw_value))
+
+            enum[name] = raw_value
+        end
+    end
+
+    return enum
+end
+
+via.hid.GamePadButton = generate_enum(&quot;via.hid.GamePadButton&quot;)
+app.HIDInputMode = generate_enum(&quot;app.HIDInputMode&quot;)
+</code></pre>
+<h3 id="gui-debugger"><a class="header" href="#gui-debugger">GUI Debugger</a></h3>
+<pre><code>local known_elements = {}
+
+re.on_pre_gui_draw_element(function(element, context)
+    known_elements[element:call(&quot;get_GameObject&quot;)] = true
+end)
+
+re.on_draw_ui(function()
+    local sorted_elements = {}
+
+    for k, v in pairs(known_elements) do
+        if not pcall(k.call, k, &quot;get_Name&quot;) then
+            known_elements[k] = nil
+        else
+            table.insert(sorted_elements, k)
+        end
+    end
+
+    table.sort(sorted_elements, function(a, b)
+        return a:call(&quot;get_Name&quot;) &lt; b:call(&quot;get_Name&quot;)
+    end)
+
+    for element, _ in pairs(known_elements) do
+        if imgui.tree_node(element:call(&quot;get_Name&quot;) .. &quot; &quot; .. string.format(&quot;%x&quot;, element:get_address())) then
+            object_explorer:handle_address(element)
+            imgui.tree_pop()
+        end
+    end
+end)
+</code></pre>
+<h3 id="dumping-fields-of-an-remanagedobject-or-type-very-verbose"><a class="header" href="#dumping-fields-of-an-remanagedobject-or-type-very-verbose">Dumping fields of an REManagedObject or type (very verbose)</a></h3>
+<p>Use <code>object:get_type_definition():get_fields()</code> for an easier way to do this. The below snippet should rarely be used.</p>
+<pre><code>-- type is the &quot;typeof&quot; variant, not the type definition
+local function dump_fields_by_type(type)
+    log.info(&quot;Dumping fields...&quot;)
+
+    local binding_flags = 32 | 16 | 4 | 8
+    local fields = type:call(&quot;GetFields(System.Reflection.BindingFlags)&quot;, binding_flags)
+
+    if fields then
+        fields = fields:get_elements()
+
+        for i, field in ipairs(fields) do
+            log.info(&quot;Field: &quot; .. field:call(&quot;ToString&quot;))
+        end
+    end
+end
+
+local function dump_fields(object)
+    local object_type = object:call(&quot;GetType&quot;)
+
+    dump_fields_by_type(object_type)
+end
+</code></pre>
+<h2 id="monster-hunter-rise"><a class="header" href="#monster-hunter-rise">Monster Hunter Rise</a></h2>
+<h3 id="getting-the-local-player"><a class="header" href="#getting-the-local-player">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    local playman = sdk.get_managed_singleton(&quot;snow.player.PlayerManager&quot;)
+
+    if not playman then 
+         return 
+    end
+
+    return playman:call(&quot;findMasterPlayer&quot;)
+end
+</code></pre>
+<h2 id="devil-may-cry-5"><a class="header" href="#devil-may-cry-5">Devil May Cry 5</a></h2>
+<h3 id="getting-the-local-player-1"><a class="header" href="#getting-the-local-player-1">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+
+    if not playman then
+        return nil
+    end
+
+    return playman:call(&quot;get_manualPlayer&quot;)
+end
+</code></pre>
+<h2 id="resident-evil-23"><a class="header" href="#resident-evil-23">Resident Evil 2/3</a></h2>
+<h3 id="getting-the-local-player-2"><a class="header" href="#getting-the-local-player-2">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+
+    if not playman then
+        return nil
+    end
+
+    return playman:call(&quot;get_CurrentPlayer&quot;)
+end
+</code></pre>
+<h2 id="resident-evil-8"><a class="header" href="#resident-evil-8">Resident Evil 8</a></h2>
+<h3 id="getting-the-local-player-3"><a class="header" href="#getting-the-local-player-3">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    if not propsman then
+        propsman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PropsManager&quot;))
+    end
+
+    return propsman:call(&quot;get_Player&quot;)
+end
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="apis"><a class="header" href="#apis">APIs</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><p>Methods to be used on <code>re.on_frame</code> or <code>re.on_draw_ui</code>.</p>
+<p>If you need more rendering functionality, check out the REFramework plugin <a href="https://github.com/cursey/reframework-d2d">reframework-d2d</a></p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<h3 id="drawworld_to_screenworld_pos"><a class="header" href="#drawworld_to_screenworld_pos"><code>draw.world_to_screen(world_pos)</code></a></h3>
+<p>Returns an optional <code>Vector2f</code> corresponding to the 2D screen position. Returns <code>nil</code> if <code>world_pos</code> is not visible.</p>
+<h3 id="drawworld_texttext-3d_pos-color"><a class="header" href="#drawworld_texttext-3d_pos-color"><code>draw.world_text(text, 3d_pos, color)</code></a></h3>
+<h3 id="drawtexttext-x-y-color"><a class="header" href="#drawtexttext-x-y-color"><code>draw.text(text, x, y, color)</code></a></h3>
+<h3 id="drawfilled_rectx-y-w-h-color"><a class="header" href="#drawfilled_rectx-y-w-h-color"><code>draw.filled_rect(x, y, w, h, color)</code></a></h3>
+<h3 id="drawoutline_rectx-y-w-h-color"><a class="header" href="#drawoutline_rectx-y-w-h-color"><code>draw.outline_rect(x, y, w, h, color)</code></a></h3>
+<h3 id="drawlinex1-y1-x2-y2-color"><a class="header" href="#drawlinex1-y1-x2-y2-color"><code>draw.line(x1, y1, x2, y2, color)</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><p>This is the filesystem API. REFramework purposefully restricts scripts from the usual Lua <code>io</code> API so that scripts do not have unrestricted access to a users system. Instead, this API focuses specifically on the <code>reframework/data</code> subdirectory.</p>
+<h2 id="methods-1"><a class="header" href="#methods-1">Methods</a></h2>
+<h3 id="fsglobfilter"><a class="header" href="#fsglobfilter"><code>fs.glob(filter)</code></a></h3>
+<p>Returns a table of file paths that match the <code>filter</code>. <code>filter</code> should be a regex string for the files you wish to match.</p>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-lua">-- Get my mods JSON files.
+local json_files = fs.glob([[my-cool-mod\\.*json]])
+
+-- Iterate over them.
+for k, v in ipairs(json_files) do
+    -- v will be something like `my-cool-mod\config-file-1.json` 
+end
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>Bindings for ImGui. Can be used in the <code>re.on_draw_ui</code> callback.</p>
+<p>Some methods can be used in <code>re.on_frame</code> if <code>begin_window</code>/<code>end_window</code> is used.</p>
+<p>Example:</p>
+<pre><code>local thing = 1
+local things = { &quot;hi&quot;, &quot;hello&quot;, &quot;howdy&quot;, &quot;hola&quot;, &quot;aloha&quot; }
+
+re.on_draw_ui(function()
+    if imgui.button(&quot;Whats up&quot;) then 
+        thing = 1
+    end
+
+    local changed, new_thing = imgui.combo(&quot;Greeting&quot;, thing, things) 
+    if changed then thing = new_thing end
+end)
+</code></pre>
+<h2 id="methods-2"><a class="header" href="#methods-2">Methods</a></h2>
+<h3 id="imguibegin_windowname-open-flags"><a class="header" href="#imguibegin_windowname-open-flags"><code>imgui.begin_window(name, open, flags)</code></a></h3>
+<p>Creates a new window with the title of <code>name</code>.</p>
+<p><code>open</code> is a bool. Can be <code>nil</code>. If not <code>nil</code>, a close button will be shown in the top right of the window.</p>
+<p><code>flags</code> - ImGuiWindowFlags.</p>
+<p><code>begin_window</code> must have a corresponding <code>end_window</code> call.</p>
+<p>This function may only be called in <code>on_frame</code>, not <code>on_draw_ui</code>.</p>
+<p>Returns a bool. Returns <code>false</code> if the user wants to close the window.</p>
+<h3 id="imguiend_window"><a class="header" href="#imguiend_window"><code>imgui.end_window()</code></a></h3>
+<p>Ends the last <code>begin_window</code> call. Required.</p>
+<h3 id="imguibegin_child_windowsize-border-flags"><a class="header" href="#imguibegin_child_windowsize-border-flags"><code>imgui.begin_child_window(size, border, flags)</code></a></h3>
+<p><code>size</code> - Vector2f</p>
+<p><code>border</code> - bool</p>
+<p><code>flags</code> - ImGuiWindowFlags</p>
+<h3 id="imguiend_child_window"><a class="header" href="#imguiend_child_window"><code>imgui.end_child_window()</code></a></h3>
+<h3 id="imguibegin_group"><a class="header" href="#imguibegin_group"><code>imgui.begin_group()</code></a></h3>
+<h3 id="imguiend_group"><a class="header" href="#imguiend_group"><code>imgui.end_group()</code></a></h3>
+<h3 id="imguibegin_rect"><a class="header" href="#imguibegin_rect"><code>imgui.begin_rect()</code></a></h3>
+<h3 id="imguiend_rectadditional_size-rounding"><a class="header" href="#imguiend_rectadditional_size-rounding"><code>imgui.end_rect(additional_size, rounding)</code></a></h3>
+<p>These two methods draw a rectangle around the elements between <code>begin_rect</code> and <code>end_rect</code></p>
+<h3 id="imguibuttonlabel"><a class="header" href="#imguibuttonlabel"><code>imgui.button(label)</code></a></h3>
+<p>Draws a button with <code>label</code> text.</p>
+<p>Returns <code>true</code> when the user presses the button.</p>
+<h3 id="imguitexttext"><a class="header" href="#imguitexttext"><code>imgui.text(text)</code></a></h3>
+<p>Draws text.</p>
+<h3 id="imguicheckboxlabel-value"><a class="header" href="#imguicheckboxlabel-value"><code>imgui.checkbox(label, value)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_floatlabel-value-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_floatlabel-value-speed-min-max-display_format-optional"><code>imgui.drag_float(label, value, speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float2label-value-vector2f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float2label-value-vector2f-speed-min-max-display_format-optional"><code>imgui.drag_float2(label, value (Vector2f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float3label-value-vector3f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float3label-value-vector3f-speed-min-max-display_format-optional"><code>imgui.drag_float3(label, value (Vector3f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_float4label-value-vector4f-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_float4label-value-vector4f-speed-min-max-display_format-optional"><code>imgui.drag_float4(label, value (Vector4f), speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguidrag_intlabel-value-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_intlabel-value-speed-min-max-display_format-optional"><code>imgui.drag_int(label, value, speed, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguislider_floatlabel-value-min-max-display_format-optional"><a class="header" href="#imguislider_floatlabel-value-min-max-display_format-optional"><code>imgui.slider_float(label, value, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguislider_intlabel-value-min-max-display_format-optional"><a class="header" href="#imguislider_intlabel-value-min-max-display_format-optional"><code>imgui.slider_int(label, value, min, max, display_format (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguiinput_textlabel-value-flags-optional"><a class="header" href="#imguiinput_textlabel-value-flags-optional"><code>imgui.input_text(label, value, flags (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicombolabel-selection-values"><a class="header" href="#imguicombolabel-selection-values"><code>imgui.combo(label, selection, values)</code></a></h3>
+<p>Returns a tuple of <code>changed, value</code>. </p>
+<p><code>changed</code> = true when selection changes. </p>
+<p><code>value</code> is the selection index within <code>values</code> (a table)</p>
+<h3 id="imguicolor_pickerlabel-color-flags"><a class="header" href="#imguicolor_pickerlabel-color-flags"><code>imgui.color_picker(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ABGR which <code>imgui</code> and <code>draw</code> APIs expect.</p>
+<h3 id="imguicolor_picker_argblabel-color-flags"><a class="header" href="#imguicolor_picker_argblabel-color-flags"><code>imgui.color_picker_argb(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ARGB.</p>
+<h3 id="imguicolor_picker3label-color-vector3f-flags"><a class="header" href="#imguicolor_picker3label-color-vector3f-flags"><code>imgui.color_picker3(label, color (Vector3f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_picker4label-color-vector4f-flags"><a class="header" href="#imguicolor_picker4label-color-vector4f-flags"><code>imgui.color_picker4(label, color (Vector4f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_editlabel-color-flags"><a class="header" href="#imguicolor_editlabel-color-flags"><code>imgui.color_edit(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ABGR which <code>imgui</code> and <code>draw</code> APIs expect.</p>
+<h3 id="imguicolor_edit_argblabel-color-flags"><a class="header" href="#imguicolor_edit_argblabel-color-flags"><code>imgui.color_edit_argb(label, color, flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>. <code>color</code> is an integer color in the form ARGB.</p>
+<h3 id="imguicolor_edit3label-color-vector3f-flags"><a class="header" href="#imguicolor_edit3label-color-vector3f-flags"><code>imgui.color_edit3(label, color (Vector3f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<h3 id="imguicolor_edit4label-color-vector4f-flags"><a class="header" href="#imguicolor_edit4label-color-vector4f-flags"><code>imgui.color_edit4(label, color (Vector4f), flags)</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<p><code>flags</code> for <code>color_picker/edit</code> APIs: <code>ImGuiColorEditFlags</code></p>
+<h3 id="imguitree_nodelabel"><a class="header" href="#imguitree_nodelabel"><code>imgui.tree_node(label)</code></a></h3>
+<h3 id="imguitree_node_ptr_idid-label"><a class="header" href="#imguitree_node_ptr_idid-label"><code>imgui.tree_node_ptr_id(id, label)</code></a></h3>
+<h3 id="imguitree_node_str_idid-label"><a class="header" href="#imguitree_node_str_idid-label"><code>imgui.tree_node_str_id(id, label)</code></a></h3>
+<h3 id="imguitree_pop"><a class="header" href="#imguitree_pop"><code>imgui.tree_pop()</code></a></h3>
+<p>All of the above <code>tree</code> functions must have a corresponding <code>tree_pop</code>!</p>
+<h3 id="imguisame_line"><a class="header" href="#imguisame_line"><code>imgui.same_line()</code></a></h3>
+<h3 id="imguispacing"><a class="header" href="#imguispacing"><code>imgui.spacing()</code></a></h3>
+<h3 id="imguinew_line"><a class="header" href="#imguinew_line"><code>imgui.new_line()</code></a></h3>
+<h3 id="imguiis_item_hovered"><a class="header" href="#imguiis_item_hovered"><code>imgui.is_item_hovered()</code></a></h3>
+<h3 id="imguicollapsing_headername"><a class="header" href="#imguicollapsing_headername"><code>imgui.collapsing_header(name)</code></a></h3>
+<h3 id="imguiload_fontfilepath-size-ranges"><a class="header" href="#imguiload_fontfilepath-size-ranges"><code>imgui.load_font(filepath, size, [ranges])</code></a></h3>
+<p>Loads a font file from the <code>reframework/fonts</code> subdirectory at the specified <code>size</code> with optional Unicode <code>ranges</code> (an array of start, end pairs ending with 0). Returns a handle for use with <code>imgui.push_font()</code>. If <code>filepath</code> is nil, it will load the default font at the specified size.</p>
+<h3 id="imguipush_fontfont"><a class="header" href="#imguipush_fontfont"><code>imgui.push_font(font)</code></a></h3>
+<p>Sets the font to be used for the next set of ImGui widgets/draw commands until <code>imgui.pop_font</code> is called.</p>
+<h3 id="imguipop_font"><a class="header" href="#imguipop_font"><code>imgui.pop_font()</code></a></h3>
+<p>Unsets the previously pushed font.</p>
+<h3 id="imguiget_default_font_size"><a class="header" href="#imguiget_default_font_size"><code>imgui.get_default_font_size()</code></a></h3>
+<p>Returns size of the default font for REFramework's UI.</p>
+<h3 id="imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><a class="header" href="#imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><code>imgui.set_next_window_pos(pos (Vector2f or table), condition, pivot (Vector2f or table))</code></a></h3>
+<p><code>condition</code> is the <code>ImGuiCond</code> enum.</p>
+<pre><code>enum ImGuiCond_
+{
+    ImGuiCond_None          = 0,        // No condition (always set the variable), same as _Always
+    ImGuiCond_Always        = 1 &lt;&lt; 0,   // No condition (always set the variable)
+    ImGuiCond_Once          = 1 &lt;&lt; 1,   // Set the variable once per runtime session (only the first call will succeed)
+    ImGuiCond_FirstUseEver  = 1 &lt;&lt; 2,   // Set the variable if the object/window has no persistently saved data (no entry in .ini file)
+    ImGuiCond_Appearing     = 1 &lt;&lt; 3    // Set the variable if the object/window is appearing after being hidden/inactive (or the first time)
+};
+</code></pre>
+<h3 id="imguiset_next_window_sizesize-vector2f-or-table-condition"><a class="header" href="#imguiset_next_window_sizesize-vector2f-or-table-condition"><code>imgui.set_next_window_size(size (Vector2f or table), condition)</code></a></h3>
+<p><code>condition</code> is the <code>ImGuiCond</code> enum.</p>
+<h3 id="imguipush_idid"><a class="header" href="#imguipush_idid"><code>imgui.push_id(id)</code></a></h3>
+<p><code>id</code> can be an <code>int</code>, <code>const char*</code>, or <code>void*</code>.</p>
+<h3 id="imguipop_id"><a class="header" href="#imguipop_id"><code>imgui.pop_id()</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="methods-3"><a class="header" href="#methods-3">Methods</a></h2>
+<h3 id="jsonload_stringjson_str"><a class="header" href="#jsonload_stringjson_str"><code>json.load_string(json_str)</code></a></h3>
+<p>Takes a JSON string and turns it into a Lua table. Returns <code>nil</code> on error.</p>
+<h3 id="jsondump_stringvalue-indent"><a class="header" href="#jsondump_stringvalue-indent"><code>json.dump_string(value, [indent])</code></a></h3>
+<p>Takes a Lua value (usually a table) and turns it into a JSON string. Returns an empty string on error. Optionally, it takes an <code>indent</code> parameter that specifies how the JSON string should be formatted.</p>
+<h3 id="jsonload_filefilepath"><a class="header" href="#jsonload_filefilepath"><code>json.load_file(filepath)</code></a></h3>
+<p>Loads a JSON file identified by <code>filepath</code> relative to the <code>reframework/data</code> subdirectory and returns it as a Lua table. Returns <code>nil</code> if the file does not exist.</p>
+<h3 id="jsondump_filefilepath-value-indent"><a class="header" href="#jsondump_filefilepath-value-indent"><code>json.dump_file(filepath, value, [indent])</code></a></h3>
+<p>Takes a Lua value (usually a table), and turns it into a JSON file identified as <code>filepath</code> relative to the <code>reframework/data</code> subdirectory.  Returns <code>true</code> if the dump was successful, <code>false</code> otherwise. Optionally, it takes an <code>indent</code> parameter that specifies how the JSON file should be formatted.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>Tools for logging to REFramework's log.</p>
+<h2 id="methods-4"><a class="header" href="#methods-4">Methods</a></h2>
+<h3 id="loginfotext"><a class="header" href="#loginfotext"><code>log.info(text)</code></a></h3>
+<h3 id="logwarntext"><a class="header" href="#logwarntext"><code>log.warn(text)</code></a></h3>
+<h3 id="logdebugtext"><a class="header" href="#logdebugtext"><code>log.debug(text)</code></a></h3>
+<p>Requires DebugView or a debugger to see this.</p>
+<h3 id="logerrortext"><a class="header" href="#logerrortext"><code>log.error(text)</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><p>Contains some utility functions and callback creators.</p>
+<h2 id="methods-5"><a class="header" href="#methods-5">Methods</a></h2>
+<h3 id="remsgtext"><a class="header" href="#remsgtext"><code>re.msg(text)</code></a></h3>
+<p>Creates a MessageBox with <code>text</code>. Note that this will pause game execution until the user presses OK.</p>
+<h2 id="callback-creators"><a class="header" href="#callback-creators">Callback Creators</a></h2>
+<p>Most creators have a pre and post function. Pre meaning the callback gets triggered before the original method is called, and post being after it's called.</p>
+<h3 id="reon_script_resetfunction"><a class="header" href="#reon_script_resetfunction"><code>re.on_script_reset(function)</code></a></h3>
+<p>Calls <code>function</code> when scripts are being reset. Useful for cleaning up stuff. Calls <code>on_config_save()</code>.</p>
+<h3 id="reon_config_savefunction"><a class="header" href="#reon_config_savefunction"><code>re.on_config_save(function)</code></a></h3>
+<p>Called when REFramework wants to save its config.</p>
+<h3 id="reon_draw_uifunction"><a class="header" href="#reon_draw_uifunction"><code>re.on_draw_ui(function)</code></a></h3>
+<p>Called every frame when the &quot;Script Generated UI&quot; in the menu is open. </p>
+<p><code>imgui</code> functions can be called here, and will be placed in their own dropdown in the REFramework menu.</p>
+<h3 id="reon_framefunction"><a class="header" href="#reon_framefunction"><code>re.on_frame(function)</code></a></h3>
+<p>Called every frame. <code>draw</code> functions can be used here. Don't use <code>imgui</code> functions unless using <code>begin_window</code> etc...</p>
+<p>Try to minimize calling game methods when inside <code>on_frame</code> and <code>on_draw_ui</code>.</p>
+<h3 id="reon_pre_application_entryname-function"><a class="header" href="#reon_pre_application_entryname-function"><code>re.on_pre_application_entry(name, function)</code></a></h3>
+<h3 id="reon_application_entryname-function"><a class="header" href="#reon_application_entryname-function"><code>re.on_application_entry(name, function)</code></a></h3>
+<p>Triggers <code>function</code> when the application/module entry associated with  <code>name</code> is being executed.</p>
+<p>This is very powerful, and can be used to run code at many important points in the engine's logic loop.</p>
+<h3 id="reon_pre_update_transformtransform-function"><a class="header" href="#reon_pre_update_transformtransform-function"><code>re.on_pre_update_transform(transform, function)</code></a></h3>
+<h3 id="reon_update_transformtransform-function"><a class="header" href="#reon_update_transformtransform-function"><code>re.on_update_transform(transform, function)</code></a></h3>
+<p>Function prototype: <code>function on_*_update_transform(transform)</code></p>
+<p>Triggers <code>function</code> when the <code>RETransform</code> passed is being updated.</p>
+<p>Be careful with these. You are able to register multiple callbacks with the same transform and function, leading to frame drops if too many are made. There's no way to delete a callback yet.</p>
+<h3 id="reon_pre_gui_draw_elementfunction"><a class="header" href="#reon_pre_gui_draw_elementfunction"><code>re.on_pre_gui_draw_element(function)</code></a></h3>
+<h3 id="reon_gui_draw_elementfunction"><a class="header" href="#reon_gui_draw_elementfunction"><code>re.on_gui_draw_element(function)</code></a></h3>
+<p>Function prototype: <code>function on_*_draw_element(element, context)</code></p>
+<p>Triggers <code>function</code> when a GUI element is being drawn.</p>
+<p>Requires that a <code>bool</code> is returned in <code>on_pre_gui_draw_element</code>. When <code>false</code> is returned, the GUI element is not drawn.</p>
+<p><code>element</code> is an <code>REComponent*</code>.</p>
+<p>Example:</p>
+<pre><code>re.on_pre_gui_draw_element(function(element, context)
+    local game_object = element:call(&quot;get_GameObject&quot;)
+    if game_object == nil then return true end
+
+    local name = game_object:call(&quot;get_Name&quot;)
+
+    log.info(&quot;drawing element: &quot; .. name)
+
+    -- Stops the crosshair from being drawn in most RE Engine games.
+    if name == &quot;GUIReticle&quot; or name == &quot;GUI_Reticle&quot; then
+        return false
+    end
+
+    return true
+end)
+</code></pre>
+<h2 id="valid-names-for-reon_application_entry"><a class="header" href="#valid-names-for-reon_application_entry">Valid names for re.on_application_entry</a></h2>
+<p>These can be found by viewing <code>via.ModuleEntry</code> in the Object Explorer.</p>
+<pre><code>Initialize
+InitializeLog
+InitializeGameCore
+InitializeStorage
+InitializeResourceManager
+InitializeScene
+InitializeRemoteHost
+InitializeVM
+InitializeSystemService
+InitializeHardwareService
+InitializePushNotificationService
+InitializeDialog
+InitializeShareService
+InitializeUserService
+InitializeUDS
+InitializeModalDialogService
+InitializeGlobalUserData
+InitializeSteam
+InitializeWeGame
+InitializeXCloud
+InitializeRebe
+InitializeBcat
+InitializeEffectMemorySettings
+InitializeRenderer
+InitializeVR
+InitializeSpeedTree
+InitializeHID
+InitializeEffect
+InitializeGeometry
+InitializeLandscape
+InitializeHoudini
+InitializeSound
+InitializeWwiselib
+InitializeSimpleWwise
+InitializeWwise
+InitializeAudioRender
+InitializeGUI
+InitializeSpine
+InitializeMotion
+InitializeBehaviorTree
+InitializeAutoPlay
+InitializeScenario
+InitializeOctree
+InitializeAreaMap
+InitializeFSM
+InitializeNavigation
+InitializePointGraph
+InitializeFluidFlock
+InitializeTimeline
+InitializePhysics
+InitializeDynamics
+InitializeHavok
+InitializeBake
+InitializeNetwork
+InitializePuppet
+InitializeVoiceChat
+InitializeVivoxlib
+InitializeStore
+InitializeBrowser
+InitializeDevelopSystem
+InitializeBehavior
+InitializeMovie
+InitializeMame
+InitializeSkuService
+InitializeTelemetry
+InitializeHansoft
+InitializeNNFC
+InitializeMixer
+InitializeThreadPool
+Setup
+SetupJobScheduler
+SetupResourceManager
+SetupStorage
+SetupGlobalUserData
+SetupScene
+SetupDevelopSystem
+SetupUserService
+SetupSystemService
+SetupHardwareService
+SetupPushNotificationService
+SetupShareService
+SetupModalDialogService
+SetupVM
+SetupHID
+SetupRenderer
+SetupEffect
+SetupGeometry
+SetupLandscape
+SetupHoudini
+SetupSound
+SetupWwiselib
+SetupSimpleWwise
+SetupWwise
+SetupAudioRender
+SetupMotion
+SetupNavigation
+SetupPointGraph
+SetupPhysics
+SetupDynamics
+SetupHavok
+SetupMovie
+SetupMame
+SetupNetwork
+SetupPuppet
+SetupStore
+SetupBrowser
+SetupVoiceChat
+SetupVivoxlib
+SetupSkuService
+SetupTelemetry
+SetupHansoft
+StartApp
+SetupOctree
+SetupAreaMap
+SetupBehaviorTree
+SetupFSM
+SetupGUI
+SetupSpine
+SetupSpeedTree
+SetupNNFC
+Start
+StartStorage
+StartResourceManager
+StartGlobalUserData
+StartPhysics
+StartDynamics
+StartGUI
+StartTimeline
+StartOctree
+StartAreaMap
+StartBehaviorTree
+StartFSM
+StartSound
+StartWwise
+StartAudioRender
+StartScene
+StartRebe
+StartNetwork
+Update
+UpdateDialog
+UpdateRemoteHost
+UpdateStorage
+UpdateScene
+UpdateDevelopSystem
+UpdateWidget
+UpdateAutoPlay
+UpdateScenario
+UpdateCapture
+BeginFrameRendering
+UpdateVR
+UpdateHID
+UpdateMotionFrame
+BeginDynamics
+PreupdateGUI
+BeginHavok
+UpdateAIMap
+CreatePreupdateGroupFSM
+CreatePreupdateGroupBehaviorTree
+UpdateGlobalUserData
+UpdateUDS
+UpdateUserService
+UpdateSystemService
+UpdateHardwareService
+UpdatePushNotificationService
+UpdateShareService
+UpdateSteam
+UpdateWeGame
+UpdateBcat
+UpdateXCloud
+UpdateRebe
+UpdateNNFC
+BeginPhysics
+BeginUpdatePrimitive
+BeginUpdatePrimitiveGUI
+BeginUpdateSpineDraw
+UpdatePuppet
+UpdateGUI
+PreupdateBehavior
+PreupdateBehaviorTree
+PreupdateFSM
+PreupdateTimeline
+UpdateBehavior
+CreateUpdateGroupBehaviorTree
+CreateNavigationChain
+CreateUpdateGroupFSM
+UpdateTimeline
+PreUpdateAreaMap
+UpdateOctree
+UpdateAreaMap
+UpdateBehaviorTree
+UpdateTimelineFsm2
+UpdateNavigationPrev
+UpdateFSM
+UpdateMotion
+UpdateSpine
+EffectCollisionLimit
+UpdatePhysicsAfterUpdatePhase
+UpdateGeometry
+UpdateLandscape
+UpdateHoudini
+UpdatePhysicsCharacterController
+BeginUpdateHavok2
+UpdateDynamics
+UpdateNavigation
+UpdatePointGraph
+UpdateFluidFlock
+UpdateConstraintsBegin
+LateUpdateBehavior
+EditUpdateBehavior
+LateUpdateSpine
+BeginUpdateHavok
+BeginUpdateEffect
+UpdateConstraintsEnd
+UpdatePhysicsAfterLateUpdatePhase
+PrerenderGUI
+PrepareRendering
+UpdateSound
+UpdateWwiselib
+UpdateSimpleWwise
+UpdateWwise
+UpdateAudioRender
+CreateSelectorGroupFSM
+UpdateNetwork
+UpdateHavok
+EndUpdateHavok
+UpdateFSMSelector
+UpdateBehaviorTreeSelector
+BeforeLockSceneRendering
+EndUpdateHavok2
+UpdateJointExpression
+UpdateBehaviorTreeSelectorLegacy
+UpdateEffect
+EndUpdateEffect
+UpdateWidgetDynamics
+LockScene
+WaitRendering
+EndDynamics
+EndPhysics
+BeginRendering
+UpdateSpeedTree
+RenderDynamics
+RenderGUI
+RenderGeometry
+RenderLandscape
+RenderHoudini
+UpdatePrimitiveGUI
+UpdatePrimitive
+UpdateSpineDraw
+EndUpdatePrimitive
+EndUpdatePrimitiveGUI
+EndUpdateSpineDraw
+GUIPostPrimitiveRender
+ShapeRenderer
+UpdateMovie
+UpdateMame
+UpdateTelemetry
+UpdateHansoft
+DrawWidget
+DevelopRenderer
+EndRendering
+UpdateStore
+UpdateBrowser
+UpdateVoiceChat
+UpdateVivoxlib
+UnlockScene
+UpdateVM
+StepVisualDebugger
+WaitForVblank
+Terminate
+TerminateScene
+TerminateRemoteHost
+TerminateHansoft
+TerminateTelemetry
+TerminateMame
+TerminateMovie
+TerminateSound
+TerminateSimpleWwise
+TerminateWwise
+TerminateWwiselib
+TerminateAudioRender
+TerminateVoiceChat
+TerminateVivoxlib
+TerminatePuppet
+TerminateNetwork
+TerminateStore
+TerminateBrowser
+TerminateSpine
+TerminateGUI
+TerminateAreaMap
+TerminateOctree
+TerminateFluidFlock
+TerminateBehaviorTree
+TerminateFSM
+TerminateNavigation
+TerminatePointGraph
+TerminateEffect
+TerminateGeometry
+TerminateLandscape
+TerminateHoudini
+TerminateRenderer
+TerminateHID
+TerminateDynamics
+TerminatePhysics
+TerminateResourceManager
+TerminateHavok
+TerminateModalDialogService
+TerminateShareService
+TerminateGlobalUserData
+TerminateStorage
+TerminateVM
+TerminateJobScheduler
+Finalize
+FinalizeThreadPool
+FinalizeHansoft
+FinalizeTelemetry
+FinalizeMame
+FinalizeMovie
+FinalizeBehavior
+FinalizeDevelopSystem
+FinalizeTimeline
+FinalizePuppet
+FinalizeNetwork
+FinalizeStore
+FinalizeBrowser
+finalizeAutoPlay
+finalizeScenario
+FinalizeBehaviorTree
+FinalizeFSM
+FinalizeNavigation
+FinalizePointGraph
+FinalizeAreaMap
+FinalizeOctree
+FinalizeFluidFlock
+FinalizeMotion
+FinalizeDynamics
+FinalizePhysics
+FinalizeHavok
+FinalizeBake
+FinalizeSpine
+FinalizeGUI
+FinalizeSound
+FinalizeWwiselib
+FinalizeSimpleWwise
+FinalizeWwise
+FinalizeAudioRender
+FinalizeEffect
+FinalizeGeometry
+FinalizeSpeedTree
+FinalizeLandscape
+FinalizeHoudini
+FinalizeRenderer
+FinalizeHID
+FinalizeVR
+FinalizeBcat
+FinalizeRebe
+FinalizeXCloud
+FinalizeSteam
+FinalizeWeGame
+FinalizeNNFC
+FinalizeGlobalUserData
+FinalizeModalDialogService
+FinalizeSkuService
+FinalizeUDS
+FinalizeUserService
+FinalizeShareService
+FinalizeSystemService
+FinalizeHardwareService
+FinalizePushNotificationService
+FinalizeScene
+FinalizeVM
+FinalizeResourceManager
+FinalizeRemoteHost
+FinalizeStorage
+FinalizeDialog
+FinalizeMixer
+FinalizeGameCore
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="methods-6"><a class="header" href="#methods-6">Methods</a></h2>
+<h3 id="reframeworkis_drawing_ui"><a class="header" href="#reframeworkis_drawing_ui"><code>reframework:is_drawing_ui()</code></a></h3>
+<p>Returns <code>true</code> if the REFramework menu is open.</p>
+<h3 id="reframeworkget_game_name"><a class="header" href="#reframeworkget_game_name"><code>reframework:get_game_name()</code></a></h3>
+<p>Returns the name of the game this REFramework was compiled for.</p>
+<p>e.g. &quot;dmc5&quot; or &quot;re2&quot;</p>
+<div style="break-before: page; page-break-before: always;"></div><p>Main starting point for most things.</p>
+<h2 id="methods-7"><a class="header" href="#methods-7">Methods</a></h2>
+<h3 id="sdkgame_namespacename"><a class="header" href="#sdkgame_namespacename"><code>sdk.game_namespace(name)</code></a></h3>
+<p>Returns <code>game_namespace.name</code>.</p>
+<p>DMC5: <code>name</code> would get converted to <code>app.name</code></p>
+<p>RE3: <code>name</code> would get converted to <code>offline.name</code></p>
+<h3 id="sdkget_thread_context"><a class="header" href="#sdkget_thread_context"><code>sdk.get_thread_context()</code></a></h3>
+<h3 id="sdkget_native_singletonname"><a class="header" href="#sdkget_native_singletonname"><code>sdk.get_native_singleton(name)</code></a></h3>
+<p>Returns a <code>void*</code>. Can be used with <code>sdk.call_native_func</code></p>
+<p>Possible singletons can be found in the Native Singletons view in the Object Explorer.</p>
+<h3 id="sdkget_managed_singletonname"><a class="header" href="#sdkget_managed_singletonname"><code>sdk.get_managed_singleton(name)</code></a></h3>
+<p>Returns an <code>REManagedObject*</code>.</p>
+<p>Possible singletons can be found in the Singletons view in the Object Explorer.</p>
+<h3 id="sdkfind_type_definitionname"><a class="header" href="#sdkfind_type_definitionname"><code>sdk.find_type_definition(name)</code></a></h3>
+<p>Returns an <code>RETypeDefinition*</code>.</p>
+<h3 id="sdktypeofname"><a class="header" href="#sdktypeofname"><code>sdk.typeof(name)</code></a></h3>
+<p>Returns a <code>System.Type</code>. </p>
+<p>Equivalent to calling <code>sdk.find_type_definition(name):get_runtime_type()</code>.</p>
+<p>Equivalent to <code>typeof</code> in C#.</p>
+<h3 id="sdkcreate_instancetypename-simplify"><a class="header" href="#sdkcreate_instancetypename-simplify"><code>sdk.create_instance(typename, simplify)</code></a></h3>
+<p>Returns an <code>REManagedObject</code>. Equivalent to calling <code>sdk.find_type_definition(typename):create_instance()</code></p>
+<p><code>simplify</code> - defaults to <code>false</code>. Set this to <code>true</code> if this function is returning <code>nil</code>.</p>
+<h3 id="sdkcreate_resourcetypename-resource_path"><a class="header" href="#sdkcreate_resourcetypename-resource_path"><code>sdk.create_resource(typename, resource_path)</code></a></h3>
+<p>Returns an <code>REResource</code>.</p>
+<h3 id="sdkcall_native_funcobject-type_definition-method_name-args"><a class="header" href="#sdkcall_native_funcobject-type_definition-method_name-args"><code>sdk.call_native_func(object, type_definition, method_name, args...)</code></a></h3>
+<p>Return value is dependent on what the method returns.</p>
+<p>Full function prototype can be passed as <code>method_name</code> if there are multiple functions with the same name but different parameters.</p>
+<p>Should only be used with native types, not <code>REManagedObject</code> (though, it can be if wanted).</p>
+<p>Example:</p>
+<pre><code>local scene_manager = sdk.get_native_singleton(&quot;via.SceneManager&quot;)
+local scene_manager_type = sdk.find_type_definition(&quot;via.SceneManager&quot;)
+local scene = sdk.call_native_func(scene_manager, scene_manager_type, &quot;get_CurrentScene&quot;)
+
+if scene ~= nil then
+    -- We can use call like this because scene is a managed object, not a native one.
+    scene:call(&quot;set_TimeScale&quot;, 5.0)
+end
+</code></pre>
+<h3 id="sdkcall_object_funcmanaged_object-method_name-args"><a class="header" href="#sdkcall_object_funcmanaged_object-method_name-args"><code>sdk.call_object_func(managed_object, method_name, args...)</code></a></h3>
+<p>Return value is dependent on what the method returns.</p>
+<p>Full function prototype can be passed as <code>method_name</code> if there are multiple functions with the same name but different parameters.</p>
+<p>Alternative calling method:
+<code>managed_object:call(method_name, args...)</code></p>
+<h3 id="sdkget_native_fieldobject-type_definition-field_name"><a class="header" href="#sdkget_native_fieldobject-type_definition-field_name"><code>sdk.get_native_field(object, type_definition, field_name)</code></a></h3>
+<h3 id="sdkset_native_fieldobject-type_definition-field_name-value"><a class="header" href="#sdkset_native_fieldobject-type_definition-field_name-value"><code>sdk.set_native_field(object, type_definition, field_name, value)</code></a></h3>
+<h3 id="sdkget_primary_camera"><a class="header" href="#sdkget_primary_camera"><code>sdk.get_primary_camera()</code></a></h3>
+<p>Returns a <code>REManagedObject*</code>. Returns the current camera being used by the engine.</p>
+<h3 id="sdkhookmethod_definition-pre_function-post_function-ignore_jmp"><a class="header" href="#sdkhookmethod_definition-pre_function-post_function-ignore_jmp"><code>sdk.hook(method_definition, pre_function, post_function, ignore_jmp)</code></a></h3>
+<p>Creates a hook for <code>method_definition</code>, intercepting all incoming calls the game makes to it.</p>
+<p><code>ignore_jmp</code> - Skips trying to follow the first jmp in the function. Defaults to <code>false</code>.</p>
+<p>Using <code>pre_function</code> and <code>post_function</code>, the behavior of these functions can be modified.</p>
+<p>NOTE: Some native methods may not be able to be hooked with this, e.g. if they are just a  wrapper over the native function. Some additional work will need to be done from our end to make those work.</p>
+<p>pre_function and post_function looks like so:</p>
+<pre><code>function pre_function(args)
+    -- args are modifiable
+    -- args[1] = thread_context
+    -- args[2] = &quot;this&quot;/object pointer
+    -- rest of args are the actual parameters
+    -- actual parameters start at args[2] in a static function
+    -- Some native functions will have the object start at args[1] and rest at args[2]
+    -- All args are void* and not auto-converted to their respective types.
+    -- You will need to do things like sdk.to_managed_object(args[2])
+    -- or sdk.to_int64(args[3]) to get arguments to better interact with or read.
+    -- Hooks cannot grab stack arguments yet (past r9), so 4 arguments max are supported.
+
+    -- OPTIONAL: Specify an sdk.PreHookResult
+    -- e.g.
+    -- return sdk.PreHookResult.SKIP_ORIGINAL -- prevents the original function from being called
+    -- return sdk.PreHookResult.CALL_ORIGINAL -- calls the original function, same as not returning anything
+end
+
+function post_function(retval)
+    -- return something else if you don't want the original return value
+    -- NOTE: the post_function will still be called if SKIP_ORIGINAL is returned from the pre_function
+    -- So, if your function expects something valid in return, keep that in mind, as retval will not be valid.
+    -- Make sure to convert custom retvals to sdk.to_ptr(retval)
+    return retval
+end
+</code></pre>
+<p>Example hook:</p>
+<pre><code>function on_pre_get_timescale(args)
+end
+
+function on_post_get_timescale(retval)
+    -- Make the game run 5 times as fast instead
+    -- TODO: Make it so casting return values like this is not necessary
+    return sdk.float_to_ptr(5.0)
+end
+
+sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_TimeScale&quot;), on_pre_get_timescale, on_post_get_timescale)
+</code></pre>
+<h3 id="sdkis_managed_objectvalue"><a class="header" href="#sdkis_managed_objectvalue"><code>sdk.is_managed_object(value)</code></a></h3>
+<p>Returns true if <code>value</code> is a valid <code>REManagedObject</code>.</p>
+<p>Use only if necessary. Does a bunch of checks and calls <a href="https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-isbadreadptr">IsBadReadPtr</a> a lot.</p>
+<h3 id="sdkto_managed_objectvalue"><a class="header" href="#sdkto_managed_objectvalue"><code>sdk.to_managed_object(value)</code></a></h3>
+<h3 id="sdkto_doublevalue"><a class="header" href="#sdkto_doublevalue"><code>sdk.to_double(value)</code></a></h3>
+<h3 id="sdkto_floatvalue"><a class="header" href="#sdkto_floatvalue"><code>sdk.to_float(value)</code></a></h3>
+<h3 id="sdkto_int64value"><a class="header" href="#sdkto_int64value"><code>sdk.to_int64(value)</code></a></h3>
+<h3 id="sdkto_ptrvalue"><a class="header" href="#sdkto_ptrvalue"><code>sdk.to_ptr(value)</code></a></h3>
+<h3 id="sdkfloat_to_ptrnumber"><a class="header" href="#sdkfloat_to_ptrnumber"><code>sdk.float_to_ptr(number)</code></a></h3>
+<h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
+<h3 id="sdkprehookresult"><a class="header" href="#sdkprehookresult"><code>sdk.PreHookResult</code></a></h3>
+<ul>
+<li><code>sdk.PreHookResult.CALL_ORIGINAL</code></li>
+<li><code>sdk.PreHookResult.SKIP_ORIGINAL</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><p>Bindings to access VR from lua.</p>
+<h2 id="methods-8"><a class="header" href="#methods-8">Methods</a></h2>
+<h3 id="vrmodget_controllers"><a class="header" href="#vrmodget_controllers"><code>vrmod:get_controllers()</code></a></h3>
+<p>Returns a list of device indices for the active controllers.</p>
+<h3 id="vrmodget_positionindex"><a class="header" href="#vrmodget_positionindex"><code>vrmod:get_position(index)</code></a></h3>
+<p>Returns the position for a given device index.</p>
+<h3 id="vrmodget_rotationindex"><a class="header" href="#vrmodget_rotationindex"><code>vrmod:get_rotation(index)</code></a></h3>
+<p>Returns the rotation for a given device index.</p>
+<h3 id="vrmodget_left_stick_axis"><a class="header" href="#vrmodget_left_stick_axis"><code>vrmod:get_left_stick_axis()</code></a></h3>
+<p>Returns a <code>Vector2f</code>.</p>
+<h3 id="vrmodget_right_stick_axis"><a class="header" href="#vrmodget_right_stick_axis"><code>vrmod:get_right_stick_axis()</code></a></h3>
+<p>Returns a <code>Vector2f</code>.</p>
+<h3 id="vrmodget_current_eye_transform"><a class="header" href="#vrmodget_current_eye_transform"><code>vrmod:get_current_eye_transform()</code></a></h3>
+<h3 id="vrmodget_current_projection_matrix"><a class="header" href="#vrmodget_current_projection_matrix"><code>vrmod:get_current_projection_matrix()</code></a></h3>
+<h3 id="vrmodget_standing_origin"><a class="header" href="#vrmodget_standing_origin"><code>vrmod:get_standing_origin()</code></a></h3>
+<h3 id="vrmodset_standing_originpos"><a class="header" href="#vrmodset_standing_originpos"><code>vrmod:set_standing_origin(pos)</code></a></h3>
+<p><code>pos</code> is a Vector4f.</p>
+<h3 id="vrmodget_rotation_offset"><a class="header" href="#vrmodget_rotation_offset"><code>vrmod:get_rotation_offset()</code></a></h3>
+<h3 id="vrmodset_rotation_offsetquat"><a class="header" href="#vrmodset_rotation_offsetquat"><code>vrmod:set_rotation_offset(quat)</code></a></h3>
+<h3 id="vrmodrecenter_view"><a class="header" href="#vrmodrecenter_view"><code>vrmod:recenter_view()</code></a></h3>
+<h3 id="vrmodget_action_set"><a class="header" href="#vrmodget_action_set"><code>vrmod:get_action_set()</code></a></h3>
+<h3 id="vrmodget_active_action_set"><a class="header" href="#vrmodget_active_action_set"><code>vrmod:get_active_action_set()</code></a></h3>
+<h3 id="vrmodget_action_trigger"><a class="header" href="#vrmodget_action_trigger"><code>vrmod:get_action_trigger()</code></a></h3>
+<h3 id="vrmodget_action_grip"><a class="header" href="#vrmodget_action_grip"><code>vrmod:get_action_grip()</code></a></h3>
+<h3 id="vrmodget_action_joystick"><a class="header" href="#vrmodget_action_joystick"><code>vrmod:get_action_joystick()</code></a></h3>
+<h3 id="vrmodget_action_joystick_click"><a class="header" href="#vrmodget_action_joystick_click"><code>vrmod:get_action_joystick_click()</code></a></h3>
+<h3 id="vrmodget_action_a_button"><a class="header" href="#vrmodget_action_a_button"><code>vrmod:get_action_a_button()</code></a></h3>
+<h3 id="vrmodget_action_b_button"><a class="header" href="#vrmodget_action_b_button"><code>vrmod:get_action_b_button()</code></a></h3>
+<h3 id="vrmodget_left_joystick"><a class="header" href="#vrmodget_left_joystick"><code>vrmod:get_left_joystick()</code></a></h3>
+<p>Returns a <code>vr::VRInputValueHandle_t</code>. To be used in <code>vrmod:is_action_active</code> as the <code>source</code>.</p>
+<h3 id="vrmodget_right_joystick"><a class="header" href="#vrmodget_right_joystick"><code>vrmod:get_right_joystick()</code></a></h3>
+<p>Returns a <code>vr::VRInputValueHandle_t</code>. To be used in <code>vrmod:is_action_active</code> as the <code>source</code>.</p>
+<h3 id="vrmodget_right_joystick-1"><a class="header" href="#vrmodget_right_joystick-1"><code>vrmod:get_right_joystick()</code></a></h3>
+<h3 id="vrmodis_using_controllers"><a class="header" href="#vrmodis_using_controllers"><code>vrmod:is_using_controllers()</code></a></h3>
+<p>Returns <code>true</code> if the user has issued any inputs to the controllers within the last 10 seconds.</p>
+<h3 id="vrmodis_hmd_active"><a class="header" href="#vrmodis_hmd_active"><code>vrmod:is_hmd_active()</code></a></h3>
+<p>Returns <code>true</code> if the user currently has their VR headset on.</p>
+<h3 id="vrmodis_action_activeaction-source"><a class="header" href="#vrmodis_action_activeaction-source"><code>vrmod:is_action_active(action, source)</code></a></h3>
+<p>Returns <code>true</code> if the <code>action</code> belonging to <code>source</code> is active. </p>
+<p>Active meaning that the user is e.g. holding the A button down if the A button was the <code>action</code>.</p>
+<h3 id="vrmodis_using_hmd_oriented_audio"><a class="header" href="#vrmodis_using_hmd_oriented_audio"><code>vrmod:is_using_hmd_oriented_audio()</code></a></h3>
+<h3 id="vrmodtoggle_hmd_oriented_audio"><a class="header" href="#vrmodtoggle_hmd_oriented_audio"><code>vrmod:toggle_hmd_oriented_audio()</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="creation"><a class="header" href="#creation">Creation</a></h2>
+<h3 id="matrix4x4fnew"><a class="header" href="#matrix4x4fnew"><code>Matrix4x4f.new()</code></a></h3>
+<h2 id="methods-9"><a class="header" href="#methods-9">Methods</a></h2>
+<h3 id="selfto_quat"><a class="header" href="#selfto_quat"><code>self:to_quat()</code></a></h3>
+<p>Returns a <code>Quaternion</code> built from <code>self</code>.</p>
+<h3 id="selfinverse"><a class="header" href="#selfinverse"><code>self:inverse()</code></a></h3>
+<p>Returns a <code>Matrix4x4f</code> that is the inverse of <code>self</code>.</p>
+<h3 id="selfinvert"><a class="header" href="#selfinvert"><code>self:invert()</code></a></h3>
+<p>Inverts <code>self</code>. Returns nothing.</p>
+<h2 id="meta-methods"><a class="header" href="#meta-methods">Meta-methods</a></h2>
+<h3 id="matrix4x4f--matrix4x4f"><a class="header" href="#matrix4x4f--matrix4x4f"><code>Matrix4x4f * Matrix4x4f</code></a></h3>
+<p><code>Matrix4x4f</code> multiplication.</p>
+<h3 id="matrix4x4f--vector4f"><a class="header" href="#matrix4x4f--vector4f"><code>Matrix4x4f * Vector4f</code></a></h3>
+<p><code>Matrix4x4f</code> <code>Vector4f</code> multiplication</p>
+<h3 id="matrix4x4f"><a class="header" href="#matrix4x4f"><code>Matrix4x4f[]</code></a></h3>
+<p><code>Matrix4x4f</code> element indexing. Valid range is <code>[0, 3)</code>.</p>
+<p>Returns a <code>Vector4f</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
+<h3 id="quaternionneww-x-y-z"><a class="header" href="#quaternionneww-x-y-z"><code>Quaternion.new(w, x, y, z)</code></a></h3>
+<h2 id="fields"><a class="header" href="#fields">Fields</a></h2>
+<h3 id="x-number"><a class="header" href="#x-number"><code>x: number</code></a></h3>
+<p>The X component of the <code>Quaternion</code>.</p>
+<h3 id="y-number"><a class="header" href="#y-number"><code>y: number</code></a></h3>
+<p>The Y component of the <code>Quaternion</code>.</p>
+<h3 id="z-number"><a class="header" href="#z-number"><code>z: number</code></a></h3>
+<p>The Z component of the <code>Quaternion</code>.</p>
+<h3 id="w-number"><a class="header" href="#w-number"><code>w: number</code></a></h3>
+<p>The W component of the <code>Quaternion</code>.</p>
+<h2 id="methods-10"><a class="header" href="#methods-10">Methods</a></h2>
+<h3 id="selfto_mat4"><a class="header" href="#selfto_mat4"><code>self:to_mat4()</code></a></h3>
+<p>Returns a <code>Matrix4x4f</code> built from <code>self</code>.</p>
+<h3 id="selfinverse-1"><a class="header" href="#selfinverse-1"><code>self:inverse()</code></a></h3>
+<p>Returns a <code>Quaternion</code> that is the inverse of <code>self</code>.</p>
+<h3 id="selfinvert-1"><a class="header" href="#selfinvert-1"><code>self:invert()</code></a></h3>
+<p>Inverts <code>self</code>. Returns nothing.</p>
+<h3 id="selfnormalize"><a class="header" href="#selfnormalize"><code>self:normalize()</code></a></h3>
+<p>Normalizes <code>self</code>. Returns nothing.</p>
+<h3 id="selfnormalized"><a class="header" href="#selfnormalized"><code>self:normalized()</code></a></h3>
+<p>Returns a <code>Quaternion</code> that is the normalization of <code>self</code>.</p>
+<h2 id="meta-methods-1"><a class="header" href="#meta-methods-1">Meta-methods</a></h2>
+<h3 id="quaternion--quaternion"><a class="header" href="#quaternion--quaternion"><code>Quaternion * Quaternion</code></a></h3>
+<p><code>Quaternion</code> multiplication.</p>
+<h3 id="quaternion--vector3f"><a class="header" href="#quaternion--vector3f"><code>Quaternion * Vector3f</code></a></h3>
+<p><code>Quaternion</code> <code>Vector3f</code> multiplication.</p>
+<h3 id="quaternion--vector4f"><a class="header" href="#quaternion--vector4f"><code>Quaternion * Vector4f</code></a></h3>
+<p><code>Quaternion</code> <code>Vector4f</code> multiplication.</p>
+<h3 id="quaternion"><a class="header" href="#quaternion"><code>Quaternion[]</code></a></h3>
+<p><code>Quaternion</code> element indexing. Valid range is <code>[0, 4)</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><p><code>REComponents</code> are fundamental building blocks for all <code>GameObjects</code>. They can be removed and added at runtime to <code>GameObjects</code>.</p>
+<p>Inherits from <code>REManagedObject</code>.</p>
+<h2 id="methods-11"><a class="header" href="#methods-11">Methods</a></h2>
+<p>None at the moment.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="methods-12"><a class="header" href="#methods-12">Methods</a></h2>
+<h3 id="selfget_name"><a class="header" href="#selfget_name"><code>self:get_name()</code></a></h3>
+<h3 id="selfget_type"><a class="header" href="#selfget_type"><code>self:get_type()</code></a></h3>
+<p>Returns an <code>RETypeDefinition*</code>.</p>
+<h3 id="selfget_offset_from_base"><a class="header" href="#selfget_offset_from_base"><code>self:get_offset_from_base()</code></a></h3>
+<h3 id="selfget_offset_from_fieldptr"><a class="header" href="#selfget_offset_from_fieldptr"><code>self:get_offset_from_fieldptr()</code></a></h3>
+<h3 id="selfget_declaring_type"><a class="header" href="#selfget_declaring_type"><code>self:get_declaring_type()</code></a></h3>
+<h3 id="selfget_flags"><a class="header" href="#selfget_flags"><code>self:get_flags()</code></a></h3>
+<h3 id="selfis_static"><a class="header" href="#selfis_static"><code>self:is_static()</code></a></h3>
+<h3 id="selfis_literal"><a class="header" href="#selfis_literal"><code>self:is_literal()</code></a></h3>
+<h3 id="selfget_dataobj"><a class="header" href="#selfget_dataobj"><code>self:get_data(obj)</code></a></h3>
+<p>Returns the data contained in the field for <code>obj</code>. </p>
+<p><code>obj</code> can be nil if the field is static.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>REManagedObjects are the basic building blocks of most types in the engine (unless they're native types).</p>
+<p>They are returned from methods like:</p>
+<ul>
+<li><code>sdk.call_native_func</code></li>
+<li><code>sdk.call_object_func</code></li>
+<li><code>sdk.get_managed_singleton</code></li>
+<li><code>REManagedObject:call</code></li>
+</ul>
+<p>Example usage:</p>
+<pre><code>local scene_manager = sdk.get_native_singleton(&quot;via.SceneManager&quot;)
+local scene_manager_type = sdk.find_type_definition(&quot;via.SceneManager&quot;)
+local scene = sdk.call_native_func(scene_manager, scene_manager_type, &quot;get_CurrentScene&quot;)
+
+-- Scene is an REManagedObject
+if scene ~= nil then
+    local current_timescale = scene:call(&quot;get_TimeScale&quot;)
+    log.info(&quot;Current timescale: &quot; .. tostring(current_timescale))
+
+    scene:call(&quot;set_TimeScale&quot;, 5.0)
+end
+</code></pre>
+<h2 id="methods-13"><a class="header" href="#methods-13">Methods</a></h2>
+<h3 id="selfcallmethod_name-args"><a class="header" href="#selfcallmethod_name-args"><code>self:call(method_name, args...)</code></a></h3>
+<p>Return value is dependent on the method's return type. Wrapper over <code>sdk.call_object_func</code>.</p>
+<p>Full function prototype can be passed as <code>method_name</code> if there are multiple functions with the same name but different parameters.</p>
+<p>e.g. <code>self:call(&quot;foo(System.String, System.Single, System.UInt32, System.Object)&quot;, a, b, c, d)</code></p>
+<p>Valid method names can be found in the Object Explorer. Find the type you're looking for, and valid methods will be found under <code>TDB Methods</code>.</p>
+<h3 id="selfget_type_definition"><a class="header" href="#selfget_type_definition"><code>self:get_type_definition()</code></a></h3>
+<p>Returns an <code>RETypeDefinition*</code>.</p>
+<h3 id="selfget_fieldname"><a class="header" href="#selfget_fieldname"><code>self:get_field(name)</code></a></h3>
+<p>Return type is dependent on the field type.</p>
+<h3 id="selfset_fieldname-value"><a class="header" href="#selfset_fieldname-value"><code>self:set_field(name, value)</code></a></h3>
+<h3 id="selfget_address"><a class="header" href="#selfget_address"><code>self:get_address()</code></a></h3>
+<h3 id="selfget_reference_count"><a class="header" href="#selfget_reference_count"><code>self:get_reference_count()</code></a></h3>
+<h2 id="dangerous-methods"><a class="header" href="#dangerous-methods">Dangerous Methods</a></h2>
+<p>Only use these if necessary!</p>
+<h3 id="selfadd_ref"><a class="header" href="#selfadd_ref"><code>self:add_ref()</code></a></h3>
+<p>Increments the object's internal reference count.</p>
+<h3 id="selfrelease"><a class="header" href="#selfrelease"><code>self:release()</code></a></h3>
+<p>Decrements the object's internal reference count. Destroys the object if it reaches 0.</p>
+<p>When a new Lua reference is created to an <code>REManagedObject</code>, REFramework automatically increments its reference count internally with <code>self:add_ref()</code>. This will keep the object alive until you are no longer referencing the object in Lua. <code>self:release()</code> is automatically called when Lua is no longer referencing the object anywhere.</p>
+<p>The only time you will need to manually call <code>self:add_ref()</code> and <code>self:release()</code> is when a newly created object is returned by the engine, e.g. an array, or something from <code>sdk.create_instance()</code>.</p>
+<p>A more in-depth explanation can be found in the &quot;FrameGC Algorithm&quot; section of this GDC presentation by Capcom:</p>
+<p>https://github.com/kasicass/blog/blob/master/3d-reengine/2021_03_10_achieve_rapid_iteration_re_engine_design.md#framegc-algorithm-17</p>
+<h3 id="selfread_byteoffset"><a class="header" href="#selfread_byteoffset"><code>self:read_byte(offset)</code></a></h3>
+<h3 id="selfread_shortoffset"><a class="header" href="#selfread_shortoffset"><code>self:read_short(offset)</code></a></h3>
+<h3 id="selfread_dwordoffset"><a class="header" href="#selfread_dwordoffset"><code>self:read_dword(offset)</code></a></h3>
+<h3 id="selfread_qwordoffset"><a class="header" href="#selfread_qwordoffset"><code>self:read_qword(offset)</code></a></h3>
+<h3 id="selfread_floatoffset"><a class="header" href="#selfread_floatoffset"><code>self:read_float(offset)</code></a></h3>
+<h3 id="selfread_doubleoffset"><a class="header" href="#selfread_doubleoffset"><code>self:read_double(offset)</code></a></h3>
+<h3 id="selfwrite_byteoffset-value"><a class="header" href="#selfwrite_byteoffset-value"><code>self:write_byte(offset, value)</code></a></h3>
+<h3 id="selfwrite_shortoffset-value"><a class="header" href="#selfwrite_shortoffset-value"><code>self:write_short(offset, value)</code></a></h3>
+<h3 id="selfwrite_dwordoffset-value"><a class="header" href="#selfwrite_dwordoffset-value"><code>self:write_dword(offset, value)</code></a></h3>
+<h3 id="selfwrite_qwordoffset-value"><a class="header" href="#selfwrite_qwordoffset-value"><code>self:write_qword(offset, value)</code></a></h3>
+<h3 id="selfwrite_floatoffset-value"><a class="header" href="#selfwrite_floatoffset-value"><code>self:write_float(offset, value)</code></a></h3>
+<h3 id="selfwrite_doubleoffset-value"><a class="header" href="#selfwrite_doubleoffset-value"><code>self:write_double(offset, value)</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><p>Method descriptor.</p>
+<h2 id="methods-14"><a class="header" href="#methods-14">Methods</a></h2>
+<h3 id="selfget_name-1"><a class="header" href="#selfget_name-1"><code>self:get_name()</code></a></h3>
+<h3 id="selfget_return_type"><a class="header" href="#selfget_return_type"><code>self:get_return_type()</code></a></h3>
+<p>Returns an <code>RETypeDefinition*</code>.</p>
+<h3 id="selfget_function"><a class="header" href="#selfget_function"><code>self:get_function()</code></a></h3>
+<p>Returns a <code>void*</code>. Pointer to the actual function in memory.</p>
+<h3 id="selfget_declaring_type-1"><a class="header" href="#selfget_declaring_type-1"><code>self:get_declaring_type()</code></a></h3>
+<p>Returns an <code>RETypeDefinition*</code> corresponding to the class/type that declared this method.</p>
+<h3 id="selfget_num_params"><a class="header" href="#selfget_num_params"><code>self:get_num_params()</code></a></h3>
+<p>Returns the number of parameters required to call the function.</p>
+<h3 id="selfget_param_types"><a class="header" href="#selfget_param_types"><code>self:get_param_types()</code></a></h3>
+<p>Returns a list of <code>RETypeDefinition</code></p>
+<h3 id="selfget_param_names"><a class="header" href="#selfget_param_names"><code>self:get_param_names()</code></a></h3>
+<p>Returns a list of strings for the parameter names</p>
+<h3 id="selfis_static-1"><a class="header" href="#selfis_static-1"><code>self:is_static()</code></a></h3>
+<p>Returns whether this method is static or not.</p>
+<h3 id="selfcallobj-args"><a class="header" href="#selfcallobj-args"><code>self:call(obj, args...)</code></a></h3>
+<p>Equivalent to calling <code>obj:call(args...)</code></p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="methods-15"><a class="header" href="#methods-15">Methods</a></h2>
+<h3 id="selfadd_ref-1"><a class="header" href="#selfadd_ref-1"><code>self:add_ref()</code></a></h3>
+<h3 id="selfrelease-1"><a class="header" href="#selfrelease-1"><code>self:release()</code></a></h3>
+<h3 id="selfget_address-1"><a class="header" href="#selfget_address-1"><code>self:get_address()</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><p>Easy-to-use wrapper over <code>System.Array</code>. Functions calls that return arrays or objects will automatically get converted to <code>SystemArray</code> types if eligible.</p>
+<p>Inherits from <code>REManagedObject</code>.</p>
+<h2 id="methods-16"><a class="header" href="#methods-16">Methods</a></h2>
+<h3 id="selfget_elements"><a class="header" href="#selfget_elements"><code>self:get_elements()</code></a></h3>
+<p>Returns the array's elements as a lua table. </p>
+<p>Keep in mind these objects will all be full <code>REManagedObject</code> types, not the ValueTypes they represent, if any, like <code>System.Int32</code></p>
+<h3 id="selfget_elementindex"><a class="header" href="#selfget_elementindex"><code>self:get_element(index)</code></a></h3>
+<p>Returns the object at <code>index</code> in the array.</p>
+<h3 id="selfget_size"><a class="header" href="#selfget_size"><code>self:get_size()</code></a></h3>
+<p>Returns the size of the array.</p>
+<h2 id="meta-methods-2"><a class="header" href="#meta-methods-2">Meta-methods</a></h2>
+<h3 id="systemarray"><a class="header" href="#systemarray"><code>SystemArray[]</code></a></h3>
+<p>Wrapper for <code>self:get_element(index)</code></p>
+<div style="break-before: page; page-break-before: always;"></div><p>Container for unknown ValueTypes.</p>
+<h2 id="methods-17"><a class="header" href="#methods-17">Methods</a></h2>
+<h3 id="valuetypenewtypename"><a class="header" href="#valuetypenewtypename"><code>ValueType.new(typename)</code></a></h3>
+<h3 id="selfcallname-args"><a class="header" href="#selfcallname-args"><code>self:call(name, args...)</code></a></h3>
+<h3 id="selfget_fieldname-1"><a class="header" href="#selfget_fieldname-1"><code>self:get_field(name)</code></a></h3>
+<h3 id="selfset_fieldname-value-1"><a class="header" href="#selfset_fieldname-value-1"><code>self:set_field(name, value)</code></a></h3>
+<p>Note that this does not change anything in-game. <code>ValueType</code> is just a local copy.</p>
+<p>You'll need to pass the <code>ValueType</code> somewhere that would make use of the changed data.</p>
+<h3 id="selfaddress"><a class="header" href="#selfaddress"><code>self:address()</code></a></h3>
+<h3 id="selfget_type_definition-1"><a class="header" href="#selfget_type_definition-1"><code>self:get_type_definition()</code></a></h3>
+<h3 id="selftype"><a class="header" href="#selftype"><code>self.type</code></a></h3>
+<h3 id="selfdata"><a class="header" href="#selfdata"><code>self.data</code></a></h3>
+<p><code>std::vector&lt;uint8_t&gt;</code></p>
+<h2 id="dangerous-methods-1"><a class="header" href="#dangerous-methods-1">Dangerous Methods</a></h2>
+<p>Only use these if necessary!</p>
+<h3 id="selfread_byteoffset-1"><a class="header" href="#selfread_byteoffset-1"><code>self:read_byte(offset)</code></a></h3>
+<h3 id="selfread_shortoffset-1"><a class="header" href="#selfread_shortoffset-1"><code>self:read_short(offset)</code></a></h3>
+<h3 id="selfread_dwordoffset-1"><a class="header" href="#selfread_dwordoffset-1"><code>self:read_dword(offset)</code></a></h3>
+<h3 id="selfread_qwordoffset-1"><a class="header" href="#selfread_qwordoffset-1"><code>self:read_qword(offset)</code></a></h3>
+<h3 id="selfread_floatoffset-1"><a class="header" href="#selfread_floatoffset-1"><code>self:read_float(offset)</code></a></h3>
+<h3 id="selfread_doubleoffset-1"><a class="header" href="#selfread_doubleoffset-1"><code>self:read_double(offset)</code></a></h3>
+<h3 id="selfwrite_byteoffset-value-1"><a class="header" href="#selfwrite_byteoffset-value-1"><code>self:write_byte(offset, value)</code></a></h3>
+<h3 id="selfwrite_shortoffset-value-1"><a class="header" href="#selfwrite_shortoffset-value-1"><code>self:write_short(offset, value)</code></a></h3>
+<h3 id="selfwrite_dwordoffset-value-1"><a class="header" href="#selfwrite_dwordoffset-value-1"><code>self:write_dword(offset, value)</code></a></h3>
+<h3 id="selfwrite_qwordoffset-value-1"><a class="header" href="#selfwrite_qwordoffset-value-1"><code>self:write_qword(offset, value)</code></a></h3>
+<h3 id="selfwrite_floatoffset-value-1"><a class="header" href="#selfwrite_floatoffset-value-1"><code>self:write_float(offset, value)</code></a></h3>
+<h3 id="selfwrite_doubleoffset-value-1"><a class="header" href="#selfwrite_doubleoffset-value-1"><code>self:write_double(offset, value)</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div><p>There are 3 <code>VectorXf</code> types:</p>
+<ul>
+<li><code>Vector2f</code></li>
+<li><code>Vector3f</code></li>
+<li><code>Vector4f</code></li>
+</ul>
+<h2 id="creation-1"><a class="header" href="#creation-1">Creation</a></h2>
+<h3 id="vector2fnewx-y"><a class="header" href="#vector2fnewx-y"><code>Vector2f.new(x, y)</code></a></h3>
+<h3 id="vector3fnewx-y-z"><a class="header" href="#vector3fnewx-y-z"><code>Vector3f.new(x, y, z)</code></a></h3>
+<h3 id="vector4fnewx-y-z-w"><a class="header" href="#vector4fnewx-y-z-w"><code>Vector4f.new(x, y, z, w)</code></a></h3>
+<h2 id="fields-1"><a class="header" href="#fields-1">Fields</a></h2>
+<h3 id="x-number-1"><a class="header" href="#x-number-1"><code>x: number</code></a></h3>
+<p>The X component of the <code>VectorXf</code></p>
+<h3 id="y-number-1"><a class="header" href="#y-number-1"><code>y: number</code></a></h3>
+<p>The Y component of the <code>VectorXf</code></p>
+<h3 id="z-number-1"><a class="header" href="#z-number-1"><code>z: number</code></a></h3>
+<p>The Z component of the <code>VectorXf</code>. Only <code>Vector3f</code> and <code>Vector4f</code> have this field.</p>
+<h3 id="w-number-1"><a class="header" href="#w-number-1"><code>w: number</code></a></h3>
+<p>The W component of the <code>VectorXf</code>. Only <code>Vector4f</code> has this field.</p>
+<h2 id="methods-18"><a class="header" href="#methods-18">Methods</a></h2>
+<h3 id="selfdotother"><a class="header" href="#selfdotother"><code>self:dot(other)</code></a></h3>
+<p>Returns the dot product between <code>self</code> and <code>other</code>.</p>
+<h3 id="selfcrossother"><a class="header" href="#selfcrossother"><code>self:cross(other)</code></a></h3>
+<p>Returns the cross product between <code>self</code> and <code>other</code>.</p>
+<h3 id="selflength"><a class="header" href="#selflength"><code>self:length()</code></a></h3>
+<p>Returns the length of <code>self</code>.</p>
+<h3 id="selfnormalize-1"><a class="header" href="#selfnormalize-1"><code>self:normalize()</code></a></h3>
+<p>Normalizes <code>self</code>. Nothing is returned.</p>
+<h3 id="selfnormalized-1"><a class="header" href="#selfnormalized-1"><code>self:normalized()</code></a></h3>
+<p>Returns the normalization of <code>self</code>.</p>
+<h3 id="selfto_vec2"><a class="header" href="#selfto_vec2"><code>self:to_vec2()</code></a></h3>
+<p>Converts <code>self</code> to a <code>Vector2f</code>. Not available if <code>self</code> is already a <code>Vector2f</code>.</p>
+<h3 id="selfto_vec3"><a class="header" href="#selfto_vec3"><code>self:to_vec3()</code></a></h3>
+<p>Converts <code>self</code> to a <code>Vector3f</code>. Not available if <code>self</code> is already a <code>Vector3f</code>.</p>
+<h3 id="selfto_vec4"><a class="header" href="#selfto_vec4"><code>self:to_vec4()</code></a></h3>
+<p>Converts <code>self</code> to a <code>Vector4f</code>. Not available if <code>self</code> is already a <code>Vector4f</code>.</p>
+<h3 id="selfto_mat"><a class="header" href="#selfto_mat"><code>self:to_mat()</code></a></h3>
+<p>Converts <code>self</code> to a <code>Matrix4x4f</code>. Treats <code>self</code> as the forward vector.</p>
+<h3 id="selfto_quat-1"><a class="header" href="#selfto_quat-1"><code>self:to_quat()</code></a></h3>
+<p>Converts <code>self</code> to a <code>Quaternion</code>. Treats <code>self</code> as the forward vector.</p>
+<p>Equivalent to <code>self:to_mat():to_quat()</code>.</p>
+<h2 id="meta-methods-3"><a class="header" href="#meta-methods-3">Meta-methods</a></h2>
+<h3 id="vectorxf--vectorxf"><a class="header" href="#vectorxf--vectorxf"><code>VectorXf + VectorXf</code></a></h3>
+<p><code>VectorXf</code> addition.</p>
+<h3 id="vectorxf---vectorxf"><a class="header" href="#vectorxf---vectorxf"><code>VectorXf - VectorXf</code></a></h3>
+<p><code>VectorXf</code> subtraction.</p>
+<h3 id="vectorxf--scalar"><a class="header" href="#vectorxf--scalar"><code>VectorXf * scalar</code></a></h3>
+<p><code>VectorXf</code> <code>scalar</code> multiplication.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Example Snippets - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../examples/Example-Snippets.html" class="active"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="../api/index.html"><strong aria-hidden="true">4.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/draw.html"><strong aria-hidden="true">4.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../api/fs.html"><strong aria-hidden="true">4.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../api/imgui.html"><strong aria-hidden="true">4.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../api/json.html"><strong aria-hidden="true">4.4.</strong> json</a></li><li class="chapter-item expanded "><a href="../api/log.html"><strong aria-hidden="true">4.5.</strong> log</a></li><li class="chapter-item expanded "><a href="../api/re.html"><strong aria-hidden="true">4.6.</strong> re</a></li><li class="chapter-item expanded "><a href="../api/reframework.html"><strong aria-hidden="true">4.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../api/sdk.html"><strong aria-hidden="true">4.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../api/vrmod.html"><strong aria-hidden="true">4.9.</strong> vrmod</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types/index.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/types/Matrix4x4f.html"><strong aria-hidden="true">5.1.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../api/types/Quaternion.html"><strong aria-hidden="true">5.2.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../api/types/REComponent.html"><strong aria-hidden="true">5.3.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../api/types/REField.html"><strong aria-hidden="true">5.4.</strong> REField</a></li><li class="chapter-item expanded "><a href="../api/types/REManagedObject.html"><strong aria-hidden="true">5.5.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../api/types/REMethodDefinition.html"><strong aria-hidden="true">5.6.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/REResource.html"><strong aria-hidden="true">5.7.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../api/types/SystemArray.html"><strong aria-hidden="true">5.8.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../api/types/ValueType.html"><strong aria-hidden="true">5.9.</strong> ValueType</a></li><li class="chapter-item expanded "><a href="../api/types/VectorXf.html"><strong aria-hidden="true">5.10.</strong> VectorXf</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="re-engine"><a class="header" href="#re-engine">RE Engine</a></h2>
+<h3 id="grabbing-components-from-a-game-object"><a class="header" href="#grabbing-components-from-a-game-object">Grabbing components from a game object</a></h3>
+<pre><code>-- Find a component contained in a game object by its type name
+local function get_component(game_object, type_name)
+    local t = sdk.typeof(type_name)
+
+    if t == nil then 
+        return nil
+    end
+
+    return game_object:call(&quot;getComponent(System.Type)&quot;, t)
+end
+
+-- Get all components of a game object as a table
+local function get_components(game_object)
+    local transform = game_object:call(&quot;get_Transform&quot;)
+
+    if not transform then
+        return {}
+    end
+
+    return game_object:call(&quot;get_Components&quot;):get_elements()
+end
+</code></pre>
+<h3 id="getting-the-current-elapsed-time-in-seconds"><a class="header" href="#getting-the-current-elapsed-time-in-seconds">Getting the current elapsed time in seconds</a></h3>
+<p>In newer builds, <code>os.clock</code> is available.</p>
+<pre><code>local app_type = sdk.find_type_definition(&quot;via.Application&quot;)
+local get_elapsed_second = app_type:get_method(&quot;get_UpTimeSecond&quot;)
+
+local function get_time()
+    return get_elapsed_second:call(nil)
+end
+</code></pre>
+<h3 id="generating-enumsstatic-fields"><a class="header" href="#generating-enumsstatic-fields">Generating enums/static fields</a></h3>
+<pre><code>local function generate_enum(typename)
+    local t = sdk.find_type_definition(typename)
+    if not t then return {} end
+
+    local fields = t:get_fields()
+    local enum = {}
+
+    for i, field in ipairs(fields) do
+        if field:is_static() then
+            local name = field:get_name()
+            local raw_value = field:get_data(nil)
+
+            log.info(name .. &quot; = &quot; .. tostring(raw_value))
+
+            enum[name] = raw_value
+        end
+    end
+
+    return enum
+end
+
+via.hid.GamePadButton = generate_enum(&quot;via.hid.GamePadButton&quot;)
+app.HIDInputMode = generate_enum(&quot;app.HIDInputMode&quot;)
+</code></pre>
+<h3 id="gui-debugger"><a class="header" href="#gui-debugger">GUI Debugger</a></h3>
+<pre><code>local known_elements = {}
+
+re.on_pre_gui_draw_element(function(element, context)
+    known_elements[element:call(&quot;get_GameObject&quot;)] = true
+end)
+
+re.on_draw_ui(function()
+    local sorted_elements = {}
+
+    for k, v in pairs(known_elements) do
+        if not pcall(k.call, k, &quot;get_Name&quot;) then
+            known_elements[k] = nil
+        else
+            table.insert(sorted_elements, k)
+        end
+    end
+
+    table.sort(sorted_elements, function(a, b)
+        return a:call(&quot;get_Name&quot;) &lt; b:call(&quot;get_Name&quot;)
+    end)
+
+    for element, _ in pairs(known_elements) do
+        if imgui.tree_node(element:call(&quot;get_Name&quot;) .. &quot; &quot; .. string.format(&quot;%x&quot;, element:get_address())) then
+            object_explorer:handle_address(element)
+            imgui.tree_pop()
+        end
+    end
+end)
+</code></pre>
+<h3 id="dumping-fields-of-an-remanagedobject-or-type-very-verbose"><a class="header" href="#dumping-fields-of-an-remanagedobject-or-type-very-verbose">Dumping fields of an REManagedObject or type (very verbose)</a></h3>
+<p>Use <code>object:get_type_definition():get_fields()</code> for an easier way to do this. The below snippet should rarely be used.</p>
+<pre><code>-- type is the &quot;typeof&quot; variant, not the type definition
+local function dump_fields_by_type(type)
+    log.info(&quot;Dumping fields...&quot;)
+
+    local binding_flags = 32 | 16 | 4 | 8
+    local fields = type:call(&quot;GetFields(System.Reflection.BindingFlags)&quot;, binding_flags)
+
+    if fields then
+        fields = fields:get_elements()
+
+        for i, field in ipairs(fields) do
+            log.info(&quot;Field: &quot; .. field:call(&quot;ToString&quot;))
+        end
+    end
+end
+
+local function dump_fields(object)
+    local object_type = object:call(&quot;GetType&quot;)
+
+    dump_fields_by_type(object_type)
+end
+</code></pre>
+<h2 id="monster-hunter-rise"><a class="header" href="#monster-hunter-rise">Monster Hunter Rise</a></h2>
+<h3 id="getting-the-local-player"><a class="header" href="#getting-the-local-player">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    local playman = sdk.get_managed_singleton(&quot;snow.player.PlayerManager&quot;)
+
+    if not playman then 
+         return 
+    end
+
+    return playman:call(&quot;findMasterPlayer&quot;)
+end
+</code></pre>
+<h2 id="devil-may-cry-5"><a class="header" href="#devil-may-cry-5">Devil May Cry 5</a></h2>
+<h3 id="getting-the-local-player-1"><a class="header" href="#getting-the-local-player-1">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+
+    if not playman then
+        return nil
+    end
+
+    return playman:call(&quot;get_manualPlayer&quot;)
+end
+</code></pre>
+<h2 id="resident-evil-23"><a class="header" href="#resident-evil-23">Resident Evil 2/3</a></h2>
+<h3 id="getting-the-local-player-2"><a class="header" href="#getting-the-local-player-2">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+
+    if not playman then
+        return nil
+    end
+
+    return playman:call(&quot;get_CurrentPlayer&quot;)
+end
+</code></pre>
+<h2 id="resident-evil-8"><a class="header" href="#resident-evil-8">Resident Evil 8</a></h2>
+<h3 id="getting-the-local-player-3"><a class="header" href="#getting-the-local-player-3">Getting the local player</a></h3>
+<pre><code>local function get_localplayer()
+    if not propsman then
+        propsman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PropsManager&quot;))
+    end
+
+    return propsman:call(&quot;get_Player&quot;)
+end
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../examples/Example-Scripts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../api/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../examples/Example-Scripts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../api/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

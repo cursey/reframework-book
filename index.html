@@ -1,0 +1,306 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Introduction - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html" class="active">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="api/index.html"><strong aria-hidden="true">4.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="api/draw.html"><strong aria-hidden="true">4.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="api/fs.html"><strong aria-hidden="true">4.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="api/imgui.html"><strong aria-hidden="true">4.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="api/json.html"><strong aria-hidden="true">4.4.</strong> json</a></li><li class="chapter-item expanded "><a href="api/log.html"><strong aria-hidden="true">4.5.</strong> log</a></li><li class="chapter-item expanded "><a href="api/re.html"><strong aria-hidden="true">4.6.</strong> re</a></li><li class="chapter-item expanded "><a href="api/reframework.html"><strong aria-hidden="true">4.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="api/sdk.html"><strong aria-hidden="true">4.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="api/vrmod.html"><strong aria-hidden="true">4.9.</strong> vrmod</a></li></ol></li><li class="chapter-item expanded "><a href="api/types/index.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="api/types/Matrix4x4f.html"><strong aria-hidden="true">5.1.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="api/types/Quaternion.html"><strong aria-hidden="true">5.2.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="api/types/REComponent.html"><strong aria-hidden="true">5.3.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="api/types/REField.html"><strong aria-hidden="true">5.4.</strong> REField</a></li><li class="chapter-item expanded "><a href="api/types/REManagedObject.html"><strong aria-hidden="true">5.5.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="api/types/REMethodDefinition.html"><strong aria-hidden="true">5.6.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="api/types/REResource.html"><strong aria-hidden="true">5.7.</strong> REResource</a></li><li class="chapter-item expanded "><a href="api/types/SystemArray.html"><strong aria-hidden="true">5.8.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="api/types/ValueType.html"><strong aria-hidden="true">5.9.</strong> ValueType</a></li><li class="chapter-item expanded "><a href="api/types/VectorXf.html"><strong aria-hidden="true">5.10.</strong> VectorXf</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>This is the REFramework wiki. It will mostly serve as documentation for the scripting and plugin system.</p>
+<p><a href="troubleshooting/VR-Troubleshooting.html">VR Troubleshooting</a></p>
+<h2 id="lua-scripting"><a class="header" href="#lua-scripting">Lua Scripting</a></h2>
+<p>REFramework comes with a scripting system using Lua. </p>
+<p>Leveraging the RE Engine's IL2CPP implementation, REFramework gives developers powerful control over the game engine.</p>
+<p>Lua scripting can be found here now:</p>
+<p>Binaries: https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts</p>
+<p>If you are interested in native plugins: https://github.com/praydog/REFramework/wiki#plugins</p>
+<h2 id="loading-a-script"><a class="header" href="#loading-a-script">Loading a script</a></h2>
+<h3 id="manual-loading"><a class="header" href="#manual-loading">Manual Loading</a></h3>
+<p>Click on <code>ScriptRunner</code> from the main REFramework menu. From there, press <code>Run Script</code> and locate the corresponding <code>*.lua</code> file you wish to load.</p>
+<h3 id="automatic-loading"><a class="header" href="#automatic-loading">Automatic Loading</a></h3>
+<p>Create an <code>autorun</code> folder in your game directory. REFramework will automatically load whatever <code>*.lua</code> scripts are in here during initialization.</p>
+<h2 id="handling-lua-errors"><a class="header" href="#handling-lua-errors">Handling Lua errors</a></h2>
+<h3 id="during-script-startup"><a class="header" href="#during-script-startup">During script startup</a></h3>
+<p>When a Lua error occurs here, a MessageBox will pop up explaining what the error is.</p>
+<h3 id="during-callback-execution"><a class="header" href="#during-callback-execution">During callback execution</a></h3>
+<p>When a Lua error occurs here, the reason will be written to a debug log. <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DebugView</a> is required to view these.</p>
+<p>We don't pop a MessageBox here so the user doesn't lock their game.</p>
+<h2 id="finding-game-functions-to-call-and-fields-to-grab"><a class="header" href="#finding-game-functions-to-call-and-fields-to-grab">Finding game functions to call, and fields to grab</a></h2>
+<p>Use the <code>ObjectExplorer</code> that's in the <a href="https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts">developer builds</a>. It can be found under <code>DeveloperTools</code> in the REFramework menu.</p>
+<p>Poke around the singletons until you find something you're interested in. </p>
+<p>Objects under <code>Singletons</code> can be obtained with <code>sdk.get_managed_singleton(&quot;name&quot;)</code></p>
+<p>Objects under <code>Native Singletons</code> can be obtained with <code>sdk.get_native_singleton(&quot;name&quot;)</code></p>
+<p>Do note that the <code>Singletons</code> (AKA Managed Singletons) are the usually the most exposed. They were originally written in C#.</p>
+<p><code>Native Singletons</code> have fields and methods exposed, but they are usually hand picked. These ones were written in C++, and have the least amount of data exposed about them.</p>
+<p>Anything under <code>TDB Methods</code> or <code>TDB Fields</code> of something within the <code>ObjectExplorer</code> can be called or grabbed using the various call and field getter/setter methods found here in the wiki. </p>
+<p>You <strong>CANNOT</strong> use the <code>Reflection Methods</code> or <code>Reflection Properties</code> yet without direct memory reading/writing, only the TDB versions are fully supported.</p>
+<p>Good APIs to start on: <a href="https://github.com/praydog/REFramework/wiki/sdk">sdk</a> and <a href="https://github.com/praydog/REFramework/wiki/re">re</a></p>
+<p><a href="https://github.com/praydog/REFramework/wiki/Example-Scripts">Example Scripts</a></p>
+<h2 id="plugins"><a class="header" href="#plugins">Plugins</a></h2>
+<p>REFramework has the ability to run native DLL plugins. This can also just be used as a loose DLL loader, with no awareness of REF.</p>
+<p>The plugins can perform much of what Lua can, with much more freedom. They have access to much of the important SDK functionality of REFramework, as well as useful callbacks for rendering/input/game code.</p>
+<h3 id="loading-a-plugin"><a class="header" href="#loading-a-plugin">Loading a plugin</a></h3>
+<p>Drop the <code>.dll</code> file into the <code>reframework/plugins</code> directory.</p>
+<h3 id="using-the-plugin-api"><a class="header" href="#using-the-plugin-api">Using the plugin API</a></h3>
+<p>Include the <code>include</code> directory from the root REFramework project directory in your plugin. Include <code>API.hpp</code> if you are using C++ and want a more C++ approach to using the SDK.</p>
+<p>From there, you have the option to export these functions:</p>
+<pre><code class="language-cpp">// OPTIONAL
+// Enforces plugin versioning
+// If REF's major version does not match the plugin's required version, the plugin will not load
+// If REF's minor version is less than the plugin's required version, the plugin will not load
+// If REF's patch version does not match, the plugin will load but a warning will be displayed in the plugin menu
+extern &quot;C&quot; __declspec(dllexport) void reframework_plugin_required_version(REFrameworkPluginVersion* version) {
+    version-&gt;major = REFRAMEWORK_PLUGIN_VERSION_MAJOR;
+    version-&gt;minor = REFRAMEWORK_PLUGIN_VERSION_MINOR;
+    version-&gt;patch = REFRAMEWORK_PLUGIN_VERSION_PATCH;
+
+    // Optionally, specify a specific game name that this plugin is compatible with.
+    //version-&gt;game_name = &quot;MHRISE&quot;;
+}
+</code></pre>
+<pre><code class="language-cpp">using namespace reframework; // For API class
+
+// OPTIONAL
+// Used for initializing the REFramework SDK and additional functions
+extern &quot;C&quot; __declspec(dllexport) bool reframework_plugin_initialize(const REFrameworkPluginInitializeParam* param) {
+    API::initialize(param);
+
+    // Example usage of param functions
+    const auto functions = param-&gt;functions;
+    functions-&gt;on_lua_state_created(on_lua_state_created);
+    functions-&gt;on_lua_state_destroyed(on_lua_state_destroyed);
+    functions-&gt;on_frame(on_frame);
+    functions-&gt;on_pre_application_entry(&quot;BeginRendering&quot;, on_pre_begin_rendering); // Look at via.ModuleEntry or the wiki for valid names here
+    functions-&gt;on_post_application_entry(&quot;EndRendering&quot;, on_post_end_rendering);
+    functions-&gt;on_device_reset(on_device_reset);
+    functions-&gt;on_message((REFOnMessageCb)on_message);
+    functions-&gt;log_error(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;error&quot;);
+    functions-&gt;log_warn(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;warning&quot;);
+    functions-&gt;log_info(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;info&quot;);
+    API::get()-&gt;log_error(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;error&quot;);
+    API::get()-&gt;log_warn(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;warning&quot;);
+    API::get()-&gt;log_info(&quot;%s %s&quot;, &quot;Hello&quot;, &quot;info&quot;);
+
+    return true;
+}
+</code></pre>
+<p>Optionally, you can specify a DllMain if for example your plugin absolutely needs to load immediately, or do not want the additional functionality of REFramework's plugin API.</p>
+<h3 id="example-of-using-native-sdk-functionality"><a class="header" href="#example-of-using-native-sdk-functionality">Example of using native SDK functionality</a></h3>
+<pre><code class="language-cpp">// Grabbing the game window size with a C++ call and invoke
+auto&amp; api = API::get();
+const auto tdb = api-&gt;tdb();
+
+auto vm_context = api-&gt;get_vm_context();
+
+const auto scene_manager = api-&gt;get_native_singleton(&quot;via.SceneManager&quot;);
+const auto scene_manager_type = tdb-&gt;find_type(&quot;via.SceneManager&quot;);
+
+const auto scene_manager_full_name = scene_manager_type-&gt;get_full_name();
+
+OutputDebugString((std::stringstream{} &lt;&lt; scene_manager_full_name &lt;&lt; &quot; Size: &quot; &lt;&lt; scene_manager_full_name.size()).str().c_str());
+
+const auto get_main_view = scene_manager_type-&gt;find_method(&quot;get_MainView&quot;);
+const auto main_view = get_main_view-&gt;call&lt;API::ManagedObject*&gt;(vm_context, scene_manager);
+
+if (main_view == nullptr) {
+    return;
+}
+
+// Method 1: Call
+float size[3]{};
+main_view-&gt;call(&quot;get_Size&quot;, &amp;size, vm_context, main_view);
+
+// Method 2: Invoke
+auto get_size_invoke_result = main_view-&gt;invoke(&quot;get_Size&quot;, {});
+float* size_invoke = (float*)&amp;get_size_invoke_result;
+</code></pre>
+<h3 id="example-plugins"><a class="header" href="#example-plugins">Example plugins</a></h3>
+<p>https://github.com/praydog/REFramework/tree/master/example_plugin</p>
+<p>https://github.com/cursey/reframework-d2d</p>
+<h3 id="plugin-headers"><a class="header" href="#plugin-headers">Plugin headers</a></h3>
+<p>https://github.com/praydog/REFramework/tree/master/include/reframework</p>
+<h2 id="side-notes"><a class="header" href="#side-notes">Side notes</a></h2>
+<p>Everything is subject to change and maybe refactored over time.</p>
+<p>Lua uses a shared state across all scripts. Use <code>local</code> variables so as to not cause conflicts with other scripts.</p>
+<p>If there's something you find you can't do without native code, Lua can <code>require</code> native DLLs. Native plugins are also an option.</p>
+<p>RE Engine's IL2CPP implementation is not the same as Unity's. While RE Engine and Unity have many similarities, they are not the same, and no existing tooling for Unity or IL2CPP will work on the RE Engine.</p>
+<p>C# scripting maybe a possibility in the future for more natural interaction with the engine, but is not currently being looked at. REFramework is open source, so any developer wishing to do that can try.</p>
+<p>While REFramework's scripting API can do all sorts of things, <a href="https://github.com/alphazolam/RE_RSZ">RE_RSZ</a> is another powerful tool that may be more suitable in some scenarios. 
+For example:</p>
+<ul>
+<li>Inserting/cloning more game objects into a specific scene</li>
+<li>Edits that don't require runtime awareness of the game's state</li>
+<li>Time-sensitive edits to files (like something REFramework can't capture during startup)</li>
+<li>Using it for base edits with an REFramework script on top for additional functionality</li>
+<li>Changes that are impossible with REFramework's scripting system</li>
+</ul>
+<h2 id="thanks"><a class="header" href="#thanks">Thanks</a></h2>
+<p><a href="https://github.com/cursey/">cursey</a> for helping build the scripting system.</p>
+<p><a href="https://github.com/youwereeatenbyalid/">The Hitchhiker</a> for testing/writing scripts/finding bugs/helpful suggestions.</p>
+<p><a href="https://github.com/alphazolam">alphaZomega</a> for testing/writing scripts/finding bugs/helpful suggestions.</p>
+<h2 id="discords"><a class="header" href="#discords">Discords</a></h2>
+<p><a href="https://discord.gg/9Vr2SJ3">Modding Haven</a> (General RE Engine modding)</p>
+<p><a href="https://discord.com/invite/nX5EzVU">Infernal Warks</a> (DMC5 modding)</p>
+<p><a href="https://discord.gg/gJwMdhK">Monster Hunter Modding Discord</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="next" href="troubleshooting/VR-Troubleshooting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="next" href="troubleshooting/VR-Troubleshooting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

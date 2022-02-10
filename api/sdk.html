@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>sdk - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="../api/index.html"><strong aria-hidden="true">4.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/draw.html"><strong aria-hidden="true">4.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../api/fs.html"><strong aria-hidden="true">4.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../api/imgui.html"><strong aria-hidden="true">4.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../api/json.html"><strong aria-hidden="true">4.4.</strong> json</a></li><li class="chapter-item expanded "><a href="../api/log.html"><strong aria-hidden="true">4.5.</strong> log</a></li><li class="chapter-item expanded "><a href="../api/re.html"><strong aria-hidden="true">4.6.</strong> re</a></li><li class="chapter-item expanded "><a href="../api/reframework.html"><strong aria-hidden="true">4.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../api/sdk.html" class="active"><strong aria-hidden="true">4.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../api/vrmod.html"><strong aria-hidden="true">4.9.</strong> vrmod</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types/index.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/types/Matrix4x4f.html"><strong aria-hidden="true">5.1.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../api/types/Quaternion.html"><strong aria-hidden="true">5.2.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../api/types/REComponent.html"><strong aria-hidden="true">5.3.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../api/types/REField.html"><strong aria-hidden="true">5.4.</strong> REField</a></li><li class="chapter-item expanded "><a href="../api/types/REManagedObject.html"><strong aria-hidden="true">5.5.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../api/types/REMethodDefinition.html"><strong aria-hidden="true">5.6.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/REResource.html"><strong aria-hidden="true">5.7.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../api/types/SystemArray.html"><strong aria-hidden="true">5.8.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../api/types/ValueType.html"><strong aria-hidden="true">5.9.</strong> ValueType</a></li><li class="chapter-item expanded "><a href="../api/types/VectorXf.html"><strong aria-hidden="true">5.10.</strong> VectorXf</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Main starting point for most things.</p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<h3 id="sdkgame_namespacename"><a class="header" href="#sdkgame_namespacename"><code>sdk.game_namespace(name)</code></a></h3>
+<p>Returns <code>game_namespace.name</code>.</p>
+<p>DMC5: <code>name</code> would get converted to <code>app.name</code></p>
+<p>RE3: <code>name</code> would get converted to <code>offline.name</code></p>
+<h3 id="sdkget_thread_context"><a class="header" href="#sdkget_thread_context"><code>sdk.get_thread_context()</code></a></h3>
+<h3 id="sdkget_native_singletonname"><a class="header" href="#sdkget_native_singletonname"><code>sdk.get_native_singleton(name)</code></a></h3>
+<p>Returns a <code>void*</code>. Can be used with <code>sdk.call_native_func</code></p>
+<p>Possible singletons can be found in the Native Singletons view in the Object Explorer.</p>
+<h3 id="sdkget_managed_singletonname"><a class="header" href="#sdkget_managed_singletonname"><code>sdk.get_managed_singleton(name)</code></a></h3>
+<p>Returns an <code>REManagedObject*</code>.</p>
+<p>Possible singletons can be found in the Singletons view in the Object Explorer.</p>
+<h3 id="sdkfind_type_definitionname"><a class="header" href="#sdkfind_type_definitionname"><code>sdk.find_type_definition(name)</code></a></h3>
+<p>Returns an <code>RETypeDefinition*</code>.</p>
+<h3 id="sdktypeofname"><a class="header" href="#sdktypeofname"><code>sdk.typeof(name)</code></a></h3>
+<p>Returns a <code>System.Type</code>. </p>
+<p>Equivalent to calling <code>sdk.find_type_definition(name):get_runtime_type()</code>.</p>
+<p>Equivalent to <code>typeof</code> in C#.</p>
+<h3 id="sdkcreate_instancetypename-simplify"><a class="header" href="#sdkcreate_instancetypename-simplify"><code>sdk.create_instance(typename, simplify)</code></a></h3>
+<p>Returns an <code>REManagedObject</code>. Equivalent to calling <code>sdk.find_type_definition(typename):create_instance()</code></p>
+<p><code>simplify</code> - defaults to <code>false</code>. Set this to <code>true</code> if this function is returning <code>nil</code>.</p>
+<h3 id="sdkcreate_resourcetypename-resource_path"><a class="header" href="#sdkcreate_resourcetypename-resource_path"><code>sdk.create_resource(typename, resource_path)</code></a></h3>
+<p>Returns an <code>REResource</code>.</p>
+<h3 id="sdkcall_native_funcobject-type_definition-method_name-args"><a class="header" href="#sdkcall_native_funcobject-type_definition-method_name-args"><code>sdk.call_native_func(object, type_definition, method_name, args...)</code></a></h3>
+<p>Return value is dependent on what the method returns.</p>
+<p>Full function prototype can be passed as <code>method_name</code> if there are multiple functions with the same name but different parameters.</p>
+<p>Should only be used with native types, not <code>REManagedObject</code> (though, it can be if wanted).</p>
+<p>Example:</p>
+<pre><code>local scene_manager = sdk.get_native_singleton(&quot;via.SceneManager&quot;)
+local scene_manager_type = sdk.find_type_definition(&quot;via.SceneManager&quot;)
+local scene = sdk.call_native_func(scene_manager, scene_manager_type, &quot;get_CurrentScene&quot;)
+
+if scene ~= nil then
+    -- We can use call like this because scene is a managed object, not a native one.
+    scene:call(&quot;set_TimeScale&quot;, 5.0)
+end
+</code></pre>
+<h3 id="sdkcall_object_funcmanaged_object-method_name-args"><a class="header" href="#sdkcall_object_funcmanaged_object-method_name-args"><code>sdk.call_object_func(managed_object, method_name, args...)</code></a></h3>
+<p>Return value is dependent on what the method returns.</p>
+<p>Full function prototype can be passed as <code>method_name</code> if there are multiple functions with the same name but different parameters.</p>
+<p>Alternative calling method:
+<code>managed_object:call(method_name, args...)</code></p>
+<h3 id="sdkget_native_fieldobject-type_definition-field_name"><a class="header" href="#sdkget_native_fieldobject-type_definition-field_name"><code>sdk.get_native_field(object, type_definition, field_name)</code></a></h3>
+<h3 id="sdkset_native_fieldobject-type_definition-field_name-value"><a class="header" href="#sdkset_native_fieldobject-type_definition-field_name-value"><code>sdk.set_native_field(object, type_definition, field_name, value)</code></a></h3>
+<h3 id="sdkget_primary_camera"><a class="header" href="#sdkget_primary_camera"><code>sdk.get_primary_camera()</code></a></h3>
+<p>Returns a <code>REManagedObject*</code>. Returns the current camera being used by the engine.</p>
+<h3 id="sdkhookmethod_definition-pre_function-post_function-ignore_jmp"><a class="header" href="#sdkhookmethod_definition-pre_function-post_function-ignore_jmp"><code>sdk.hook(method_definition, pre_function, post_function, ignore_jmp)</code></a></h3>
+<p>Creates a hook for <code>method_definition</code>, intercepting all incoming calls the game makes to it.</p>
+<p><code>ignore_jmp</code> - Skips trying to follow the first jmp in the function. Defaults to <code>false</code>.</p>
+<p>Using <code>pre_function</code> and <code>post_function</code>, the behavior of these functions can be modified.</p>
+<p>NOTE: Some native methods may not be able to be hooked with this, e.g. if they are just a  wrapper over the native function. Some additional work will need to be done from our end to make those work.</p>
+<p>pre_function and post_function looks like so:</p>
+<pre><code>function pre_function(args)
+    -- args are modifiable
+    -- args[1] = thread_context
+    -- args[2] = &quot;this&quot;/object pointer
+    -- rest of args are the actual parameters
+    -- actual parameters start at args[2] in a static function
+    -- Some native functions will have the object start at args[1] and rest at args[2]
+    -- All args are void* and not auto-converted to their respective types.
+    -- You will need to do things like sdk.to_managed_object(args[2])
+    -- or sdk.to_int64(args[3]) to get arguments to better interact with or read.
+    -- Hooks cannot grab stack arguments yet (past r9), so 4 arguments max are supported.
+
+    -- OPTIONAL: Specify an sdk.PreHookResult
+    -- e.g.
+    -- return sdk.PreHookResult.SKIP_ORIGINAL -- prevents the original function from being called
+    -- return sdk.PreHookResult.CALL_ORIGINAL -- calls the original function, same as not returning anything
+end
+
+function post_function(retval)
+    -- return something else if you don't want the original return value
+    -- NOTE: the post_function will still be called if SKIP_ORIGINAL is returned from the pre_function
+    -- So, if your function expects something valid in return, keep that in mind, as retval will not be valid.
+    -- Make sure to convert custom retvals to sdk.to_ptr(retval)
+    return retval
+end
+</code></pre>
+<p>Example hook:</p>
+<pre><code>function on_pre_get_timescale(args)
+end
+
+function on_post_get_timescale(retval)
+    -- Make the game run 5 times as fast instead
+    -- TODO: Make it so casting return values like this is not necessary
+    return sdk.float_to_ptr(5.0)
+end
+
+sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_TimeScale&quot;), on_pre_get_timescale, on_post_get_timescale)
+</code></pre>
+<h3 id="sdkis_managed_objectvalue"><a class="header" href="#sdkis_managed_objectvalue"><code>sdk.is_managed_object(value)</code></a></h3>
+<p>Returns true if <code>value</code> is a valid <code>REManagedObject</code>.</p>
+<p>Use only if necessary. Does a bunch of checks and calls <a href="https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-isbadreadptr">IsBadReadPtr</a> a lot.</p>
+<h3 id="sdkto_managed_objectvalue"><a class="header" href="#sdkto_managed_objectvalue"><code>sdk.to_managed_object(value)</code></a></h3>
+<h3 id="sdkto_doublevalue"><a class="header" href="#sdkto_doublevalue"><code>sdk.to_double(value)</code></a></h3>
+<h3 id="sdkto_floatvalue"><a class="header" href="#sdkto_floatvalue"><code>sdk.to_float(value)</code></a></h3>
+<h3 id="sdkto_int64value"><a class="header" href="#sdkto_int64value"><code>sdk.to_int64(value)</code></a></h3>
+<h3 id="sdkto_ptrvalue"><a class="header" href="#sdkto_ptrvalue"><code>sdk.to_ptr(value)</code></a></h3>
+<h3 id="sdkfloat_to_ptrnumber"><a class="header" href="#sdkfloat_to_ptrnumber"><code>sdk.float_to_ptr(number)</code></a></h3>
+<h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
+<h3 id="sdkprehookresult"><a class="header" href="#sdkprehookresult"><code>sdk.PreHookResult</code></a></h3>
+<ul>
+<li><code>sdk.PreHookResult.CALL_ORIGINAL</code></li>
+<li><code>sdk.PreHookResult.SKIP_ORIGINAL</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../api/reframework.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../api/vrmod.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../api/reframework.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../api/vrmod.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

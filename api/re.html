@@ -1,0 +1,603 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>re - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="../api/index.html"><strong aria-hidden="true">4.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/draw.html"><strong aria-hidden="true">4.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../api/fs.html"><strong aria-hidden="true">4.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../api/imgui.html"><strong aria-hidden="true">4.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../api/json.html"><strong aria-hidden="true">4.4.</strong> json</a></li><li class="chapter-item expanded "><a href="../api/log.html"><strong aria-hidden="true">4.5.</strong> log</a></li><li class="chapter-item expanded "><a href="../api/re.html" class="active"><strong aria-hidden="true">4.6.</strong> re</a></li><li class="chapter-item expanded "><a href="../api/reframework.html"><strong aria-hidden="true">4.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../api/sdk.html"><strong aria-hidden="true">4.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../api/vrmod.html"><strong aria-hidden="true">4.9.</strong> vrmod</a></li></ol></li><li class="chapter-item expanded "><a href="../api/types/index.html"><strong aria-hidden="true">5.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../api/types/Matrix4x4f.html"><strong aria-hidden="true">5.1.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../api/types/Quaternion.html"><strong aria-hidden="true">5.2.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../api/types/REComponent.html"><strong aria-hidden="true">5.3.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../api/types/REField.html"><strong aria-hidden="true">5.4.</strong> REField</a></li><li class="chapter-item expanded "><a href="../api/types/REManagedObject.html"><strong aria-hidden="true">5.5.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../api/types/REMethodDefinition.html"><strong aria-hidden="true">5.6.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../api/types/REResource.html"><strong aria-hidden="true">5.7.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../api/types/SystemArray.html"><strong aria-hidden="true">5.8.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../api/types/ValueType.html"><strong aria-hidden="true">5.9.</strong> ValueType</a></li><li class="chapter-item expanded "><a href="../api/types/VectorXf.html"><strong aria-hidden="true">5.10.</strong> VectorXf</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Contains some utility functions and callback creators.</p>
+<h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
+<h3 id="remsgtext"><a class="header" href="#remsgtext"><code>re.msg(text)</code></a></h3>
+<p>Creates a MessageBox with <code>text</code>. Note that this will pause game execution until the user presses OK.</p>
+<h2 id="callback-creators"><a class="header" href="#callback-creators">Callback Creators</a></h2>
+<p>Most creators have a pre and post function. Pre meaning the callback gets triggered before the original method is called, and post being after it's called.</p>
+<h3 id="reon_script_resetfunction"><a class="header" href="#reon_script_resetfunction"><code>re.on_script_reset(function)</code></a></h3>
+<p>Calls <code>function</code> when scripts are being reset. Useful for cleaning up stuff. Calls <code>on_config_save()</code>.</p>
+<h3 id="reon_config_savefunction"><a class="header" href="#reon_config_savefunction"><code>re.on_config_save(function)</code></a></h3>
+<p>Called when REFramework wants to save its config.</p>
+<h3 id="reon_draw_uifunction"><a class="header" href="#reon_draw_uifunction"><code>re.on_draw_ui(function)</code></a></h3>
+<p>Called every frame when the &quot;Script Generated UI&quot; in the menu is open. </p>
+<p><code>imgui</code> functions can be called here, and will be placed in their own dropdown in the REFramework menu.</p>
+<h3 id="reon_framefunction"><a class="header" href="#reon_framefunction"><code>re.on_frame(function)</code></a></h3>
+<p>Called every frame. <code>draw</code> functions can be used here. Don't use <code>imgui</code> functions unless using <code>begin_window</code> etc...</p>
+<p>Try to minimize calling game methods when inside <code>on_frame</code> and <code>on_draw_ui</code>.</p>
+<h3 id="reon_pre_application_entryname-function"><a class="header" href="#reon_pre_application_entryname-function"><code>re.on_pre_application_entry(name, function)</code></a></h3>
+<h3 id="reon_application_entryname-function"><a class="header" href="#reon_application_entryname-function"><code>re.on_application_entry(name, function)</code></a></h3>
+<p>Triggers <code>function</code> when the application/module entry associated with  <code>name</code> is being executed.</p>
+<p>This is very powerful, and can be used to run code at many important points in the engine's logic loop.</p>
+<h3 id="reon_pre_update_transformtransform-function"><a class="header" href="#reon_pre_update_transformtransform-function"><code>re.on_pre_update_transform(transform, function)</code></a></h3>
+<h3 id="reon_update_transformtransform-function"><a class="header" href="#reon_update_transformtransform-function"><code>re.on_update_transform(transform, function)</code></a></h3>
+<p>Function prototype: <code>function on_*_update_transform(transform)</code></p>
+<p>Triggers <code>function</code> when the <code>RETransform</code> passed is being updated.</p>
+<p>Be careful with these. You are able to register multiple callbacks with the same transform and function, leading to frame drops if too many are made. There's no way to delete a callback yet.</p>
+<h3 id="reon_pre_gui_draw_elementfunction"><a class="header" href="#reon_pre_gui_draw_elementfunction"><code>re.on_pre_gui_draw_element(function)</code></a></h3>
+<h3 id="reon_gui_draw_elementfunction"><a class="header" href="#reon_gui_draw_elementfunction"><code>re.on_gui_draw_element(function)</code></a></h3>
+<p>Function prototype: <code>function on_*_draw_element(element, context)</code></p>
+<p>Triggers <code>function</code> when a GUI element is being drawn.</p>
+<p>Requires that a <code>bool</code> is returned in <code>on_pre_gui_draw_element</code>. When <code>false</code> is returned, the GUI element is not drawn.</p>
+<p><code>element</code> is an <code>REComponent*</code>.</p>
+<p>Example:</p>
+<pre><code>re.on_pre_gui_draw_element(function(element, context)
+    local game_object = element:call(&quot;get_GameObject&quot;)
+    if game_object == nil then return true end
+
+    local name = game_object:call(&quot;get_Name&quot;)
+
+    log.info(&quot;drawing element: &quot; .. name)
+
+    -- Stops the crosshair from being drawn in most RE Engine games.
+    if name == &quot;GUIReticle&quot; or name == &quot;GUI_Reticle&quot; then
+        return false
+    end
+
+    return true
+end)
+</code></pre>
+<h2 id="valid-names-for-reon_application_entry"><a class="header" href="#valid-names-for-reon_application_entry">Valid names for re.on_application_entry</a></h2>
+<p>These can be found by viewing <code>via.ModuleEntry</code> in the Object Explorer.</p>
+<pre><code>Initialize
+InitializeLog
+InitializeGameCore
+InitializeStorage
+InitializeResourceManager
+InitializeScene
+InitializeRemoteHost
+InitializeVM
+InitializeSystemService
+InitializeHardwareService
+InitializePushNotificationService
+InitializeDialog
+InitializeShareService
+InitializeUserService
+InitializeUDS
+InitializeModalDialogService
+InitializeGlobalUserData
+InitializeSteam
+InitializeWeGame
+InitializeXCloud
+InitializeRebe
+InitializeBcat
+InitializeEffectMemorySettings
+InitializeRenderer
+InitializeVR
+InitializeSpeedTree
+InitializeHID
+InitializeEffect
+InitializeGeometry
+InitializeLandscape
+InitializeHoudini
+InitializeSound
+InitializeWwiselib
+InitializeSimpleWwise
+InitializeWwise
+InitializeAudioRender
+InitializeGUI
+InitializeSpine
+InitializeMotion
+InitializeBehaviorTree
+InitializeAutoPlay
+InitializeScenario
+InitializeOctree
+InitializeAreaMap
+InitializeFSM
+InitializeNavigation
+InitializePointGraph
+InitializeFluidFlock
+InitializeTimeline
+InitializePhysics
+InitializeDynamics
+InitializeHavok
+InitializeBake
+InitializeNetwork
+InitializePuppet
+InitializeVoiceChat
+InitializeVivoxlib
+InitializeStore
+InitializeBrowser
+InitializeDevelopSystem
+InitializeBehavior
+InitializeMovie
+InitializeMame
+InitializeSkuService
+InitializeTelemetry
+InitializeHansoft
+InitializeNNFC
+InitializeMixer
+InitializeThreadPool
+Setup
+SetupJobScheduler
+SetupResourceManager
+SetupStorage
+SetupGlobalUserData
+SetupScene
+SetupDevelopSystem
+SetupUserService
+SetupSystemService
+SetupHardwareService
+SetupPushNotificationService
+SetupShareService
+SetupModalDialogService
+SetupVM
+SetupHID
+SetupRenderer
+SetupEffect
+SetupGeometry
+SetupLandscape
+SetupHoudini
+SetupSound
+SetupWwiselib
+SetupSimpleWwise
+SetupWwise
+SetupAudioRender
+SetupMotion
+SetupNavigation
+SetupPointGraph
+SetupPhysics
+SetupDynamics
+SetupHavok
+SetupMovie
+SetupMame
+SetupNetwork
+SetupPuppet
+SetupStore
+SetupBrowser
+SetupVoiceChat
+SetupVivoxlib
+SetupSkuService
+SetupTelemetry
+SetupHansoft
+StartApp
+SetupOctree
+SetupAreaMap
+SetupBehaviorTree
+SetupFSM
+SetupGUI
+SetupSpine
+SetupSpeedTree
+SetupNNFC
+Start
+StartStorage
+StartResourceManager
+StartGlobalUserData
+StartPhysics
+StartDynamics
+StartGUI
+StartTimeline
+StartOctree
+StartAreaMap
+StartBehaviorTree
+StartFSM
+StartSound
+StartWwise
+StartAudioRender
+StartScene
+StartRebe
+StartNetwork
+Update
+UpdateDialog
+UpdateRemoteHost
+UpdateStorage
+UpdateScene
+UpdateDevelopSystem
+UpdateWidget
+UpdateAutoPlay
+UpdateScenario
+UpdateCapture
+BeginFrameRendering
+UpdateVR
+UpdateHID
+UpdateMotionFrame
+BeginDynamics
+PreupdateGUI
+BeginHavok
+UpdateAIMap
+CreatePreupdateGroupFSM
+CreatePreupdateGroupBehaviorTree
+UpdateGlobalUserData
+UpdateUDS
+UpdateUserService
+UpdateSystemService
+UpdateHardwareService
+UpdatePushNotificationService
+UpdateShareService
+UpdateSteam
+UpdateWeGame
+UpdateBcat
+UpdateXCloud
+UpdateRebe
+UpdateNNFC
+BeginPhysics
+BeginUpdatePrimitive
+BeginUpdatePrimitiveGUI
+BeginUpdateSpineDraw
+UpdatePuppet
+UpdateGUI
+PreupdateBehavior
+PreupdateBehaviorTree
+PreupdateFSM
+PreupdateTimeline
+UpdateBehavior
+CreateUpdateGroupBehaviorTree
+CreateNavigationChain
+CreateUpdateGroupFSM
+UpdateTimeline
+PreUpdateAreaMap
+UpdateOctree
+UpdateAreaMap
+UpdateBehaviorTree
+UpdateTimelineFsm2
+UpdateNavigationPrev
+UpdateFSM
+UpdateMotion
+UpdateSpine
+EffectCollisionLimit
+UpdatePhysicsAfterUpdatePhase
+UpdateGeometry
+UpdateLandscape
+UpdateHoudini
+UpdatePhysicsCharacterController
+BeginUpdateHavok2
+UpdateDynamics
+UpdateNavigation
+UpdatePointGraph
+UpdateFluidFlock
+UpdateConstraintsBegin
+LateUpdateBehavior
+EditUpdateBehavior
+LateUpdateSpine
+BeginUpdateHavok
+BeginUpdateEffect
+UpdateConstraintsEnd
+UpdatePhysicsAfterLateUpdatePhase
+PrerenderGUI
+PrepareRendering
+UpdateSound
+UpdateWwiselib
+UpdateSimpleWwise
+UpdateWwise
+UpdateAudioRender
+CreateSelectorGroupFSM
+UpdateNetwork
+UpdateHavok
+EndUpdateHavok
+UpdateFSMSelector
+UpdateBehaviorTreeSelector
+BeforeLockSceneRendering
+EndUpdateHavok2
+UpdateJointExpression
+UpdateBehaviorTreeSelectorLegacy
+UpdateEffect
+EndUpdateEffect
+UpdateWidgetDynamics
+LockScene
+WaitRendering
+EndDynamics
+EndPhysics
+BeginRendering
+UpdateSpeedTree
+RenderDynamics
+RenderGUI
+RenderGeometry
+RenderLandscape
+RenderHoudini
+UpdatePrimitiveGUI
+UpdatePrimitive
+UpdateSpineDraw
+EndUpdatePrimitive
+EndUpdatePrimitiveGUI
+EndUpdateSpineDraw
+GUIPostPrimitiveRender
+ShapeRenderer
+UpdateMovie
+UpdateMame
+UpdateTelemetry
+UpdateHansoft
+DrawWidget
+DevelopRenderer
+EndRendering
+UpdateStore
+UpdateBrowser
+UpdateVoiceChat
+UpdateVivoxlib
+UnlockScene
+UpdateVM
+StepVisualDebugger
+WaitForVblank
+Terminate
+TerminateScene
+TerminateRemoteHost
+TerminateHansoft
+TerminateTelemetry
+TerminateMame
+TerminateMovie
+TerminateSound
+TerminateSimpleWwise
+TerminateWwise
+TerminateWwiselib
+TerminateAudioRender
+TerminateVoiceChat
+TerminateVivoxlib
+TerminatePuppet
+TerminateNetwork
+TerminateStore
+TerminateBrowser
+TerminateSpine
+TerminateGUI
+TerminateAreaMap
+TerminateOctree
+TerminateFluidFlock
+TerminateBehaviorTree
+TerminateFSM
+TerminateNavigation
+TerminatePointGraph
+TerminateEffect
+TerminateGeometry
+TerminateLandscape
+TerminateHoudini
+TerminateRenderer
+TerminateHID
+TerminateDynamics
+TerminatePhysics
+TerminateResourceManager
+TerminateHavok
+TerminateModalDialogService
+TerminateShareService
+TerminateGlobalUserData
+TerminateStorage
+TerminateVM
+TerminateJobScheduler
+Finalize
+FinalizeThreadPool
+FinalizeHansoft
+FinalizeTelemetry
+FinalizeMame
+FinalizeMovie
+FinalizeBehavior
+FinalizeDevelopSystem
+FinalizeTimeline
+FinalizePuppet
+FinalizeNetwork
+FinalizeStore
+FinalizeBrowser
+finalizeAutoPlay
+finalizeScenario
+FinalizeBehaviorTree
+FinalizeFSM
+FinalizeNavigation
+FinalizePointGraph
+FinalizeAreaMap
+FinalizeOctree
+FinalizeFluidFlock
+FinalizeMotion
+FinalizeDynamics
+FinalizePhysics
+FinalizeHavok
+FinalizeBake
+FinalizeSpine
+FinalizeGUI
+FinalizeSound
+FinalizeWwiselib
+FinalizeSimpleWwise
+FinalizeWwise
+FinalizeAudioRender
+FinalizeEffect
+FinalizeGeometry
+FinalizeSpeedTree
+FinalizeLandscape
+FinalizeHoudini
+FinalizeRenderer
+FinalizeHID
+FinalizeVR
+FinalizeBcat
+FinalizeRebe
+FinalizeXCloud
+FinalizeSteam
+FinalizeWeGame
+FinalizeNNFC
+FinalizeGlobalUserData
+FinalizeModalDialogService
+FinalizeSkuService
+FinalizeUDS
+FinalizeUserService
+FinalizeShareService
+FinalizeSystemService
+FinalizeHardwareService
+FinalizePushNotificationService
+FinalizeScene
+FinalizeVM
+FinalizeResourceManager
+FinalizeRemoteHost
+FinalizeStorage
+FinalizeDialog
+FinalizeMixer
+FinalizeGameCore
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../api/log.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../api/reframework.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../api/log.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../api/reframework.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

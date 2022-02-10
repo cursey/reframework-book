@@ -4,3 +4,8 @@ language = "en"
 multilingual = false
 src = "src"
 title = "REFramework"
+
+[output.html]
+site-url = "/reframework-book/"
+git-repository-url = "https://github.com/cursey/reframework-book"
+edit-url-template = "https://github.com/cursey/reframework-book/edit/master/{path}"

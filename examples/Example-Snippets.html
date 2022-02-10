@@ -136,7 +136,7 @@
                     <main>
                         <h2 id="re-engine"><a class="header" href="#re-engine">RE Engine</a></h2>
 <h3 id="grabbing-components-from-a-game-object"><a class="header" href="#grabbing-components-from-a-game-object">Grabbing components from a game object</a></h3>
-<pre><code>-- Find a component contained in a game object by its type name
+<pre><code class="language-lua">-- Find a component contained in a game object by its type name
 local function get_component(game_object, type_name)
     local t = sdk.typeof(type_name)
 
@@ -160,7 +160,7 @@ end
 </code></pre>
 <h3 id="getting-the-current-elapsed-time-in-seconds"><a class="header" href="#getting-the-current-elapsed-time-in-seconds">Getting the current elapsed time in seconds</a></h3>
 <p>In newer builds, <code>os.clock</code> is available.</p>
-<pre><code>local app_type = sdk.find_type_definition(&quot;via.Application&quot;)
+<pre><code class="language-lua">local app_type = sdk.find_type_definition(&quot;via.Application&quot;)
 local get_elapsed_second = app_type:get_method(&quot;get_UpTimeSecond&quot;)
 
 local function get_time()
@@ -168,7 +168,7 @@ local function get_time()
 end
 </code></pre>
 <h3 id="generating-enumsstatic-fields"><a class="header" href="#generating-enumsstatic-fields">Generating enums/static fields</a></h3>
-<pre><code>local function generate_enum(typename)
+<pre><code class="language-lua">local function generate_enum(typename)
     local t = sdk.find_type_definition(typename)
     if not t then return {} end
 
@@ -193,7 +193,7 @@ via.hid.GamePadButton = generate_enum(&quot;via.hid.GamePadButton&quot;)
 app.HIDInputMode = generate_enum(&quot;app.HIDInputMode&quot;)
 </code></pre>
 <h3 id="gui-debugger"><a class="header" href="#gui-debugger">GUI Debugger</a></h3>
-<pre><code>local known_elements = {}
+<pre><code class="language-lua">local known_elements = {}
 
 re.on_pre_gui_draw_element(function(element, context)
     known_elements[element:call(&quot;get_GameObject&quot;)] = true
@@ -224,7 +224,7 @@ end)
 </code></pre>
 <h3 id="dumping-fields-of-an-remanagedobject-or-type-very-verbose"><a class="header" href="#dumping-fields-of-an-remanagedobject-or-type-very-verbose">Dumping fields of an REManagedObject or type (very verbose)</a></h3>
 <p>Use <code>object:get_type_definition():get_fields()</code> for an easier way to do this. The below snippet should rarely be used.</p>
-<pre><code>-- type is the &quot;typeof&quot; variant, not the type definition
+<pre><code class="language-lua">-- type is the &quot;typeof&quot; variant, not the type definition
 local function dump_fields_by_type(type)
     log.info(&quot;Dumping fields...&quot;)
 
@@ -248,7 +248,7 @@ end
 </code></pre>
 <h2 id="monster-hunter-rise"><a class="header" href="#monster-hunter-rise">Monster Hunter Rise</a></h2>
 <h3 id="getting-the-local-player"><a class="header" href="#getting-the-local-player">Getting the local player</a></h3>
-<pre><code>local function get_localplayer()
+<pre><code class="language-lua">local function get_localplayer()
     local playman = sdk.get_managed_singleton(&quot;snow.player.PlayerManager&quot;)
 
     if not playman then 
@@ -260,7 +260,7 @@ end
 </code></pre>
 <h2 id="devil-may-cry-5"><a class="header" href="#devil-may-cry-5">Devil May Cry 5</a></h2>
 <h3 id="getting-the-local-player-1"><a class="header" href="#getting-the-local-player-1">Getting the local player</a></h3>
-<pre><code>local function get_localplayer()
+<pre><code class="language-lua">local function get_localplayer()
     local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
 
     if not playman then
@@ -272,7 +272,7 @@ end
 </code></pre>
 <h2 id="resident-evil-23"><a class="header" href="#resident-evil-23">Resident Evil 2/3</a></h2>
 <h3 id="getting-the-local-player-2"><a class="header" href="#getting-the-local-player-2">Getting the local player</a></h3>
-<pre><code>local function get_localplayer()
+<pre><code class="language-lua">local function get_localplayer()
     local playman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
 
     if not playman then
@@ -284,7 +284,7 @@ end
 </code></pre>
 <h2 id="resident-evil-8"><a class="header" href="#resident-evil-8">Resident Evil 8</a></h2>
 <h3 id="getting-the-local-player-3"><a class="header" href="#getting-the-local-player-3">Getting the local player</a></h3>
-<pre><code>local function get_localplayer()
+<pre><code class="language-lua">local function get_localplayer()
     if not propsman then
         propsman = sdk.get_managed_singleton(sdk.game_namespace(&quot;PropsManager&quot;))
     end

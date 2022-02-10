@@ -9,3 +9,5 @@
 [https://github.com/Sarayalth/mhr_scripts](https://github.com/Sarayalth/mhr_scripts)
 
 [https://www.nexusmods.com/monsterhunterrise/mods/39](https://www.nexusmods.com/monsterhunterrise/mods/39)
+
+[https://github.com/cursey/mhrise-scripts](https://github.com/cursey/mhrise-scripts)

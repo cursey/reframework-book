@@ -1,0 +1,6 @@
+[book]
+authors = ["praydog", "cursey"]
+language = "en"
+multilingual = false
+src = "src"
+title = "REFramework"

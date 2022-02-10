@@ -23,6 +23,7 @@
     - [reframework](api/reframework.md)
     - [sdk](api/sdk.md)
     - [vrmod](api/vrmod.md)
+    - [object_explorer](api/object_explorer.md)
 - [Types](api/types/README.md)
     - [Matrix4x4f](api/types/Matrix4x4f.md)
     - [Quaternion](api/types/Quaternion.md)
@@ -34,3 +35,4 @@
     - [SystemArray](api/types/SystemArray.md)
     - [ValueType](api/types/ValueType.md)
     - [VectorXf](api/types/VectorXf.md)
+- [Notes on Return Types](api/Notes-on-Return-Types.md)

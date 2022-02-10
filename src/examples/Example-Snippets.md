@@ -1,6 +1,6 @@
 ## RE Engine
 ### Grabbing components from a game object
-```
+```lua
 -- Find a component contained in a game object by its type name
 local function get_component(game_object, type_name)
     local t = sdk.typeof(type_name)
@@ -27,7 +27,7 @@ end
 ### Getting the current elapsed time in seconds
 In newer builds, `os.clock` is available.
 
-```
+```lua
 local app_type = sdk.find_type_definition("via.Application")
 local get_elapsed_second = app_type:get_method("get_UpTimeSecond")
 
@@ -37,7 +37,7 @@ end
 ```
 
 ### Generating enums/static fields
-```
+```lua
 local function generate_enum(typename)
     local t = sdk.find_type_definition(typename)
     if not t then return {} end
@@ -64,7 +64,7 @@ app.HIDInputMode = generate_enum("app.HIDInputMode")
 ```
 
 ### GUI Debugger
-```
+```lua
 local known_elements = {}
 
 re.on_pre_gui_draw_element(function(element, context)
@@ -98,7 +98,7 @@ end)
 ### Dumping fields of an REManagedObject or type (very verbose)
 Use `object:get_type_definition():get_fields()` for an easier way to do this. The below snippet should rarely be used.
 
-```
+```lua
 -- type is the "typeof" variant, not the type definition
 local function dump_fields_by_type(type)
     log.info("Dumping fields...")
@@ -124,7 +124,7 @@ end
 
 ## Monster Hunter Rise
 ### Getting the local player
-```
+```lua
 local function get_localplayer()
     local playman = sdk.get_managed_singleton("snow.player.PlayerManager")
 
@@ -138,7 +138,7 @@ end
 
 ## Devil May Cry 5
 ### Getting the local player
-```
+```lua
 local function get_localplayer()
     local playman = sdk.get_managed_singleton(sdk.game_namespace("PlayerManager"))
 
@@ -152,7 +152,7 @@ end
 
 ## Resident Evil 2/3
 ### Getting the local player
-```
+```lua
 local function get_localplayer()
     local playman = sdk.get_managed_singleton(sdk.game_namespace("PlayerManager"))
 
@@ -166,7 +166,7 @@ end
 
 ## Resident Evil 8
 ### Getting the local player
-```
+```lua
 local function get_localplayer()
     if not propsman then
         propsman = sdk.get_managed_singleton(sdk.game_namespace("PropsManager"))

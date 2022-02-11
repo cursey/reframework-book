@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Best Practices - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Scripting Reference</li><li class="chapter-item expanded "><a href="../../api/general/index.html"><strong aria-hidden="true">4.</strong> General</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Return-Types.html"><strong aria-hidden="true">4.1.</strong> Notes on Return Types</a></li><li class="chapter-item expanded "><a href="../../api/general/best-practices.html" class="active"><strong aria-hidden="true">4.2.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/index.html"><strong aria-hidden="true">5.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/draw.html"><strong aria-hidden="true">5.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../../api/fs.html"><strong aria-hidden="true">5.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../../api/imgui.html"><strong aria-hidden="true">5.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../../api/json.html"><strong aria-hidden="true">5.4.</strong> json</a></li><li class="chapter-item expanded "><a href="../../api/log.html"><strong aria-hidden="true">5.5.</strong> log</a></li><li class="chapter-item expanded "><a href="../../api/re.html"><strong aria-hidden="true">5.6.</strong> re</a></li><li class="chapter-item expanded "><a href="../../api/reframework.html"><strong aria-hidden="true">5.7.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../../api/sdk.html"><strong aria-hidden="true">5.8.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../../api/vrmod.html"><strong aria-hidden="true">5.9.</strong> vrmod</a></li><li class="chapter-item expanded "><a href="../../api/object_explorer.html"><strong aria-hidden="true">5.10.</strong> object_explorer</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/types/index.html"><strong aria-hidden="true">6.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/types/VectorXf.html"><strong aria-hidden="true">6.1.</strong> VectorXf</a></li><li class="chapter-item expanded "><a href="../../api/types/Matrix4x4f.html"><strong aria-hidden="true">6.2.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../../api/types/Quaternion.html"><strong aria-hidden="true">6.3.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../../api/types/REComponent.html"><strong aria-hidden="true">6.4.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../../api/types/REField.html"><strong aria-hidden="true">6.5.</strong> REField</a></li><li class="chapter-item expanded "><a href="../../api/types/REManagedObject.html"><strong aria-hidden="true">6.6.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../../api/types/REMethodDefinition.html"><strong aria-hidden="true">6.7.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETypeDefinition.html"><strong aria-hidden="true">6.8.</strong> RETypeDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETransform.html"><strong aria-hidden="true">6.9.</strong> RETransform</a></li><li class="chapter-item expanded "><a href="../../api/types/REResource.html"><strong aria-hidden="true">6.10.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../../api/types/SystemArray.html"><strong aria-hidden="true">6.11.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../../api/types/ValueType.html"><strong aria-hidden="true">6.12.</strong> ValueType</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book/edit/master/src/api/general/best-practices.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="shared-state"><a class="header" href="#shared-state">Shared State</a></h2>
+<p>Lua uses a shared state across all scripts. Use <code>local</code> variables <em>and</em> <code>local</code> functions (not necessary for local tables) so as to not cause conflicts with other scripts.</p>
+<h3 id="example"><a class="header" href="#example">Example</a></h3>
+<pre><code class="language-lua">-- explicit local variables
+local foo = {}
+
+-- implicitly local due to local foo
+function foo.baz()
+    return &quot;baz&quot;
+end
+
+-- explicitly local because not part of a table
+local function bar()
+    return &quot;bar&quot;
+end
+</code></pre>
+<h2 id="hooking-performance-considerations"><a class="header" href="#hooking-performance-considerations">Hooking performance considerations</a></h2>
+<p>Using <code>sdk.hook</code> is very useful. However, this comes with a few things to take note of.</p>
+<p>When you are hooking something like an <code>update</code> function that runs every frame, for every entity in the game, this can cause performance problems if you are calling a lot of functions within the hook.</p>
+<p>A way to work around this, if it's possible in your script, is to stagger the function calls across multiple ticks. Also cache the methods and fields. <a href="https://github.com/GreenComfyTea/MHR-Overlay/pull/19">A real world example can be found here</a>.</p>
+<p>You can also create a plugin that will run the heavy code natively, and then call it from Lua.</p>
+<h2 id="method-calls--field-access-performance-considerations"><a class="header" href="#method-calls--field-access-performance-considerations">Method calls &amp; field access performance considerations</a></h2>
+<p>Another very useful pair of functions is <code>object:call</code> and <code>object:get/set_field</code>. Whenever these functions are called, they perform a hashmap lookup. These can be slightly more efficent if you cache off the method and field definitions.</p>
+<p>Example implementation</p>
+<pre><code class="language-lua">local method1 = sdk.find_type_definition(&quot;Foo&quot;):get_method(&quot;Bar&quot;)
+local field1 = sdk.find_type_definition(&quot;Foo&quot;):get_field(&quot;Baz&quot;)
+
+re.on_frame(function()
+    local some_object = sdk.get_managed_singleton(&quot;Qux&quot;)
+    local bar_result = method1:call(some_object, 1, 2, 3)
+    local baz_result = field1:get_data(some_object)
+end)
+</code></pre>
+<h2 id="plugins"><a class="header" href="#plugins">Plugins</a></h2>
+<p>If there's something you find you can't do without native code, Lua can <code>require</code> native DLLs. Native plugins are also an option.</p>
+<p>Plugins can also be used to run heavy code that would otherwise be very slow in Lua. Parts of your script can still run in Lua, but you can expose APIs from your plugin that would run the heavy parts natively.</p>
+<h2 id="modules"><a class="header" href="#modules">Modules</a></h2>
+<p>Lua can require modules. Modules are a way to organize your code.</p>
+<h3 id="module1lua"><a class="header" href="#module1lua">Module1.lua</a></h3>
+<p>This goes in a subfolder inside the autorun folder.</p>
+<pre><code class="language-lua">local test = {}
+
+function test.foo()
+    print(&quot;foo&quot;)
+end
+
+return test
+</code></pre>
+<h3 id="mainlua"><a class="header" href="#mainlua">Main.lua</a></h3>
+<p>This goes in the autorun folder.</p>
+<pre><code class="language-lua">local module1 = require(&quot;subfolder/Module1&quot;)
+
+-- Now you can call module1.foo()
+module1.foo()
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../api/general/Notes-on-Return-Types.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../api/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../api/general/Notes-on-Return-Types.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../api/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

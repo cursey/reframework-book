@@ -144,12 +144,12 @@ float* size_invoke = (float*)&get_size_invoke_result;
 ```
 
 ### Example plugins
-https://github.com/praydog/REFramework/tree/master/example_plugin
+[REFramework Example Plugin](https://github.com/praydog/REFramework/tree/master/example_plugin)
 
-https://github.com/cursey/reframework-d2d
+[REFramework Direct2D Plugin](https://github.com/cursey/reframework-d2d)
 
 ### Plugin headers
-https://github.com/praydog/REFramework/tree/master/include/reframework
+[REFramework Plugin API Headers](https://github.com/praydog/REFramework/tree/master/include/reframework)
 
 ## Side notes
 Everything is subject to change and maybe refactored over time.

@@ -2,15 +2,13 @@ This is the REFramework wiki. It will mostly serve as documentation for the scri
 
 [VR Troubleshooting](troubleshooting/VR-Troubleshooting.md)
 
+[Nightly builds](https://github.com/praydog/REFramework-nightly/releases)
+
 ## Lua Scripting
 
 REFramework comes with a scripting system using Lua. 
 
 Leveraging the RE Engine's IL2CPP implementation, REFramework gives developers powerful control over the game engine.
-
-Lua scripting can be found here now:
-
-Binaries: https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts
 
 If you are interested in native plugins: [read the plugin section](#plugins)
 
@@ -52,6 +50,8 @@ You **CANNOT** use the `Reflection Methods` or `Reflection Properties` yet witho
 Good APIs to start on: [sdk](https://github.com/praydog/REFramework/wiki/sdk) and [re](https://github.com/praydog/REFramework/wiki/re)
 
 [Example Scripts](https://github.com/praydog/REFramework/wiki/Example-Scripts)
+
+---
 
 ## Plugins
 REFramework has the ability to run native DLL plugins. This can also just be used as a loose DLL loader, with no awareness of REF.

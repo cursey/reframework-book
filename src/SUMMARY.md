@@ -12,7 +12,9 @@
 - [Example Snippets](examples/Example-Snippets.md)
 
 # Scripting Reference
-
+- [General](api/general/README.md)
+    - [Notes on Return Types](api/general/Notes-on-Return-Types.md)
+    - [Best Practices](api/general/best-practices.md)
 - [APIs](api/README.md)
     - [draw](api/draw.md)
     - [fs](api/fs.md)
@@ -37,4 +39,3 @@
     - [REResource](api/types/REResource.md)
     - [SystemArray](api/types/SystemArray.md)
     - [ValueType](api/types/ValueType.md)
-- [Notes on Return Types](api/Notes-on-Return-Types.md)

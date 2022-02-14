@@ -79,7 +79,7 @@ NOTE: Some native methods may not be able to be hooked with this, e.g. if they a
 
 pre_function and post_function looks like so:
 ```
-function pre_function(args)
+local function pre_function(args)
     -- args are modifiable
     -- args[1] = thread_context
     -- args[2] = "this"/object pointer
@@ -97,7 +97,7 @@ function pre_function(args)
     -- return sdk.PreHookResult.CALL_ORIGINAL -- calls the original function, same as not returning anything
 end
 
-function post_function(retval)
+local function post_function(retval)
     -- return something else if you don't want the original return value
     -- NOTE: the post_function will still be called if SKIP_ORIGINAL is returned from the pre_function
     -- So, if your function expects something valid in return, keep that in mind, as retval will not be valid.
@@ -108,10 +108,10 @@ end
 
 Example hook:
 ```
-function on_pre_get_timescale(args)
+local function on_pre_get_timescale(args)
 end
 
-function on_post_get_timescale(retval)
+local function on_post_get_timescale(retval)
     -- Make the game run 5 times as fast instead
     -- TODO: Make it so casting return values like this is not necessary
     return sdk.float_to_ptr(5.0)

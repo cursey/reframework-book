@@ -758,7 +758,7 @@ end)
 <p>Returns size of the default font for REFramework's UI.</p>
 <h3 id="imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><a class="header" href="#imguiset_next_window_pospos-vector2f-or-table-condition-pivot-vector2f-or-table"><code>imgui.set_next_window_pos(pos (Vector2f or table), condition, pivot (Vector2f or table))</code></a></h3>
 <p><code>condition</code> is the <code>ImGuiCond</code> enum.</p>
-<pre><code>enum ImGuiCond_
+<pre><code class="language-cpp">enum ImGuiCond_
 {
     ImGuiCond_None          = 0,        // No condition (always set the variable), same as _Always
     ImGuiCond_Always        = 1 &lt;&lt; 0,   // No condition (always set the variable)
@@ -1229,28 +1229,59 @@ FinalizeGameCore
 <p>RE3: <code>name</code> would get converted to <code>offline.name</code></p>
 <h3 id="sdkget_thread_context"><a class="header" href="#sdkget_thread_context"><code>sdk.get_thread_context()</code></a></h3>
 <h3 id="sdkget_native_singletonname"><a class="header" href="#sdkget_native_singletonname"><code>sdk.get_native_singleton(name)</code></a></h3>
-<p>Returns a <code>void*</code>. Can be used with <code>sdk.call_native_func</code></p>
+<p>Returns a <code>void*</code>. Can be used with <a href="api/sdk.html#sdkcall_native_funcobject-type_definition-method_name-args">sdk.call_native_func</a></p>
 <p>Possible singletons can be found in the Native Singletons view in the Object Explorer.</p>
 <h3 id="sdkget_managed_singletonname"><a class="header" href="#sdkget_managed_singletonname"><code>sdk.get_managed_singleton(name)</code></a></h3>
-<p>Returns an <code>REManagedObject*</code>.</p>
+<p>Returns an <a href="api/types/REManagedObject.html">REManagedObject*</a>.</p>
 <p>Possible singletons can be found in the Singletons view in the Object Explorer.</p>
 <h3 id="sdkfind_type_definitionname"><a class="header" href="#sdkfind_type_definitionname"><code>sdk.find_type_definition(name)</code></a></h3>
-<p>Returns an <code>RETypeDefinition*</code>.</p>
+<p>Returns an <a href="api/types/RETypeDefinition.html">RETypeDefinition*</a>.</p>
 <h3 id="sdktypeofname"><a class="header" href="#sdktypeofname"><code>sdk.typeof(name)</code></a></h3>
 <p>Returns a <code>System.Type</code>. </p>
 <p>Equivalent to calling <code>sdk.find_type_definition(name):get_runtime_type()</code>.</p>
 <p>Equivalent to <code>typeof</code> in C#.</p>
 <h3 id="sdkcreate_instancetypename-simplify"><a class="header" href="#sdkcreate_instancetypename-simplify"><code>sdk.create_instance(typename, simplify)</code></a></h3>
-<p>Returns an <code>REManagedObject</code>. Equivalent to calling <code>sdk.find_type_definition(typename):create_instance()</code></p>
+<p>Returns an <a href="api/types/REManagedObject.html">REManagedObject</a>.</p>
+<p>Equivalent to calling <code>sdk.find_type_definition(typename):create_instance()</code></p>
 <p><code>simplify</code> - defaults to <code>false</code>. Set this to <code>true</code> if this function is returning <code>nil</code>.</p>
+<h3 id="sdkcreate_managed_arraytype-length"><a class="header" href="#sdkcreate_managed_arraytype-length"><code>sdk.create_managed_array(type, length)</code></a></h3>
+<p>Creates and returns a new <a href="api/types/SystemArray.html">SystemArray</a> of the given <code>type</code>, with <code>length</code> elements.</p>
+<p><code>type</code> can be any of the following:</p>
+<ul>
+<li>A <code>System.Type</code> returned from <a href="api/sdk.html#sdktypeofname">sdk.typeof</a></li>
+<li>An <a href="api/types/RETypeDefinition.html">RETypeDefinition</a> returned from <a href="api/sdk.html#sdkfind_type_definitionname">sdk.find_type_definition</a></li>
+<li>A Lua <code>string</code> representing the type name.</li>
+</ul>
+<p>Any other type will throw a Lua error.</p>
+<p>If <code>type</code> cannot resolve to a valid <code>System.Type</code>, a Lua error will be thrown.</p>
+<h3 id="sdkcreate_sbytevalue"><a class="header" href="#sdkcreate_sbytevalue"><code>sdk.create_sbyte(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.SByte</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_bytevalue"><a class="header" href="#sdkcreate_bytevalue"><code>sdk.create_byte(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.Byte</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_int16value"><a class="header" href="#sdkcreate_int16value"><code>sdk.create_int16(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.Int16</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_uint16value"><a class="header" href="#sdkcreate_uint16value"><code>sdk.create_uint16(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.UInt16</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_int32value"><a class="header" href="#sdkcreate_int32value"><code>sdk.create_int32(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.Int32</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_uint32value"><a class="header" href="#sdkcreate_uint32value"><code>sdk.create_uint32(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.UInt32</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_int64value"><a class="header" href="#sdkcreate_int64value"><code>sdk.create_int64(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.Int64</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_uint64value"><a class="header" href="#sdkcreate_uint64value"><code>sdk.create_uint64(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.UInt64</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_singlevalue"><a class="header" href="#sdkcreate_singlevalue"><code>sdk.create_single(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.Single</code> given the <code>value</code>.</p>
+<h3 id="sdkcreate_doublevalue"><a class="header" href="#sdkcreate_doublevalue"><code>sdk.create_double(value)</code></a></h3>
+<p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.Double</code> given the <code>value</code>.</p>
 <h3 id="sdkcreate_resourcetypename-resource_path"><a class="header" href="#sdkcreate_resourcetypename-resource_path"><code>sdk.create_resource(typename, resource_path)</code></a></h3>
 <p>Returns an <code>REResource</code>.</p>
 <h3 id="sdkcall_native_funcobject-type_definition-method_name-args"><a class="header" href="#sdkcall_native_funcobject-type_definition-method_name-args"><code>sdk.call_native_func(object, type_definition, method_name, args...)</code></a></h3>
 <p>Return value is dependent on what the method returns.</p>
 <p>Full function prototype can be passed as <code>method_name</code> if there are multiple functions with the same name but different parameters.</p>
-<p>Should only be used with native types, not <code>REManagedObject</code> (though, it can be if wanted).</p>
+<p>Should only be used with native types, not <a href="api/types/REManagedObject.html">REManagedObject</a> (though, it can be if wanted).</p>
 <p>Example:</p>
-<pre><code>local scene_manager = sdk.get_native_singleton(&quot;via.SceneManager&quot;)
+<pre><code class="language-lua">local scene_manager = sdk.get_native_singleton(&quot;via.SceneManager&quot;)
 local scene_manager_type = sdk.find_type_definition(&quot;via.SceneManager&quot;)
 local scene = sdk.call_native_func(scene_manager, scene_manager_type, &quot;get_CurrentScene&quot;)
 
@@ -1267,14 +1298,14 @@ end
 <h3 id="sdkget_native_fieldobject-type_definition-field_name"><a class="header" href="#sdkget_native_fieldobject-type_definition-field_name"><code>sdk.get_native_field(object, type_definition, field_name)</code></a></h3>
 <h3 id="sdkset_native_fieldobject-type_definition-field_name-value"><a class="header" href="#sdkset_native_fieldobject-type_definition-field_name-value"><code>sdk.set_native_field(object, type_definition, field_name, value)</code></a></h3>
 <h3 id="sdkget_primary_camera"><a class="header" href="#sdkget_primary_camera"><code>sdk.get_primary_camera()</code></a></h3>
-<p>Returns a <code>REManagedObject*</code>. Returns the current camera being used by the engine.</p>
+<p>Returns a <a href="api/types/REManagedObject.html">REManagedObject*</a>. Returns the current camera being used by the engine.</p>
 <h3 id="sdkhookmethod_definition-pre_function-post_function-ignore_jmp"><a class="header" href="#sdkhookmethod_definition-pre_function-post_function-ignore_jmp"><code>sdk.hook(method_definition, pre_function, post_function, ignore_jmp)</code></a></h3>
-<p>Creates a hook for <code>method_definition</code>, intercepting all incoming calls the game makes to it.</p>
+<p>Creates a hook for <a href="api/types/REMethodDefinition.html">method_definition</a>, intercepting all incoming calls the game makes to it.</p>
 <p><code>ignore_jmp</code> - Skips trying to follow the first jmp in the function. Defaults to <code>false</code>.</p>
 <p>Using <code>pre_function</code> and <code>post_function</code>, the behavior of these functions can be modified.</p>
 <p>NOTE: Some native methods may not be able to be hooked with this, e.g. if they are just a  wrapper over the native function. Some additional work will need to be done from our end to make those work.</p>
 <p>pre_function and post_function looks like so:</p>
-<pre><code>local function pre_function(args)
+<pre><code class="language-lua">local function pre_function(args)
     -- args are modifiable
     -- args[1] = thread_context
     -- args[2] = &quot;this&quot;/object pointer
@@ -1301,7 +1332,7 @@ local function post_function(retval)
 end
 </code></pre>
 <p>Example hook:</p>
-<pre><code>local function on_pre_get_timescale(args)
+<pre><code class="language-lua">local function on_pre_get_timescale(args)
 end
 
 local function on_post_get_timescale(retval)
@@ -1313,14 +1344,49 @@ end
 sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_TimeScale&quot;), on_pre_get_timescale, on_post_get_timescale)
 </code></pre>
 <h3 id="sdkis_managed_objectvalue"><a class="header" href="#sdkis_managed_objectvalue"><code>sdk.is_managed_object(value)</code></a></h3>
-<p>Returns true if <code>value</code> is a valid <code>REManagedObject</code>.</p>
+<p>Returns true if <code>value</code> is a valid <a href="api/types/REManagedObject.html">REManagedObject</a>.</p>
 <p>Use only if necessary. Does a bunch of checks and calls <a href="https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-isbadreadptr">IsBadReadPtr</a> a lot.</p>
 <h3 id="sdkto_managed_objectvalue"><a class="header" href="#sdkto_managed_objectvalue"><code>sdk.to_managed_object(value)</code></a></h3>
+<p>Attempts to convert <code>value</code> to an <a href="api/types/REManagedObject.html">REManagedObject*</a>.</p>
+<p><code>value</code> can be any of the following types:</p>
+<ul>
+<li>An <a href="api/types/REManagedObject.html">REManagedObject*</a>, in which case it is returned as-is</li>
+<li>A lua number convertible to <code>uintptr_t</code></li>
+<li>A <code>void*</code></li>
+</ul>
+<p>Any other type will return <code>nil</code>.</p>
+<p>A <code>value</code> that is not a valid <a href="api/types/REManagedObject.html">REManagedObject*</a> will return <code>nil</code>, equivalent to calling <a href="api/sdk.html#sdkis_managed_objectvalue">sdk.is_managed_object</a> on it.</p>
 <h3 id="sdkto_doublevalue"><a class="header" href="#sdkto_doublevalue"><code>sdk.to_double(value)</code></a></h3>
+<p>Attempts to convert <code>value</code> to a <code>double</code>.</p>
+<p><code>value</code> can be any of the following types:</p>
+<ul>
+<li>A <code>void*</code></li>
+</ul>
 <h3 id="sdkto_floatvalue"><a class="header" href="#sdkto_floatvalue"><code>sdk.to_float(value)</code></a></h3>
+<p>Attempts to convert <code>value</code> to a <code>float</code>.</p>
+<p><code>value</code> can be any of the following types:</p>
+<ul>
+<li>A <code>void*</code></li>
+</ul>
 <h3 id="sdkto_int64value"><a class="header" href="#sdkto_int64value"><code>sdk.to_int64(value)</code></a></h3>
+<p>Attempts to convert <code>value</code> to a <code>int64</code>.</p>
+<p><code>value</code> can be any of the following types:</p>
+<ul>
+<li>A <code>void*</code></li>
+</ul>
 <h3 id="sdkto_ptrvalue"><a class="header" href="#sdkto_ptrvalue"><code>sdk.to_ptr(value)</code></a></h3>
+<p>Attempts to convert <code>value</code> to a <code>void*</code>.</p>
+<p><code>value</code> can be any of the following types:</p>
+<ul>
+<li>An <a href="api/types/REManagedObject.html">REManagedObject*</a></li>
+<li>A lua number convertible to <code>int64_t</code></li>
+<li>A lua number convertible to <code>double</code></li>
+<li>A lua boolean</li>
+<li>A <code>void*</code>, in which case it is returned as-is</li>
+</ul>
+<p>Any other type will return <code>nil</code>.</p>
 <h3 id="sdkfloat_to_ptrnumber"><a class="header" href="#sdkfloat_to_ptrnumber"><code>sdk.float_to_ptr(number)</code></a></h3>
+<p>Converts <code>number</code> to a <code>void*</code>.</p>
 <h2 id="enums"><a class="header" href="#enums">Enums</a></h2>
 <h3 id="sdkprehookresult"><a class="header" href="#sdkprehookresult"><code>sdk.PreHookResult</code></a></h3>
 <ul>
@@ -1406,6 +1472,12 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <p>Normalizes <code>self</code>. Nothing is returned.</p>
 <h3 id="selfnormalized"><a class="header" href="#selfnormalized"><code>self:normalized()</code></a></h3>
 <p>Returns the normalization of <code>self</code>.</p>
+<h3 id="selfreflectnormal"><a class="header" href="#selfreflectnormal"><code>self:reflect(normal)</code></a></h3>
+<p>Returns the reflection of <code>self</code> over <code>normal</code>.</p>
+<h3 id="selfrefractnormal-eta"><a class="header" href="#selfrefractnormal-eta"><code>self:refract(normal, eta)</code></a></h3>
+<p>Returns the refraction of <code>self</code> over <code>normal</code> with the given <code>eta</code>.</p>
+<h3 id="selflerpother-t"><a class="header" href="#selflerpother-t"><code>self:lerp(other, t)</code></a></h3>
+<p>Returns the linear interpolation between <code>self</code> and <code>other</code> with the given <code>t</code>.</p>
 <h3 id="selfto_vec2"><a class="header" href="#selfto_vec2"><code>self:to_vec2()</code></a></h3>
 <p>Converts <code>self</code> to a <code>Vector2f</code>. Not available if <code>self</code> is already a <code>Vector2f</code>.</p>
 <h3 id="selfto_vec3"><a class="header" href="#selfto_vec3"><code>self:to_vec3()</code></a></h3>
@@ -1424,8 +1496,12 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <p><code>VectorXf</code> subtraction.</p>
 <h3 id="vectorxf--scalar"><a class="header" href="#vectorxf--scalar"><code>VectorXf * scalar</code></a></h3>
 <p><code>VectorXf</code> <code>scalar</code> multiplication.</p>
-<div style="break-before: page; page-break-before: always;"></div><h2 id="creation-1"><a class="header" href="#creation-1">Creation</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="constructors"><a class="header" href="#constructors">Constructors</a></h2>
 <h3 id="matrix4x4fnew"><a class="header" href="#matrix4x4fnew"><code>Matrix4x4f.new()</code></a></h3>
+<h3 id="matrix4x4fnewx1-y1-z1-w1-x2-y2-z2-w2-x3-y3-z3-w3-x4-y4-z4-w4"><a class="header" href="#matrix4x4fnewx1-y1-z1-w1-x2-y2-z2-w2-x3-y3-z3-w3-x4-y4-z4-w4"><code>Matrix4x4f.new(x1, y1, z1, w1, x2, y2, z2, w2 x3, y3, z3, w3, x4, y4, z4, w4)</code></a></h3>
+<h3 id="static-methods"><a class="header" href="#static-methods">Static methods</a></h3>
+<h3 id="matrix4x4fidentity"><a class="header" href="#matrix4x4fidentity"><code>Matrix4x4f.identity()</code></a></h3>
+<p>Returns the identity matrix.</p>
 <h2 id="methods-11"><a class="header" href="#methods-11">Methods</a></h2>
 <h3 id="selfto_quat-1"><a class="header" href="#selfto_quat-1"><code>self:to_quat()</code></a></h3>
 <p>Returns a <code>Quaternion</code> built from <code>self</code>.</p>
@@ -1433,6 +1509,10 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <p>Returns a <code>Matrix4x4f</code> that is the inverse of <code>self</code>.</p>
 <h3 id="selfinvert"><a class="header" href="#selfinvert"><code>self:invert()</code></a></h3>
 <p>Inverts <code>self</code>. Returns nothing.</p>
+<h3 id="selfinterpolateother-t"><a class="header" href="#selfinterpolateother-t"><code>self:interpolate(other, t)</code></a></h3>
+<p>Returns the linear interpolation between <code>self</code> and <code>other</code> with the given <code>t</code>.</p>
+<h3 id="selfmatrix_rotation"><a class="header" href="#selfmatrix_rotation"><code>self:matrix_rotation()</code></a></h3>
+<p>Extracts the rotation matrix from <code>self</code>.</p>
 <h2 id="meta-methods-1"><a class="header" href="#meta-methods-1">Meta-methods</a></h2>
 <h3 id="matrix4x4f--matrix4x4f"><a class="header" href="#matrix4x4f--matrix4x4f"><code>Matrix4x4f * Matrix4x4f</code></a></h3>
 <p><code>Matrix4x4f</code> multiplication.</p>
@@ -1443,6 +1523,9 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <p>Returns a <code>Vector4f</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
 <h3 id="quaternionneww-x-y-z"><a class="header" href="#quaternionneww-x-y-z"><code>Quaternion.new(w, x, y, z)</code></a></h3>
+<h2 id="static-methods-1"><a class="header" href="#static-methods-1">Static Methods</a></h2>
+<h3 id="quaternionidentity"><a class="header" href="#quaternionidentity"><code>Quaternion.identity()</code></a></h3>
+<p>Returns the identity quaternion.</p>
 <h2 id="fields-1"><a class="header" href="#fields-1">Fields</a></h2>
 <h3 id="x-number-1"><a class="header" href="#x-number-1"><code>x: number</code></a></h3>
 <p>The X component of the <code>Quaternion</code>.</p>
@@ -1463,6 +1546,14 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <p>Normalizes <code>self</code>. Returns nothing.</p>
 <h3 id="selfnormalized-1"><a class="header" href="#selfnormalized-1"><code>self:normalized()</code></a></h3>
 <p>Returns a <code>Quaternion</code> that is the normalization of <code>self</code>.</p>
+<h3 id="selfslerpother-t"><a class="header" href="#selfslerpother-t"><code>self:slerp(other, t)</code></a></h3>
+<p>Returns a <code>Quaternion</code> that is the spherical linear interpolation between <code>self</code> and <code>other</code> with the given <code>t</code>.</p>
+<h3 id="selfdotother-1"><a class="header" href="#selfdotother-1"><code>self:dot(other)</code></a></h3>
+<p>Returns the dot product between <code>self</code> and <code>other</code>.</p>
+<h3 id="selflength-1"><a class="header" href="#selflength-1"><code>self:length()</code></a></h3>
+<p>Returns the length of <code>self</code>.</p>
+<h3 id="selfconjugate"><a class="header" href="#selfconjugate"><code>self:conjugate()</code></a></h3>
+<p>Returns a <code>Quaternion</code> that is the conjugate of <code>self</code>.</p>
 <h2 id="meta-methods-2"><a class="header" href="#meta-methods-2">Meta-methods</a></h2>
 <h3 id="quaternion--quaternion"><a class="header" href="#quaternion--quaternion"><code>Quaternion * Quaternion</code></a></h3>
 <p><code>Quaternion</code> multiplication.</p>

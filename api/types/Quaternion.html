@@ -142,6 +142,9 @@
                     <main>
                         <h2 id="constructor"><a class="header" href="#constructor">Constructor</a></h2>
 <h3 id="quaternionneww-x-y-z"><a class="header" href="#quaternionneww-x-y-z"><code>Quaternion.new(w, x, y, z)</code></a></h3>
+<h2 id="static-methods"><a class="header" href="#static-methods">Static Methods</a></h2>
+<h3 id="quaternionidentity"><a class="header" href="#quaternionidentity"><code>Quaternion.identity()</code></a></h3>
+<p>Returns the identity quaternion.</p>
 <h2 id="fields"><a class="header" href="#fields">Fields</a></h2>
 <h3 id="x-number"><a class="header" href="#x-number"><code>x: number</code></a></h3>
 <p>The X component of the <code>Quaternion</code>.</p>
@@ -162,6 +165,14 @@
 <p>Normalizes <code>self</code>. Returns nothing.</p>
 <h3 id="selfnormalized"><a class="header" href="#selfnormalized"><code>self:normalized()</code></a></h3>
 <p>Returns a <code>Quaternion</code> that is the normalization of <code>self</code>.</p>
+<h3 id="selfslerpother-t"><a class="header" href="#selfslerpother-t"><code>self:slerp(other, t)</code></a></h3>
+<p>Returns a <code>Quaternion</code> that is the spherical linear interpolation between <code>self</code> and <code>other</code> with the given <code>t</code>.</p>
+<h3 id="selfdotother"><a class="header" href="#selfdotother"><code>self:dot(other)</code></a></h3>
+<p>Returns the dot product between <code>self</code> and <code>other</code>.</p>
+<h3 id="selflength"><a class="header" href="#selflength"><code>self:length()</code></a></h3>
+<p>Returns the length of <code>self</code>.</p>
+<h3 id="selfconjugate"><a class="header" href="#selfconjugate"><code>self:conjugate()</code></a></h3>
+<p>Returns a <code>Quaternion</code> that is the conjugate of <code>self</code>.</p>
 <h2 id="meta-methods"><a class="header" href="#meta-methods">Meta-methods</a></h2>
 <h3 id="quaternion--quaternion"><a class="header" href="#quaternion--quaternion"><code>Quaternion * Quaternion</code></a></h3>
 <p><code>Quaternion</code> multiplication.</p>

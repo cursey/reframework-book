@@ -140,8 +140,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="creation"><a class="header" href="#creation">Creation</a></h2>
+                        <h2 id="constructors"><a class="header" href="#constructors">Constructors</a></h2>
 <h3 id="matrix4x4fnew"><a class="header" href="#matrix4x4fnew"><code>Matrix4x4f.new()</code></a></h3>
+<h3 id="matrix4x4fnewx1-y1-z1-w1-x2-y2-z2-w2-x3-y3-z3-w3-x4-y4-z4-w4"><a class="header" href="#matrix4x4fnewx1-y1-z1-w1-x2-y2-z2-w2-x3-y3-z3-w3-x4-y4-z4-w4"><code>Matrix4x4f.new(x1, y1, z1, w1, x2, y2, z2, w2 x3, y3, z3, w3, x4, y4, z4, w4)</code></a></h3>
+<h3 id="static-methods"><a class="header" href="#static-methods">Static methods</a></h3>
+<h3 id="matrix4x4fidentity"><a class="header" href="#matrix4x4fidentity"><code>Matrix4x4f.identity()</code></a></h3>
+<p>Returns the identity matrix.</p>
 <h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
 <h3 id="selfto_quat"><a class="header" href="#selfto_quat"><code>self:to_quat()</code></a></h3>
 <p>Returns a <code>Quaternion</code> built from <code>self</code>.</p>
@@ -149,6 +153,10 @@
 <p>Returns a <code>Matrix4x4f</code> that is the inverse of <code>self</code>.</p>
 <h3 id="selfinvert"><a class="header" href="#selfinvert"><code>self:invert()</code></a></h3>
 <p>Inverts <code>self</code>. Returns nothing.</p>
+<h3 id="selfinterpolateother-t"><a class="header" href="#selfinterpolateother-t"><code>self:interpolate(other, t)</code></a></h3>
+<p>Returns the linear interpolation between <code>self</code> and <code>other</code> with the given <code>t</code>.</p>
+<h3 id="selfmatrix_rotation"><a class="header" href="#selfmatrix_rotation"><code>self:matrix_rotation()</code></a></h3>
+<p>Extracts the rotation matrix from <code>self</code>.</p>
 <h2 id="meta-methods"><a class="header" href="#meta-methods">Meta-methods</a></h2>
 <h3 id="matrix4x4f--matrix4x4f"><a class="header" href="#matrix4x4f--matrix4x4f"><code>Matrix4x4f * Matrix4x4f</code></a></h3>
 <p><code>Matrix4x4f</code> multiplication.</p>

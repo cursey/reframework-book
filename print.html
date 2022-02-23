@@ -1606,6 +1606,15 @@ end
 <h2 id="methods-18"><a class="header" href="#methods-18">Methods</a></h2>
 <h3 id="selfcalculate_base_transformjoint"><a class="header" href="#selfcalculate_base_transformjoint"><code>self:calculate_base_transform(joint)</code></a></h3>
 <p>Returns a <code>Matrix4x4f</code>. Returns the reference pose (T-pose) for a specific joint relative to the transform's origin (in local transform space).</p>
+<h3 id="selfset_positionposition-no_dirty"><a class="header" href="#selfset_positionposition-no_dirty"><code>self:set_position(position, no_dirty)</code></a></h3>
+<p>Sets the world position (<code>Vector4f</code>) of the transform.</p>
+<p>When <code>no_dirty</code> is <code>true</code>, the transform and its parents will not be marked as dirty. This seems to be necessary when the scene is locked, because parent transforms will end up getting stuck.</p>
+<h3 id="selfset_rotationrotation"><a class="header" href="#selfset_rotationrotation"><code>self:set_rotation(rotation)</code></a></h3>
+<p>Sets the world rotation (<code>Quaternion</code>) of the transform.</p>
+<h3 id="selfget_position"><a class="header" href="#selfget_position"><code>self:get_position()</code></a></h3>
+<p>Gets the world position (<code>Vector4f</code>) of the transform.</p>
+<h3 id="selfget_rotation"><a class="header" href="#selfget_rotation"><code>self:get_rotation()</code></a></h3>
+<p>Gets the world rotation (<code>Quaternion</code>) of the transform.</p>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="methods-19"><a class="header" href="#methods-19">Methods</a></h2>
 <h3 id="selfadd_ref-1"><a class="header" href="#selfadd_ref-1"><code>self:add_ref()</code></a></h3>
 <h3 id="selfrelease-1"><a class="header" href="#selfrelease-1"><code>self:release()</code></a></h3>

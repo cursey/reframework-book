@@ -41,6 +41,15 @@ Normalizes `self`. Nothing is returned.
 ### `self:normalized()`
 Returns the normalization of `self`.
 
+### `self:reflect(normal)`
+Returns the reflection of `self` over `normal`.
+
+### `self:refract(normal, eta)`
+Returns the refraction of `self` over `normal` with the given `eta`.
+
+### `self:lerp(other, t)`
+Returns the linear interpolation between `self` and `other` with the given `t`.
+
 ### `self:to_vec2()`
 Converts `self` to a `Vector2f`. Not available if `self` is already a `Vector2f`.
 

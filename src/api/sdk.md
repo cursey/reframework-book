@@ -11,15 +11,15 @@ RE3: `name` would get converted to `offline.name`
 ### `sdk.get_thread_context()`
 
 ### `sdk.get_native_singleton(name)`
-Returns a `void*`. Can be used with `sdk.call_native_func`
+Returns a `void*`. Can be used with [sdk.call_native_func](#sdkcall_native_funcobject-type_definition-method_name-args)
 
 Possible singletons can be found in the Native Singletons view in the Object Explorer.
 ### `sdk.get_managed_singleton(name)`
-Returns an `REManagedObject*`.
+Returns an [REManagedObject*](types/REManagedObject.md).
 
 Possible singletons can be found in the Singletons view in the Object Explorer.
 ### `sdk.find_type_definition(name)`
-Returns an `RETypeDefinition*`.
+Returns an [RETypeDefinition*](types/RETypeDefinition.md).
 
 ### `sdk.typeof(name)`
 Returns a `System.Type`. 
@@ -29,9 +29,54 @@ Equivalent to calling `sdk.find_type_definition(name):get_runtime_type()`.
 Equivalent to `typeof` in C#.
 
 ### `sdk.create_instance(typename, simplify)`
-Returns an `REManagedObject`. Equivalent to calling `sdk.find_type_definition(typename):create_instance()`
+Returns an [REManagedObject](types/REManagedObject.md).
+
+Equivalent to calling `sdk.find_type_definition(typename):create_instance()`
 
 `simplify` - defaults to `false`. Set this to `true` if this function is returning `nil`.
+
+### `sdk.create_managed_array(type, length)`
+Creates and returns a new [SystemArray](types/SystemArray.md) of the given `type`, with `length` elements.
+
+`type` can be any of the following:
+
+* A `System.Type` returned from [sdk.typeof](#sdktypeofname)
+* An [RETypeDefinition](types/RETypeDefinition.md) returned from [sdk.find_type_definition](#sdkfind_type_definitionname)
+* A Lua `string` representing the type name.
+
+Any other type will throw a Lua error.
+
+If `type` cannot resolve to a valid `System.Type`, a Lua error will be thrown.
+
+### `sdk.create_sbyte(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.SByte` given the `value`.
+
+### `sdk.create_byte(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.Byte` given the `value`.
+
+### `sdk.create_int16(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.Int16` given the `value`.
+
+### `sdk.create_uint16(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.UInt16` given the `value`.
+
+### `sdk.create_int32(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.Int32` given the `value`.
+
+### `sdk.create_uint32(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.UInt32` given the `value`.
+
+### `sdk.create_int64(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.Int64` given the `value`.
+
+### `sdk.create_uint64(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.UInt64` given the `value`.
+
+### `sdk.create_single(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.Single` given the `value`.
+
+### `sdk.create_double(value)`
+Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.Double` given the `value`.
 
 ### `sdk.create_resource(typename, resource_path)`
 Returns an `REResource`.
@@ -41,10 +86,10 @@ Return value is dependent on what the method returns.
 
 Full function prototype can be passed as `method_name` if there are multiple functions with the same name but different parameters.
 
-Should only be used with native types, not `REManagedObject` (though, it can be if wanted).
+Should only be used with native types, not [REManagedObject](types/REManagedObject.md) (though, it can be if wanted).
 
 Example:
-```
+```lua
 local scene_manager = sdk.get_native_singleton("via.SceneManager")
 local scene_manager_type = sdk.find_type_definition("via.SceneManager")
 local scene = sdk.call_native_func(scene_manager, scene_manager_type, "get_CurrentScene")
@@ -66,10 +111,10 @@ Alternative calling method:
 ### `sdk.set_native_field(object, type_definition, field_name, value)`
 
 ### `sdk.get_primary_camera()`
-Returns a `REManagedObject*`. Returns the current camera being used by the engine.
+Returns a [REManagedObject*](types/REManagedObject.md). Returns the current camera being used by the engine.
 
 ### `sdk.hook(method_definition, pre_function, post_function, ignore_jmp)`
-Creates a hook for `method_definition`, intercepting all incoming calls the game makes to it.
+Creates a hook for [method_definition](types/REMethodDefinition.md), intercepting all incoming calls the game makes to it.
 
 `ignore_jmp` - Skips trying to follow the first jmp in the function. Defaults to `false`.
 
@@ -78,7 +123,7 @@ Using `pre_function` and `post_function`, the behavior of these functions can be
 NOTE: Some native methods may not be able to be hooked with this, e.g. if they are just a  wrapper over the native function. Some additional work will need to be done from our end to make those work.
 
 pre_function and post_function looks like so:
-```
+```lua
 local function pre_function(args)
     -- args are modifiable
     -- args[1] = thread_context
@@ -107,7 +152,7 @@ end
 ```
 
 Example hook:
-```
+```lua
 local function on_pre_get_timescale(args)
 end
 
@@ -121,16 +166,56 @@ sdk.hook(sdk.find_type_definition("via.Scene"):get_method("get_TimeScale"), on_p
 ```
 
 ### `sdk.is_managed_object(value)`
-Returns true if `value` is a valid `REManagedObject`.
+Returns true if `value` is a valid [REManagedObject](types/REManagedObject.md).
 
 Use only if necessary. Does a bunch of checks and calls [IsBadReadPtr](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-isbadreadptr) a lot.
 ### `sdk.to_managed_object(value)`
-### `sdk.to_double(value)`
-### `sdk.to_float(value)`
-### `sdk.to_int64(value)`
-### `sdk.to_ptr(value)`
-### `sdk.float_to_ptr(number)`
+Attempts to convert `value` to an [REManagedObject*](types/REManagedObject.md).
 
+`value` can be any of the following types:
+
+* An [REManagedObject*](types/REManagedObject.md), in which case it is returned as-is
+* A lua number convertible to `uintptr_t`
+* A `void*`
+
+Any other type will return `nil`.
+
+A `value` that is not a valid [REManagedObject*](types/REManagedObject.md) will return `nil`, equivalent to calling [sdk.is_managed_object](#sdkis_managed_objectvalue) on it.
+
+### `sdk.to_double(value)`
+Attempts to convert `value` to a `double`.
+
+`value` can be any of the following types:
+
+* A `void*`
+
+### `sdk.to_float(value)`
+Attempts to convert `value` to a `float`.
+
+`value` can be any of the following types:
+* A `void*`
+
+### `sdk.to_int64(value)`
+Attempts to convert `value` to a `int64`.
+
+`value` can be any of the following types:
+* A `void*`
+
+### `sdk.to_ptr(value)`
+Attempts to convert `value` to a `void*`.
+
+`value` can be any of the following types:
+
+* An [REManagedObject*](types/REManagedObject.md)
+* A lua number convertible to `int64_t`
+* A lua number convertible to `double`
+* A lua boolean
+* A `void*`, in which case it is returned as-is
+
+Any other type will return `nil`.
+
+### `sdk.float_to_ptr(number)`
+Converts `number` to a `void*`.
 
 ## Enums
 ### `sdk.PreHookResult`

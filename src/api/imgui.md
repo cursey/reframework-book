@@ -153,7 +153,7 @@ Returns size of the default font for REFramework's UI.
 ### `imgui.set_next_window_pos(pos (Vector2f or table), condition, pivot (Vector2f or table))`
 `condition` is the `ImGuiCond` enum.
 
-```
+```cpp
 enum ImGuiCond_
 {
     ImGuiCond_None          = 0,        // No condition (always set the variable), same as _Always

@@ -2,9 +2,7 @@ Here you'll find various solutions and FAQ to various problems you may encounter
 
 [Getting Started Guide](https://beastsaber.notion.site/beastsaber/Praydog-s-Resident-Evil-2-3-VR-mod-3db8bd110ebf4a38870e1a5114b16998)
 
-Newer builds (dinput8.dll only) can be found [here](https://ci.appveyor.com/project/praydog/reframework/branch/master/artifacts)
-
-Newer builds (dinput8.dll only) with devmode enabled [here](https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts)
+Newer builds can be found [here](https://github.com/praydog/REFramework-nightly/releases/)
 
 ## Reporting a bug
 Report it on the [Issues](https://github.com/praydog/REFramework/issues) page.

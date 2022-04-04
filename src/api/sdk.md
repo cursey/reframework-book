@@ -35,6 +35,9 @@ Equivalent to calling `sdk.find_type_definition(typename):create_instance()`
 
 `simplify` - defaults to `false`. Set this to `true` if this function is returning `nil`.
 
+### `sdk.create_managed_string(str)`
+Creates and returns a new `System.String` from `str`.
+
 ### `sdk.create_managed_array(type, length)`
 Creates and returns a new [SystemArray](types/SystemArray.md) of the given `type`, with `length` elements.
 

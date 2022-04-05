@@ -160,7 +160,11 @@
 <li>Restarting SteamVR</li>
 <li>Disabling overlay software</li>
 <li>Disabling SteamVR theater</li>
-<li>Disabling &quot;Hardware-accelerated GPU scheduling&quot;</li>
+<li>Disabling &quot;Hardware-accelerated GPU scheduling&quot;
+<ul>
+<li>This <strong>MUST</strong> be disabled if you are getting extremely low frames</li>
+</ul>
+</li>
 <li>Swapping between DX11 and DX12</li>
 <li>Taking the headset off and putting it back on</li>
 <li>If you are using an HDR monitor, unplugging the monitor temporarily has been a reported fix</li>
@@ -186,7 +190,7 @@
 <h2 id="what-about-the-others-like-dmc5-and-mhrise"><a class="header" href="#what-about-the-others-like-dmc5-and-mhrise">What about the others like DMC5 and MHRise?</a></h2>
 <p>They are both fully 6DOF but with the least support.</p>
 <p><del>They have the same issue of audio positioning being incorrect</del> <strong>only in MHRise now</strong>.</p>
-<p>DMC5 has some issues with some incorrect UI elements.</p>
+<p><del>DMC5 has some issues with some incorrect UI elements.</del> Fixed in a recent update.</p>
 <h2 id="gameplay"><a class="header" href="#gameplay">Gameplay</a></h2>
 <p>RE2 and RE3:</p>
 <ul>
@@ -236,6 +240,7 @@
 <p>Enabling AFR/AER can be done under the &quot;VR&quot; section of the menu.</p>
 <h2 id="what-graphical-settings-are-broken"><a class="header" href="#what-graphical-settings-are-broken">What graphical settings are broken?</a></h2>
 <p>Volumetric Lighting, Lens Flares, TAA, and Motion Blur. Will need the help of someone more experienced with shaders to fix these.</p>
+<p>TAA has a partial fix in the latest nightly builds.</p>
 <h2 id="what-graphical-settings-are-forced"><a class="header" href="#what-graphical-settings-are-forced">What graphical settings are forced?</a></h2>
 <p>These are forced, but the forcing can be toggled off in REFramework's menu, under VR.</p>
 <ul>

@@ -25,6 +25,7 @@ If that still doesn't work, options can be changed in the `re2_fw_config.txt` in
 * Disabling overlay software
 * Disabling SteamVR theater
 * Disabling "Hardware-accelerated GPU scheduling"
+   * This **MUST** be disabled if you are getting extremely low frames
 * Swapping between DX11 and DX12
 * Taking the headset off and putting it back on
 * If you are using an HDR monitor, unplugging the monitor temporarily has been a reported fix
@@ -50,7 +51,7 @@ They are both fully 6DOF but with the least support.
 
 ~~They have the same issue of audio positioning being incorrect~~ **only in MHRise now**.
 
-DMC5 has some issues with some incorrect UI elements.
+~~DMC5 has some issues with some incorrect UI elements.~~ Fixed in a recent update.
 
 ## Gameplay
 RE2 and RE3:
@@ -103,6 +104,8 @@ Enabling AFR/AER can be done under the "VR" section of the menu.
 
 ## What graphical settings are broken?
 Volumetric Lighting, Lens Flares, TAA, and Motion Blur. Will need the help of someone more experienced with shaders to fix these.
+
+TAA has a partial fix in the latest nightly builds.
 
 ## What graphical settings are forced?
 These are forced, but the forcing can be toggled off in REFramework's menu, under VR.

@@ -31,7 +31,7 @@ If that still doesn't work, options can be changed in the `re2_fw_config.txt` in
 * If you are using an HDR monitor, unplugging the monitor temporarily has been a reported fix
 * If your screen looks squished with black bars turn off Borderless window mode
 * Make sure no graphical settings are being forced globally (e.g. from Nvidia Control Panel)
-    * The exception to this is disabling HDR
+    * The exception to this is disabling HDR which is required or else the game will not display within the headset
 
 ### In RE2
 There is a known issue of a softlock sometimes occurring in the Birkin fight if it goes on too long. It can be fixed simply by disabling FirstPerson until he spawns again.

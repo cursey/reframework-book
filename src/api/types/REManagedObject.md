@@ -43,6 +43,10 @@ Only use these if necessary!
 
 ### `self:add_ref()`
 Increments the object's internal reference count.
+
+### `self:add_ref_permanent()`
+Increments the object's internal reference count without REFramework managing it. Any objects created with REFramework and also using this method will not be deleted after the Lua state is destroyed.
+
 ### `self:release()`
 Decrements the object's internal reference count. Destroys the object if it reaches 0.
 

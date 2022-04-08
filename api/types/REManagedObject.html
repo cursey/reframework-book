@@ -178,6 +178,8 @@ end
 <p>Only use these if necessary!</p>
 <h3 id="selfadd_ref"><a class="header" href="#selfadd_ref"><code>self:add_ref()</code></a></h3>
 <p>Increments the object's internal reference count.</p>
+<h3 id="selfadd_ref_permanent"><a class="header" href="#selfadd_ref_permanent"><code>self:add_ref_permanent()</code></a></h3>
+<p>Increments the object's internal reference count without REFramework managing it. Any objects created with REFramework and also using this method will not be deleted after the Lua state is destroyed.</p>
 <h3 id="selfrelease"><a class="header" href="#selfrelease"><code>self:release()</code></a></h3>
 <p>Decrements the object's internal reference count. Destroys the object if it reaches 0.</p>
 <p>When a new Lua reference is created to an <code>REManagedObject</code>, REFramework automatically increments its reference count internally with <code>self:add_ref()</code>. This will keep the object alive until you are no longer referencing the object in Lua. <code>self:release()</code> is automatically called when Lua is no longer referencing the object anywhere.</p>

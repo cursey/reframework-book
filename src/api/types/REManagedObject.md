@@ -48,7 +48,10 @@ Increments the object's internal reference count.
 Increments the object's internal reference count without REFramework managing it. Any objects created with REFramework and also using this method will not be deleted after the Lua state is destroyed.
 
 ### `self:release()`
-Decrements the object's internal reference count. Destroys the object if it reaches 0.
+Decrements the object's internal reference count. Destroys the object if it reaches 0. Can only be used on objects managed by Lua.
+
+### `self:force_release()`
+Decrements the object's internal reference count. Destroys the object if it reaches 0. Can be used on any REManagedObject. Can crash the game or cause undefined behavior.
 
 When a new Lua reference is created to an `REManagedObject`, REFramework automatically increments its reference count internally with `self:add_ref()`. This will keep the object alive until you are no longer referencing the object in Lua. `self:release()` is automatically called when Lua is no longer referencing the object anywhere.
 

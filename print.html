@@ -1627,7 +1627,9 @@ end
 <h3 id="selfadd_ref_permanent"><a class="header" href="#selfadd_ref_permanent"><code>self:add_ref_permanent()</code></a></h3>
 <p>Increments the object's internal reference count without REFramework managing it. Any objects created with REFramework and also using this method will not be deleted after the Lua state is destroyed.</p>
 <h3 id="selfrelease"><a class="header" href="#selfrelease"><code>self:release()</code></a></h3>
-<p>Decrements the object's internal reference count. Destroys the object if it reaches 0.</p>
+<p>Decrements the object's internal reference count. Destroys the object if it reaches 0. Can only be used on objects managed by Lua.</p>
+<h3 id="selfforce_release"><a class="header" href="#selfforce_release"><code>self:force_release()</code></a></h3>
+<p>Decrements the object's internal reference count. Destroys the object if it reaches 0. Can be used on any REManagedObject. Can crash the game or cause undefined behavior.</p>
 <p>When a new Lua reference is created to an <code>REManagedObject</code>, REFramework automatically increments its reference count internally with <code>self:add_ref()</code>. This will keep the object alive until you are no longer referencing the object in Lua. <code>self:release()</code> is automatically called when Lua is no longer referencing the object anywhere.</p>
 <p>The only time you will need to manually call <code>self:add_ref()</code> and <code>self:release()</code> is when a newly created object is returned by the engine, e.g. an array, or something from <code>sdk.create_instance()</code>.</p>
 <p>A more in-depth explanation can be found in the &quot;FrameGC Algorithm&quot; section of this GDC presentation by Capcom:</p>

@@ -148,18 +148,26 @@
 <p>Returns the position for a given device index.</p>
 <h3 id="vrmodget_rotationindex"><a class="header" href="#vrmodget_rotationindex"><code>vrmod:get_rotation(index)</code></a></h3>
 <p>Returns the rotation for a given device index.</p>
+<h3 id="vrmodget_transformindex"><a class="header" href="#vrmodget_transformindex"><code>vrmod:get_transform(index)</code></a></h3>
+<p>Returns the full transformation matrix for a given device index.</p>
+<h3 id="vrmodget_velocityindex"><a class="header" href="#vrmodget_velocityindex"><code>vrmod:get_velocity(index)</code></a></h3>
+<p>Returns the velocity for a given device index.</p>
+<h3 id="vrmodget_angular_velocityindex"><a class="header" href="#vrmodget_angular_velocityindex"><code>vrmod:get_angular_velocity(index)</code></a></h3>
+<p>Returns the angular velocity for a given device index.</p>
 <h3 id="vrmodget_left_stick_axis"><a class="header" href="#vrmodget_left_stick_axis"><code>vrmod:get_left_stick_axis()</code></a></h3>
 <p>Returns a <code>Vector2f</code>.</p>
 <h3 id="vrmodget_right_stick_axis"><a class="header" href="#vrmodget_right_stick_axis"><code>vrmod:get_right_stick_axis()</code></a></h3>
 <p>Returns a <code>Vector2f</code>.</p>
-<h3 id="vrmodget_current_eye_transform"><a class="header" href="#vrmodget_current_eye_transform"><code>vrmod:get_current_eye_transform()</code></a></h3>
-<h3 id="vrmodget_current_projection_matrix"><a class="header" href="#vrmodget_current_projection_matrix"><code>vrmod:get_current_projection_matrix()</code></a></h3>
+<h3 id="vrmodget_current_eye_transformflip"><a class="header" href="#vrmodget_current_eye_transformflip"><code>vrmod:get_current_eye_transform(flip)</code></a></h3>
+<h3 id="vrmodget_current_projection_matrixflip"><a class="header" href="#vrmodget_current_projection_matrixflip"><code>vrmod:get_current_projection_matrix(flip)</code></a></h3>
 <h3 id="vrmodget_standing_origin"><a class="header" href="#vrmodget_standing_origin"><code>vrmod:get_standing_origin()</code></a></h3>
 <h3 id="vrmodset_standing_originpos"><a class="header" href="#vrmodset_standing_originpos"><code>vrmod:set_standing_origin(pos)</code></a></h3>
 <p><code>pos</code> is a Vector4f.</p>
 <h3 id="vrmodget_rotation_offset"><a class="header" href="#vrmodget_rotation_offset"><code>vrmod:get_rotation_offset()</code></a></h3>
 <h3 id="vrmodset_rotation_offsetquat"><a class="header" href="#vrmodset_rotation_offsetquat"><code>vrmod:set_rotation_offset(quat)</code></a></h3>
 <h3 id="vrmodrecenter_view"><a class="header" href="#vrmodrecenter_view"><code>vrmod:recenter_view()</code></a></h3>
+<h3 id="vrmodrecenter_guifrom"><a class="header" href="#vrmodrecenter_guifrom"><code>vrmod:recenter_gui(from)</code></a></h3>
+<p><code>from</code> is a <code>Quaternion</code>.</p>
 <h3 id="vrmodget_action_set"><a class="header" href="#vrmodget_action_set"><code>vrmod:get_action_set()</code></a></h3>
 <h3 id="vrmodget_active_action_set"><a class="header" href="#vrmodget_active_action_set"><code>vrmod:get_active_action_set()</code></a></h3>
 <h3 id="vrmodget_action_trigger"><a class="header" href="#vrmodget_action_trigger"><code>vrmod:get_action_trigger()</code></a></h3>
@@ -168,6 +176,14 @@
 <h3 id="vrmodget_action_joystick_click"><a class="header" href="#vrmodget_action_joystick_click"><code>vrmod:get_action_joystick_click()</code></a></h3>
 <h3 id="vrmodget_action_a_button"><a class="header" href="#vrmodget_action_a_button"><code>vrmod:get_action_a_button()</code></a></h3>
 <h3 id="vrmodget_action_b_button"><a class="header" href="#vrmodget_action_b_button"><code>vrmod:get_action_b_button()</code></a></h3>
+<h3 id="vrmodget_action_weapon_dial"><a class="header" href="#vrmodget_action_weapon_dial"><code>vrmod:get_action_weapon_dial()</code></a></h3>
+<h3 id="vrmodget_action_minimap"><a class="header" href="#vrmodget_action_minimap"><code>vrmod:get_action_minimap()</code></a></h3>
+<h3 id="vrmodget_action_block"><a class="header" href="#vrmodget_action_block"><code>vrmod:get_action_block()</code></a></h3>
+<h3 id="vrmodget_action_dpad_up"><a class="header" href="#vrmodget_action_dpad_up"><code>vrmod:get_action_dpad_up</code></a></h3>
+<h3 id="vrmodget_action_dpad_down"><a class="header" href="#vrmodget_action_dpad_down"><code>vrmod:get_action_dpad_down</code></a></h3>
+<h3 id="vrmodget_action_dpad_left"><a class="header" href="#vrmodget_action_dpad_left"><code>vrmod:get_action_dpad_left</code></a></h3>
+<h3 id="vrmodget_action_dpad_right"><a class="header" href="#vrmodget_action_dpad_right"><code>vrmod:get_action_dpad_right</code></a></h3>
+<h3 id="vrmodget_action_heal"><a class="header" href="#vrmodget_action_heal"><code>vrmod:get_action_heal</code></a></h3>
 <h3 id="vrmodget_left_joystick"><a class="header" href="#vrmodget_left_joystick"><code>vrmod:get_left_joystick()</code></a></h3>
 <p>Returns a <code>vr::VRInputValueHandle_t</code>. To be used in <code>vrmod:is_action_active</code> as the <code>source</code>.</p>
 <h3 id="vrmodget_right_joystick"><a class="header" href="#vrmodget_right_joystick"><code>vrmod:get_right_joystick()</code></a></h3>
@@ -175,6 +191,10 @@
 <h3 id="vrmodget_right_joystick-1"><a class="header" href="#vrmodget_right_joystick-1"><code>vrmod:get_right_joystick()</code></a></h3>
 <h3 id="vrmodis_using_controllers"><a class="header" href="#vrmodis_using_controllers"><code>vrmod:is_using_controllers()</code></a></h3>
 <p>Returns <code>true</code> if the user has issued any inputs to the controllers within the last 10 seconds.</p>
+<h3 id="vrmodis_openvr_loaded"><a class="header" href="#vrmodis_openvr_loaded"><code>vrmod:is_openvr_loaded()</code></a></h3>
+<p>Returns <code>true</code> if OpenVR is loaded.</p>
+<h3 id="vrmodis_openxr_loaded"><a class="header" href="#vrmodis_openxr_loaded"><code>vrmod:is_openxr_loaded()</code></a></h3>
+<p>Returns <code>true</code> if OpenXR is loaded.</p>
 <h3 id="vrmodis_hmd_active"><a class="header" href="#vrmodis_hmd_active"><code>vrmod:is_hmd_active()</code></a></h3>
 <p>Returns <code>true</code> if the user currently has their VR headset on.</p>
 <h3 id="vrmodis_action_activeaction-source"><a class="header" href="#vrmodis_action_activeaction-source"><code>vrmod:is_action_active(action, source)</code></a></h3>
@@ -182,6 +202,10 @@
 <p>Active meaning that the user is e.g. holding the A button down if the A button was the <code>action</code>.</p>
 <h3 id="vrmodis_using_hmd_oriented_audio"><a class="header" href="#vrmodis_using_hmd_oriented_audio"><code>vrmod:is_using_hmd_oriented_audio()</code></a></h3>
 <h3 id="vrmodtoggle_hmd_oriented_audio"><a class="header" href="#vrmodtoggle_hmd_oriented_audio"><code>vrmod:toggle_hmd_oriented_audio()</code></a></h3>
+<h3 id="vrmodapply_hmd_transformrotation-position"><a class="header" href="#vrmodapply_hmd_transformrotation-position"><code>vrmod:apply_hmd_transform(rotation, position)</code></a></h3>
+<p>Applies the headset's transform to the given rotation and position. Both parameters are in and out parameters.</p>
+<h3 id="vrmodapply_haptic_vibrationseconds_from_now-duration-frequency-amplitude-source"><a class="header" href="#vrmodapply_haptic_vibrationseconds_from_now-duration-frequency-amplitude-source"><code>vrmod:apply_haptic_vibration(seconds_from_now, duration, frequency, amplitude, source)</code></a></h3>
+<h3 id="vrmodget_last_render_matrix"><a class="header" href="#vrmodget_last_render_matrix"><code>vrmod:get_last_render_matrix()</code></a></h3>
 
                     </main>
 

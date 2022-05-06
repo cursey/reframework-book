@@ -13,12 +13,22 @@ If you are crashing, or are having a technical problem then upload these files f
 
 If you do not have an `reframework_crash.dmp` and are crashing, download a newer build, links at the top of the page.
 
-## Opening the in-game menu with motion controllers
+## Opening the in-game menu with motion controllers (OpenVR only right now)
 Aim at the palm of your left hand with your head and your right hand. Do not press anything, and an overlay menu should show up.
 
 If that doesn't work, you can use the desktop version of the menu using the Insert key. This method won't work in the headset.
 
 If that still doesn't work, options can be changed in the `re2_fw_config.txt` in your game directory.
+
+## Switching to OpenXR
+By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount.
+
+To switch to OpenXR, simply delete the `openvr_api.dll` that came with the zip file. Make sure the `openxr_loader.dll` that came with the mod is present in the game folder.
+
+## OpenXR Pitfalls
+* There is no wrist overlay for modifying VR settings yet
+* Modifying controller bindings is not as expressive as OpenVR
+* Personally only tested on Oculus Quest 2 and CV1, reports that it works on Reverb G2
 
 ## Common fixes
 * Restarting SteamVR

@@ -21,9 +21,11 @@ If that doesn't work, you can use the desktop version of the menu using the Inse
 If that still doesn't work, options can be changed in the `re2_fw_config.txt` in your game directory.
 
 ## Switching to OpenXR
-By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount.
+By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount. The most significant gains have been observed to come when running the games in DX12, but your mileage may vary.
 
 To switch to OpenXR, simply delete the `openvr_api.dll` that came with the zip file. Make sure the `openxr_loader.dll` that came with the mod is present in the game folder.
+
+Not all headsets may have an OpenXR runtime. Headsets like the Index which run natively through SteamVR may not see a performance increase.
 
 ## OpenXR Pitfalls
 * There is no wrist overlay for modifying VR settings yet

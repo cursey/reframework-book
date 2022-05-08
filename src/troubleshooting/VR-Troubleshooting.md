@@ -66,7 +66,8 @@ They are both fully 6DOF but with the least support.
 ~~DMC5 has some issues with some incorrect UI elements.~~ Fixed in a recent update.
 
 ## Gameplay
-RE2 and RE3:
+### RE2 and RE3
+### General
 * Motion controller support
 * Head-based movement
 * Smooth locomotion
@@ -74,6 +75,25 @@ RE2 and RE3:
 * Mostly right-handed
 
 Playing with a gamepad is supported. IK gets disabled when using one.
+
+---
+
+### RE7 and RE8 (Not yet released)
+#### General
+* Motion controller support
+* Head-based movement
+* Smooth locomotion
+* Smooth turning
+* Mostly right-handed
+
+Playing with a gamepad is supported.
+
+#### Gestures
+##### Blocking
+Hold your hands in front of your face.
+
+##### Healing
+Reach behind your head with your right hand, hold down the grip, and a medicine bottle will appear in your hand. Press right trigger to initiate a heal.
 
 ## Bindings
 Bindings can be changed in SteamVR's controller bindings section.
@@ -86,6 +106,8 @@ Needs additional testing:
 * Vive Wands
 
 If a set of controllers don't work as expected, they can be set up in the SteamVR controller bindings.
+
+In OpenXR, the bindings can be changed under "VR".
 
 ## Performance
 One of the most taxing parts of these mods is the **resolution** you have set. The in-game resolution has no effect, it must be changed in SteamVR.

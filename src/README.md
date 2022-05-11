@@ -49,7 +49,7 @@ You **CANNOT** use the `Reflection Methods` or `Reflection Properties` yet witho
 
 Good APIs to start on: [sdk](https://github.com/praydog/REFramework/wiki/sdk) and [re](https://github.com/praydog/REFramework/wiki/re)
 
-[Example Scripts](https://github.com/praydog/REFramework/wiki/Example-Scripts)
+[Example Scripts](examples/Example-Scripts.md)
 
 ---
 

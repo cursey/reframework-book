@@ -76,6 +76,10 @@ They are both fully 6DOF but with the least support.
 
 Playing with a gamepad is supported. IK gets disabled when using one.
 
+### Gestures
+##### Opening the map
+Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.
+
 ---
 
 ### RE7 and RE8 (Not yet released)
@@ -89,6 +93,9 @@ Playing with a gamepad is supported. IK gets disabled when using one.
 Playing with a gamepad is supported.
 
 #### Gestures
+##### Opening the map
+Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.
+
 ##### Blocking
 Hold your hands in front of your face.
 

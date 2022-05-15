@@ -27,6 +27,8 @@ To switch to OpenXR, simply delete the `openvr_api.dll` that came with the zip f
 
 Not all headsets may have an OpenXR runtime. Headsets like the Index which run natively through SteamVR may not see a performance increase.
 
+If you are using an Oculus headset or a headset that has its own dedicated OpenXR runtime, it is recommended to switch to the runtime provided by your headset manufacturer, e.g. the Oculus OpenXR runtime for Oculus headsets. Using SteamVR as the runtime is only recommended if your headset does not have a dedicated runtime, or are using something like Virtual Desktop.
+
 ## OpenXR Pitfalls
 * There is no wrist overlay for modifying VR settings yet
 * Modifying controller bindings is not as expressive as OpenVR

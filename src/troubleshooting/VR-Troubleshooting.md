@@ -20,6 +20,10 @@ If that doesn't work, you can use the desktop version of the menu using the Inse
 
 If that still doesn't work, options can be changed in the `re2_fw_config.txt` in your game directory.
 
+
+## For those with motion sickness
+Enable "Decoupled Camera Pitch" under "VR" in the REFramework menu. This will stop the camera from moving vertically in any way. Do note that while this may not necessarily break anything, it may make it less clear of what to do in certain parts of the game when the camera is supposed to shift vertically, or what the camera is intending to look at in a cutscene.
+
 ## Switching to OpenXR
 By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount. The most significant gains have been observed to come when running the games in DX12, but your mileage may vary.
 

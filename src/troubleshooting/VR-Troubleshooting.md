@@ -88,7 +88,7 @@ Can be done by pressing the inventory button while holding your controller behin
 
 ---
 
-### RE7 and RE8 (Not yet released)
+### RE7 and RE8
 #### General
 * Motion controller support
 * Head-based movement
@@ -97,6 +97,9 @@ Can be done by pressing the inventory button while holding your controller behin
 * Mostly right-handed
 
 Playing with a gamepad is supported.
+
+### Controls not working?
+Unplug or disconnect your gamepad. The gamepad conflicts with the VR controls.
 
 #### Gestures
 ##### Opening the map

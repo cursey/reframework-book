@@ -24,20 +24,6 @@ If that still doesn't work, options can be changed in the `re2_fw_config.txt` in
 ## For those with motion sickness
 Enable "Decoupled Camera Pitch" under "VR" in the REFramework menu. This will stop the camera from moving vertically in any way. Do note that while this may not necessarily break anything, it may make it less clear of what to do in certain parts of the game when the camera is supposed to shift vertically, or what the camera is intending to look at in a cutscene.
 
-## Switching to OpenXR
-By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount. The most significant gains have been observed to come when running the games in DX12, but your mileage may vary.
-
-To switch to OpenXR, simply delete the `openvr_api.dll` that came with the zip file. Make sure the `openxr_loader.dll` that came with the mod is present in the game folder.
-
-Not all headsets may have an OpenXR runtime. Headsets like the Index which run natively through SteamVR may not see a performance increase.
-
-If you are using an Oculus headset or a headset that has its own dedicated OpenXR runtime, it is recommended to switch to the runtime provided by your headset manufacturer, e.g. the Oculus OpenXR runtime for Oculus headsets. Using SteamVR as the runtime is only recommended if your headset does not have a dedicated runtime, or are using something like Virtual Desktop.
-
-## OpenXR Pitfalls
-* There is no wrist overlay for modifying VR settings yet
-* Modifying controller bindings is not as expressive as OpenVR
-* Personally only tested on Oculus Quest 2 and CV1, reports that it works on Reverb G2
-
 ## Common fixes
 * Restarting SteamVR
 * Disabling overlay software
@@ -51,6 +37,20 @@ If you are using an Oculus headset or a headset that has its own dedicated OpenX
 * Make sure no graphical settings are being forced globally (e.g. from Nvidia Control Panel)
     * The exception to this is disabling HDR which is required or else the game will not display within the headset
 
+## Switching to OpenXR
+By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount. The most significant gains have been observed to come when running the games in DX12, but your mileage may vary.
+
+To switch to OpenXR, simply delete the `openvr_api.dll` that came with the zip file. Make sure the `openxr_loader.dll` that came with the mod is present in the game folder.
+
+Not all headsets may have an OpenXR runtime. Headsets like the Index which run natively through SteamVR may not see a performance increase.
+
+If you are using an Oculus headset or a headset that has its own dedicated OpenXR runtime, it is recommended to switch to the runtime provided by your headset manufacturer, e.g. the Oculus OpenXR runtime for Oculus headsets. Using SteamVR as the runtime is only recommended if your headset does not have a dedicated runtime, or are using something like Virtual Desktop.
+
+## OpenXR Pitfalls
+* There is no wrist overlay for modifying VR settings yet
+* Modifying controller bindings is not as expressive as OpenVR
+* Personally only tested on Oculus Quest 2 and CV1, reports that it works on Reverb G2
+* 
 ### In RE2
 There is a known issue of a softlock sometimes occurring in the Birkin fight if it goes on too long. It can be fixed simply by disabling FirstPerson until he spawns again.
 

@@ -95,6 +95,9 @@ Playing with a gamepad is supported.
 ### Body is annoying or getting in the way?
 Body parts can be selectively disabled under "RE8VR" in the REFramework menu.
 
+### Broken graphical settings
+(RE7) Ambient occlusion must be set to SSAO or Off. The max setting is broken/buggy.
+
 ### Gestures
 #### Opening the map
 Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.

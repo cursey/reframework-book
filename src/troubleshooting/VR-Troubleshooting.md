@@ -73,7 +73,7 @@ They are both fully 6DOF but with the least support.
 Playing with a gamepad is supported. IK gets disabled when using one.
 
 ### Gestures
-##### Opening the map
+#### Opening the map
 Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.
 
 ---
@@ -95,14 +95,14 @@ Playing with a gamepad is supported.
 ### Body is annoying or getting in the way?
 Body parts can be selectively disabled under "RE8VR" in the REFramework menu.
 
-#### Gestures
-##### Opening the map
+### Gestures
+#### Opening the map
 Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.
 
-##### Blocking
+#### Blocking
 Hold your hands in front of your face.
 
-##### Healing
+#### Healing
 Reach behind your head with your right hand, hold down the grip, and a medicine bottle will appear in your hand. Press right trigger to initiate a heal.
 
 ## Bindings

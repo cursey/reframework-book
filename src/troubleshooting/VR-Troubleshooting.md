@@ -37,6 +37,9 @@ Enable "Decoupled Camera Pitch" under "VR" in the REFramework menu. This will st
 * Make sure no graphical settings are being forced globally (e.g. from Nvidia Control Panel)
     * The exception to this is disabling HDR which is required or else the game will not display within the headset
 
+### In RE2
+There is a known issue of a softlock sometimes occurring in the Birkin fight if it goes on too long. It can be fixed simply by disabling FirstPerson until he spawns again.
+
 ## Switching to OpenXR
 By default, REFramework uses OpenVR for the VR functionality. In some cases, switching to OpenXR can increase performance anywhere from slightly, to a significant amount. The most significant gains have been observed to come when running the games in DX12, but your mileage may vary.
 
@@ -50,9 +53,6 @@ If you are using an Oculus headset or a headset that has its own dedicated OpenX
 * There is no wrist overlay for modifying VR settings yet
 * Modifying controller bindings is not as expressive as OpenVR
 * Personally only tested on Oculus Quest 2 and CV1, reports that it works on Reverb G2
-* 
-### In RE2
-There is a known issue of a softlock sometimes occurring in the Birkin fight if it goes on too long. It can be fixed simply by disabling FirstPerson until he spawns again.
 
 ## What about the others like DMC5 and MHRise?
 They are both fully 6DOF but with the least support.

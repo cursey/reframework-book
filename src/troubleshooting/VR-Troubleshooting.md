@@ -92,6 +92,9 @@ Playing with a gamepad is supported.
 1. Unplug or disconnect your gamepad. The gamepad conflicts with the VR controls.
 2. Not all controllers may have proper default bindings, and will need to be manually bound
 
+### Body is annoying or getting in the way?
+Body parts can be selectively disabled under "RE8VR" in the REFramework menu.
+
 #### Gestures
 ##### Opening the map
 Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.

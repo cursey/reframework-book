@@ -54,16 +54,6 @@ If you are using an Oculus headset or a headset that has its own dedicated OpenX
 ### In RE2
 There is a known issue of a softlock sometimes occurring in the Birkin fight if it goes on too long. It can be fixed simply by disabling FirstPerson until he spawns again.
 
-## What is the status of RE7 and RE8?
-RE7 and RE8 are fully 6DOF and playable with a gamepad, but with a few caveats:
-* RE7 has no motion controls at the moment
-* RE8's motion controls are in an experimental and incomplete state
-* There is no full body IK yet like RE2/RE3
-* ~~The audio positioning will not match up with your HMD rotation~~ **fixed in a recent update**
-* You cannot aim with your head yet
-
-You've been warned!
-
 ## What about the others like DMC5 and MHRise?
 They are both fully 6DOF but with the least support.
 

@@ -93,7 +93,10 @@ Playing with a gamepad is supported.
 2. Not all controllers may have proper default bindings, and will need to be manually bound
 
 ### Body is annoying or getting in the way?
-Body parts can be selectively disabled under "RE8VR" in the REFramework menu.
+Body parts can be selectively disabled under "RE8VR" in the REFramework menu
+
+### Want to play without facegun or motion controls, or any additional features, only VR?
+Just delete `re8_vr.lua` from the `reframework` directory.
 
 ### Broken graphical settings
 (RE7) Ambient occlusion must be set to SSAO or Off. The max setting is broken/buggy.

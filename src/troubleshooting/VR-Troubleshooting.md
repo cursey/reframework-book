@@ -62,6 +62,10 @@ They are both fully 6DOF but with the least support.
 ~~DMC5 has some issues with some incorrect UI elements.~~ Fixed in a recent update.
 
 ## Gameplay
+### All games
+#### Switching Weapons
+On supported controllers, bound to left trigger + joystick by default. Otherwise, "weapondial" will need to be bound to something, or the d-pad bindings will need to be bound.
+
 ### RE2 and RE3
 ### General
 * Motion controller support

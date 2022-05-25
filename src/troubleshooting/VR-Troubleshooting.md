@@ -141,6 +141,7 @@ To modify the resolution in your headset:
 You can also use [openvr_fsr](https://github.com/fholger/openvr_fsr) with this mod.
 
 There are other demanding in-game quality settings (ranked by approximate performance impact):
+* Ray Tracing (RE8 only at the moment, will need a very powerful GPU to run this at a good framerate)
 * Image Quality (set this to 100% if you're not sure, lower it if it improves performance)
 * Shadow Quality
 * Screen Space Reflections

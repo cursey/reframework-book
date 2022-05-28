@@ -21,3 +21,8 @@ You **CANNOT** use the `Reflection Methods` or `Reflection Properties` yet witho
 
 ## Singletons
 Are generally global managers dedicated to certain parts of the game, e.g. `app.EnemyManager` for enemies, `app.InteractManager` for interactions, etc...
+
+## Native Singletons
+Are also global managers, but they were created in C++ instead of C#. This means they may not have as much data exposed about them, if any at all.
+
+These singletons are usually much more related to engine behavior than the usual `Singletons`.

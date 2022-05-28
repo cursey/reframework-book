@@ -11,6 +11,9 @@
 - [Example Scripts](examples/Example-Scripts.md)
 - [Example Snippets](examples/Example-Snippets.md)
 
+# Object Explorer
+- [Object_Explorer](object_explorer/object_explorer.md)
+
 # Scripting Reference
 - [General](api/general/README.md)
     - [Notes on Return Types](api/general/Notes-on-Return-Types.md)

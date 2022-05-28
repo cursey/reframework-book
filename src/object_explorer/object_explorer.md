@@ -27,7 +27,7 @@ This button will create a few things.
 
 The `il2cpp_dump.json` is usually the most relevant. It can be used as an offline reference for looking up fields and methods. It can be parsed to your liking with Python or your go-to programming or scripting language.
 
-This dump can take a few minutes to run, so expect your game to freeze.
+This dump can take a few minutes to run, so expect your game to freeze. The dump will be quite large, and seem to get larger with each new game that comes to the RE Engine (MHRise's is almost 1GB). Keep this in mind when choosing a text editor to view the file.
 
 <details>
 <summary>Example piece of il2cpp_dump.json output in RE8</summary>

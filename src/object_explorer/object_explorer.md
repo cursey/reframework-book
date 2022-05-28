@@ -54,7 +54,7 @@ This dump can take a few minutes to run, so expect your game to freeze.
         }
     ],
     "fields": {
-        "<Camera>k__BackingField": {
+        "&lt;Camera>k__BackingField": {
             "flags": "Private",
             "id": 110417,
             "init_data_index": 0,
@@ -62,7 +62,7 @@ This dump can take a few minutes to run, so expect your game to freeze.
             "offset_from_fieldptr": "0x10",
             "type": "via.Camera"
         },
-        "<Player>k__BackingField": {
+        "&lt;Player>k__BackingField": {
             "flags": "Private",
             "id": 110416,
             "init_data_index": 0,

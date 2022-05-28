@@ -26,7 +26,7 @@ Create an `autorun` folder in your game directory. REFramework will automaticall
 When a Lua error occurs here, a MessageBox will pop up explaining what the error is.
 
 ### During callback execution
-When a Lua error occurs here, the reason will be written to a debug log. [DebugView](https://docs.microsoft.com/en-us/sysinternals/downloads/debugview) is required to view these.
+When a Lua error occurs here, the reason will be written to a debug log. ~~[DebugView](https://docs.microsoft.com/en-us/sysinternals/downloads/debugview) is required to view these.~~ In newer nightly builds, the errors can be viewed directly within the ScriptRunner window.
 
 We don't pop a MessageBox here so the user doesn't lock their game.
 

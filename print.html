@@ -157,7 +157,7 @@
 <p>When a Lua error occurs here, the reason will be written to a debug log. <del><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/debugview">DebugView</a> is required to view these.</del> In newer nightly builds, the errors can be viewed directly within the ScriptRunner window.</p>
 <p>We don't pop a MessageBox here so the user doesn't lock their game.</p>
 <h2 id="finding-game-functions-to-call-and-fields-to-grab"><a class="header" href="#finding-game-functions-to-call-and-fields-to-grab">Finding game functions to call, and fields to grab</a></h2>
-<p>Use the <code>ObjectExplorer</code> that's in the <a href="https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts">developer builds</a>. It can be found under <code>DeveloperTools</code> in the REFramework menu.</p>
+<p>Use the <code>ObjectExplorer</code>. It can be found under <code>DeveloperTools</code> in the REFramework menu.</p>
 <p>Poke around the singletons until you find something you're interested in. </p>
 <p>Objects under <code>Singletons</code> can be obtained with <code>sdk.get_managed_singleton(&quot;name&quot;)</code></p>
 <p>Objects under <code>Native Singletons</code> can be obtained with <code>sdk.get_native_singleton(&quot;name&quot;)</code></p>

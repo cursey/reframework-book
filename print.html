@@ -606,6 +606,9 @@ end
 <p>You <strong>CANNOT</strong> use the <code>Reflection Methods</code> or <code>Reflection Properties</code> yet without direct memory reading/writing, only the TDB versions are fully supported.</p>
 <h2 id="singletons"><a class="header" href="#singletons">Singletons</a></h2>
 <p>Are generally global managers dedicated to certain parts of the game, e.g. <code>app.EnemyManager</code> for enemies, <code>app.InteractManager</code> for interactions, etc...</p>
+<h2 id="native-singletons"><a class="header" href="#native-singletons">Native Singletons</a></h2>
+<p>Are also global managers, but they were created in C++ instead of C#. This means they may not have as much data exposed about them, if any at all.</p>
+<p>These singletons are usually much more related to engine behavior than the usual <code>Singletons</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="general-2"><a class="header" href="#general-2">General</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><p>This page refers to functions like:</p>
 <ul>

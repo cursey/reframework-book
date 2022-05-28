@@ -31,7 +31,7 @@ When a Lua error occurs here, the reason will be written to a debug log. ~~[Debu
 We don't pop a MessageBox here so the user doesn't lock their game.
 
 ## Finding game functions to call, and fields to grab
-Use the `ObjectExplorer` that's in the [developer builds](https://ci.appveyor.com/project/praydog/reframework-dev/build/artifacts). It can be found under `DeveloperTools` in the REFramework menu.
+Use the `ObjectExplorer`. It can be found under `DeveloperTools` in the REFramework menu.
 
 Poke around the singletons until you find something you're interested in. 
 

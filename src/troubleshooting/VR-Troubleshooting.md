@@ -115,6 +115,8 @@ Hold your hands in front of your face.
 #### Healing
 Reach behind your head with your right hand, hold down the grip, and a medicine bottle will appear in your hand. Press right trigger to initiate a heal.
 
+A softlock can occur in the first fight with Mia if you pull out the bottle.
+
 ## Bindings
 Bindings can be changed in SteamVR's controller bindings section.
 

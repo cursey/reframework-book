@@ -254,7 +254,7 @@ Are also global managers, but they were created in C++ instead of C#. This means
 These singletons are usually much more related to engine behavior than the usual `Singletons`.
     
 ## TDB Fields
-Lists all of the methods for a given type visible within the TDB.
+Lists all of the fields for a given type visible within the TDB.
 
 ## TDB Methods
 Lists all of the methods for a given type visible within the TDB. Can right click on any method to open a context menu.

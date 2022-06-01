@@ -4,6 +4,12 @@ The object explorer will be your go-to reference when actively working on a scri
 
 Found under `DeveloperTools` in the REFramework menu.
 
+## Definitions
+### TDB
+**T**ype **D**ata**b**ase. Contains all of the metadata for classes, fields, methods, events, etc...
+
+Comparable to IL2CPP metadata in Unity.
+
 ## Finding game functions to call, and fields to grab
 Poke around the singletons until you find something you're interested in. 
 
@@ -246,3 +252,21 @@ Are generally global managers dedicated to certain parts of the game, e.g. `app.
 Are also global managers, but they were created in C++ instead of C#. This means they may not have as much data exposed about them, if any at all.
 
 These singletons are usually much more related to engine behavior than the usual `Singletons`.
+    
+## TDB Fields
+Lists all of the methods for a given type visible within the TDB.
+
+## TDB Methods
+Lists all of the methods for a given type visible within the TDB. Can right click on any method to open a context menu.
+
+### Context Menu
+#### Copy Address
+#### Copy Name
+#### Hook
+Hooks the method and opens a separate window, adds onto it if it already exists. The window contains each method you've hooked from the Object Explorer. 
+
+Each method contains
+* Skip function call
+* Call count
+    
+Useful for debugging if you need to know if a method gets called or not. You can also choose to skip calling the original method.

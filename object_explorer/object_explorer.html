@@ -143,6 +143,10 @@
                         <h1 id="object-explorer"><a class="header" href="#object-explorer">Object Explorer</a></h1>
 <p>The object explorer will be your go-to reference when actively working on a script or a plugin. It will provide you with tools for examining and modifying objects.</p>
 <p>Found under <code>DeveloperTools</code> in the REFramework menu.</p>
+<h2 id="definitions"><a class="header" href="#definitions">Definitions</a></h2>
+<h3 id="tdb"><a class="header" href="#tdb">TDB</a></h3>
+<p><strong>T</strong>ype <strong>D</strong>ata<strong>b</strong>ase. Contains all of the metadata for classes, fields, methods, events, etc...</p>
+<p>Comparable to IL2CPP metadata in Unity.</p>
 <h2 id="finding-game-functions-to-call-and-fields-to-grab"><a class="header" href="#finding-game-functions-to-call-and-fields-to-grab">Finding game functions to call, and fields to grab</a></h2>
 <p>Poke around the singletons until you find something you're interested in. </p>
 <p>Objects under <code>Singletons</code> can be obtained with <code>sdk.get_managed_singleton(&quot;name&quot;)</code></p>
@@ -372,6 +376,21 @@
 <h2 id="native-singletons"><a class="header" href="#native-singletons">Native Singletons</a></h2>
 <p>Are also global managers, but they were created in C++ instead of C#. This means they may not have as much data exposed about them, if any at all.</p>
 <p>These singletons are usually much more related to engine behavior than the usual <code>Singletons</code>.</p>
+<h2 id="tdb-fields"><a class="header" href="#tdb-fields">TDB Fields</a></h2>
+<p>Lists all of the methods for a given type visible within the TDB.</p>
+<h2 id="tdb-methods"><a class="header" href="#tdb-methods">TDB Methods</a></h2>
+<p>Lists all of the methods for a given type visible within the TDB. Can right click on any method to open a context menu.</p>
+<h3 id="context-menu"><a class="header" href="#context-menu">Context Menu</a></h3>
+<h4 id="copy-address"><a class="header" href="#copy-address">Copy Address</a></h4>
+<h4 id="copy-name"><a class="header" href="#copy-name">Copy Name</a></h4>
+<h4 id="hook"><a class="header" href="#hook">Hook</a></h4>
+<p>Hooks the method and opens a separate window, adds onto it if it already exists. The window contains each method you've hooked from the Object Explorer. </p>
+<p>Each method contains</p>
+<ul>
+<li>Skip function call</li>
+<li>Call count</li>
+</ul>
+<p>Useful for debugging if you need to know if a method gets called or not. You can also choose to skip calling the original method.</p>
 
                     </main>
 

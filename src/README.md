@@ -18,7 +18,7 @@ If you are interested in native plugins: [read the plugin section](#plugins)
 Click on `ScriptRunner` from the main REFramework menu. From there, press `Run Script` and locate the corresponding `*.lua` file you wish to load.
 
 ### Automatic Loading
-Create an `autorun` folder in your game directory. REFramework will automatically load whatever `*.lua` scripts are in here during initialization.
+Create an `reframework/autorun` folder in your game directory. This is automatically created when REFramework loads. REFramework will automatically load whatever `*.lua` scripts are in here during initialization.
 
 ## Handling Lua errors
 

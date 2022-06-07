@@ -51,6 +51,8 @@ Good APIs to start on: [sdk](https://github.com/praydog/REFramework/wiki/sdk) an
 
 [Example Scripts](examples/Example-Scripts.md)
 
+[Further Object Explorer Documentation](object_explorer/object_explorer.md)
+
 ---
 
 ## Plugins

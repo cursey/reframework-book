@@ -199,17 +199,63 @@ via.hid.GamePadButton = generate_enum(&quot;via.hid.GamePadButton&quot;)
 app.HIDInputMode = generate_enum(&quot;app.HIDInputMode&quot;)
 </code></pre>
 <h3 id="gui-debugger"><a class="header" href="#gui-debugger">GUI Debugger</a></h3>
-<pre><code class="language-lua">local known_elements = {}
+<pre><code class="language-lua">known_elements = {}
 
 re.on_pre_gui_draw_element(function(element, context)
-    known_elements[element:call(&quot;get_GameObject&quot;)] = true
+    known_elements[element:call(&quot;get_GameObject&quot;)] = os.clock()
 end)
+
+local draw_control = nil
+local draw_children = nil
+local draw_next = nil
+
+draw_control = function(control, prefix, seen)
+    prefix = prefix or &quot;&quot;
+    if control == nil then return end
+
+    seen = seen or {}
+    if seen[control] then return end
+    seen[control] = true
+
+    local name = control:call(&quot;get_Name&quot;)
+    if imgui.tree_node(prefix .. name) then
+        draw_children(control, prefix, seen)
+        object_explorer:handle_address(control)
+        imgui.tree_pop()
+    end
+
+    draw_next(control, prefix, seen)
+end
+
+draw_next = function(control, prefix, seen)
+    prefix = prefix or &quot;&quot;
+    if control == nil then return end
+
+    local ok, next = pcall(control.call, control, &quot;get_Next&quot;)
+
+    if ok then
+        draw_control(next, prefix, seen)
+    end
+
+    --draw_next(control, prefix)
+    --draw_children(control, prefix .. &quot; &quot;)
+end
+
+draw_children = function(control, prefix)
+    prefix = prefix or &quot;&quot;
+    if control == nil then return end
+
+    local child = control:call(&quot;get_Child&quot;)
+    draw_control(child, prefix .. &quot; &quot;, seen)
+end
 
 re.on_draw_ui(function()
     local sorted_elements = {}
 
     for k, v in pairs(known_elements) do
-        if not pcall(k.call, k, &quot;get_Name&quot;) then
+        local succeed, result = pcall(k.call, k, &quot;get_Name&quot;)
+
+        if not succeed or result == nil or k:get_reference_count() == 1 or (os.clock() - v &gt; 1) then
             known_elements[k] = nil
         else
             table.insert(sorted_elements, k)
@@ -220,11 +266,44 @@ re.on_draw_ui(function()
         return a:call(&quot;get_Name&quot;) &lt; b:call(&quot;get_Name&quot;)
     end)
 
-    for element, _ in pairs(known_elements) do
+    for i, element in ipairs(sorted_elements) do
+        imgui.push_id(tostring(element:get_address()))
+
         if imgui.tree_node(element:call(&quot;get_Name&quot;) .. &quot; &quot; .. string.format(&quot;%x&quot;, element:get_address())) then
+            local gui = element:call(&quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;via.gui.GUI&quot;))
+            local transform = element:call(&quot;get_Transform&quot;)
+            local joints = transform:call(&quot;get_Joints&quot;)
+
+            if joints then
+                imgui.text(&quot;Joints: &quot; .. tostring(joints:get_size()))
+            end
+
+            if gui ~= nil then
+                local world_pos_attach = element:call(&quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;app.UIWorldPosAttach&quot;))
+
+                if world_pos_attach ~= nil then
+                    local now_target_pos = world_pos_attach:get_field(&quot;_NowTargetPos&quot;)
+                    local screen_pos = draw.world_to_screen(now_target_pos)
+
+                    if screen_pos then
+                        local name = element:call(&quot;get_Name&quot;)
+
+                        draw.text(name, screen_pos.x, screen_pos.y, 0xFFFFFFFF)
+                    end
+                end
+
+                local view = gui:call(&quot;get_View&quot;)
+
+                if view ~= nil then
+                    draw_control(view)
+                end
+            end
+
             object_explorer:handle_address(element)
             imgui.tree_pop()
         end
+
+        imgui.pop_id()
     end
 end)
 </code></pre>

@@ -183,3 +183,5 @@ For example:
 [Infernal Warks](https://discord.com/invite/nX5EzVU) (DMC5 modding)
 
 [Monster Hunter Modding Discord](https://discord.gg/gJwMdhK)
+
+[Flatscreen to VR Modding Discord](http://flat2vr.com)

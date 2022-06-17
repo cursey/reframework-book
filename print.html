@@ -577,9 +577,9 @@ re.on_draw_ui(function()
             end
 
             if gui ~= nil then
-                local world_pos_attach = element:call(&quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;app.UIWorldPosAttach&quot;))
+                local ok, world_pos_attach = pcall(element, call, &quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;app.UIWorldPosAttach&quot;))
 
-                if world_pos_attach ~= nil then
+                if ok and world_pos_attach ~= nil then
                     local now_target_pos = world_pos_attach:get_field(&quot;_NowTargetPos&quot;)
                     local screen_pos = draw.world_to_screen(now_target_pos)
 

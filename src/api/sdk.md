@@ -1,6 +1,9 @@
 Main starting point for most things.
 
 ## Methods
+### `sdk.get_tdb_version()`
+Returns the version of the type database. A good approximation of the version of the RE Engine the game is running on.
+
 ### `sdk.game_namespace(name)`
 Returns `game_namespace.name`.
 

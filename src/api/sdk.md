@@ -181,7 +181,7 @@ Attempts to convert `value` to an [REManagedObject*](types/REManagedObject.md).
 `value` can be any of the following types:
 
 * An [REManagedObject*](types/REManagedObject.md), in which case it is returned as-is
-* A lua number convertible to `uintptr_t`
+* A lua number convertible to `uintptr_t`, representing the object's address
 * A `void*`
 
 Any other type will return `nil`.

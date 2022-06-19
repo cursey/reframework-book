@@ -1733,7 +1733,7 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <p><code>value</code> can be any of the following types:</p>
 <ul>
 <li>An <a href="api/types/REManagedObject.html">REManagedObject*</a>, in which case it is returned as-is</li>
-<li>A lua number convertible to <code>uintptr_t</code></li>
+<li>A lua number convertible to <code>uintptr_t</code>, representing the object's address</li>
 <li>A <code>void*</code></li>
 </ul>
 <p>Any other type will return <code>nil</code>.</p>

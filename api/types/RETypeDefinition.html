@@ -152,6 +152,8 @@
 <p>Returns the namespace this type is contained in.</p>
 <h3 id="selfget_methodname"><a class="header" href="#selfget_methodname"><code>self:get_method(name)</code></a></h3>
 <p>Returns an <code>REMethodDefinition</code>. To be used in things like <code>sdk.hook</code>.</p>
+<p>The full function prototype can be supplied to get an overloaded function.</p>
+<p>Example: <code>foo:get_method(&quot;Bar(System.Int32, System.Single)&quot;)</code></p>
 <h3 id="selfget_methods"><a class="header" href="#selfget_methods"><code>self:get_methods()</code></a></h3>
 <p>Returns a list of <code>REMethodDefinition</code></p>
 <p>Filters out methods that are potentially just stubs or null.</p>

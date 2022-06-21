@@ -17,6 +17,10 @@ Returns the namespace this type is contained in.
 ### `self:get_method(name)`
 Returns an `REMethodDefinition`. To be used in things like `sdk.hook`.
 
+The full function prototype can be supplied to get an overloaded function.
+
+Example: `foo:get_method("Bar(System.Int32, System.Single)")`
+
 ### `self:get_methods()`
 Returns a list of `REMethodDefinition`
 

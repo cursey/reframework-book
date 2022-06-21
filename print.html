@@ -1024,6 +1024,14 @@ module1.foo()
 <h3 id="drawfilled_rectx-y-w-h-color"><a class="header" href="#drawfilled_rectx-y-w-h-color"><code>draw.filled_rect(x, y, w, h, color)</code></a></h3>
 <h3 id="drawoutline_rectx-y-w-h-color"><a class="header" href="#drawoutline_rectx-y-w-h-color"><code>draw.outline_rect(x, y, w, h, color)</code></a></h3>
 <h3 id="drawlinex1-y1-x2-y2-color"><a class="header" href="#drawlinex1-y1-x2-y2-color"><code>draw.line(x1, y1, x2, y2, color)</code></a></h3>
+<h3 id="drawoutline_circlex-y-radius-color-num_segments"><a class="header" href="#drawoutline_circlex-y-radius-color-num_segments"><code>draw.outline_circle(x, y, radius, color, num_segments)</code></a></h3>
+<h3 id="drawfilled_circlex-y-radius-color-num_segments"><a class="header" href="#drawfilled_circlex-y-radius-color-num_segments"><code>draw.filled_circle(x, y, radius, color, num_segments)</code></a></h3>
+<h3 id="drawoutline_quadx1-y1-x2-y2-x3-y3-x4-y4-color"><a class="header" href="#drawoutline_quadx1-y1-x2-y2-x3-y3-x4-y4-color"><code>draw.outline_quad(x1, y1, x2, y2, x3, y3, x4, y4, color)</code></a></h3>
+<h3 id="drawfilled_quadx1-y1-x2-y2-x3-y3-x4-y4-color"><a class="header" href="#drawfilled_quadx1-y1-x2-y2-x3-y3-x4-y4-color"><code>draw.filled_quad(x1, y1, x2, y2, x3, y3, x4, y4, color)</code></a></h3>
+<h3 id="drawsphereworld_pos-radius-color-outline"><a class="header" href="#drawsphereworld_pos-radius-color-outline"><code>draw.sphere(world_pos, radius, color, outline)</code></a></h3>
+<p>Draws a 3D sphere with a 2D approximation in world space.</p>
+<h3 id="drawcapsuleworld_start_pos-world_end_pos-radius-color-outline"><a class="header" href="#drawcapsuleworld_start_pos-world_end_pos-radius-color-outline"><code>draw.capsule(world_start_pos, world_end_pos, radius, color, outline)</code></a></h3>
+<p>Draws a 3D capsule with a 2D approximation in world space.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>This is the filesystem API. REFramework purposefully restricts scripts from the usual Lua <code>io</code> API so that scripts do not have unrestricted access to a users system. Instead, this API focuses specifically on the <code>reframework/data</code> subdirectory.</p>
 <h2 id="methods-1"><a class="header" href="#methods-1">Methods</a></h2>
 <h3 id="fsglobfilter"><a class="header" href="#fsglobfilter"><code>fs.glob(filter)</code></a></h3>

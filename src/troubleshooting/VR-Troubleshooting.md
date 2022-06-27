@@ -4,6 +4,8 @@ Here you'll find various solutions and FAQ to various problems you may encounter
 
 Newer builds can be found [here](https://github.com/praydog/REFramework-nightly/releases/)
 
+The old pre-RT beta builds of RE2/RE3/RE7 may be more stable with the mod on some computers. You can switch to the beta in Steam under the game's properties. Once this is done, the old version of the mod will need to be downloaded, these are the zip files in the release with "TDB" in them.
+
 ## Reporting a bug
 Report it on the [Issues](https://github.com/praydog/REFramework/issues) page.
 

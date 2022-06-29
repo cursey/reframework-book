@@ -171,3 +171,6 @@ enum ImGuiCond_
 `id` can be an `int`, `const char*`, or `void*`.
 
 ### `imgui.pop_id()`
+
+### `imgui.get_mouse()`
+Returns a `Vector2f` corresponding to the user's mouse position in window space.

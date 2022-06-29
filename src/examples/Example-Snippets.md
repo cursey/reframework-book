@@ -174,6 +174,100 @@ re.on_draw_ui(function()
 end)
 ```
 
+
+
+https://user-images.githubusercontent.com/2909949/176351319-c070b216-fe71-4eb9-84f2-46c665892b11.mp4
+
+
+
+
+### 3D Gizmo test script
+```
+local gn = reframework:get_game_name()
+
+local function get_localplayer()
+    if gn == "re2" or gn == "re3" then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace("PlayerManager"))
+        if player_manager == nil then return nil end
+    
+        return player_manager:call("get_CurrentPlayer")
+    elseif gn == "dmc5" then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace("PlayerManager"))
+        if player_manager == nil then return nil end
+    
+        local player_comp = player_manager:call("get_manualPlayer")
+        if player_comp == nil then return nil end
+
+        return player_comp:call("get_GameObject")
+    elseif gn == "mhrise" then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace("player.PlayerManager"))
+        if player_manager == nil then return nil end
+    
+        local player_comp = player_manager:call("findMasterPlayer")
+        if player_comp == nil then return nil end
+
+        return player_comp:call("get_GameObject")
+    end
+
+    return nil
+end
+
+local joint_work = {}
+
+re.on_pre_application_entry("LockScene", function()
+    for k, v in pairs(joint_work) do
+        v.func(v.mat)
+    end
+
+    joint_work = {}
+end)
+
+re.on_frame(function()
+    local player = get_localplayer()
+    if player == nil then return end
+
+    local transform = player:call("get_Transform")
+    if transform == nil then return end
+
+    local mat = transform:call("get_WorldMatrix")
+    local changed = false
+
+    changed,mat = draw.gizmo(transform:get_address(), mat)
+
+    if changed then
+        transform:set_rotation(mat:to_quat())
+        transform:set_position(mat[3])
+    end
+
+    local joints = transform:call("get_Joints")
+    local mouse = imgui.get_mouse()
+
+    for i, joint in ipairs(joints:get_elements()) do
+        mat = joint:call("get_WorldMatrix")
+
+        local mat_screen = draw.world_to_screen(mat[3])
+        local mat_screen_top = draw.world_to_screen(mat[3] + Vector3f.new(0, 0.1, 0))
+
+        if mat_screen and mat_screen_top then
+            local delta = (mat_screen - mat_screen_top):length()
+            local mouse_delta = (mat_screen - mouse):length()
+            if mouse_delta <= delta then
+
+                changed, mat = draw.gizmo(joint:get_address(), mat)
+
+                if changed then
+                    table.insert(joint_work, { ["mat"] = mat, ["func"] = function(mat)
+                        joint:call("set_Rotation", mat:to_quat())
+                        joint:call("set_Position", mat[3])
+                    end
+                })
+                end
+            end
+        end
+    end
+end)
+```
+
 ### Dumping fields of an REManagedObject or type (very verbose)
 Use `object:get_type_definition():get_fields()` for an easier way to do this. The below snippet should rarely be used.
 

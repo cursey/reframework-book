@@ -40,5 +40,12 @@ Returns a tuple of `changed`, `mat`. Mat is the modified `matrix` that was passe
                     "LOCAL", ImGuizmo::MODE::LOCAL);
 ```
 
+Example video
+
+<video width="640" height="480" controls>
+<source src="https://user-images.githubusercontent.com/2909949/176351319-c070b216-fe71-4eb9-84f2-46c665892b11.mp4" type="video/mp4">
+</video>
+
 ### `draw.cube(matrix)`
+
 ### `draw.grid(matrix, size)`

@@ -11,3 +11,5 @@
 [https://www.nexusmods.com/monsterhunterrise/mods/39](https://www.nexusmods.com/monsterhunterrise/mods/39)
 
 [https://github.com/cursey/mhrise-scripts](https://github.com/cursey/mhrise-scripts)
+
+[https://github.com/alphazolam/REFramework-Scripts](https://github.com/alphazolam/REFramework-Scripts)

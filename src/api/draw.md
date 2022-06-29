@@ -28,5 +28,17 @@ Draws a 3D capsule with a 2D approximation in world space.
 
 Returns a tuple of `changed`, `mat`. Mat is the modified `matrix` that was passed.
 
+```
+    imgui.new_enum("ImGuizmoOperation", 
+                    "TRANSLATE", ImGuizmo::OPERATION::TRANSLATE, 
+                    "ROTATE", ImGuizmo::OPERATION::ROTATE,
+                    "SCALE", ImGuizmo::OPERATION::SCALE,
+                    "SCALEU", ImGuizmo::OPERATION::SCALEU,
+                    "UNIVERSAL", ImGuizmo::OPERATION::UNIVERSAL);
+    imgui.new_enum("ImGuizmoMode", 
+                    "WORLD", ImGuizmo::MODE::WORLD,
+                    "LOCAL", ImGuizmo::MODE::LOCAL);
+```
+
 ### `draw.cube(matrix)`
 ### `draw.grid(matrix, size)`

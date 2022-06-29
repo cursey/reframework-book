@@ -19,3 +19,14 @@ Draws a 3D sphere with a 2D approximation in world space.
 
 ### `draw.capsule(world_start_pos, world_end_pos, radius, color, outline)`
 Draws a 3D capsule with a 2D approximation in world space.
+
+### `draw.gizmo(unique_id, matrix, operation, mode)`
+* `unique_id`, an int64 that must be unique for every gizmo. Usually an address of an object will work. The same ID will control multiple gizmos with the same ID.
+* `matrix`, the Matrix4x4f the gizmo is modifying.
+* `operation`, defaults to UNIVERSAL. Use `imgui.ImGuizmoOperation` enum.
+* `mode`, defaults to WORLD. WORLD or LOCAL. Use `imgui.ImGuizmoMode` enum.
+
+Returns a tuple of `changed`, `mat`. Mat is the modified `matrix` that was passed.
+
+### `draw.cube(matrix)`
+### `draw.grid(matrix, size)`

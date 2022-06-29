@@ -158,6 +158,16 @@
 <p>Draws a 3D sphere with a 2D approximation in world space.</p>
 <h3 id="drawcapsuleworld_start_pos-world_end_pos-radius-color-outline"><a class="header" href="#drawcapsuleworld_start_pos-world_end_pos-radius-color-outline"><code>draw.capsule(world_start_pos, world_end_pos, radius, color, outline)</code></a></h3>
 <p>Draws a 3D capsule with a 2D approximation in world space.</p>
+<h3 id="drawgizmounique_id-matrix-operation-mode"><a class="header" href="#drawgizmounique_id-matrix-operation-mode"><code>draw.gizmo(unique_id, matrix, operation, mode)</code></a></h3>
+<ul>
+<li><code>unique_id</code>, an int64 that must be unique for every gizmo. Usually an address of an object will work. The same ID will control multiple gizmos with the same ID.</li>
+<li><code>matrix</code>, the Matrix4x4f the gizmo is modifying.</li>
+<li><code>operation</code>, defaults to UNIVERSAL. Use <code>imgui.ImGuizmoOperation</code> enum.</li>
+<li><code>mode</code>, defaults to WORLD. WORLD or LOCAL. Use <code>imgui.ImGuizmoMode</code> enum.</li>
+</ul>
+<p>Returns a tuple of <code>changed</code>, <code>mat</code>. Mat is the modified <code>matrix</code> that was passed.</p>
+<h3 id="drawcubematrix"><a class="header" href="#drawcubematrix"><code>draw.cube(matrix)</code></a></h3>
+<h3 id="drawgridmatrix-size"><a class="header" href="#drawgridmatrix-size"><code>draw.grid(matrix, size)</code></a></h3>
 
                     </main>
 

@@ -4,6 +4,12 @@ The object explorer will be your go-to reference when actively working on a scri
 
 Found under `DeveloperTools` in the REFramework menu.
 
+
+<video width="640" height="480" controls>
+<source src="https://user-images.githubusercontent.com/2909949/176354040-b118473d-2def-4439-bdb9-c8899497aae4.mp4" type="video/mp4">
+</video>
+
+
 ## Definitions
 ### TDB
 **T**ype **D**ata**b**ase. Contains all of the metadata for classes, fields, methods, events, etc...

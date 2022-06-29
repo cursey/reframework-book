@@ -1041,6 +1041,16 @@ module1.foo()
 <li><code>mode</code>, defaults to WORLD. WORLD or LOCAL. Use <code>imgui.ImGuizmoMode</code> enum.</li>
 </ul>
 <p>Returns a tuple of <code>changed</code>, <code>mat</code>. Mat is the modified <code>matrix</code> that was passed.</p>
+<pre><code>    imgui.new_enum(&quot;ImGuizmoOperation&quot;, 
+                    &quot;TRANSLATE&quot;, ImGuizmo::OPERATION::TRANSLATE, 
+                    &quot;ROTATE&quot;, ImGuizmo::OPERATION::ROTATE,
+                    &quot;SCALE&quot;, ImGuizmo::OPERATION::SCALE,
+                    &quot;SCALEU&quot;, ImGuizmo::OPERATION::SCALEU,
+                    &quot;UNIVERSAL&quot;, ImGuizmo::OPERATION::UNIVERSAL);
+    imgui.new_enum(&quot;ImGuizmoMode&quot;, 
+                    &quot;WORLD&quot;, ImGuizmo::MODE::WORLD,
+                    &quot;LOCAL&quot;, ImGuizmo::MODE::LOCAL);
+</code></pre>
 <h3 id="drawcubematrix"><a class="header" href="#drawcubematrix"><code>draw.cube(matrix)</code></a></h3>
 <h3 id="drawgridmatrix-size"><a class="header" href="#drawgridmatrix-size"><code>draw.grid(matrix, size)</code></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><p>This is the filesystem API. REFramework purposefully restricts scripts from the usual Lua <code>io</code> API so that scripts do not have unrestricted access to a users system. Instead, this API focuses specifically on the <code>reframework/data</code> subdirectory.</p>

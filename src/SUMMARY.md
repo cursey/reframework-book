@@ -11,8 +11,9 @@
 - [Example Scripts](examples/Example-Scripts.md)
 - [Example Snippets](examples/Example-Snippets.md)
 
-# Object Explorer
-- [Object_Explorer](object_explorer/object_explorer.md)
+# Tools
+- [Object Explorer](object_explorer/object_explorer.md)
+- [Chain Viewer](chain_viewer/chain_viewer.md)
 
 # Scripting Reference
 - [General](api/general/README.md)

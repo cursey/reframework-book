@@ -606,6 +606,92 @@ re.on_draw_ui(function()
     end
 end)
 </code></pre>
+<p>https://user-images.githubusercontent.com/2909949/176351319-c070b216-fe71-4eb9-84f2-46c665892b11.mp4</p>
+<h3 id="3d-gizmo-test-script"><a class="header" href="#3d-gizmo-test-script">3D Gizmo test script</a></h3>
+<pre><code>local gn = reframework:get_game_name()
+
+local function get_localplayer()
+    if gn == &quot;re2&quot; or gn == &quot;re3&quot; then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+        if player_manager == nil then return nil end
+    
+        return player_manager:call(&quot;get_CurrentPlayer&quot;)
+    elseif gn == &quot;dmc5&quot; then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace(&quot;PlayerManager&quot;))
+        if player_manager == nil then return nil end
+    
+        local player_comp = player_manager:call(&quot;get_manualPlayer&quot;)
+        if player_comp == nil then return nil end
+
+        return player_comp:call(&quot;get_GameObject&quot;)
+    elseif gn == &quot;mhrise&quot; then
+        local player_manager = sdk.get_managed_singleton(sdk.game_namespace(&quot;player.PlayerManager&quot;))
+        if player_manager == nil then return nil end
+    
+        local player_comp = player_manager:call(&quot;findMasterPlayer&quot;)
+        if player_comp == nil then return nil end
+
+        return player_comp:call(&quot;get_GameObject&quot;)
+    end
+
+    return nil
+end
+
+local joint_work = {}
+
+re.on_pre_application_entry(&quot;LockScene&quot;, function()
+    for k, v in pairs(joint_work) do
+        v.func(v.mat)
+    end
+
+    joint_work = {}
+end)
+
+re.on_frame(function()
+    local player = get_localplayer()
+    if player == nil then return end
+
+    local transform = player:call(&quot;get_Transform&quot;)
+    if transform == nil then return end
+
+    local mat = transform:call(&quot;get_WorldMatrix&quot;)
+    local changed = false
+
+    changed,mat = draw.gizmo(transform:get_address(), mat)
+
+    if changed then
+        transform:set_rotation(mat:to_quat())
+        transform:set_position(mat[3])
+    end
+
+    local joints = transform:call(&quot;get_Joints&quot;)
+    local mouse = imgui.get_mouse()
+
+    for i, joint in ipairs(joints:get_elements()) do
+        mat = joint:call(&quot;get_WorldMatrix&quot;)
+
+        local mat_screen = draw.world_to_screen(mat[3])
+        local mat_screen_top = draw.world_to_screen(mat[3] + Vector3f.new(0, 0.1, 0))
+
+        if mat_screen and mat_screen_top then
+            local delta = (mat_screen - mat_screen_top):length()
+            local mouse_delta = (mat_screen - mouse):length()
+            if mouse_delta &lt;= delta then
+
+                changed, mat = draw.gizmo(joint:get_address(), mat)
+
+                if changed then
+                    table.insert(joint_work, { [&quot;mat&quot;] = mat, [&quot;func&quot;] = function(mat)
+                        joint:call(&quot;set_Rotation&quot;, mat:to_quat())
+                        joint:call(&quot;set_Position&quot;, mat[3])
+                    end
+                })
+                end
+            end
+        end
+    end
+end)
+</code></pre>
 <h3 id="dumping-fields-of-an-remanagedobject-or-type-very-verbose"><a class="header" href="#dumping-fields-of-an-remanagedobject-or-type-very-verbose">Dumping fields of an REManagedObject or type (very verbose)</a></h3>
 <p>Use <code>object:get_type_definition():get_fields()</code> for an easier way to do this. The below snippet should rarely be used.</p>
 <pre><code class="language-lua">-- type is the &quot;typeof&quot; variant, not the type definition

@@ -23,6 +23,9 @@ The W component of the `Quaternion`.
 ### `self:to_mat4()`
 Returns a `Matrix4x4f` built from `self`.
 
+### `self:to_euler()`
+Returns a `Vector3f` representing the Euler angles for this Quaternion.
+
 ### `self:inverse()`
 Returns a `Quaternion` that is the inverse of `self`.
 

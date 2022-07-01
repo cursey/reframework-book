@@ -2,6 +2,8 @@ This is the REFramework wiki. It will mostly serve as documentation for the scri
 
 [VR Troubleshooting](troubleshooting/VR-Troubleshooting.md)
 
+[Contributing to documentation](https://github.com/cursey/reframework-book)
+
 [Nightly builds](https://github.com/praydog/REFramework-nightly/releases)
 
 ## Lua Scripting

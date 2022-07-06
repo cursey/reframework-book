@@ -26,7 +26,7 @@
     - [imguizmo](api/imguizmo.md)
     - [json](api/json.md)
     - [log](api/log.md)
-    - [re](api/re.md)
+    - [re (Callbacks)](api/re.md)
     - [reframework](api/reframework.md)
     - [sdk](api/sdk.md)
     - [vrmod](api/vrmod.md)

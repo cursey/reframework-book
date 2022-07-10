@@ -17,6 +17,14 @@ local function bar()
 end
 ```
 
+## Hooking gotchas
+If you are hooking a function that looks like a `get_` or `set_` function, double check the disassembly in the Object Explorer. More often than not, these functions will be **extremely** simple and prone to compiler optimizations causing multiple unrelated function calls to go through the hook. This means garbage data you don't want will flow through the function, and you can potentially crash the game if you are modifying the control flow of the wrong functions.
+
+If you **really** want to hook these functions, you will need to verify that the object type being passed through the arguments is the one you want. Leave the control flow state and arguments pristine until you are 100% sure what is being passed through is what you want.
+
+![dghsdfgsd](https://user-images.githubusercontent.com/2909949/178127784-2f5103df-6959-4150-8fc4-b1d7713b875a.png)
+![dont do it](https://user-images.githubusercontent.com/2909949/178127840-af14513c-30f5-4f88-8268-2ec963b4b24e.png)
+
 ## Hooking performance considerations
 Using `sdk.hook` is very useful. However, this comes with a few things to take note of.
 

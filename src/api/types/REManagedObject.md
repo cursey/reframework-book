@@ -21,6 +21,16 @@ if scene ~= nil then
 end
 ```
 
+## Custom indexers
+### `self.foo` (index)
+If `foo` is a field or method of the object, returns either the field or `REMethodDefinition` if it exists.
+
+### `self:foo(bar, baz)` (index)
+If `foo` is a method of the object, calls `foo` with the supplied arguments.
+
+### `self.foo = bar` (newindex)
+If `foo` is a field of the object, assigns the value `bar` to the field.
+
 ## Methods
 ### `self:call(method_name, args...)`
 Return value is dependent on the method's return type. Wrapper over `sdk.call_object_func`.

@@ -28,6 +28,8 @@ If `foo` is a field or method of the object, returns either the field or `REMeth
 ### `self:foo(bar, baz)` (index)
 If `foo` is a method of the object, calls `foo` with the supplied arguments.
 
+If the method is an overloaded function, you must instead use `self:call(name, args...)` with the correct function prototype, as this does not deduce the correct function based on the passed arguments.
+
 ### `self.foo = bar` (newindex)
 If `foo` is a field of the object, assigns the value `bar` to the field.
 

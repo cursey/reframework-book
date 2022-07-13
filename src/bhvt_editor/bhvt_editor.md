@@ -1,5 +1,5 @@
 # Behavior Tree Editor
-The Behavior Tree Editor is an external project that isn't part of REFramework. It may become native and built-in at some point.
+The Behavior Tree Editor is a Lua script that isn't part of REFramework. It may become native and built-in at some point.
 
 [https://github.com/praydog/RE-BHVT-Editor](https://github.com/praydog/RE-BHVT-Editor)
 

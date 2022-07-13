@@ -161,6 +161,13 @@ if scene ~= nil then
     scene:call(&quot;set_TimeScale&quot;, 5.0)
 end
 </code></pre>
+<h2 id="custom-indexers"><a class="header" href="#custom-indexers">Custom indexers</a></h2>
+<h3 id="selffoo-index"><a class="header" href="#selffoo-index"><code>self.foo</code> (index)</a></h3>
+<p>If <code>foo</code> is a field or method of the object, returns either the field or <code>REMethodDefinition</code> if it exists.</p>
+<h3 id="selffoobar-baz-index"><a class="header" href="#selffoobar-baz-index"><code>self:foo(bar, baz)</code> (index)</a></h3>
+<p>If <code>foo</code> is a method of the object, calls <code>foo</code> with the supplied arguments.</p>
+<h3 id="selffoo--bar-newindex"><a class="header" href="#selffoo--bar-newindex"><code>self.foo = bar</code> (newindex)</a></h3>
+<p>If <code>foo</code> is a field of the object, assigns the value <code>bar</code> to the field.</p>
 <h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
 <h3 id="selfcallmethod_name-args"><a class="header" href="#selfcallmethod_name-args"><code>self:call(method_name, args...)</code></a></h3>
 <p>Return value is dependent on the method's return type. Wrapper over <code>sdk.call_object_func</code>.</p>

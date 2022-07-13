@@ -171,6 +171,13 @@ end
 sdk.hook(sdk.find_type_definition("via.Scene"):get_method("get_TimeScale"), on_pre_get_timescale, on_post_get_timescale)
 ```
 
+#### `sdk.hook_vtable(managed_object, method_definition, pre_function, post_function)`
+Functionality is the same as `sdk.hook`, except hooks the method by replacing the object's virtual table. This means the hook will only trigger when the method runs for that specific object. U
+
+seful if the usual `sdk.hook` gets called by too many things, or you want to implement special functionality for one specific object, like a Lua driven condition or action in the behavior tree system.
+
+Only works on virtual methods. Not all methods are virtual methods. If the virtual index for the method is -1 in the Object Explorer, it cannot be hooked using `sdk.hook_vtable`.
+
 ### `sdk.is_managed_object(value)`
 Returns true if `value` is a valid [REManagedObject](types/REManagedObject.md).
 

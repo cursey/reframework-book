@@ -14,6 +14,7 @@
 # Tools
 - [Object Explorer](object_explorer/object_explorer.md)
 - [Chain Viewer](chain_viewer/chain_viewer.md)
+- [Behavior Tree/FSM Editor](bhvt_viewer/bhvt_viewer.md)
 
 # Scripting Reference
 - [General](api/general/README.md)

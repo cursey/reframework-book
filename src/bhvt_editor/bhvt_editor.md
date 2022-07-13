@@ -3,6 +3,8 @@ The Behavior Tree Editor is a Lua script that isn't part of REFramework. It may 
 
 [https://github.com/praydog/RE-BHVT-Editor](https://github.com/praydog/RE-BHVT-Editor)
 
+## Examples
+
 ### The UI
 
 <video width="640" height="480" controls>
@@ -26,3 +28,11 @@ The Behavior Tree Editor is a Lua script that isn't part of REFramework. It may 
 <video width="640" height="480" controls>
 <source src="https://user-images.githubusercontent.com/2909949/178724426-5feb9624-c071-42b6-919a-f9efc037b04c.mp4" type="video/mp4">
 </video>
+
+All of the above combined, with modification of transition states to create a custom combo that loops back around
+
+<video width="640" height="480" controls>
+<source src="https://user-images.githubusercontent.com/2909949/178810141-1195f33e-1b60-4c34-9900-9d7e21960329.mp4" type="video/mp4">
+</video>
+
+

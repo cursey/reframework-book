@@ -166,6 +166,7 @@ end
 <p>If <code>foo</code> is a field or method of the object, returns either the field or <code>REMethodDefinition</code> if it exists.</p>
 <h3 id="selffoobar-baz-index"><a class="header" href="#selffoobar-baz-index"><code>self:foo(bar, baz)</code> (index)</a></h3>
 <p>If <code>foo</code> is a method of the object, calls <code>foo</code> with the supplied arguments.</p>
+<p>If the method is an overloaded function, you must instead use <code>self:call(name, args...)</code> with the correct function prototype, as this does not deduce the correct function based on the passed arguments.</p>
 <h3 id="selffoo--bar-newindex"><a class="header" href="#selffoo--bar-newindex"><code>self.foo = bar</code> (newindex)</a></h3>
 <p>If <code>foo</code> is a field of the object, assigns the value <code>bar</code> to the field.</p>
 <h2 id="methods"><a class="header" href="#methods">Methods</a></h2>

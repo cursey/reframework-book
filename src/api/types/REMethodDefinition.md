@@ -26,3 +26,5 @@ Returns whether this method is static or not.
 
 ### `self:call(obj, args...)`
 Equivalent to calling `obj:call(args...)`
+
+Can also use `self(obj, args...)`

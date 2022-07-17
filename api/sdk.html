@@ -297,6 +297,13 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <ul>
 <li>A <code>void*</code></li>
 </ul>
+<p>If you need a smaller datatype, you can do:</p>
+<ul>
+<li><code>(sdk.to_int64(value) &amp; 1) == 1</code> for a boolean</li>
+<li><code>(sdk.to_int64(value) &amp; 0xFF)</code> for an unsigned byte</li>
+<li><code>(sdk.to_int64(value) &amp; 0xFFFF)</code> for an unsigned short (2 bytes)</li>
+<li><code>(sdk.to_int64(value) &amp; 0xFFFFFFFF)</code> for an unsigned int (4 bytes)</li>
+</ul>
 <h3 id="sdkto_ptrvalue"><a class="header" href="#sdkto_ptrvalue"><code>sdk.to_ptr(value)</code></a></h3>
 <p>Attempts to convert <code>value</code> to a <code>void*</code>.</p>
 <p><code>value</code> can be any of the following types:</p>

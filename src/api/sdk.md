@@ -207,6 +207,12 @@ Attempts to convert `value` to a `int64`.
 `value` can be any of the following types:
 * A `void*`
 
+If you need a smaller datatype, you can do:
+* `(sdk.to_int64(value) & 1) == 1` for a boolean
+* `(sdk.to_int64(value) & 0xFF)` for an unsigned byte
+* `(sdk.to_int64(value) & 0xFFFF)` for an unsigned short (2 bytes)
+* `(sdk.to_int64(value) & 0xFFFFFFFF)` for an unsigned int (4 bytes)
+
 ### `sdk.to_ptr(value)`
 Attempts to convert `value` to a `void*`.
 

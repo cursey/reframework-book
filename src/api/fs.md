@@ -16,3 +16,9 @@ for k, v in ipairs(json_files) do
     -- v will be something like `my-cool-mod\config-file-1.json` 
 end
 ```
+
+### `fs.read(filename)`
+Reads `filename` and returns the data as a string.
+
+### `fs.write(filename, data)`
+Writes `data` to `filename`. `data` is a string.

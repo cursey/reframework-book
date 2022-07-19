@@ -10,7 +10,7 @@ This is the REFramework wiki. It will mostly serve as documentation for the scri
 Report it on the [Issues](https://github.com/praydog/REFramework/issues) page.
 
 If you are crashing, or are having a technical problem then upload these files from your game folder:
-* `re2_framework_log.txt`
+* `re2_framework_log.txt` - The WHOLE LOG, not snippets of it.
 * `reframework_crash.dmp` if you are crashing
 
 ## Lua Scripting

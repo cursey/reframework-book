@@ -1,4 +1,6 @@
-This is the filesystem API. REFramework purposefully restricts scripts from the usual Lua `io` API so that scripts do not have unrestricted access to a users system. Instead, this API focuses specifically on the `reframework/data` subdirectory.
+This is the filesystem API. ~~REFramework purposefully restricts scripts from the usual Lua `io` API so that scripts do not have unrestricted access to a users system.~~ Instead, this API focuses specifically on the `reframework/data` subdirectory.
+
+In newer builds of REFramework, the `io` API is fully supported, but it can only access the `reframework/data` directory and the stdout/in/err streams. `io.popen` is also removed.
 
 ## Methods
 

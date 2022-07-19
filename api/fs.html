@@ -140,7 +140,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>This is the filesystem API. REFramework purposefully restricts scripts from the usual Lua <code>io</code> API so that scripts do not have unrestricted access to a users system. Instead, this API focuses specifically on the <code>reframework/data</code> subdirectory.</p>
+                        <p>This is the filesystem API. <del>REFramework purposefully restricts scripts from the usual Lua <code>io</code> API so that scripts do not have unrestricted access to a users system.</del> Instead, this API focuses specifically on the <code>reframework/data</code> subdirectory.</p>
+<p>In newer builds of REFramework, the <code>io</code> API is fully supported, but it can only access the <code>reframework/data</code> directory and the stdout/in/err streams. <code>io.popen</code> is also removed.</p>
 <h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
 <h3 id="fsglobfilter"><a class="header" href="#fsglobfilter"><code>fs.glob(filter)</code></a></h3>
 <p>Returns a table of file paths that match the <code>filter</code>. <code>filter</code> should be a regex string for the files you wish to match.</p>

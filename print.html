@@ -1195,7 +1195,8 @@ module1.foo()
 </video>
 <h3 id="drawcubematrix"><a class="header" href="#drawcubematrix"><code>draw.cube(matrix)</code></a></h3>
 <h3 id="drawgridmatrix-size"><a class="header" href="#drawgridmatrix-size"><code>draw.grid(matrix, size)</code></a></h3>
-<div style="break-before: page; page-break-before: always;"></div><p>This is the filesystem API. REFramework purposefully restricts scripts from the usual Lua <code>io</code> API so that scripts do not have unrestricted access to a users system. Instead, this API focuses specifically on the <code>reframework/data</code> subdirectory.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>This is the filesystem API. <del>REFramework purposefully restricts scripts from the usual Lua <code>io</code> API so that scripts do not have unrestricted access to a users system.</del> Instead, this API focuses specifically on the <code>reframework/data</code> subdirectory.</p>
+<p>In newer builds of REFramework, the <code>io</code> API is fully supported, but it can only access the <code>reframework/data</code> directory and the stdout/in/err streams. <code>io.popen</code> is also removed.</p>
 <h2 id="methods-1"><a class="header" href="#methods-1">Methods</a></h2>
 <h3 id="fsglobfilter"><a class="header" href="#fsglobfilter"><code>fs.glob(filter)</code></a></h3>
 <p>Returns a table of file paths that match the <code>filter</code>. <code>filter</code> should be a regex string for the files you wish to match.</p>

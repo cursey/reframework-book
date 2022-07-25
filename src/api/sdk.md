@@ -87,6 +87,24 @@ Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type 
 ### `sdk.create_resource(typename, resource_path)`
 Returns an `REResource`.
 
+### `sdk.deserialize(data)`
+Returns a list of [REManagedObject](types/REManagedObject.md) generated from `data`. 
+
+`data` is the raw RSZ data contained for example in a `.scn` file, starting at the `RSZ` magic in the header.
+
+`data` must in `table` format as an array of bytes.
+
+Example usage:
+```
+local rsz_data = json.load_file("Foobar.json")
+local objects = sdk.deserialize(rsz_data)
+
+for i, v in ipairs(objects) do
+    local obj_type = v:get_type_definition
+    log.info(obj_type:get_full_name())
+end
+```
+
 ### `sdk.call_native_func(object, type_definition, method_name, args...)`
 Return value is dependent on what the method returns.
 

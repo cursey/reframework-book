@@ -50,10 +50,12 @@ Return type is dependent on the field type.
 ### `self:get_address()`
 ### `self:get_reference_count()`
 
-### `self:deserialize(data, objects)`
+### `self:deserialize_native(data, objects)`
 Experimental API to deserialize `data` into `self`.
 
 `data` is RSZ data, in `table` format as an array of bytes.
+
+Will only work on native `via` types.
 
 ## Dangerous Methods
 Only use these if necessary!

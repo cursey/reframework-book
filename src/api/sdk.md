@@ -100,7 +100,7 @@ local rsz_data = json.load_file("Foobar.json")
 local objects = sdk.deserialize(rsz_data)
 
 for i, v in ipairs(objects) do
-    local obj_type = v:get_type_definition
+    local obj_type = v:get_type_definition()
     log.info(obj_type:get_full_name())
 end
 ```

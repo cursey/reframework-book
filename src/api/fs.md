@@ -2,6 +2,8 @@ This is the filesystem API. ~~REFramework purposefully restricts scripts from th
 
 In newer builds of REFramework, the `io` API is fully supported, but it can only access the `reframework/data` directory and the stdout/in/err streams. `io.popen` is also removed.
 
+The `io` APIs have access to the `natives` directory via the `$natives` token passed at the start of the filepath string for any of the functions.
+
 ## Methods
 
 ### `fs.glob(filter)`

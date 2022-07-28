@@ -174,3 +174,99 @@ enum ImGuiCond_
 
 ### `imgui.get_mouse()`
 Returns a `Vector2f` corresponding to the user's mouse position in window space.
+
+## Methods, to be documented
+### `imgui.get_key_index(...)`
+
+### `imgui.is_key_down(...)`
+
+### `imgui.is_key_pressed(...)`
+
+### `imgui.is_key_released(...)`
+
+### `imgui.is_mouse_down(...)`
+
+### `imgui.is_mouse_clicked(...)`
+
+### `imgui.is_mouse_released(...)`
+
+### `imgui.is_mouse_double_clicked(...)`
+
+### `imgui.indent(...)`
+
+### `imgui.unindent(...)`
+
+### `imgui.begin_tooltip(...)`
+
+### `imgui.end_tooltip(...)`
+
+### `imgui.set_tooltip(...)`
+
+### `imgui.open_popup(...)`
+
+### `imgui.begin_popup(...)`
+
+### `imgui.begin_popup_context_item(...)`
+
+### `imgui.end_popup(...)`
+
+### `imgui.close_current_popup(...)`
+
+### `imgui.is_popup_open(...)`
+
+### `imgui.calc_text_size(...)`
+
+### `imgui.get_window_size(...)`
+
+### `imgui.get_window_pos(...)`
+
+### `imgui.set_next_item_open(...)`
+
+### `imgui.begin_list_box(...)`
+
+### `imgui.end_list_box(...)`
+
+### `imgui.begin_menu_bar(...)`
+
+### `imgui.end_menu_bar(...)`
+
+### `imgui.begin_main_menu_bar(...)`
+
+### `imgui.end_main_menu_bar(...)`
+
+### `imgui.begin_menu(...)`
+
+### `imgui.end_menu(...)`
+
+### `imgui.menu_item(...)`
+
+### `imgui.get_display_size(...)`
+
+### `imgui.push_item_width(...)`
+
+### `imgui.pop_item_width(...)`
+
+### `imgui.set_next_item_width(...)`
+
+### `imgui.calc_item_width(...)`
+
+### `imgui.push_style_color(...)`
+
+### `imgui.pop_style_color(...)`
+
+### `imgui.push_style_var(...)`
+
+### `imgui.pop_style_var(...)`
+
+### `imgui.get_cursor_pos(...)`
+
+### `imgui.set_cursor_pos(...)`
+
+### `imgui.get_cursor_start_pos(...)`
+
+### `imgui.get_cursor_screen_pos(...)`
+
+### `imgui.set_cursor_screen_pos(...)`
+
+### `imgui.set_item_default_focus(...)`
+

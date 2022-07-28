@@ -44,6 +44,10 @@ Returns the full size of the object. e.g. 0x14 for `System.Int32`.
 ### `self:get_valuetype_size()`
 Returns the value type size. e.g. 4 for `System.Int32`. 
 
+### `self:get_generic_argument_types()`
+
+### `self:get_generic_type_definition()`
+
 ### `self:is_a(typename or RETypeDefinition)`
 Returns whether `self` or its parents are a `typename` or the `RETypeDefinition` passed.
 
@@ -57,6 +61,10 @@ Does not necessarily need to inherit from `System.ValueType` for this to be true
 ### `self:is_pointer()`
 
 ### `self:is_primitive()`
+
+### `self:is_generic_type()`
+
+### `self:is_generic_type_definition()`
 
 ### `self:create_instance()`
 Returns an `REManagedObject`.

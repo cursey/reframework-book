@@ -54,8 +54,21 @@ Draws a button with `label` text.
 
 Returns `true` when the user presses the button.
 
+### `imgui.small_button(label)`
+
+### `imgui.invisible_button(id, size, flags)`
+`size` is a Vector2f or a size 2 array.
+
+### `imgui.arrow_button(id, dir)`
+`dir` is an `ImguiDir`
+
 ### `imgui.text(text)`
 Draws text.
+
+### `imgui.text(text, color)`
+Draws text with color.
+
+`color` is an integer color in the form ARGB.
 
 ### `imgui.checkbox(label, value)`
 Returns a tuple of `changed`, `value`
@@ -82,7 +95,10 @@ Returns a tuple of `changed`, `value`
 Returns a tuple of `changed`, `value`
 
 ### `imgui.input_text(label, value, flags (optional))`
-Returns a tuple of `changed`, `value`
+Returns a tuple of `changed`, `value`, `selection_start`, `selection_end`
+
+### `imgui.input_text_multiline(label, value, size, flags (optional))`
+Returns a tuple of `changed`, `value`, `selection_start`, `selection_end`
 
 ### `imgui.combo(label, selection, values)`
 Returns a tuple of `changed, value`. 

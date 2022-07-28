@@ -150,7 +150,9 @@ All of the above `tree` functions must have a corresponding `tree_pop`!
 ### `imgui.same_line()`
 ### `imgui.spacing()`
 ### `imgui.new_line()`
-### `imgui.is_item_hovered()`
+### `imgui.is_item_hovered(flags)`
+### `imgui.is_item_active()`
+### `imgui.is_item_focused()`
 
 ### `imgui.collapsing_header(name)`
 
@@ -187,6 +189,8 @@ enum ImGuiCond_
 `id` can be an `int`, `const char*`, or `void*`.
 
 ### `imgui.pop_id()`
+
+### `imgui.get_id()`
 
 ### `imgui.get_mouse()`
 Returns a `Vector2f` corresponding to the user's mouse position in window space.

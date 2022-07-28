@@ -65,7 +65,7 @@ Returns `true` when the user presses the button.
 ### `imgui.text(text)`
 Draws text.
 
-### `imgui.text(text, color)`
+### `imgui.text_colored(text, color)`
 Draws text with color.
 
 `color` is an integer color in the form ARGB.

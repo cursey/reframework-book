@@ -1252,8 +1252,16 @@ end)
 <h3 id="imguibuttonlabel"><a class="header" href="#imguibuttonlabel"><code>imgui.button(label)</code></a></h3>
 <p>Draws a button with <code>label</code> text.</p>
 <p>Returns <code>true</code> when the user presses the button.</p>
+<h3 id="imguismall_buttonlabel"><a class="header" href="#imguismall_buttonlabel"><code>imgui.small_button(label)</code></a></h3>
+<h3 id="imguiinvisible_buttonid-size-flags"><a class="header" href="#imguiinvisible_buttonid-size-flags"><code>imgui.invisible_button(id, size, flags)</code></a></h3>
+<p><code>size</code> is a Vector2f or a size 2 array.</p>
+<h3 id="imguiarrow_buttonid-dir"><a class="header" href="#imguiarrow_buttonid-dir"><code>imgui.arrow_button(id, dir)</code></a></h3>
+<p><code>dir</code> is an <code>ImguiDir</code></p>
 <h3 id="imguitexttext"><a class="header" href="#imguitexttext"><code>imgui.text(text)</code></a></h3>
 <p>Draws text.</p>
+<h3 id="imguitexttext-color"><a class="header" href="#imguitexttext-color"><code>imgui.text(text, color)</code></a></h3>
+<p>Draws text with color.</p>
+<p><code>color</code> is an integer color in the form ARGB.</p>
 <h3 id="imguicheckboxlabel-value"><a class="header" href="#imguicheckboxlabel-value"><code>imgui.checkbox(label, value)</code></a></h3>
 <p>Returns a tuple of <code>changed</code>, <code>value</code></p>
 <h3 id="imguidrag_floatlabel-value-speed-min-max-display_format-optional"><a class="header" href="#imguidrag_floatlabel-value-speed-min-max-display_format-optional"><code>imgui.drag_float(label, value, speed, min, max, display_format (optional))</code></a></h3>
@@ -1271,7 +1279,9 @@ end)
 <h3 id="imguislider_intlabel-value-min-max-display_format-optional"><a class="header" href="#imguislider_intlabel-value-min-max-display_format-optional"><code>imgui.slider_int(label, value, min, max, display_format (optional))</code></a></h3>
 <p>Returns a tuple of <code>changed</code>, <code>value</code></p>
 <h3 id="imguiinput_textlabel-value-flags-optional"><a class="header" href="#imguiinput_textlabel-value-flags-optional"><code>imgui.input_text(label, value, flags (optional))</code></a></h3>
-<p>Returns a tuple of <code>changed</code>, <code>value</code></p>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>, <code>selection_start</code>, <code>selection_end</code></p>
+<h3 id="imguiinput_text_multilinelabel-value-size-flags-optional"><a class="header" href="#imguiinput_text_multilinelabel-value-size-flags-optional"><code>imgui.input_text_multiline(label, value, size, flags (optional))</code></a></h3>
+<p>Returns a tuple of <code>changed</code>, <code>value</code>, <code>selection_start</code>, <code>selection_end</code></p>
 <h3 id="imguicombolabel-selection-values"><a class="header" href="#imguicombolabel-selection-values"><code>imgui.combo(label, selection, values)</code></a></h3>
 <p>Returns a tuple of <code>changed, value</code>. </p>
 <p><code>changed</code> = true when selection changes. </p>

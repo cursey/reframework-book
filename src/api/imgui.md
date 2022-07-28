@@ -290,3 +290,35 @@ Returns a `Vector2f` corresponding to the user's mouse position in window space.
 
 ### `imgui.set_item_default_focus(...)`
 
+## Table API
+### `imgui.begin_table(...)`
+
+### `imgui.end_table(...)`
+
+### `imgui.table_next_row(...)`
+
+### `imgui.table_next_column(...)`
+
+### `imgui.table_set_column_index(...)`
+
+### `imgui.table_setup_column(...)`
+
+### `imgui.table_setup_scroll_freeze(...)`
+
+### `imgui.table_headers_row(...)`
+
+### `imgui.table_header(...)`
+
+### `imgui.table_get_sort_specs(...)`
+
+### `imgui.table_get_column_count(...)`
+
+### `imgui.table_get_column_index(...)`
+
+### `imgui.table_get_row_index(...)`
+
+### `imgui.table_get_column_name(...)`
+
+### `imgui.table_get_column_flags(...)`
+
+### `imgui.table_set_bg_color(...)`

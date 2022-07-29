@@ -33,6 +33,8 @@ If the method is an overloaded function, you must instead use `self:call(name, a
 ### `self.foo = bar`
 If `foo` is a field of the object, assigns the value `bar` to the field.
 
+This automatically handles the reference counting for the old and new field. Do not use `:force_release()` and `:add_ref_permanent()` in this case to handle the references.
+
 ### `self[i]`
 Checks if the object has a `get_Item` method and calls it with `i`.
 

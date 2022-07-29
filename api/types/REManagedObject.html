@@ -169,6 +169,7 @@ end
 <p>If the method is an overloaded function, you must instead use <code>self:call(name, args...)</code> with the correct function prototype, as this does not deduce the correct function based on the passed arguments.</p>
 <h3 id="selffoo--bar"><a class="header" href="#selffoo--bar"><code>self.foo = bar</code></a></h3>
 <p>If <code>foo</code> is a field of the object, assigns the value <code>bar</code> to the field.</p>
+<p>This automatically handles the reference counting for the old and new field. Do not use <code>:force_release()</code> and <code>:add_ref_permanent()</code> in this case to handle the references.</p>
 <h3 id="selfi"><a class="header" href="#selfi"><code>self[i]</code></a></h3>
 <p>Checks if the object has a <code>get_Item</code> method and calls it with <code>i</code>.</p>
 <h3 id="selfi--foo"><a class="header" href="#selfi--foo"><code>self[i] = foo</code></a></h3>

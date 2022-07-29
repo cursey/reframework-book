@@ -2300,6 +2300,10 @@ end
 <p>If the method is an overloaded function, you must instead use <code>self:call(name, args...)</code> with the correct function prototype, as this does not deduce the correct function based on the passed arguments.</p>
 <h3 id="selffoo--bar"><a class="header" href="#selffoo--bar"><code>self.foo = bar</code></a></h3>
 <p>If <code>foo</code> is a field of the object, assigns the value <code>bar</code> to the field.</p>
+<h3 id="selfi"><a class="header" href="#selfi"><code>self[i]</code></a></h3>
+<p>Checks if the object has a <code>get_Item</code> method and calls it with <code>i</code>.</p>
+<h3 id="selfi--foo"><a class="header" href="#selfi--foo"><code>self[i] = foo</code></a></h3>
+<p>Checks if the object has a <code>set_Item</code> method and calls it with <code>i</code> and <code>foo</code> as the respective parameters.</p>
 <h2 id="methods-15"><a class="header" href="#methods-15">Methods</a></h2>
 <h3 id="selfcallmethod_name-args"><a class="header" href="#selfcallmethod_name-args"><code>self:call(method_name, args...)</code></a></h3>
 <p>Return value is dependent on the method's return type. Wrapper over <code>sdk.call_object_func</code>.</p>

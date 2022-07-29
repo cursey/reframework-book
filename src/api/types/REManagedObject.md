@@ -33,6 +33,12 @@ If the method is an overloaded function, you must instead use `self:call(name, a
 ### `self.foo = bar`
 If `foo` is a field of the object, assigns the value `bar` to the field.
 
+### `self[i]`
+Checks if the object has a `get_Item` method and calls it with `i`.
+
+### `self[i] = foo`
+Checks if the object has a `set_Item` method and calls it with `i` and `foo` as the respective parameters.
+
 ## Methods
 ### `self:call(method_name, args...)`
 Return value is dependent on the method's return type. Wrapper over `sdk.call_object_func`.

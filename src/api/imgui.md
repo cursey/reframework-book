@@ -196,6 +196,8 @@ enum ImGuiCond_
 Returns a `Vector2f` corresponding to the user's mouse position in window space.
 
 ## Methods, to be documented
+Method implementations can be found at [https://github.com/praydog/REFramework/blob/master/src/mods/bindings/ImGui.cpp](https://github.com/praydog/REFramework/blob/master/src/mods/bindings/ImGui.cpp) until documentation is made.
+
 ### `imgui.get_key_index(...)`
 
 ### `imgui.is_key_down(...)`

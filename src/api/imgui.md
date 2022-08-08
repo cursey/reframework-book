@@ -107,6 +107,8 @@ Returns a tuple of `changed, value`.
 
 `value` is the selection index within `values` (a table)
 
+`values` can be a table with any type of keys, as long as the values are strings.
+
 ### `imgui.color_picker(label, color, flags)`
 
 Returns a tuple of `changed`, `value`. `color` is an integer color in the form ABGR which `imgui` and `draw` APIs expect.

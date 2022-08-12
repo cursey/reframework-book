@@ -1451,11 +1451,6 @@ end)
 <h3 id="reon_application_entryname-function"><a class="header" href="#reon_application_entryname-function"><code>re.on_application_entry(name, function)</code></a></h3>
 <p>Triggers <code>function</code> when the application/module entry associated with  <code>name</code> is being executed.</p>
 <p>This is very powerful, and can be used to run code at many important points in the engine's logic loop.</p>
-<h3 id="reon_pre_update_transformtransform-function"><a class="header" href="#reon_pre_update_transformtransform-function"><code>re.on_pre_update_transform(transform, function)</code></a></h3>
-<h3 id="reon_update_transformtransform-function"><a class="header" href="#reon_update_transformtransform-function"><code>re.on_update_transform(transform, function)</code></a></h3>
-<p>Function prototype: <code>function on_*_update_transform(transform)</code></p>
-<p>Triggers <code>function</code> when the <code>RETransform</code> passed is being updated.</p>
-<p>Be careful with these. You are able to register multiple callbacks with the same transform and function, leading to frame drops if too many are made. There's no way to delete a callback yet.</p>
 <h3 id="reon_pre_gui_draw_elementfunction"><a class="header" href="#reon_pre_gui_draw_elementfunction"><code>re.on_pre_gui_draw_element(function)</code></a></h3>
 <h3 id="reon_gui_draw_elementfunction"><a class="header" href="#reon_gui_draw_elementfunction"><code>re.on_gui_draw_element(function)</code></a></h3>
 <p>Function prototype: <code>function on_*_draw_element(element, context)</code></p>

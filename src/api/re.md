@@ -27,13 +27,6 @@ Try to minimize calling game methods when inside `on_frame` and `on_draw_ui`.
 Triggers `function` when the application/module entry associated with  `name` is being executed.
 
 This is very powerful, and can be used to run code at many important points in the engine's logic loop.
-### `re.on_pre_update_transform(transform, function)`
-### `re.on_update_transform(transform, function)`
-Function prototype: `function on_*_update_transform(transform)`
-
-Triggers `function` when the `RETransform` passed is being updated.
-
-Be careful with these. You are able to register multiple callbacks with the same transform and function, leading to frame drops if too many are made. There's no way to delete a callback yet.
 
 ### `re.on_pre_gui_draw_element(function)`
 ### `re.on_gui_draw_element(function)`

@@ -152,7 +152,12 @@
 <h3 id="selfis_literal"><a class="header" href="#selfis_literal"><code>self:is_literal()</code></a></h3>
 <h3 id="selfget_dataobj"><a class="header" href="#selfget_dataobj"><code>self:get_data(obj)</code></a></h3>
 <p>Returns the data contained in the field for <code>obj</code>. </p>
-<p><code>obj</code> can be nil if the field is static.</p>
+<p><code>obj</code> can be any of the following type:</p>
+<ul>
+<li><code>nil</code>, if the field is static</li>
+<li><code>REManagedObject*</code></li>
+<li><code>void*</code> pointing to a <code>REManagedObject</code> or <code>ValueType</code></li>
+</ul>
 
                     </main>
 

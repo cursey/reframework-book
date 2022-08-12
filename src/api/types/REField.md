@@ -11,4 +11,7 @@ Returns an `RETypeDefinition*`.
 ### `self:get_data(obj)`
 Returns the data contained in the field for `obj`. 
 
-`obj` can be nil if the field is static.
+`obj` can be any of the following type:
+  - `nil`, if the field is static
+  - `REManagedObject*`
+  - `void*` pointing to a `REManagedObject` or `ValueType`

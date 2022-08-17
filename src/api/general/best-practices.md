@@ -18,6 +18,11 @@ end
 ```
 
 ## Hooking gotchas
+As of commit [7145dbda6cb7cb5b8dd12d9dee14f51850a76ec6](https://github.com/praydog/REFramework/commit/7145dbda6cb7cb5b8dd12d9dee14f51850a76ec6), these duplicate functions are displayed next to the method.
+
+![duplicate](https://user-images.githubusercontent.com/2909949/185234701-b58f3ae1-1bf1-400f-8f21-de9c358492bc.png)
+
+
 If you are hooking a function that looks like a `get_` or `set_` function, double check the disassembly in the Object Explorer. More often than not, these functions will be **extremely** simple and prone to compiler optimizations causing multiple unrelated function calls to go through the hook. This means garbage data you don't want will flow through the function, and you can potentially crash the game if you are modifying the control flow of the wrong functions.
 
 If you **really** want to hook these functions, you will need to verify that the object type being passed through the arguments is the one you want. Leave the control flow state and arguments pristine until you are 100% sure what is being passed through is what you want.

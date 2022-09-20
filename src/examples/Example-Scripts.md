@@ -13,3 +13,5 @@
 [https://github.com/cursey/mhrise-scripts](https://github.com/cursey/mhrise-scripts)
 
 [https://github.com/alphazolam/REFramework-Scripts](https://github.com/alphazolam/REFramework-Scripts)
+
+[https://github.com/originalnicodr/RELit](https://github.com/originalnicodr/RELit)

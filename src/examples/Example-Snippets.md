@@ -269,6 +269,151 @@ re.on_frame(function()
 end)
 ```
 
+### RE2/RE3 material toggler with keybinding system
+```lua
+local game_name = reframework:get_game_name()
+if game_name ~= "re2" and name ~= "re3" then
+    re.msg("This script is only for RE2 or RE3")
+    return
+end
+
+local display_children = nil
+local display_siblings = nil
+
+local waiting_for_input_map = {}
+local key_bindings = {}
+local prev_key_states = {}
+
+local function was_key_down(i)
+    local down = reframework:is_key_down(i)
+    local prev = prev_key_states[i]
+    prev_key_states[i] = down
+
+    return down and not prev
+end
+
+local function display_mesh(transform)
+    local gameobj = transform:get_GameObject()
+    if gameobj == nil then return end
+
+    imgui.set_next_item_open(true, 2)
+    imgui.push_id(gameobj:get_address())
+
+    -- Look for via.render.Mesh components within the game object.
+    -- It will have the materials we can toggle.
+    if imgui.tree_node(gameobj:get_Name()) then
+        -- Object explorer display for debugging.
+        if imgui.tree_node("Object explorer") then
+            object_explorer:handle_address(gameobj:get_address())
+            imgui.tree_pop()
+        end
+
+        local mesh = gameobj:call("getComponent(System.Type)", sdk.typeof("via.render.Mesh"))
+
+        -- Now display the materials in the mesh.
+        if mesh ~= nil then
+            imgui.text("Materials: " .. tostring(mesh:get_MaterialNum()))
+            for i=0, mesh:get_MaterialNum()-1 do
+                imgui.push_id(i)
+
+                local name = mesh:getMaterialName(i)
+                local enabled = mesh:getMaterialsEnable(i)
+
+                local bound_key = key_bindings[name]
+                local is_key_down = bound_key ~= nil and was_key_down(bound_key)
+
+                if imgui.checkbox(name, enabled) or is_key_down then
+                    mesh:setMaterialsEnable(i, not enabled)
+                end
+
+                imgui.same_line()
+                if not waiting_for_input_map[name] then
+                    if imgui.button("bind key") then
+                        waiting_for_input_map[name] = true
+                    end
+
+                    if key_bindings[name] ~= nil then
+                        imgui.same_line()
+                        if imgui.button("clear") then
+                            key_bindings[name] = nil
+                        end
+
+                        imgui.same_line()
+                        imgui.text_colored("key: " .. tostring(key_bindings[name]), 0xFF00FF00)
+                    end
+                else
+                    imgui.text_colored("Press a key to bind", 0xFF00FFFF)
+
+                    local key = reframework:get_first_key_down()
+                    if key ~= nil then
+                        key_bindings[name] = key
+                        waiting_for_input_map[name] = false
+                    end
+                end
+
+                imgui.pop_id()
+            end
+        else
+            imgui.text("No via.render.Mesh component found")
+        end
+
+        imgui.tree_pop()
+    end
+
+    imgui.pop_id()
+end
+
+display_children = function(transform)
+    local child = transform:get_Child()
+
+    if child ~= nil then
+        display_mesh(child)
+        display_children(child)
+        display_siblings(child)
+    end
+end
+
+display_siblings = function(transform)
+    local next = transform:get_Next()
+
+    if next ~= nil then
+        display_mesh(next)
+        display_children(next)
+        display_siblings(next)
+    end
+end
+
+re.on_draw_ui(function()
+    -- Obtain the FigureManager singleton.
+    local figure_manager = sdk.get_managed_singleton(sdk.game_namespace("FigureManager"))
+
+    if figure_manager == nil then
+        imgui.text("FigureManager not found")
+        return
+    end
+
+    if imgui.tree_node("Material toggler") then
+        -- Get the current figure/model being displayed.
+        local figure = figure_manager:get_CurrentFigureObj()
+
+        if figure ~= nil then
+            local figure_name = figure:get_Name()
+            imgui.text("Current figure: " .. figure_name)
+
+            local transform = figure:get_Transform()
+
+            -- Go through all of the children transforms and look for mesh components.
+            -- The mesh components will have the materials we can toggle.
+            display_children(transform)
+        else
+            imgui.text("No figure found")
+        end
+
+        imgui.tree_pop()
+    end
+end)
+```
+
 ### Dumping fields of an REManagedObject or type (very verbose)
 Use `object:get_type_definition():get_fields()` for an easier way to do this. The below snippet should rarely be used.
 

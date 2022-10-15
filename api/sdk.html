@@ -251,7 +251,6 @@ end
     -- All args are void* and not auto-converted to their respective types.
     -- You will need to do things like sdk.to_managed_object(args[2])
     -- or sdk.to_int64(args[3]) to get arguments to better interact with or read.
-    -- Hooks cannot grab stack arguments yet (past r9), so 4 arguments max are supported.
 
     -- OPTIONAL: Specify an sdk.PreHookResult
     -- e.g.

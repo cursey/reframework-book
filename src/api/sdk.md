@@ -87,6 +87,9 @@ Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type 
 ### `sdk.create_resource(typename, resource_path)`
 Returns an `REResource`.
 
+### `sdk.create_userdata(typename, userdata_path)`
+Returns an [REManagedObject](types/REManagedObject.md) which is a `via.UserData`. `typename` can be `"via.UserData"` unless you know the full typename.
+
 ### `sdk.deserialize(data)`
 Returns a list of [REManagedObject](types/REManagedObject.md) generated from `data`. 
 

@@ -127,8 +127,6 @@ A softlock can occur in the first fight with Mia if you pull out the bottle.
 #### Disabling the crosshair
 The option to disable it is under "Script Generated UI" in the REFramework menu.
 
----
-
 ## Bindings
 Bindings can be changed in SteamVR's controller bindings section.
 

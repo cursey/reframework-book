@@ -82,6 +82,10 @@ Playing with a gamepad is supported. IK gets disabled when using one.
 #### Opening the map
 Can be done by pressing the inventory button while holding your controller behind your head/over your shoulder.
 
+### Additional options
+#### Disabling the crosshair
+The option to disable it is under "Script Generated UI" in the REFramework menu. The corresponding script can also be removed from the `reframework/autorun` folder.
+
 ---
 
 ### RE7 and RE8
@@ -118,6 +122,12 @@ Hold your hands in front of your face.
 Reach behind your head with your right hand, hold down the grip, and a medicine bottle will appear in your hand. Press right trigger to initiate a heal.
 
 A softlock can occur in the first fight with Mia if you pull out the bottle.
+
+### Additional options
+#### Disabling the crosshair
+The option to disable it is under "Script Generated UI" in the REFramework menu.
+
+---
 
 ## Bindings
 Bindings can be changed in SteamVR's controller bindings section.

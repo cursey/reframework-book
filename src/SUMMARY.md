@@ -24,6 +24,7 @@
     - [draw](api/draw.md)
     - [fs](api/fs.md)
     - [imgui](api/imgui.md)
+    - [imnodes](api/imnodes.md)
     - [imguizmo](api/imguizmo.md)
     - [json](api/json.md)
     - [log](api/log.md)

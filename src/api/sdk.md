@@ -191,6 +191,11 @@ end
 sdk.hook(sdk.find_type_definition("via.Scene"):get_method("get_TimeScale"), on_pre_get_timescale, on_post_get_timescale)
 ```
 
+### `sdk.hook_vtable(obj, method, pre, post)`
+Similar to `sdk.hook` but hooks on a **per-object** basis instead, instead of hooking the function globally for all objects.
+
+Only works if the target method is a **virtual method**.
+
 ### `sdk.is_managed_object(value)`
 Returns true if `value` is a valid [REManagedObject](types/REManagedObject.md).
 

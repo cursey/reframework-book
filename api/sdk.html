@@ -280,6 +280,9 @@ end
 
 sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_TimeScale&quot;), on_pre_get_timescale, on_post_get_timescale)
 </code></pre>
+<h3 id="sdkhook_vtableobj-method-pre-post"><a class="header" href="#sdkhook_vtableobj-method-pre-post"><code>sdk.hook_vtable(obj, method, pre, post)</code></a></h3>
+<p>Similar to <code>sdk.hook</code> but hooks on a <strong>per-object</strong> basis instead, instead of hooking the function globally for all objects.</p>
+<p>Only works if the target method is a <strong>virtual method</strong>.</p>
 <h3 id="sdkis_managed_objectvalue"><a class="header" href="#sdkis_managed_objectvalue"><code>sdk.is_managed_object(value)</code></a></h3>
 <p>Returns true if <code>value</code> is a valid <a href="types/REManagedObject.html">REManagedObject</a>.</p>
 <p>Use only if necessary. Does a bunch of checks and calls <a href="https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-isbadreadptr">IsBadReadPtr</a> a lot.</p>

@@ -2,6 +2,9 @@ Easy-to-use wrapper over `System.Array`. Functions calls that return arrays or o
 
 Inherits from `REManagedObject`.
 
+## Notes
+Do not use `ipairs` on `SystemArray` types. Use `pairs` instead, unless you return the elements in a lua array via `get_elements()`. Using `ipairs` will skip the first element and go past the end of the array.
+
 ## Methods
 ### `self:get_elements()`
 Returns the array's elements as a lua table. 

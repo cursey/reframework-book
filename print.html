@@ -2647,6 +2647,8 @@ end
 <h3 id="selfget_address-1"><a class="header" href="#selfget_address-1"><code>self:get_address()</code></a></h3>
 <div style="break-before: page; page-break-before: always;"></div><p>Easy-to-use wrapper over <code>System.Array</code>. Functions calls that return arrays or objects will automatically get converted to <code>SystemArray</code> types if eligible.</p>
 <p>Inherits from <code>REManagedObject</code>.</p>
+<h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
+<p>Do not use <code>ipairs</code> on <code>SystemArray</code> types. Use <code>pairs</code> instead, unless you return the elements in a lua array via <code>get_elements()</code>. Using <code>ipairs</code> will skip the first element and go past the end of the array.</p>
 <h2 id="methods-20"><a class="header" href="#methods-20">Methods</a></h2>
 <h3 id="selfget_elements"><a class="header" href="#selfget_elements"><code>self:get_elements()</code></a></h3>
 <p>Returns the array's elements as a lua table. </p>

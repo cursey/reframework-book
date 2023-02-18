@@ -34,7 +34,10 @@ Enable "Decoupled Camera Pitch" under "VR" in the REFramework menu. This will st
    * This **MUST** be disabled if you are getting extremely low frames
 * Swapping between DX11 and DX12
 * Taking the headset off and putting it back on
-* If you are using an HDR monitor, unplugging the monitor temporarily has been a reported fix
+* If your game appears "rainbow" colored, or you are stuck in the SteamVR void
+    * You have an HDR monitor and HDR must be disabled in some way
+    * Unplugging the monitor temporarily has been a reported fix
+    * Also setting the game to windowed mode can fix this, HDR sometimes gets forced on in fullscreen
 * If your screen looks squished with black bars turn off Borderless window mode
 * Make sure no graphical settings are being forced globally (e.g. from Nvidia Control Panel)
     * The exception to this is disabling HDR which is required or else the game will not display within the headset

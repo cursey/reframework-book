@@ -1629,15 +1629,31 @@ end)
 <p>Returns true if any imguizmo element is being hovered by the user.</p>
 <h3 id="imguizmois_using"><a class="header" href="#imguizmois_using"><code>imguizmo.is_using()</code></a></h3>
 <p>Returns true if any imguizmo element is being edited by the user.</p>
-<div style="break-before: page; page-break-before: always;"></div><h2 id="methods-3"><a class="header" href="#methods-3">Methods</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><p>Functions for converting Lua values to/from JSON. Useful for saving configuration setting tables (ideally in a <a href="api/re.html#reon_config_savefunction">config save callback</a>), importing data that users are intended to edit externally, and storing large data structures outside your Lua code.</p>
+<p>The <code>indent</code> parameter is an integer specifying the number of spaces to indent with when dumping tables. 0 disables indentation, and -1 also disables line breaks.</p>
+<p>Supports Lua's boolean, number, string, and table (see warning below) types. Other types will be converted to <code>nil</code>, stored as JSON <code>null</code>s. Due to JSON limitations, non-string table keys will be converted to strings (if numbers) or an empty string (if another type), unless the table is a sequence (consecutive integer keys, starting at 1; see the <a href="https://www.lua.org/manual/5.4/manual.html#3.4.7">lua manual</a> for more details). Sequences are stored as JSON arrays.</p>
+<p><strong>WARNING:</strong> Care should be taken when storing non-sequence tables with numeric keys, as those keys will be converted to strings. Extra work must be done to convert those keys back into numbers.</p>
+<p>The following are examples of tables that won't change when converted to and back from JSON:</p>
+<pre><code class="language-lua">{1, 3, 2, &quot;this is a sequence&quot;}
+{foo=&quot;bar&quot;, baz=42}
+{table1={1,2,3}, table2={foo=1,bar=2}}
+</code></pre>
+<p>The following are examples of tables that <strong>will</strong> change when converted to and back from JSON:</p>
+<pre><code class="language-lua">{9, 8, nil, 6, 5} -- Sequence with a &quot;hole&quot;, becomes {[&quot;1&quot;]=9,[&quot;2&quot;]=8,[&quot;4&quot;]=6,[&quot;5&quot;]=5}
+{[0]=0,[1]=1,[2]=2} -- Sequence doesn't start at 1, becomes {[&quot;0&quot;]=0,[&quot;1&quot;]=1,[&quot;2&quot;]=2}
+{&quot;foo&quot;, &quot;bar&quot;, baz=17} -- Becomes {[&quot;1&quot;]=&quot;foo&quot;, [&quot;2&quot;]=&quot;bar&quot;, baz=17}
+local function f() end
+{[f]=&quot;function key&quot;, funcval=f} -- Becomes {[&quot;&quot;]=&quot;function key&quot;}
+</code></pre>
+<h2 id="methods-3"><a class="header" href="#methods-3">Methods</a></h2>
 <h3 id="jsonload_stringjson_str"><a class="header" href="#jsonload_stringjson_str"><code>json.load_string(json_str)</code></a></h3>
-<p>Takes a JSON string and turns it into a Lua table. Returns <code>nil</code> on error.</p>
+<p>Takes a JSON string and turns it into a Lua value (usually a table). Returns <code>nil</code> on error.</p>
 <h3 id="jsondump_stringvalue-indent"><a class="header" href="#jsondump_stringvalue-indent"><code>json.dump_string(value, [indent])</code></a></h3>
-<p>Takes a Lua value (usually a table) and turns it into a JSON string. Returns an empty string on error. Optionally, it takes an <code>indent</code> parameter that specifies how the JSON string should be formatted.</p>
+<p>Takes a Lua value (usually a table) and turns it into a JSON string. Returns an empty string on error. If unspecified, <code>indent</code> will default to -1.</p>
 <h3 id="jsonload_filefilepath"><a class="header" href="#jsonload_filefilepath"><code>json.load_file(filepath)</code></a></h3>
-<p>Loads a JSON file identified by <code>filepath</code> relative to the <code>reframework/data</code> subdirectory and returns it as a Lua table. Returns <code>nil</code> if the file does not exist.</p>
+<p>Loads a JSON file identified by <code>filepath</code> relative to the <code>reframework/data</code> subdirectory and returns it as a Lua value (usually a table). Returns <code>nil</code> if the file does not exist.</p>
 <h3 id="jsondump_filefilepath-value-indent"><a class="header" href="#jsondump_filefilepath-value-indent"><code>json.dump_file(filepath, value, [indent])</code></a></h3>
-<p>Takes a Lua value (usually a table), and turns it into a JSON file identified as <code>filepath</code> relative to the <code>reframework/data</code> subdirectory.  Returns <code>true</code> if the dump was successful, <code>false</code> otherwise. Optionally, it takes an <code>indent</code> parameter that specifies how the JSON file should be formatted.</p>
+<p>Takes a Lua value (usually a table), and turns it into a JSON file identified as <code>filepath</code> relative to the <code>reframework/data</code> subdirectory.  Returns <code>true</code> if the dump was successful, <code>false</code> otherwise. If unspecified, <code>indent</code> will default to 4</p>
 <div style="break-before: page; page-break-before: always;"></div><p>Tools for logging to REFramework's log.</p>
 <h2 id="methods-4"><a class="header" href="#methods-4">Methods</a></h2>
 <h3 id="loginfotext"><a class="header" href="#loginfotext"><code>log.info(text)</code></a></h3>

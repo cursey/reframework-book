@@ -149,7 +149,7 @@
 <li><code>REManagedObject:call</code></li>
 </ul>
 <p>Example usage:</p>
-<pre><code>local scene_manager = sdk.get_native_singleton(&quot;via.SceneManager&quot;)
+<pre><code class="language-lua">local scene_manager = sdk.get_native_singleton(&quot;via.SceneManager&quot;)
 local scene_manager_type = sdk.find_type_definition(&quot;via.SceneManager&quot;)
 local scene = sdk.call_native_func(scene_manager, scene_manager_type, &quot;get_CurrentScene&quot;)
 

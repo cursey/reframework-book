@@ -7,7 +7,7 @@ They are returned from methods like:
 * `REManagedObject:call`
 
 Example usage:
-```
+```lua
 local scene_manager = sdk.get_native_singleton("via.SceneManager")
 local scene_manager_type = sdk.find_type_definition("via.SceneManager")
 local scene = sdk.call_native_func(scene_manager, scene_manager_type, "get_CurrentScene")

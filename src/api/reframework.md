@@ -8,4 +8,4 @@ Returns the name of the game this REFramework was compiled for.
 e.g. "dmc5" or "re2"
 
 ### `reframework:is_key_down(key)`
-`key` is a DirectInput key.
+`key` is a Windows virtual key code.

@@ -19,6 +19,7 @@
 # Scripting Reference
 - [General](api/general/README.md)
     - [Notes on Return Types](api/general/Notes-on-Return-Types.md)
+    - [Notes on Method Arguments](api/general/Notes-on-Method-Arguments.md)
     - [Best Practices](api/general/best-practices.md)
 - [APIs](api/README.md)
     - [draw](api/draw.md)

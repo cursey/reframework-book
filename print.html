@@ -1248,7 +1248,27 @@ end
 </ul>
 </li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h2 id="shared-state"><a class="header" href="#shared-state">Shared State</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="sdkhook-method-arguments"><a class="header" href="#sdkhook-method-arguments"><code>sdk.hook</code> method arguments</a></h2>
+<p><code>ByRef</code> parameters are not correctly supported by REFramework. <code>ByRef</code> parameters are essentially <code>T**</code> instead of <code>T*</code> type pointers. They are usually used for out parameters.</p>
+<p>These will need to be manually dereferenced using a trick by instantiating a <code>System.UInt64</code> and reading the <code>mValue</code> field to dereference it.</p>
+<pre><code class="language-lua">local function deref_ptr(ptr)
+    local fake_int64 = sdk.to_valuetype(ptr, &quot;System.UInt64&quot;)
+    local deref = fake_int64:get_field(&quot;mValue&quot;)
+
+    return deref
+end
+
+sdk.hook(sdk.find_type_definition(&quot;foo&quot;):get_method(&quot;bar&quot;),
+    function(args)
+        local deref = deref_ptr(args[6])
+        local arg = sdk.to_managed_object(deref):add_ref()
+    end,
+    function(retval)
+        return retval
+    end
+)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="shared-state"><a class="header" href="#shared-state">Shared State</a></h2>
 <p>Lua uses a shared state across all scripts. Use <code>local</code> variables <em>and</em> <code>local</code> functions (not necessary for local tables) so as to not cause conflicts with other scripts.</p>
 <h3 id="example"><a class="header" href="#example">Example</a></h3>
 <pre><code class="language-lua">-- explicit local variables

@@ -13,6 +13,10 @@ If you are crashing, or are having a technical problem then upload these files f
 * `re2_framework_log.txt` - The WHOLE LOG, not snippets of it.
 * `reframework_crash.dmp` if you are crashing
 
+## Help! My pirated copy does not work
+
+Contrary to some belief, **this mod does not contain any anti-piracy checks of any kind**. Pirated copies just do not receive support. If it works then, it works. If not, additional support is not going to be added.
+
 ## Lua Scripting
 
 REFramework comes with a scripting system using Lua. 

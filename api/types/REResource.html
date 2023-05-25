@@ -142,8 +142,16 @@
                     <main>
                         <h2 id="methods"><a class="header" href="#methods">Methods</a></h2>
 <h3 id="selfadd_ref"><a class="header" href="#selfadd_ref"><code>self:add_ref()</code></a></h3>
+<p>Adds a reference to <code>self</code>. <code>REResource</code> types are not automatically reference counted like <code>REManagedObject</code>.</p>
 <h3 id="selfrelease"><a class="header" href="#selfrelease"><code>self:release()</code></a></h3>
+<p>Releases a reference to <code>self</code>. <code>REResource</code> types are not automatically reference counted like <code>REManagedObject</code>.</p>
 <h3 id="selfget_address"><a class="header" href="#selfget_address"><code>self:get_address()</code></a></h3>
+<p>Returns the address of <code>self</code>.</p>
+<h3 id="selfcreate_holdertypename"><a class="header" href="#selfcreate_holdertypename"><code>self:create_holder(typename)</code></a></h3>
+<p>Returns a <code>via.ResourceHolder</code> variant for <code>self</code>. Automatically adds a reference to <code>self</code>.</p>
+<pre><code class="language-lua">local res = sdk.create_resource(&quot;via.motion.MotionFsm2Resource&quot;, &quot;_Chainsaw/AppSystem/Character/ch0Common/Motion/Fsm/ch0Common.motfsm2&quot;):add_ref()
+local holder = res:create_holder(&quot;via.motion.MotionFsm2ResourceHolder&quot;):add_ref()
+</code></pre>
 
                     </main>
 

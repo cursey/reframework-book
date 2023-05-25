@@ -87,6 +87,8 @@ Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type 
 ### `sdk.create_resource(typename, resource_path)`
 Returns an `REResource`.
 
+If the typename does not correctly correspond to the resource file or is not a resource type, `nil` will be returned.
+
 ### `sdk.create_userdata(typename, userdata_path)`
 Returns an [REManagedObject](types/REManagedObject.md) which is a `via.UserData`. `typename` can be `"via.UserData"` unless you know the full typename.
 

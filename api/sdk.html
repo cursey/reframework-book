@@ -199,6 +199,7 @@
 <p>Returns a fully constructed <a href="types/REManagedObject.html">REManagedObject</a> of type <code>System.Double</code> given the <code>value</code>.</p>
 <h3 id="sdkcreate_resourcetypename-resource_path"><a class="header" href="#sdkcreate_resourcetypename-resource_path"><code>sdk.create_resource(typename, resource_path)</code></a></h3>
 <p>Returns an <code>REResource</code>.</p>
+<p>If the typename does not correctly correspond to the resource file or is not a resource type, <code>nil</code> will be returned.</p>
 <h3 id="sdkcreate_userdatatypename-userdata_path"><a class="header" href="#sdkcreate_userdatatypename-userdata_path"><code>sdk.create_userdata(typename, userdata_path)</code></a></h3>
 <p>Returns an <a href="types/REManagedObject.html">REManagedObject</a> which is a <code>via.UserData</code>. <code>typename</code> can be <code>&quot;via.UserData&quot;</code> unless you know the full typename.</p>
 <h3 id="sdkdeserializedata"><a class="header" href="#sdkdeserializedata"><code>sdk.deserialize(data)</code></a></h3>

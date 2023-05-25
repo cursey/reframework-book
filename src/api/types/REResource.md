@@ -9,7 +9,7 @@ Releases a reference to `self`. `REResource` types are not automatically referen
 Returns the address of `self`.
 
 ### `self:create_holder(typename)`
-Returns a `via.ResourceHolder` variant for `self`. Automatically adds a reference to `self`.
+Returns a `via.ResourceHolder` variant which holds `self`. Automatically adds a reference to `self`.
 
 ```lua
 local res = sdk.create_resource("via.motion.MotionFsm2Resource", "_Chainsaw/AppSystem/Character/ch0Common/Motion/Fsm/ch0Common.motfsm2"):add_ref()

@@ -16,7 +16,7 @@ If you are crashing, or are having a technical problem then upload these files f
 If you do not have an `reframework_crash.dmp` and are crashing, download a newer build, links at the top of the page.
 
 ## Trying newer/beta builds (pd-upscaler)
-GitHub account required: https://github.com/praydog/REFramework/actions/
+GitHub account required: [https://github.com/praydog/REFramework/actions/](https://github.com/praydog/REFramework/actions/)
 
 ## Opening the in-game menu with motion controllers (OpenVR only right now)
 Aim at the palm of your left hand with your head and your right hand. Do not press anything, and an overlay menu should show up.

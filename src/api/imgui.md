@@ -219,6 +219,30 @@ re.on_draw_ui(function()
 end)
 ```
 
+### `imgui.item_size(pos, size)`
+
+### `imgui.item_add(pos, size)`
+
+Adds an item with the specified position and size to the current window.
+
+### `imgui.draw_list_path_clear()`
+
+Clears the current window's draw list path.
+
+### `imgui.draw_list_path_line_to(pos)`
+
+Adds a line to the current window's draw list path given the specified `pos`
+
+- `pos` is a `Vector2f` or a size 2 array.
+
+### `imgui.draw_list_path_stroke(color, closed, thickness)`
+
+Strokes the current window's draw list path with the specified `color`, `closed` state, and `thickness`.
+
+- `color` is an integer color in the form ARGB.
+- `closed` is a bool.
+- `thickness` is a float.
+
 ### `imgui.get_key_index(imgui_key)`
 
 Returns the index of the specified `imgui_key`.
@@ -360,12 +384,6 @@ Sets the current cursor position in screen coordinates to `pos`.
 ### `imgui.set_item_default_focus()`
 
 Sets the default focus to the next widget.
-
-### `imgui.item_size(pos, size)`
-
-### `imgui.item_add(pos, size)`
-
-Adds an item with the specified position and size to the current window.
 
 ## Table API
 ### `imgui.begin_table(str_id, column, flags, outer_size, inner_width)`

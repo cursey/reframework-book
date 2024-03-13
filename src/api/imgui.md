@@ -361,6 +361,12 @@ Sets the current cursor position in screen coordinates to `pos`.
 
 Sets the default focus to the next widget.
 
+### `imgui.item_size(pos, size)`
+
+### `imgui.item_add(pos, size)`
+
+Adds an item with the specified position and size to the current window.
+
 ## Table API
 ### `imgui.begin_table(str_id, column, flags, outer_size, inner_width)`
 

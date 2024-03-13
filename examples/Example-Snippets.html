@@ -608,6 +608,116 @@ end
     return propsman:call(&quot;get_Player&quot;)
 end
 </code></pre>
+<h2 id="general"><a class="header" href="#general">General</a></h2>
+<h3 id="spinner-and-progress-bar-in-imgui"><a class="header" href="#spinner-and-progress-bar-in-imgui">Spinner and progress bar in ImGui</a></h3>
+<pre><code class="language-lua">local progress = 0.0
+
+re.on_frame(function()
+    progress = progress + 0.001
+    if progress &gt; 1.0 then 
+        progress = 0.0
+    end
+end)
+
+local function lerp(x0, x1, t)
+    return (1.0 - t) * x0 + t * x1
+end
+
+local function interval(t0, t1, tween_func)
+    return function(t)
+        --return t &lt; t0 and 0.0 or t &gt; t1 and 1.0 or tween_func((t - t0) / (t1 - t0))
+        if t &lt; t0 then
+            return 0.0
+        elseif t &gt; t1 then
+            return 1.0
+        end
+        
+        return tween_func((t - t0) / (t1 - t0))
+    end
+end
+
+local function sawtooth(x, t)
+    return math.fmod(x * t, 1.0)
+end
+
+local function cubic_bezier(t, p0, p1, p2, p3)
+    local u = 1.0 - t
+    return p0 * u*u*u + p1 * 3.0 * u*u*t + p2 * 3.0 * u*t*t + p3 * t*t*t
+end
+
+local function stroke_head_tween(d, t)
+    t = sawtooth(d, t)
+    return interval(0.0, 0.5, function(x) return cubic_bezier(x, 0.2, 0.0, 0.4, 1.0) end)(t)
+end
+
+local function stroke_tail_tween(d, t)
+    t = sawtooth(d, t)
+    return interval(0.5, 1.0, function(x) return cubic_bezier(x, 0.2, 0.0, 0.4, 1.0) end)(t)
+end
+
+local function step_tween(x, t)
+    return math.floor(lerp(0.0, x, t))
+end
+
+-- https://github.com/ocornut/imgui/issues/1901
+local function draw_spinner(center, radius, color, thickness)
+    local rect = {
+        imgui.get_cursor_pos(),
+        imgui.get_cursor_pos() + Vector2f.new(radius * 2, radius * 2) -- todo: frame padding
+    }
+
+    imgui.item_size(rect[1], rect[2])
+    if not imgui.item_add(rect[1], rect[2], &quot;circle&quot;) then
+        --print(&quot;oh no&quot;)
+        --return
+    end
+
+    local period = 5.0
+    local t = math.fmod(os.clock(), period) / period
+
+    imgui.draw_list_path_clear()
+
+    local num_segments = 24
+
+    local num_detents = 5
+    local skip_detents = 3
+
+    local head_value = stroke_head_tween(num_detents, t);
+    local tail_value = stroke_tail_tween(num_detents, t);
+    local step_value = step_tween(num_detents, t);
+    local rotation_value = sawtooth(num_detents, t);
+
+    local min_arc =  30.0 / 360.0 * 2.0 * math.pi
+    local max_arc = 270.0 / 360.0 * 2.0 * math.pi
+    local step_offset = skip_detents * 2.0 * math.pi / num_detents
+    local rotation_compensation = math.fmod(4.0*math.pi - step_offset - max_arc, 2.0 * math.pi);
+
+    local start_angle = -math.pi * 2.0
+    local a_min = start_angle + tail_value * max_arc + rotation_value * rotation_compensation - step_value * step_offset;
+    local a_max = a_min + (head_value - tail_value) * max_arc + min_arc;
+
+    for i = 0, num_segments - 1 do
+        local a = a_min + (i / num_segments) * (a_max - a_min)
+        local x = center.x + math.cos(a) * radius
+        local y = center.y + math.sin(a) * radius
+        imgui.draw_list_path_line_to(Vector2f.new(x, y))
+    end
+
+    imgui.draw_list_path_stroke(color, false, thickness)
+end
+
+re.on_draw_ui(function()
+    local center = imgui.get_cursor_pos() + imgui.get_window_pos()
+    local radius = 10
+    local color = 0x5050BFFF
+    local thickness = 2
+
+    draw_spinner(Vector2f.new(center.x + radius, center.y + radius), radius, color, thickness)
+
+    imgui.same_line()
+    imgui.progress_bar(progress, Vector2f.new(200, 20), string.format(&quot;Progress: %.1f%%&quot;, progress * 100))
+end)
+</code></pre>
 
                     </main>
 

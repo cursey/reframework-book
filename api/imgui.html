@@ -286,6 +286,23 @@ re.on_draw_ui(function()
     imgui.progress_bar(progress, Vector2f.new(200, 20), string.format(&quot;Progress: %.1f%%&quot;, progress * 100))
 end)
 </code></pre>
+<h3 id="imguiitem_sizepos-size"><a class="header" href="#imguiitem_sizepos-size"><code>imgui.item_size(pos, size)</code></a></h3>
+<h3 id="imguiitem_addpos-size"><a class="header" href="#imguiitem_addpos-size"><code>imgui.item_add(pos, size)</code></a></h3>
+<p>Adds an item with the specified position and size to the current window.</p>
+<h3 id="imguidraw_list_path_clear"><a class="header" href="#imguidraw_list_path_clear"><code>imgui.draw_list_path_clear()</code></a></h3>
+<p>Clears the current window's draw list path.</p>
+<h3 id="imguidraw_list_path_line_topos"><a class="header" href="#imguidraw_list_path_line_topos"><code>imgui.draw_list_path_line_to(pos)</code></a></h3>
+<p>Adds a line to the current window's draw list path given the specified <code>pos</code></p>
+<ul>
+<li><code>pos</code> is a <code>Vector2f</code> or a size 2 array.</li>
+</ul>
+<h3 id="imguidraw_list_path_strokecolor-closed-thickness"><a class="header" href="#imguidraw_list_path_strokecolor-closed-thickness"><code>imgui.draw_list_path_stroke(color, closed, thickness)</code></a></h3>
+<p>Strokes the current window's draw list path with the specified <code>color</code>, <code>closed</code> state, and <code>thickness</code>.</p>
+<ul>
+<li><code>color</code> is an integer color in the form ARGB.</li>
+<li><code>closed</code> is a bool.</li>
+<li><code>thickness</code> is a float.</li>
+</ul>
 <h3 id="imguiget_key_indeximgui_key"><a class="header" href="#imguiget_key_indeximgui_key"><code>imgui.get_key_index(imgui_key)</code></a></h3>
 <p>Returns the index of the specified <code>imgui_key</code>.</p>
 <h3 id="imguiis_key_downkey"><a class="header" href="#imguiis_key_downkey"><code>imgui.is_key_down(key)</code></a></h3>

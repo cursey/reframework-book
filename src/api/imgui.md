@@ -197,132 +197,212 @@ enum ImGuiCond_
 ### `imgui.get_mouse()`
 Returns a `Vector2f` corresponding to the user's mouse position in window space.
 
-## Methods, to be documented
-Method implementations can be found at [https://github.com/praydog/REFramework/blob/master/src/mods/bindings/ImGui.cpp](https://github.com/praydog/REFramework/blob/master/src/mods/bindings/ImGui.cpp) until documentation is made.
+### `imgui.progress_bar(progress, size, overlay)`
+`progress` is a float between 0 and 1.
 
-### `imgui.get_key_index(...)`
+`size` is a `Vector2f` or a size 2 array.
 
-### `imgui.is_key_down(...)`
+`overlay` is a string on top of the progress bar.
 
-### `imgui.is_key_pressed(...)`
+### `imgui.get_key_index(imgui_key)`
 
-### `imgui.is_key_released(...)`
+Returns the index of the specified `imgui_key`.
+### `imgui.is_key_down(key)`
 
-### `imgui.is_mouse_down(...)`
+Returns true if the specified `key` is currently being held down.
+### `imgui.is_key_pressed(key)`
 
-### `imgui.is_mouse_clicked(...)`
+Returns true if the specified `key` was pressed during the current frame.
+### `imgui.is_key_released(key)`
 
-### `imgui.is_mouse_released(...)`
+Returns true if the specified `key` was released during the current frame.
+### `imgui.is_mouse_down(button)`
 
-### `imgui.is_mouse_double_clicked(...)`
+Returns true if the specified mouse `button` is currently being held down.
+### `imgui.is_mouse_clicked(button)`
 
-### `imgui.indent(...)`
+Returns true if the specified mouse `button` was clicked during the current frame.
+### `imgui.is_mouse_released(button)`
 
-### `imgui.unindent(...)`
+Returns true if the specified mouse `button` was released during the current frame.
+### `imgui.is_mouse_double_clicked(button)`
 
-### `imgui.begin_tooltip(...)`
+Returns true if the specified mouse `button` was double-clicked during the current frame.
+### `imgui.indent(indent_width)`
 
-### `imgui.end_tooltip(...)`
+Indents the current line by `indent_width` pixels.
+### `imgui.unindent(indent_width)`
 
-### `imgui.set_tooltip(...)`
+Unindents the current line by `indent_width` pixels.
+### `imgui.begin_tooltip()`
 
-### `imgui.open_popup(...)`
+Starts a tooltip window that will be drawn at the current cursor position.
+### `imgui.end_tooltip()`
 
-### `imgui.begin_popup(...)`
+Ends the current tooltip window.
+### `imgui.set_tooltip(text)`
 
-### `imgui.begin_popup_context_item(...)`
+Sets the text for the current tooltip window.
+### `imgui.open_popup(str_id, flags)`
 
-### `imgui.end_popup(...)`
+Opens a popup with the specified str_id and flags.
+### `imgui.begin_popup(str_id, flags)`
 
-### `imgui.close_current_popup(...)`
+Begins a new popup with the specified str_id and flags.
+### `imgui.begin_popup_context_item(str_id, flags)`
 
-### `imgui.is_popup_open(...)`
+Begins a new popup with the specified str_id and flags, anchored to the last item.
+### `imgui.end_popup()`
 
-### `imgui.calc_text_size(...)`
+Ends the current popup window.
+### `imgui.close_current_popup()`
 
-### `imgui.get_window_size(...)`
+Closes the current popup window.
+### `imgui.is_popup_open(str_id)`
 
-### `imgui.get_window_pos(...)`
+Returns true if the popup with the specified str_id is open.
+### `imgui.calc_text_size(text)`
 
-### `imgui.set_next_item_open(...)`
+Calculates and returns the size of the specified text as a Vector2f.
+### `imgui.get_window_size()`
 
-### `imgui.begin_list_box(...)`
+Returns the size of the current window as a Vector2f.
+### `imgui.get_window_pos()`
 
-### `imgui.end_list_box(...)`
+Returns the position of the current window as a Vector2f.
+### `imgui.set_next_item_open(is_open, condition)`
 
-### `imgui.begin_menu_bar(...)`
+Sets the open state of the next collapsing header or tree node to `is_open` based on the specified `condition`.
+### `imgui.begin_list_box(label, size)`
 
-### `imgui.end_menu_bar(...)`
+Begins a new list box with the specified label and size.
+### `imgui.end_list_box()`
 
-### `imgui.begin_main_menu_bar(...)`
+Ends the current list box.
+### `imgui.begin_menu_bar()`
 
-### `imgui.end_main_menu_bar(...)`
+Begins a new menu bar.
+### `imgui.end_menu_bar()`
 
-### `imgui.begin_menu(...)`
+Ends the current menu bar.
+### `imgui.begin_main_menu_bar()`
 
-### `imgui.end_menu(...)`
+Begins the main menu bar.
+### `imgui.end_main_menu_bar()`
 
-### `imgui.menu_item(...)`
+Ends the main menu bar.
+### `imgui.begin_menu(label, enabled)`
 
-### `imgui.get_display_size(...)`
+Begins a new menu with the specified label. The menu will be disabled if enabled is false.
+### `imgui.end_menu()`
 
-### `imgui.push_item_width(...)`
+Ends the current menu.
+### `imgui.menu_item(label, shortcut, selected, enabled)`
 
-### `imgui.pop_item_width(...)`
+Adds a menu item with the specified label, shortcut, selected state, and enabled state.
+### `imgui.get_display_size()`
 
-### `imgui.set_next_item_width(...)`
+Returns the size of the display as a `Vector2f.`
+### `imgui.push_item_width(item_width)`
 
-### `imgui.calc_item_width(...)`
+Pushes the width of the next item to `item_width` pixels.
+### `imgui.pop_item_width()`
 
-### `imgui.push_style_color(...)`
+Pops the last item width off the stack.
+### `imgui.set_next_item_width(item_width)`
 
-### `imgui.pop_style_color(...)`
+Sets the width of the next item to `item_width` pixels.
+### `imgui.calc_item_width()`
 
-### `imgui.push_style_var(...)`
+Calculates and returns the current item width.
+### `imgui.push_style_color(style_color, color)`
 
-### `imgui.pop_style_var(...)`
+Pushes a new style color onto the style stack.
+### `imgui.pop_style_color(count)`
 
-### `imgui.get_cursor_pos(...)`
+Pops count style colors off the style stack.
+### `imgui.push_style_var(idx, value)`
 
-### `imgui.set_cursor_pos(...)`
+Pushes a new style variable onto the style stack.
+### `imgui.pop_style_var(count)`
 
-### `imgui.get_cursor_start_pos(...)`
+Pops count style variables off the style stack.
+### `imgui.get_cursor_pos()`
 
-### `imgui.get_cursor_screen_pos(...)`
+Returns the current cursor position as a `Vector2f`.
+### `imgui.set_cursor_pos(pos)`
 
-### `imgui.set_cursor_screen_pos(...)`
+Sets the current cursor position to `pos`.
+### `imgui.get_cursor_start_pos()`
 
-### `imgui.set_item_default_focus(...)`
+Returns the initial cursor position as a `Vector2f`.
+### `imgui.get_cursor_screen_pos()`
+
+Returns the current cursor position in screen coordinates as a `Vector2f`.
+### `imgui.set_cursor_screen_pos(pos)`
+
+Sets the current cursor position in screen coordinates to `pos`.
+### `imgui.set_item_default_focus()`
+
+Sets the default focus to the next widget.
 
 ## Table API
-### `imgui.begin_table(...)`
+### `imgui.begin_table(str_id, column, flags, outer_size, inner_width)`
 
-### `imgui.end_table(...)`
+Begins a new table with the specified `str_id`, `column` count, `flags`, `outer_size`, and `inner_width`.
 
-### `imgui.table_next_row(...)`
+- `str_id` is a string.
+- `column` is an integer.
+- `flags` is an optional `ImGuiTableFlags` enum.
+- `outer_size` is a `Vector2f` or a size 2 array.
+- `inner_width` is an optional float.
 
-### `imgui.table_next_column(...)`
+### `imgui.end_table()`
 
-### `imgui.table_set_column_index(...)`
+Ends the current table.
+### `imgui.table_next_row(row_flags, min_row_height)`
 
-### `imgui.table_setup_column(...)`
+Begins a new row in the current table with the specified `row_flags` and `min_row_height`.
 
-### `imgui.table_setup_scroll_freeze(...)`
+- `row_flags` is an optional `ImGuiTableRowFlags` enum.
+- `min_row_height` is an optional float.
 
-### `imgui.table_headers_row(...)`
+### `imgui.table_next_column()`
 
-### `imgui.table_header(...)`
+Advances to the next column in the current table.
+### `imgui.table_set_column_index(column_index)`
 
-### `imgui.table_get_sort_specs(...)`
+Sets the current column index to column_index.
+### `imgui.table_setup_column(label, flags, init_width_or_weight, user_id)`
 
-### `imgui.table_get_column_count(...)`
+Sets up a column in the current table with the specified label, flags, init_width_or_weight, and user_id.
+### `imgui.table_setup_scroll_freeze(cols, rows)`
 
-### `imgui.table_get_column_index(...)`
+Sets up a scrolling region in the current table with cols columns and rows rows frozen.
+### `imgui.table_headers_row()`
 
-### `imgui.table_get_row_index(...)`
+Submits a header row in the current table.
+### `imgui.table_header(label)`
 
-### `imgui.table_get_column_name(...)`
+Submits a header cell with the specified label in the current table.
+### `imgui.table_get_sort_specs()`
 
-### `imgui.table_get_column_flags(...)`
+Returns the sort specifications for the current table.
+### `imgui.table_get_column_count()`
 
-### `imgui.table_set_bg_color(...)`
+Returns the number of columns in the current table.
+### `imgui.table_get_column_index()`
+
+Returns the current column index.
+### `imgui.table_get_row_index()`
+
+Returns the current row index.
+### `imgui.table_get_column_name(column)`
+
+Returns the name of the specified `column` in the current table.
+### `imgui.table_get_column_flags(column)`
+
+Returns the flags of the specified `column` in the current table.
+### `imgui.table_set_bg_color(target, color, column)`
+
+Sets the background color of the specified `target` in the current table with the given `color` and `column` index.

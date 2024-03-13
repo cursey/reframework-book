@@ -1525,72 +1525,148 @@ end)
 <h3 id="imguiget_id"><a class="header" href="#imguiget_id"><code>imgui.get_id()</code></a></h3>
 <h3 id="imguiget_mouse"><a class="header" href="#imguiget_mouse"><code>imgui.get_mouse()</code></a></h3>
 <p>Returns a <code>Vector2f</code> corresponding to the user's mouse position in window space.</p>
-<h2 id="methods-to-be-documented"><a class="header" href="#methods-to-be-documented">Methods, to be documented</a></h2>
-<p>Method implementations can be found at <a href="https://github.com/praydog/REFramework/blob/master/src/mods/bindings/ImGui.cpp">https://github.com/praydog/REFramework/blob/master/src/mods/bindings/ImGui.cpp</a> until documentation is made.</p>
-<h3 id="imguiget_key_index"><a class="header" href="#imguiget_key_index"><code>imgui.get_key_index(...)</code></a></h3>
-<h3 id="imguiis_key_down"><a class="header" href="#imguiis_key_down"><code>imgui.is_key_down(...)</code></a></h3>
-<h3 id="imguiis_key_pressed"><a class="header" href="#imguiis_key_pressed"><code>imgui.is_key_pressed(...)</code></a></h3>
-<h3 id="imguiis_key_released"><a class="header" href="#imguiis_key_released"><code>imgui.is_key_released(...)</code></a></h3>
-<h3 id="imguiis_mouse_down"><a class="header" href="#imguiis_mouse_down"><code>imgui.is_mouse_down(...)</code></a></h3>
-<h3 id="imguiis_mouse_clicked"><a class="header" href="#imguiis_mouse_clicked"><code>imgui.is_mouse_clicked(...)</code></a></h3>
-<h3 id="imguiis_mouse_released"><a class="header" href="#imguiis_mouse_released"><code>imgui.is_mouse_released(...)</code></a></h3>
-<h3 id="imguiis_mouse_double_clicked"><a class="header" href="#imguiis_mouse_double_clicked"><code>imgui.is_mouse_double_clicked(...)</code></a></h3>
-<h3 id="imguiindent"><a class="header" href="#imguiindent"><code>imgui.indent(...)</code></a></h3>
-<h3 id="imguiunindent"><a class="header" href="#imguiunindent"><code>imgui.unindent(...)</code></a></h3>
-<h3 id="imguibegin_tooltip"><a class="header" href="#imguibegin_tooltip"><code>imgui.begin_tooltip(...)</code></a></h3>
-<h3 id="imguiend_tooltip"><a class="header" href="#imguiend_tooltip"><code>imgui.end_tooltip(...)</code></a></h3>
-<h3 id="imguiset_tooltip"><a class="header" href="#imguiset_tooltip"><code>imgui.set_tooltip(...)</code></a></h3>
-<h3 id="imguiopen_popup"><a class="header" href="#imguiopen_popup"><code>imgui.open_popup(...)</code></a></h3>
-<h3 id="imguibegin_popup"><a class="header" href="#imguibegin_popup"><code>imgui.begin_popup(...)</code></a></h3>
-<h3 id="imguibegin_popup_context_item"><a class="header" href="#imguibegin_popup_context_item"><code>imgui.begin_popup_context_item(...)</code></a></h3>
-<h3 id="imguiend_popup"><a class="header" href="#imguiend_popup"><code>imgui.end_popup(...)</code></a></h3>
-<h3 id="imguiclose_current_popup"><a class="header" href="#imguiclose_current_popup"><code>imgui.close_current_popup(...)</code></a></h3>
-<h3 id="imguiis_popup_open"><a class="header" href="#imguiis_popup_open"><code>imgui.is_popup_open(...)</code></a></h3>
-<h3 id="imguicalc_text_size"><a class="header" href="#imguicalc_text_size"><code>imgui.calc_text_size(...)</code></a></h3>
-<h3 id="imguiget_window_size"><a class="header" href="#imguiget_window_size"><code>imgui.get_window_size(...)</code></a></h3>
-<h3 id="imguiget_window_pos"><a class="header" href="#imguiget_window_pos"><code>imgui.get_window_pos(...)</code></a></h3>
-<h3 id="imguiset_next_item_open"><a class="header" href="#imguiset_next_item_open"><code>imgui.set_next_item_open(...)</code></a></h3>
-<h3 id="imguibegin_list_box"><a class="header" href="#imguibegin_list_box"><code>imgui.begin_list_box(...)</code></a></h3>
-<h3 id="imguiend_list_box"><a class="header" href="#imguiend_list_box"><code>imgui.end_list_box(...)</code></a></h3>
-<h3 id="imguibegin_menu_bar"><a class="header" href="#imguibegin_menu_bar"><code>imgui.begin_menu_bar(...)</code></a></h3>
-<h3 id="imguiend_menu_bar"><a class="header" href="#imguiend_menu_bar"><code>imgui.end_menu_bar(...)</code></a></h3>
-<h3 id="imguibegin_main_menu_bar"><a class="header" href="#imguibegin_main_menu_bar"><code>imgui.begin_main_menu_bar(...)</code></a></h3>
-<h3 id="imguiend_main_menu_bar"><a class="header" href="#imguiend_main_menu_bar"><code>imgui.end_main_menu_bar(...)</code></a></h3>
-<h3 id="imguibegin_menu"><a class="header" href="#imguibegin_menu"><code>imgui.begin_menu(...)</code></a></h3>
-<h3 id="imguiend_menu"><a class="header" href="#imguiend_menu"><code>imgui.end_menu(...)</code></a></h3>
-<h3 id="imguimenu_item"><a class="header" href="#imguimenu_item"><code>imgui.menu_item(...)</code></a></h3>
-<h3 id="imguiget_display_size"><a class="header" href="#imguiget_display_size"><code>imgui.get_display_size(...)</code></a></h3>
-<h3 id="imguipush_item_width"><a class="header" href="#imguipush_item_width"><code>imgui.push_item_width(...)</code></a></h3>
-<h3 id="imguipop_item_width"><a class="header" href="#imguipop_item_width"><code>imgui.pop_item_width(...)</code></a></h3>
-<h3 id="imguiset_next_item_width"><a class="header" href="#imguiset_next_item_width"><code>imgui.set_next_item_width(...)</code></a></h3>
-<h3 id="imguicalc_item_width"><a class="header" href="#imguicalc_item_width"><code>imgui.calc_item_width(...)</code></a></h3>
-<h3 id="imguipush_style_color"><a class="header" href="#imguipush_style_color"><code>imgui.push_style_color(...)</code></a></h3>
-<h3 id="imguipop_style_color"><a class="header" href="#imguipop_style_color"><code>imgui.pop_style_color(...)</code></a></h3>
-<h3 id="imguipush_style_var"><a class="header" href="#imguipush_style_var"><code>imgui.push_style_var(...)</code></a></h3>
-<h3 id="imguipop_style_var"><a class="header" href="#imguipop_style_var"><code>imgui.pop_style_var(...)</code></a></h3>
-<h3 id="imguiget_cursor_pos"><a class="header" href="#imguiget_cursor_pos"><code>imgui.get_cursor_pos(...)</code></a></h3>
-<h3 id="imguiset_cursor_pos"><a class="header" href="#imguiset_cursor_pos"><code>imgui.set_cursor_pos(...)</code></a></h3>
-<h3 id="imguiget_cursor_start_pos"><a class="header" href="#imguiget_cursor_start_pos"><code>imgui.get_cursor_start_pos(...)</code></a></h3>
-<h3 id="imguiget_cursor_screen_pos"><a class="header" href="#imguiget_cursor_screen_pos"><code>imgui.get_cursor_screen_pos(...)</code></a></h3>
-<h3 id="imguiset_cursor_screen_pos"><a class="header" href="#imguiset_cursor_screen_pos"><code>imgui.set_cursor_screen_pos(...)</code></a></h3>
-<h3 id="imguiset_item_default_focus"><a class="header" href="#imguiset_item_default_focus"><code>imgui.set_item_default_focus(...)</code></a></h3>
+<h3 id="imguiprogress_barprogress-size-overlay"><a class="header" href="#imguiprogress_barprogress-size-overlay"><code>imgui.progress_bar(progress, size, overlay)</code></a></h3>
+<p><code>progress</code> is a float between 0 and 1.</p>
+<p><code>size</code> is a <code>Vector2f</code> or a size 2 array.</p>
+<p><code>overlay</code> is a string on top of the progress bar.</p>
+<h3 id="imguiget_key_indeximgui_key"><a class="header" href="#imguiget_key_indeximgui_key"><code>imgui.get_key_index(imgui_key)</code></a></h3>
+<p>Returns the index of the specified <code>imgui_key</code>.</p>
+<h3 id="imguiis_key_downkey"><a class="header" href="#imguiis_key_downkey"><code>imgui.is_key_down(key)</code></a></h3>
+<p>Returns true if the specified <code>key</code> is currently being held down.</p>
+<h3 id="imguiis_key_pressedkey"><a class="header" href="#imguiis_key_pressedkey"><code>imgui.is_key_pressed(key)</code></a></h3>
+<p>Returns true if the specified <code>key</code> was pressed during the current frame.</p>
+<h3 id="imguiis_key_releasedkey"><a class="header" href="#imguiis_key_releasedkey"><code>imgui.is_key_released(key)</code></a></h3>
+<p>Returns true if the specified <code>key</code> was released during the current frame.</p>
+<h3 id="imguiis_mouse_downbutton"><a class="header" href="#imguiis_mouse_downbutton"><code>imgui.is_mouse_down(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> is currently being held down.</p>
+<h3 id="imguiis_mouse_clickedbutton"><a class="header" href="#imguiis_mouse_clickedbutton"><code>imgui.is_mouse_clicked(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> was clicked during the current frame.</p>
+<h3 id="imguiis_mouse_releasedbutton"><a class="header" href="#imguiis_mouse_releasedbutton"><code>imgui.is_mouse_released(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> was released during the current frame.</p>
+<h3 id="imguiis_mouse_double_clickedbutton"><a class="header" href="#imguiis_mouse_double_clickedbutton"><code>imgui.is_mouse_double_clicked(button)</code></a></h3>
+<p>Returns true if the specified mouse <code>button</code> was double-clicked during the current frame.</p>
+<h3 id="imguiindentindent_width"><a class="header" href="#imguiindentindent_width"><code>imgui.indent(indent_width)</code></a></h3>
+<p>Indents the current line by <code>indent_width</code> pixels.</p>
+<h3 id="imguiunindentindent_width"><a class="header" href="#imguiunindentindent_width"><code>imgui.unindent(indent_width)</code></a></h3>
+<p>Unindents the current line by <code>indent_width</code> pixels.</p>
+<h3 id="imguibegin_tooltip"><a class="header" href="#imguibegin_tooltip"><code>imgui.begin_tooltip()</code></a></h3>
+<p>Starts a tooltip window that will be drawn at the current cursor position.</p>
+<h3 id="imguiend_tooltip"><a class="header" href="#imguiend_tooltip"><code>imgui.end_tooltip()</code></a></h3>
+<p>Ends the current tooltip window.</p>
+<h3 id="imguiset_tooltiptext"><a class="header" href="#imguiset_tooltiptext"><code>imgui.set_tooltip(text)</code></a></h3>
+<p>Sets the text for the current tooltip window.</p>
+<h3 id="imguiopen_popupstr_id-flags"><a class="header" href="#imguiopen_popupstr_id-flags"><code>imgui.open_popup(str_id, flags)</code></a></h3>
+<p>Opens a popup with the specified str_id and flags.</p>
+<h3 id="imguibegin_popupstr_id-flags"><a class="header" href="#imguibegin_popupstr_id-flags"><code>imgui.begin_popup(str_id, flags)</code></a></h3>
+<p>Begins a new popup with the specified str_id and flags.</p>
+<h3 id="imguibegin_popup_context_itemstr_id-flags"><a class="header" href="#imguibegin_popup_context_itemstr_id-flags"><code>imgui.begin_popup_context_item(str_id, flags)</code></a></h3>
+<p>Begins a new popup with the specified str_id and flags, anchored to the last item.</p>
+<h3 id="imguiend_popup"><a class="header" href="#imguiend_popup"><code>imgui.end_popup()</code></a></h3>
+<p>Ends the current popup window.</p>
+<h3 id="imguiclose_current_popup"><a class="header" href="#imguiclose_current_popup"><code>imgui.close_current_popup()</code></a></h3>
+<p>Closes the current popup window.</p>
+<h3 id="imguiis_popup_openstr_id"><a class="header" href="#imguiis_popup_openstr_id"><code>imgui.is_popup_open(str_id)</code></a></h3>
+<p>Returns true if the popup with the specified str_id is open.</p>
+<h3 id="imguicalc_text_sizetext"><a class="header" href="#imguicalc_text_sizetext"><code>imgui.calc_text_size(text)</code></a></h3>
+<p>Calculates and returns the size of the specified text as a Vector2f.</p>
+<h3 id="imguiget_window_size"><a class="header" href="#imguiget_window_size"><code>imgui.get_window_size()</code></a></h3>
+<p>Returns the size of the current window as a Vector2f.</p>
+<h3 id="imguiget_window_pos"><a class="header" href="#imguiget_window_pos"><code>imgui.get_window_pos()</code></a></h3>
+<p>Returns the position of the current window as a Vector2f.</p>
+<h3 id="imguiset_next_item_openis_open-condition"><a class="header" href="#imguiset_next_item_openis_open-condition"><code>imgui.set_next_item_open(is_open, condition)</code></a></h3>
+<p>Sets the open state of the next collapsing header or tree node to <code>is_open</code> based on the specified <code>condition</code>.</p>
+<h3 id="imguibegin_list_boxlabel-size"><a class="header" href="#imguibegin_list_boxlabel-size"><code>imgui.begin_list_box(label, size)</code></a></h3>
+<p>Begins a new list box with the specified label and size.</p>
+<h3 id="imguiend_list_box"><a class="header" href="#imguiend_list_box"><code>imgui.end_list_box()</code></a></h3>
+<p>Ends the current list box.</p>
+<h3 id="imguibegin_menu_bar"><a class="header" href="#imguibegin_menu_bar"><code>imgui.begin_menu_bar()</code></a></h3>
+<p>Begins a new menu bar.</p>
+<h3 id="imguiend_menu_bar"><a class="header" href="#imguiend_menu_bar"><code>imgui.end_menu_bar()</code></a></h3>
+<p>Ends the current menu bar.</p>
+<h3 id="imguibegin_main_menu_bar"><a class="header" href="#imguibegin_main_menu_bar"><code>imgui.begin_main_menu_bar()</code></a></h3>
+<p>Begins the main menu bar.</p>
+<h3 id="imguiend_main_menu_bar"><a class="header" href="#imguiend_main_menu_bar"><code>imgui.end_main_menu_bar()</code></a></h3>
+<p>Ends the main menu bar.</p>
+<h3 id="imguibegin_menulabel-enabled"><a class="header" href="#imguibegin_menulabel-enabled"><code>imgui.begin_menu(label, enabled)</code></a></h3>
+<p>Begins a new menu with the specified label. The menu will be disabled if enabled is false.</p>
+<h3 id="imguiend_menu"><a class="header" href="#imguiend_menu"><code>imgui.end_menu()</code></a></h3>
+<p>Ends the current menu.</p>
+<h3 id="imguimenu_itemlabel-shortcut-selected-enabled"><a class="header" href="#imguimenu_itemlabel-shortcut-selected-enabled"><code>imgui.menu_item(label, shortcut, selected, enabled)</code></a></h3>
+<p>Adds a menu item with the specified label, shortcut, selected state, and enabled state.</p>
+<h3 id="imguiget_display_size"><a class="header" href="#imguiget_display_size"><code>imgui.get_display_size()</code></a></h3>
+<p>Returns the size of the display as a <code>Vector2f.</code></p>
+<h3 id="imguipush_item_widthitem_width"><a class="header" href="#imguipush_item_widthitem_width"><code>imgui.push_item_width(item_width)</code></a></h3>
+<p>Pushes the width of the next item to <code>item_width</code> pixels.</p>
+<h3 id="imguipop_item_width"><a class="header" href="#imguipop_item_width"><code>imgui.pop_item_width()</code></a></h3>
+<p>Pops the last item width off the stack.</p>
+<h3 id="imguiset_next_item_widthitem_width"><a class="header" href="#imguiset_next_item_widthitem_width"><code>imgui.set_next_item_width(item_width)</code></a></h3>
+<p>Sets the width of the next item to <code>item_width</code> pixels.</p>
+<h3 id="imguicalc_item_width"><a class="header" href="#imguicalc_item_width"><code>imgui.calc_item_width()</code></a></h3>
+<p>Calculates and returns the current item width.</p>
+<h3 id="imguipush_style_colorstyle_color-color"><a class="header" href="#imguipush_style_colorstyle_color-color"><code>imgui.push_style_color(style_color, color)</code></a></h3>
+<p>Pushes a new style color onto the style stack.</p>
+<h3 id="imguipop_style_colorcount"><a class="header" href="#imguipop_style_colorcount"><code>imgui.pop_style_color(count)</code></a></h3>
+<p>Pops count style colors off the style stack.</p>
+<h3 id="imguipush_style_varidx-value"><a class="header" href="#imguipush_style_varidx-value"><code>imgui.push_style_var(idx, value)</code></a></h3>
+<p>Pushes a new style variable onto the style stack.</p>
+<h3 id="imguipop_style_varcount"><a class="header" href="#imguipop_style_varcount"><code>imgui.pop_style_var(count)</code></a></h3>
+<p>Pops count style variables off the style stack.</p>
+<h3 id="imguiget_cursor_pos"><a class="header" href="#imguiget_cursor_pos"><code>imgui.get_cursor_pos()</code></a></h3>
+<p>Returns the current cursor position as a <code>Vector2f</code>.</p>
+<h3 id="imguiset_cursor_pospos"><a class="header" href="#imguiset_cursor_pospos"><code>imgui.set_cursor_pos(pos)</code></a></h3>
+<p>Sets the current cursor position to <code>pos</code>.</p>
+<h3 id="imguiget_cursor_start_pos"><a class="header" href="#imguiget_cursor_start_pos"><code>imgui.get_cursor_start_pos()</code></a></h3>
+<p>Returns the initial cursor position as a <code>Vector2f</code>.</p>
+<h3 id="imguiget_cursor_screen_pos"><a class="header" href="#imguiget_cursor_screen_pos"><code>imgui.get_cursor_screen_pos()</code></a></h3>
+<p>Returns the current cursor position in screen coordinates as a <code>Vector2f</code>.</p>
+<h3 id="imguiset_cursor_screen_pospos"><a class="header" href="#imguiset_cursor_screen_pospos"><code>imgui.set_cursor_screen_pos(pos)</code></a></h3>
+<p>Sets the current cursor position in screen coordinates to <code>pos</code>.</p>
+<h3 id="imguiset_item_default_focus"><a class="header" href="#imguiset_item_default_focus"><code>imgui.set_item_default_focus()</code></a></h3>
+<p>Sets the default focus to the next widget.</p>
 <h2 id="table-api"><a class="header" href="#table-api">Table API</a></h2>
-<h3 id="imguibegin_table"><a class="header" href="#imguibegin_table"><code>imgui.begin_table(...)</code></a></h3>
-<h3 id="imguiend_table"><a class="header" href="#imguiend_table"><code>imgui.end_table(...)</code></a></h3>
-<h3 id="imguitable_next_row"><a class="header" href="#imguitable_next_row"><code>imgui.table_next_row(...)</code></a></h3>
-<h3 id="imguitable_next_column"><a class="header" href="#imguitable_next_column"><code>imgui.table_next_column(...)</code></a></h3>
-<h3 id="imguitable_set_column_index"><a class="header" href="#imguitable_set_column_index"><code>imgui.table_set_column_index(...)</code></a></h3>
-<h3 id="imguitable_setup_column"><a class="header" href="#imguitable_setup_column"><code>imgui.table_setup_column(...)</code></a></h3>
-<h3 id="imguitable_setup_scroll_freeze"><a class="header" href="#imguitable_setup_scroll_freeze"><code>imgui.table_setup_scroll_freeze(...)</code></a></h3>
-<h3 id="imguitable_headers_row"><a class="header" href="#imguitable_headers_row"><code>imgui.table_headers_row(...)</code></a></h3>
-<h3 id="imguitable_header"><a class="header" href="#imguitable_header"><code>imgui.table_header(...)</code></a></h3>
-<h3 id="imguitable_get_sort_specs"><a class="header" href="#imguitable_get_sort_specs"><code>imgui.table_get_sort_specs(...)</code></a></h3>
-<h3 id="imguitable_get_column_count"><a class="header" href="#imguitable_get_column_count"><code>imgui.table_get_column_count(...)</code></a></h3>
-<h3 id="imguitable_get_column_index"><a class="header" href="#imguitable_get_column_index"><code>imgui.table_get_column_index(...)</code></a></h3>
-<h3 id="imguitable_get_row_index"><a class="header" href="#imguitable_get_row_index"><code>imgui.table_get_row_index(...)</code></a></h3>
-<h3 id="imguitable_get_column_name"><a class="header" href="#imguitable_get_column_name"><code>imgui.table_get_column_name(...)</code></a></h3>
-<h3 id="imguitable_get_column_flags"><a class="header" href="#imguitable_get_column_flags"><code>imgui.table_get_column_flags(...)</code></a></h3>
-<h3 id="imguitable_set_bg_color"><a class="header" href="#imguitable_set_bg_color"><code>imgui.table_set_bg_color(...)</code></a></h3>
+<h3 id="imguibegin_tablestr_id-column-flags-outer_size-inner_width"><a class="header" href="#imguibegin_tablestr_id-column-flags-outer_size-inner_width"><code>imgui.begin_table(str_id, column, flags, outer_size, inner_width)</code></a></h3>
+<p>Begins a new table with the specified <code>str_id</code>, <code>column</code> count, <code>flags</code>, <code>outer_size</code>, and <code>inner_width</code>.</p>
+<ul>
+<li><code>str_id</code> is a string.</li>
+<li><code>column</code> is an integer.</li>
+<li><code>flags</code> is an optional <code>ImGuiTableFlags</code> enum.</li>
+<li><code>outer_size</code> is a <code>Vector2f</code> or a size 2 array.</li>
+<li><code>inner_width</code> is an optional float.</li>
+</ul>
+<h3 id="imguiend_table"><a class="header" href="#imguiend_table"><code>imgui.end_table()</code></a></h3>
+<p>Ends the current table.</p>
+<h3 id="imguitable_next_rowrow_flags-min_row_height"><a class="header" href="#imguitable_next_rowrow_flags-min_row_height"><code>imgui.table_next_row(row_flags, min_row_height)</code></a></h3>
+<p>Begins a new row in the current table with the specified <code>row_flags</code> and <code>min_row_height</code>.</p>
+<ul>
+<li><code>row_flags</code> is an optional <code>ImGuiTableRowFlags</code> enum.</li>
+<li><code>min_row_height</code> is an optional float.</li>
+</ul>
+<h3 id="imguitable_next_column"><a class="header" href="#imguitable_next_column"><code>imgui.table_next_column()</code></a></h3>
+<p>Advances to the next column in the current table.</p>
+<h3 id="imguitable_set_column_indexcolumn_index"><a class="header" href="#imguitable_set_column_indexcolumn_index"><code>imgui.table_set_column_index(column_index)</code></a></h3>
+<p>Sets the current column index to column_index.</p>
+<h3 id="imguitable_setup_columnlabel-flags-init_width_or_weight-user_id"><a class="header" href="#imguitable_setup_columnlabel-flags-init_width_or_weight-user_id"><code>imgui.table_setup_column(label, flags, init_width_or_weight, user_id)</code></a></h3>
+<p>Sets up a column in the current table with the specified label, flags, init_width_or_weight, and user_id.</p>
+<h3 id="imguitable_setup_scroll_freezecols-rows"><a class="header" href="#imguitable_setup_scroll_freezecols-rows"><code>imgui.table_setup_scroll_freeze(cols, rows)</code></a></h3>
+<p>Sets up a scrolling region in the current table with cols columns and rows rows frozen.</p>
+<h3 id="imguitable_headers_row"><a class="header" href="#imguitable_headers_row"><code>imgui.table_headers_row()</code></a></h3>
+<p>Submits a header row in the current table.</p>
+<h3 id="imguitable_headerlabel"><a class="header" href="#imguitable_headerlabel"><code>imgui.table_header(label)</code></a></h3>
+<p>Submits a header cell with the specified label in the current table.</p>
+<h3 id="imguitable_get_sort_specs"><a class="header" href="#imguitable_get_sort_specs"><code>imgui.table_get_sort_specs()</code></a></h3>
+<p>Returns the sort specifications for the current table.</p>
+<h3 id="imguitable_get_column_count"><a class="header" href="#imguitable_get_column_count"><code>imgui.table_get_column_count()</code></a></h3>
+<p>Returns the number of columns in the current table.</p>
+<h3 id="imguitable_get_column_index"><a class="header" href="#imguitable_get_column_index"><code>imgui.table_get_column_index()</code></a></h3>
+<p>Returns the current column index.</p>
+<h3 id="imguitable_get_row_index"><a class="header" href="#imguitable_get_row_index"><code>imgui.table_get_row_index()</code></a></h3>
+<p>Returns the current row index.</p>
+<h3 id="imguitable_get_column_namecolumn"><a class="header" href="#imguitable_get_column_namecolumn"><code>imgui.table_get_column_name(column)</code></a></h3>
+<p>Returns the name of the specified <code>column</code> in the current table.</p>
+<h3 id="imguitable_get_column_flagscolumn"><a class="header" href="#imguitable_get_column_flagscolumn"><code>imgui.table_get_column_flags(column)</code></a></h3>
+<p>Returns the flags of the specified <code>column</code> in the current table.</p>
+<h3 id="imguitable_set_bg_colortarget-color-column"><a class="header" href="#imguitable_set_bg_colortarget-color-column"><code>imgui.table_set_bg_color(target, color, column)</code></a></h3>
+<p>Sets the background color of the specified <code>target</code> in the current table with the given <code>color</code> and <code>column</code> index.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>Bindings for <a href="https://github.com/Nelarius/imnodes">ImNodes</a>. Can be used in the <code>re.on_frame</code> callback.</p>
 <p>Real world examples can be found in the <a href="https://github.com/praydog/RE-BHVT-Editor">BHVT Editor</a></p>
 <video width="640" height="480" controls>

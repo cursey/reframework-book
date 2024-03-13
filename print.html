@@ -1529,6 +1529,19 @@ end)
 <p><code>progress</code> is a float between 0 and 1.</p>
 <p><code>size</code> is a <code>Vector2f</code> or a size 2 array.</p>
 <p><code>overlay</code> is a string on top of the progress bar.</p>
+<pre><code class="language-lua">local progress = 0.0
+
+re.on_frame(function()
+    progress = progress + 0.001
+    if progress &gt; 1.0 then 
+        progress = 0.0
+    end
+end)
+
+re.on_draw_ui(function()
+    imgui.progress_bar(progress, Vector2f.new(200, 20), string.format(&quot;Progress: %.1f%%&quot;, progress * 100))
+end)
+</code></pre>
 <h3 id="imguiget_key_indeximgui_key"><a class="header" href="#imguiget_key_indeximgui_key"><code>imgui.get_key_index(imgui_key)</code></a></h3>
 <p>Returns the index of the specified <code>imgui_key</code>.</p>
 <h3 id="imguiis_key_downkey"><a class="header" href="#imguiis_key_downkey"><code>imgui.is_key_down(key)</code></a></h3>

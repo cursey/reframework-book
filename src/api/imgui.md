@@ -204,6 +204,21 @@ Returns a `Vector2f` corresponding to the user's mouse position in window space.
 
 `overlay` is a string on top of the progress bar.
 
+```lua
+local progress = 0.0
+
+re.on_frame(function()
+    progress = progress + 0.001
+    if progress > 1.0 then 
+        progress = 0.0
+    end
+end)
+
+re.on_draw_ui(function()
+    imgui.progress_bar(progress, Vector2f.new(200, 20), string.format("Progress: %.1f%%", progress * 100))
+end)
+```
+
 ### `imgui.get_key_index(imgui_key)`
 
 Returns the index of the specified `imgui_key`.

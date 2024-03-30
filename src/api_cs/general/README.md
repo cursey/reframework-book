@@ -39,7 +39,7 @@ Place the compiled DLL inside the `reframework/plugins/managed` folder. The plug
 
 Plugins can be written in a single `.cs` file and placed in the `reframework/plugins/source` folder. The plugin manager will automatically compile and load the source files when the API is initialized.
 
-Source plugins can still have autocomplete and dependencies like compiled plugins, if you follow the instructions in the Compiled Plugins section. The difference is, you can either copy the file over when you need it, or use a symlink to your source file.
+Source plugins can still have autocomplete and dependencies like compiled plugins, if you follow the instructions for creating a project. The difference is, you can either copy the file over when you need it, or use a symlink to your source file.
 
 Source plugins are best for simpler projects, testing, or quick prototyping. They also will likely have the highest compatibility with future versions of the API, as the assembly references will always be up-to-date.
 

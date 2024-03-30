@@ -16,7 +16,7 @@
 - [Chain Viewer](chain_viewer/chain_viewer.md)
 - [Behavior Tree/FSM Editor](bhvt_editor/bhvt_editor.md)
 
-# Scripting Reference
+# Lua Scripting Reference
 - [General](api/general/README.md)
     - [Notes on Return Types](api/general/Notes-on-Return-Types.md)
     - [Notes on Method Arguments](api/general/Notes-on-Method-Arguments.md)
@@ -34,6 +34,7 @@
     - [sdk](api/sdk.md)
     - [vrmod](api/vrmod.md)
     - [object_explorer](api/object_explorer.md)
+    - [thread](api/thread.md)
 - [Types](api/types/README.md)
     - [VectorXf](api/types/VectorXf.md)
     - [Matrix4x4f](api/types/Matrix4x4f.md)
@@ -47,3 +48,6 @@
     - [REResource](api/types/REResource.md)
     - [SystemArray](api/types/SystemArray.md)
     - [ValueType](api/types/ValueType.md)
+
+# C# Scripting Reference
+- [General](api_cs/general/README.md)

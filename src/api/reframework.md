@@ -10,6 +10,14 @@ e.g. "dmc5" or "re2"
 ### `reframework:is_key_down(key)`
 `key` is a Windows virtual key code.
 
+### `reframework:get_commit_count()`
+Returns the total number of commits on the current branch of the REFramework build.
+
+### `reframework:get_branch()`
+Returns the branch name of the REFramework build.
+
+ex: "master"
+
 ### `reframework:get_commit_hash()`
 Returns the commit hash of the REFramework build.
 

@@ -55,18 +55,15 @@ C# plugins for REFramework follow a specific structure. Here's an example of a b
 using REFrameworkNET;
 
 public class REFrameworkPlugin {
-    public static void Main(API api) {
+    [Attributes.PluginEntryPoint]
+    public static void Main() {
         // Your plugin code goes here
         api.LogInfo("Hello from C#!");
     }
 }
 ```
 
-The entry point for a C# plugin is the `Main` method, which takes an instance of the `API`class as a parameter. 
-
-This API object provides access to various functionality and data structures exposed by REFramework.
-
-However, at this time, all of the API methods are static, so we may change the `Main` method to just use an Attribute to mark the entry point.
+The entry point for a C# plugin is any method marked with the `PluginEntryPoint` attribute.
 
 ## Plugin Manager
 

@@ -180,15 +180,14 @@
 <pre><code class="language-csharp">using REFrameworkNET;
 
 public class REFrameworkPlugin {
-    public static void Main(API api) {
+    [Attributes.PluginEntryPoint]
+    public static void Main() {
         // Your plugin code goes here
         api.LogInfo(&quot;Hello from C#!&quot;);
     }
 }
 </code></pre>
-<p>The entry point for a C# plugin is the <code>Main</code> method, which takes an instance of the <code>API</code>class as a parameter. </p>
-<p>This API object provides access to various functionality and data structures exposed by REFramework.</p>
-<p>However, at this time, all of the API methods are static, so we may change the <code>Main</code> method to just use an Attribute to mark the entry point.</p>
+<p>The entry point for a C# plugin is any method marked with the <code>PluginEntryPoint</code> attribute.</p>
 <h2 id="plugin-manager"><a class="header" href="#plugin-manager">Plugin Manager</a></h2>
 <p>REFramework.NET includes a plugin manager that handles the loading and execution of C# plugins. The plugin manager is responsible for:</p>
 <ul>

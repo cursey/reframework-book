@@ -3034,7 +3034,7 @@ local holder = res:create_holder(&quot;via.motion.MotionFsm2ResourceHolder&quot;
 <p>Place the compiled DLL inside the <code>reframework/plugins/managed</code> folder. The plugin manager will automatically load the DLL when the API is initialized.</p>
 <h3 id="source-plugins"><a class="header" href="#source-plugins">Source Plugins</a></h3>
 <p>Plugins can be written in a single <code>.cs</code> file and placed in the <code>reframework/plugins/source</code> folder. The plugin manager will automatically compile and load the source files when the API is initialized.</p>
-<p>Source plugins can still have autocomplete and dependencies like compiled plugins, if you follow the instructions in the Compiled Plugins section. The difference is, you can either copy the file over when you need it, or use a symlink to your source file.</p>
+<p>Source plugins can still have autocomplete and dependencies like compiled plugins, if you follow the instructions for creating a project. The difference is, you can either copy the file over when you need it, or use a symlink to your source file.</p>
 <p>Source plugins are best for simpler projects, testing, or quick prototyping. They also will likely have the highest compatibility with future versions of the API, as the assembly references will always be up-to-date.</p>
 <h3 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h3>
 <p>Copy any dependencies your project requires (e.g., <code>.dll</code> files) to the <code>reframework/plugins/managed/dependencies</code> folder. The plugin manager will automatically load these dependencies prior to loading any plugins.</p>

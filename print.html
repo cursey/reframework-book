@@ -2607,14 +2607,14 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <div style="break-before: page; page-break-before: always;"></div><h1 id="thread"><a class="header" href="#thread">thread</a></h1>
 <p>The <code>thread</code> API is for storing thread-specific data and querying information about the current thread.</p>
 <p>Added in <code>8e9375ce5433c5b4ce38e8398c168c3ab036415c</code>.</p>
-<h2 id="threadget_id"><a class="header" href="#threadget_id">thread.get_id()</a></h2>
+<h2 id="threadget_id"><a class="header" href="#threadget_id"><code>thread.get_id()</code></a></h2>
 <p>Returns the ID of the current thread.</p>
-<h2 id="threadget_hash"><a class="header" href="#threadget_hash">thread.get_hash()</a></h2>
+<h2 id="threadget_hash"><a class="header" href="#threadget_hash"><code>thread.get_hash()</code></a></h2>
 <p>Returns the hash of the ID of the current thread.</p>
-<h2 id="threadget_hook_storage"><a class="header" href="#threadget_hook_storage">thread.get_hook_storage()</a></h2>
+<h2 id="threadget_hook_storage"><a class="header" href="#threadget_hook_storage"><code>thread.get_hook_storage()</code></a></h2>
 <p>Returns the ephemeral hook storage meant to be used within <code>sdk.hook</code>.</p>
 <p>This is preferred over storing variables you need in a global variable in the <code>pre</code> hook when you need the data in the <code>post</code> hook.</p>
-<p>The hook storage is popped/destroyed at the end of the <code>post</code> hook.</p>
+<p>The hook storage is popped/destroyed at the end of the <code>post</code> hook. Safe to be used within a recursive context.</p>
 <p>This API is preferred because there are no longer any guarantees that the entire hook will be locked during pre/post hooks, due to deadlocking issues seen.</p>
 <h3 id="example-2"><a class="header" href="#example-2">Example</a></h3>
 <pre><code class="language-lua">local pawn_t = sdk.find_type_definition(&quot;app.Pawn&quot;)

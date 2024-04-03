@@ -392,6 +392,39 @@ Sets the current cursor position in screen coordinates to `pos`.
 
 Sets the default focus to the next widget.
 
+## Scroll APIs
+
+### `imgui.get_scroll_x()`
+
+Returns the horizontal scroll position.
+### `imgui.get_scroll_y()`
+
+Returns the vertical scroll position.
+### `imgui.set_scroll_x(scroll_x)`
+
+Sets the horizontal scroll position to `scroll_x`.
+### `imgui.set_scroll_y(scroll_y)`
+
+Sets the vertical scroll position to `scroll_y`.
+### `imgui.get_scroll_max_x()`
+
+Returns the maximum horizontal scroll position.
+### `imgui.get_scroll_max_y()`
+
+Returns the maximum vertical scroll position.
+### `imgui.set_scroll_here_x(center_x_ratio)`
+
+Centers the horizontal scroll position.
+### `imgui.set_scroll_here_y(center_y_ratio)`
+
+Centers the vertical scroll position.
+### `imgui.set_scroll_from_pos_x(local_x, center_x_ratio)`
+
+Sets the horizontal scroll position from the specified `local_x` and `center_x_ratio`.
+### `imgui.set_scroll_from_pos_y(local_y, center_y_ratio)`
+
+Sets the vertical scroll position from the specified `local_y` and `center_y_ratio`.
+
 ## Table API
 ### `imgui.begin_table(str_id, column, flags, outer_size, inner_width)`
 

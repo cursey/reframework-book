@@ -49,8 +49,10 @@ Ends the last `begin_window` call. Required.
 ### `imgui.end_rect(additional_size, rounding)`
 These two methods draw a rectangle around the elements between `begin_rect` and `end_rect`
 
-### `imgui.button(label)`
-Draws a button with `label` text.
+### `imgui.button(label, size)`
+Draws a button with `label` text, and optional `size`.
+
+`size` is a Vector2f or a size 2 array.
 
 Returns `true` when the user presses the button.
 

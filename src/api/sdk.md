@@ -164,6 +164,10 @@ local function pre_function(args)
     -- You will need to do things like sdk.to_managed_object(args[2])
     -- or sdk.to_int64(args[3]) to get arguments to better interact with or read.
 
+    -- if the argument is a ValueType, you need to do this to access its fields:
+    -- local type = sdk.find_type_definition("via.Position")
+    -- local x = sdk.get_native_field(arg[3], type, "x")
+
     -- OPTIONAL: Specify an sdk.PreHookResult
     -- e.g.
     -- return sdk.PreHookResult.SKIP_ORIGINAL -- prevents the original function from being called

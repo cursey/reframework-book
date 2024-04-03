@@ -49,6 +49,11 @@ Ends the last `begin_window` call. Required.
 ### `imgui.end_rect(additional_size, rounding)`
 These two methods draw a rectangle around the elements between `begin_rect` and `end_rect`
 
+### `imgui.begin_disabled(disabled=true)`
+### `imgui.end_disabled()`
+
+These two methods will disable and darken elements in between it.
+
 ### `imgui.button(label, size)`
 Draws a button with `label` text, and optional `size`.
 

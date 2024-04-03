@@ -574,6 +574,18 @@ draw_children = function(control, prefix)
     draw_control(child, prefix .. &quot; &quot;, seen)
 end
 
+local should_draw_offsets = {
+    re4 = 0x11,
+    re2 = 0x13,
+    re7 = 0x13,
+}
+
+local should_draw_offset = should_draw_offsets[reframework:get_game_name()]
+
+if should_draw_offset == nil then
+    should_draw_offset = 0x11
+end
+
 re.on_draw_ui(function()
     local sorted_elements = {}
 
@@ -594,8 +606,30 @@ re.on_draw_ui(function()
     for i, element in ipairs(sorted_elements) do
         imgui.push_id(tostring(element:get_address()))
 
+        local changed, value = imgui.checkbox(&quot;&quot;, element:read_byte(should_draw_offset) == 1)
+
+        if changed then
+            element:write_byte(should_draw_offset, value and 1 or 0)
+        end
+        
+
+        imgui.same_line()
+
+        local gui = element:call(&quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;via.gui.GUI&quot;))
+
+        if gui ~= nil then
+            local view = gui:call(&quot;get_View&quot;)
+
+            if view ~= nil then
+                --if (imgui.button(&quot;test&quot;)) then
+                    view:call(&quot;set_ResAdjustScale(via.gui.ResolutionAdjustScale)&quot;, 2)
+                    view:call(&quot;set_ResAdjustAnchor(via.gui.ResolutionAdjustAnchor)&quot;, 4)
+                    view:call(&quot;set_ResolutionAdjust(System.Boolean)&quot;, true)
+                --end
+            end
+        end
+
         if imgui.tree_node(element:call(&quot;get_Name&quot;) .. &quot; &quot; .. string.format(&quot;%x&quot;, element:get_address())) then
-            local gui = element:call(&quot;getComponent(System.Type)&quot;, sdk.typeof(&quot;via.gui.GUI&quot;))
             local transform = element:call(&quot;get_Transform&quot;)
             local joints = transform:call(&quot;get_Joints&quot;)
 

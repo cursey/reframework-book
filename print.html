@@ -1767,6 +1767,27 @@ end)
 <p>Sets the current cursor position in screen coordinates to <code>pos</code>.</p>
 <h3 id="imguiset_item_default_focus"><a class="header" href="#imguiset_item_default_focus"><code>imgui.set_item_default_focus()</code></a></h3>
 <p>Sets the default focus to the next widget.</p>
+<h2 id="scroll-apis"><a class="header" href="#scroll-apis">Scroll APIs</a></h2>
+<h3 id="imguiget_scroll_x"><a class="header" href="#imguiget_scroll_x"><code>imgui.get_scroll_x()</code></a></h3>
+<p>Returns the horizontal scroll position.</p>
+<h3 id="imguiget_scroll_y"><a class="header" href="#imguiget_scroll_y"><code>imgui.get_scroll_y()</code></a></h3>
+<p>Returns the vertical scroll position.</p>
+<h3 id="imguiset_scroll_xscroll_x"><a class="header" href="#imguiset_scroll_xscroll_x"><code>imgui.set_scroll_x(scroll_x)</code></a></h3>
+<p>Sets the horizontal scroll position to <code>scroll_x</code>.</p>
+<h3 id="imguiset_scroll_yscroll_y"><a class="header" href="#imguiset_scroll_yscroll_y"><code>imgui.set_scroll_y(scroll_y)</code></a></h3>
+<p>Sets the vertical scroll position to <code>scroll_y</code>.</p>
+<h3 id="imguiget_scroll_max_x"><a class="header" href="#imguiget_scroll_max_x"><code>imgui.get_scroll_max_x()</code></a></h3>
+<p>Returns the maximum horizontal scroll position.</p>
+<h3 id="imguiget_scroll_max_y"><a class="header" href="#imguiget_scroll_max_y"><code>imgui.get_scroll_max_y()</code></a></h3>
+<p>Returns the maximum vertical scroll position.</p>
+<h3 id="imguiset_scroll_here_xcenter_x_ratio"><a class="header" href="#imguiset_scroll_here_xcenter_x_ratio"><code>imgui.set_scroll_here_x(center_x_ratio)</code></a></h3>
+<p>Centers the horizontal scroll position.</p>
+<h3 id="imguiset_scroll_here_ycenter_y_ratio"><a class="header" href="#imguiset_scroll_here_ycenter_y_ratio"><code>imgui.set_scroll_here_y(center_y_ratio)</code></a></h3>
+<p>Centers the vertical scroll position.</p>
+<h3 id="imguiset_scroll_from_pos_xlocal_x-center_x_ratio"><a class="header" href="#imguiset_scroll_from_pos_xlocal_x-center_x_ratio"><code>imgui.set_scroll_from_pos_x(local_x, center_x_ratio)</code></a></h3>
+<p>Sets the horizontal scroll position from the specified <code>local_x</code> and <code>center_x_ratio</code>.</p>
+<h3 id="imguiset_scroll_from_pos_ylocal_y-center_y_ratio"><a class="header" href="#imguiset_scroll_from_pos_ylocal_y-center_y_ratio"><code>imgui.set_scroll_from_pos_y(local_y, center_y_ratio)</code></a></h3>
+<p>Sets the vertical scroll position from the specified <code>local_y</code> and <code>center_y_ratio</code>.</p>
 <h2 id="table-api"><a class="header" href="#table-api">Table API</a></h2>
 <h3 id="imguibegin_tablestr_id-column-flags-outer_size-inner_width"><a class="header" href="#imguibegin_tablestr_id-column-flags-outer_size-inner_width"><code>imgui.begin_table(str_id, column, flags, outer_size, inner_width)</code></a></h3>
 <p>Begins a new table with the specified <code>str_id</code>, <code>column</code> count, <code>flags</code>, <code>outer_size</code>, and <code>inner_width</code>.</p>

@@ -71,6 +71,7 @@ The entry point for a C# plugin is any method marked with the `PluginEntryPoint`
 REFramework.NET includes a plugin manager that handles the loading and execution of C# plugins. The plugin manager is responsible for:
 
 * Loading dependencies from the `reframework/plugins/managed/dependencies` directory
+* Generating reference assemblies which are output to the `reframework/plugins/managed/generated` directory
 * Compiling and loading C# source files from the `reframework/plugins/source` directory
 * Loading pre-compiled assemblies from the `reframework/plugins/managed` directory
 * Invoking the `Main` method of each plugin

@@ -1,7 +1,7 @@
 Container for unknown ValueTypes.
 
 ## Methods
-### `ValueType.new(typename)`
+### `ValueType.new(type_definition)`
 
 ### `self:call(name, args...)`
 ### `self:get_field(name)`

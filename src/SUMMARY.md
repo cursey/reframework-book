@@ -50,4 +50,5 @@
     - [ValueType](api/types/ValueType.md)
 
 # C# Scripting Reference
-- [General](api_cs/general/README.md)
+- [Introduction](api_cs/general/README.md)
+    - [Notes on Threading](api_cs/general/Notes-On-Threading.md)

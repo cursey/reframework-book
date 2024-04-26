@@ -51,4 +51,5 @@
 
 # C# Scripting Reference
 - [Introduction](api_cs/general/README.md)
+    - [Benchmarks](api_cs/general/benchmarks.md)
     - [Notes on Threading](api_cs/general/Notes-On-Threading.md)

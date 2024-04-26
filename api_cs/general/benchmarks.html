@@ -142,26 +142,31 @@
                     <main>
                         <h1 id="benchmarks"><a class="header" href="#benchmarks">Benchmarks</a></h1>
 <h2 id="single-threaded"><a class="header" href="#single-threaded">Single-threaded</a></h2>
-<p>The C# API has been observed to be around 3-5x faster than the Lua API in single threaded scenarios under various loads. This is due to the fact that C# is a JIT compiled language, while Lua is an interpreted language.</p>
+<p>The C# API has been observed to be around 3-7x faster than the Lua API in single threaded scenarios under various loads. This is due to the fact that C# is a JIT compiled language, while Lua is an interpreted language.</p>
 <p>Scenarios tested:</p>
 <ul>
 <li>Calling reflected methods on managed objects
 <ul>
 <li>10,000 for loop</li>
-<li>~2-3ms in C# vs ~15-16ms in Lua</li>
+<li>~2-3ms in C#</li>
+<li>~15-16ms in Lua</li>
 </ul>
 </li>
 </ul>
 <h2 id="multi-threaded"><a class="header" href="#multi-threaded">Multi-threaded</a></h2>
 <p>Performance is much more dramatic in multi-threaded scenarios. </p>
-<p>The C# API has been observed to be around 10-20x faster than the Lua API in multi-threaded scenarios with 8-9 threads. C# is much different from Lua as it's a true multi-threaded language. Lua has to lock all other threads trying to execute Lua code, while C# does not have this limitation.</p>
+<p>The C# API has been observed to be anywhere from 10-80x faster (depends on thread count) than the Lua API in multi-threaded scenarios with 8-9 threads. C# is much different from Lua as it's a true multi-threaded language. Lua has to lock all other threads trying to execute Lua code, while C# does not have this limitation.</p>
 <p>Scenarios tested:</p>
 <ul>
 <li>Implicit multithreading (9 threads) with hooks on <code>app.Collision.HitController.update</code>
 <ul>
 <li>10,000 for loop</li>
-<li>~2-3ms in C# vs ~15-16ms in Lua per thread</li>
+<li>~2-3ms in C# per thread</li>
+<li>~15-16ms in Lua per thread
+<ul>
 <li>Compounded in Lua to ~150ms overall due to locking</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Explicit multithreading (8 threads) with <code>System.Threading.Thread</code></li>

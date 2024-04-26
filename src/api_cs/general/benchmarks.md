@@ -5,7 +5,9 @@
 The C# API has been observed to be around 3-5x faster than the Lua API in single threaded scenarios under various loads. This is due to the fact that C# is a JIT compiled language, while Lua is an interpreted language.
 
 Scenarios tested:
-- Calling reflected methods on managed objects
+* Calling reflected methods on managed objects
+    * 10,000 for loop
+    * ~2-3ms in C# vs ~15-16ms in Lua
 
 ## Multi-threaded
 
@@ -15,4 +17,7 @@ The C# API has been observed to be around 10-20x faster than the Lua API in mult
 
 Scenarios tested:
 - Implicit multithreading (9 threads) with hooks on `app.Collision.HitController.update`
+    - 10,000 for loop
+    - ~2-3ms in C# vs ~15-16ms in Lua per thread
+    - Compounded in Lua to ~150ms overall due to locking
 - Explicit multithreading (8 threads) with `System.Threading.Thread`

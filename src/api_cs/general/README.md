@@ -59,7 +59,7 @@ public class REFrameworkPlugin {
     [Attributes.PluginEntryPoint]
     public static void Main() {
         // Your plugin code goes here
-        api.LogInfo("Hello from C#!");
+        API.LogInfo("Hello from C#!");
     }
 }
 ```

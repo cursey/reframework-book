@@ -6,6 +6,14 @@ Newer builds can be found [here](https://github.com/praydog/REFramework-nightly/
 
 The old pre-RT beta builds of RE2/RE3/RE7 may be more stable with the mod on some computers. You can switch to the beta in Steam under the game's properties. Once this is done, the old version of the mod will need to be downloaded, these are the zip files in the release with "TDB" in them.
 
+## Builds with better performance and fixed TAA
+
+In REFramework's **pd-upscaler builds**, TAA is completely fixed, and performance is greatly improved with a new renderer. Optionally, DLSS, FSR2, XeSS can be used.
+
+This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: https://github.com/praydog/REFramework/actions
+
+![upscalerbuilds](https://github.com/user-attachments/assets/f981abb3-a5d4-4e64-86fd-c97e89b8dec6)
+
 ## Reporting a bug
 Report it on the [Issues](https://github.com/praydog/REFramework/issues) page.
 
@@ -179,6 +187,13 @@ Enabling AFR/AER can be done under the "VR" section of the menu.
 Volumetric Lighting, Lens Flares, TAA, and Motion Blur. Will need the help of someone more experienced with shaders to fix these.
 
 TAA has a partial fix in the latest nightly builds.
+
+**Important Note**: TAA is completely fixed in the **pd-upscaler** builds of REFramework, and performance is greatly improved with a new renderer.
+
+This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: https://github.com/praydog/REFramework/actions
+
+![upscalerbuilds](https://github.com/user-attachments/assets/f981abb3-a5d4-4e64-86fd-c97e89b8dec6)
+
 
 ## What graphical settings are forced?
 These are forced, but the forcing can be toggled off in REFramework's menu, under VR.

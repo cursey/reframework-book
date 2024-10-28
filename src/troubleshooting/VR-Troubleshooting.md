@@ -10,7 +10,7 @@ The old pre-RT beta builds of RE2/RE3/RE7 may be more stable with the mod on som
 
 In REFramework's **pd-upscaler builds**, TAA is completely fixed, and performance is greatly improved with a new renderer. Optionally, DLSS, FSR2, XeSS can be used.
 
-This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: https://github.com/praydog/REFramework/actions
+This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: [https://github.com/praydog/REFramework/actions](https://github.com/praydog/REFramework/actions)
 
 ![upscalerbuilds](https://github.com/user-attachments/assets/f981abb3-a5d4-4e64-86fd-c97e89b8dec6)
 
@@ -190,7 +190,7 @@ TAA has a partial fix in the latest nightly builds.
 
 **Important Note**: TAA is completely fixed in the **pd-upscaler** builds of REFramework, and performance is greatly improved with a new renderer.
 
-This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: https://github.com/praydog/REFramework/actions
+This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: [https://github.com/praydog/REFramework/actions](https://github.com/praydog/REFramework/actions)
 
 ![upscalerbuilds](https://github.com/user-attachments/assets/f981abb3-a5d4-4e64-86fd-c97e89b8dec6)
 

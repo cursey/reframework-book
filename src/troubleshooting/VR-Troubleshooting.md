@@ -8,6 +8,8 @@ The old pre-RT beta builds of RE2/RE3/RE7 may be more stable with the mod on som
 
 ## Builds with better performance and fixed TAA
 
+(This only applies to RT builds of RE2/3/7, RE8 and newer games)
+
 In REFramework's **pd-upscaler builds**, TAA is completely fixed, and performance is greatly improved with a new renderer. Optionally, DLSS, FSR2, XeSS can be used.
 
 This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: [https://github.com/praydog/REFramework/actions](https://github.com/praydog/REFramework/actions)
@@ -188,7 +190,7 @@ Volumetric Lighting, Lens Flares, TAA, and Motion Blur. Will need the help of so
 
 TAA has a partial fix in the latest nightly builds.
 
-**Important Note**: TAA is completely fixed in the **pd-upscaler** builds of REFramework, and performance is greatly improved with a new renderer.
+**Important Note** (This only applies to RT builds of RE2/3/7, RE8 and newer games): TAA is completely fixed in the **pd-upscaler** builds of REFramework, and performance is greatly improved with a new renderer.
 
 This will eventually make its way into the stable builds, but you can find the **pd-upscaler** builds here, with a GitHub account: [https://github.com/praydog/REFramework/actions](https://github.com/praydog/REFramework/actions)
 

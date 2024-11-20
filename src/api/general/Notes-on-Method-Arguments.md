@@ -21,3 +21,20 @@ sdk.hook(sdk.find_type_definition("foo"):get_method("bar"),
     end
 )
 ```
+
+For `out` ref parameter, this can only be done inside the post hook.
+
+```lua
+local lastArgs
+sdk.hook(sdk.find_type_definition("foo"):get_method("bar"),
+    function(args)
+        lastArgs = args
+    end,
+    function(retval)
+        local deref = deref_ptr(lastArgs[6])
+        local arg = sdk.to_managed_object(deref):add_ref()
+        lastArgs = nil
+        return retval
+    end
+)
+```

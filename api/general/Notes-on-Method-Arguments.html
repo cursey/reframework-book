@@ -160,6 +160,21 @@ sdk.hook(sdk.find_type_definition(&quot;foo&quot;):get_method(&quot;bar&quot;),
     end
 )
 </code></pre>
+<p>For <code>out</code> ref parameter, this can only be done inside the post hook.</p>
+<pre><code class="language-lua">sdk.hook(sdk.find_type_definition(&quot;foo&quot;):get_method(&quot;bar&quot;),
+    function(args)
+        local storage = thread.get_hook_storage()
+        storage[&quot;ref_arg&quot;] = args[3]
+    end,
+    function(retval)
+        local ref_arg = thread.get_hook_storage()[&quot;ref_arg&quot;]
+        local deref = deref_ptr(ref_arg)
+        local arg = sdk.to_managed_object(deref):add_ref()
+
+        return retval
+    end
+)
+</code></pre>
 
                     </main>
 

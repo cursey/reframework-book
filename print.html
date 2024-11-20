@@ -1424,6 +1424,21 @@ sdk.hook(sdk.find_type_definition(&quot;foo&quot;):get_method(&quot;bar&quot;),
     end
 )
 </code></pre>
+<p>For <code>out</code> ref parameter, this can only be done inside the post hook.</p>
+<pre><code class="language-lua">sdk.hook(sdk.find_type_definition(&quot;foo&quot;):get_method(&quot;bar&quot;),
+    function(args)
+        local storage = thread.get_hook_storage()
+        storage[&quot;ref_arg&quot;] = args[3]
+    end,
+    function(retval)
+        local ref_arg = thread.get_hook_storage()[&quot;ref_arg&quot;]
+        local deref = deref_ptr(ref_arg)
+        local arg = sdk.to_managed_object(deref):add_ref()
+
+        return retval
+    end
+)
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="shared-state"><a class="header" href="#shared-state">Shared State</a></h2>
 <p>Lua uses a shared state across all scripts. Use <code>local</code> variables <em>and</em> <code>local</code> functions (not necessary for local tables) so as to not cause conflicts with other scripts.</p>
 <h3 id="example"><a class="header" href="#example">Example</a></h3>

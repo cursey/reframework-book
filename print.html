@@ -2627,6 +2627,18 @@ sdk.hook(sdk.find_type_definition(&quot;via.Scene&quot;):get_method(&quot;get_Ti
 <li>A <code>void*</code>, in which case it is returned as-is</li>
 </ul>
 <p>Any other type will return <code>nil</code>.</p>
+<h3 id="sdkto_valuetypeobj-t"><a class="header" href="#sdkto_valuetypeobj-t"><code>sdk.to_valuetype(obj, t)</code></a></h3>
+<p>Attempts to convert <code>obj</code> to <code>t</code></p>
+<p><code>obj</code> can be a:</p>
+<ul>
+<li>Number</li>
+<li>void*</li>
+</ul>
+<p><code>t</code> can be a:</p>
+<ul>
+<li><a href="api/types/RETypeDefinition.html">RETypeDefinition</a></li>
+<li>string</li>
+</ul>
 <h3 id="sdkfloat_to_ptrnumber"><a class="header" href="#sdkfloat_to_ptrnumber"><code>sdk.float_to_ptr(number)</code></a></h3>
 <p>Converts <code>number</code> to a <code>void*</code>.</p>
 <h2 id="enums"><a class="header" href="#enums">Enums</a></h2>

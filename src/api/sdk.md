@@ -257,6 +257,19 @@ Attempts to convert `value` to a `void*`.
 
 Any other type will return `nil`.
 
+### `sdk.to_valuetype(obj, t)`
+Attempts to convert `obj` to `t`
+
+`obj` can be a:
+
+* Number
+* void*
+
+`t` can be a:
+
+* [RETypeDefinition](types/RETypeDefinition.md)
+* string
+
 ### `sdk.float_to_ptr(number)`
 Converts `number` to a `void*`.
 

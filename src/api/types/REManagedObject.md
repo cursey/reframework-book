@@ -86,7 +86,7 @@ The only time you will need to manually call `self:add_ref()` and `self:release(
 
 A more in-depth explanation can be found in the "FrameGC Algorithm" section of this GDC presentation by Capcom:
 
-https://github.com/kasicass/blog/blob/master/3d-reengine/2021_03_10_achieve_rapid_iteration_re_engine_design.md#framegc-algorithm-17
+[https://github.com/kasicass/blog/blob/master/3d-reengine/2021_03_10_achieve_rapid_iteration_re_engine_design.md#framegc-algorithm-17](https://github.com/praydog/re-engine-blog-backup/blob/master/3d-reengine/2021_03_10_achieve_rapid_iteration_re_engine_design.md#framegc-method)
 
 ### `self:read_byte(offset)`
 ### `self:read_short(offset)`

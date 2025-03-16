@@ -2957,7 +2957,7 @@ end
 <p>When a new Lua reference is created to an <code>REManagedObject</code>, REFramework automatically increments its reference count internally with <code>self:add_ref()</code>. This will keep the object alive until you are no longer referencing the object in Lua. <code>self:release()</code> is automatically called when Lua is no longer referencing the object anywhere.</p>
 <p>The only time you will need to manually call <code>self:add_ref()</code> and <code>self:release()</code> is when a newly created object is returned by the engine, e.g. an array, or something from <code>sdk.create_instance()</code>.</p>
 <p>A more in-depth explanation can be found in the &quot;FrameGC Algorithm&quot; section of this GDC presentation by Capcom:</p>
-<p>https://github.com/kasicass/blog/blob/master/3d-reengine/2021_03_10_achieve_rapid_iteration_re_engine_design.md#framegc-algorithm-17</p>
+<p><a href="https://github.com/praydog/re-engine-blog-backup/blob/master/3d-reengine/2021_03_10_achieve_rapid_iteration_re_engine_design.md#framegc-method">https://github.com/kasicass/blog/blob/master/3d-reengine/2021_03_10_achieve_rapid_iteration_re_engine_design.md#framegc-algorithm-17</a></p>
 <h3 id="selfread_byteoffset"><a class="header" href="#selfread_byteoffset"><code>self:read_byte(offset)</code></a></h3>
 <h3 id="selfread_shortoffset"><a class="header" href="#selfread_shortoffset"><code>self:read_short(offset)</code></a></h3>
 <h3 id="selfread_dwordoffset"><a class="header" href="#selfread_dwordoffset"><code>self:read_dword(offset)</code></a></h3>

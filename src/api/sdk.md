@@ -273,6 +273,10 @@ Attempts to convert `obj` to `t`
 ### `sdk.float_to_ptr(number)`
 Converts `number` to a `void*`.
 
+### `sdk.copy_to_clipboard(text)`
+
+Copies `text` to the clipboard.
+
 ## Enums
 ### `sdk.PreHookResult`
 * `sdk.PreHookResult.CALL_ORIGINAL`

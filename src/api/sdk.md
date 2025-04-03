@@ -54,6 +54,20 @@ Any other type will throw a Lua error.
 
 If `type` cannot resolve to a valid `System.Type`, a Lua error will be thrown.
 
+### `sdk.create_delegate(type, num_methods)
+
+Creates and returns a new [Delegate](types/Delegate.md) of the given `type`, with `num_methods` elements.
+
+`type` can be any of the following:
+
+* A `System.Type` returned from [sdk.typeof](#sdktypeofname)
+* An [RETypeDefinition](types/RETypeDefinition.md) returned from [sdk.find_type_definition](#sdkfind_type_definitionname)
+* A Lua `string` representing the type name.
+
+Any other type will throw a Lua error.
+
+If `type` cannot resolve to a valid `System.Type`, a Lua error will be thrown.
+
 ### `sdk.create_sbyte(value)`
 Returns a fully constructed [REManagedObject](types/REManagedObject.md) of type `System.SByte` given the `value`.
 

@@ -2467,6 +2467,16 @@ FinalizeGameCore
 </ul>
 <p>Any other type will throw a Lua error.</p>
 <p>If <code>type</code> cannot resolve to a valid <code>System.Type</code>, a Lua error will be thrown.</p>
+<h3 id="sdkcreate_delegatetype-num_methods"><a class="header" href="#sdkcreate_delegatetype-num_methods">`sdk.create_delegate(type, num_methods)</a></h3>
+<p>Creates and returns a new <a href="api/types/Delegate.html">Delegate</a> of the given <code>type</code>, with <code>num_methods</code> elements.</p>
+<p><code>type</code> can be any of the following:</p>
+<ul>
+<li>A <code>System.Type</code> returned from <a href="api/sdk.html#sdktypeofname">sdk.typeof</a></li>
+<li>An <a href="api/types/RETypeDefinition.html">RETypeDefinition</a> returned from <a href="api/sdk.html#sdkfind_type_definitionname">sdk.find_type_definition</a></li>
+<li>A Lua <code>string</code> representing the type name.</li>
+</ul>
+<p>Any other type will throw a Lua error.</p>
+<p>If <code>type</code> cannot resolve to a valid <code>System.Type</code>, a Lua error will be thrown.</p>
 <h3 id="sdkcreate_sbytevalue"><a class="header" href="#sdkcreate_sbytevalue"><code>sdk.create_sbyte(value)</code></a></h3>
 <p>Returns a fully constructed <a href="api/types/REManagedObject.html">REManagedObject</a> of type <code>System.SByte</code> given the <code>value</code>.</p>
 <h3 id="sdkcreate_bytevalue"><a class="header" href="#sdkcreate_bytevalue"><code>sdk.create_byte(value)</code></a></h3>

@@ -54,7 +54,7 @@ Any other type will throw a Lua error.
 
 If `type` cannot resolve to a valid `System.Type`, a Lua error will be thrown.
 
-### `sdk.create_delegate(type, num_methods)
+### `sdk.create_delegate(type, num_methods)`
 
 Creates and returns a new [Delegate](types/Delegate.md) of the given `type`, with `num_methods` elements.
 

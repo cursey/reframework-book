@@ -17,6 +17,20 @@ re.on_draw_ui(function()
 end)
 ```
 
+## Enums
+
+### `imgui.TableSortSpecs`
+
+### `imgui.TableColumnSortSpecs`
+
+### `imgui.TableFlags`
+
+### `imgui.ColumnFlagss`
+
+### `imgui.ImGuiKey`
+
+### `imgui.ImGuiStyleVar`
+
 ## Methods
 ### `imgui.begin_window(name, open, flags)`
 Creates a new window with the title of `name`.

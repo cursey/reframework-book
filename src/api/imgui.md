@@ -25,7 +25,7 @@ end)
 
 ### `imgui.TableFlags`
 
-### `imgui.ColumnFlagss`
+### `imgui.ColumnFlags`
 
 ### `imgui.ImGuiKey`
 

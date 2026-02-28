@@ -3,12 +3,12 @@ This is a work in progress and may not be accurate or complete. The C# API has n
 
 # REFramework.NET
 
-REFramework provides a C# scripting API (REFramework.NET) that allows developers to create powerful mods and plugins for games using the RE Engine. The C# API targets the .NET 8.0 runtime and supports the x64 architecture.
+REFramework provides a C# scripting API (REFramework.NET) that allows developers to create powerful mods and plugins for games using the RE Engine. The C# API targets the .NET 10.0 runtime and supports the x64 architecture.
 
 ## Features
 
 * Runtime compilation of C# code
-* Loading of arbitrary compiled .NET 8.0 assemblies
+* Loading of arbitrary compiled .NET 10.0 assemblies
 * Automatic generation of reference assemblies based on `TDB` data
 * Integration with the REFramework plugin system
 * Access to engine functionality and data structures through the API

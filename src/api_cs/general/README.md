@@ -15,13 +15,13 @@ REFramework provides a C# scripting API (REFramework.NET) that allows developers
 
 ## Getting Started
 
-To start developing C# plugins for REFramework, you'll need to have the .NET 8.0 runtime installed on your system. The backend of the C# API is primarily implemented in C++/CLI, with C# components for runtime compilation and reference assembly generation.
+To start developing C# plugins for REFramework, you'll need to have the .NET 10.0 runtime installed on your system. The backend of the C# API is primarily implemented in C++/CLI, with C# components for runtime compilation and reference assembly generation.
 
 When the C# API is loaded, it automatically generates reference assemblies from the TDB data before loading any plugins. These reference assemblies provide autocomplete functionality in your C# IDE and can be inspected using a decompiler to gain insights into the engine codebase.
 
 ## Project setup
 
-In Visual Studio (or your preferred IDE), create a new C# class library project targeting .NET 8.0. Add a reference to `REFramework.NET.dll` and any other dependencies you need.
+In Visual Studio (or your preferred IDE), create a new C# class library project targeting .NET 10.0. Add a reference to `REFramework.NET.dll` and any other dependencies you need.
 
 ### Required Project References
 

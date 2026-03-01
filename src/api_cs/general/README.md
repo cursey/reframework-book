@@ -1,9 +1,13 @@
 # Warning
-This is a work in progress and may not be accurate or complete. The C# API has not yet been released.
+This is a work in progress and may not be accurate or complete. The C# API is still maturing.
 
 # REFramework.NET
 
 REFramework provides a C# scripting API (REFramework.NET) that allows developers to create powerful mods and plugins for games using the RE Engine. The C# API targets the .NET 10.0 runtime and supports the x64 architecture.
+
+## Download
+
+REFramework.NET can be downloaded from the `csharp-api.zip` files [here](https://github.com/praydog/REFramework-nightly/releases).
 
 ## Features
 

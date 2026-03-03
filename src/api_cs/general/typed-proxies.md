@@ -226,51 +226,48 @@ In practice, prefer `.As<T>()` and `API.GetManagedSingletonT<T>()` — they hand
 
 ## Iterating Game Collections
 
-`ManagedObject` and `NativeObject` both implement `IEnumerable` via `UnifiedObject`. The underlying `ObjectEnumerator` calls `get_Count` (or `get_Length`) and `get_Item(int)` on the object. This means `foreach` works **only** on types that have both:
-
-- `get_Count()` or `get_Length()` returning an integer
-- `get_Item(int index)` accepting an integer index
+`ManagedObject` and `NativeObject` implement `IEnumerable` via `UnifiedObject`. The underlying `ObjectEnumerator` calls `get_Count` (or `get_Length`) and `get_Item(int)` on the object.
 
 > **Typed proxies do NOT implement `IEnumerable`.** You cannot `foreach` directly on a proxy. Unwrap to the underlying `ManagedObject` first — either via `((IProxy)proxy).GetInstance()` or by reading the field with `GetField()` instead of a typed property.
 
-In practice, this limits `foreach` to:
+### What actually works
 
-| Type | Works? | Why |
-|------|--------|-----|
-| `System.Collections.Generic.List<T>` | Yes | Has `get_Count` + `get_Item(int)` |
-| `System.Array` / `T[]` | Yes | Has `get_Length` + `get_Item(int)` |
-| `Queue<T>` | **No** | Has `get_Count` but no `get_Item(int)` |
-| `Dictionary<K,V>`, `CatalogSetDictionary<K,V>` | **No** | `get_Item` takes a key, not an int index |
-| Custom containers with `get_Item` but no `get_Count` | **No** | `GetItemCount()` returns 0, iterates nothing |
+Tested live against RE9 with populated collections:
+
+| Type | Count correct? | Items correct? | Verdict |
+|------|---------------|----------------|---------|
+| `T[]` (native arrays) | Yes | **Yes** | **Works** |
+| `List<T>` | Yes | Yes (tested empty) | **Should work** |
+| `Dictionary<K,V>` | Yes | **All null** | **Broken** |
+| `CatalogSetDictionary<K,V>` | Misleading | **All null** | **Broken** |
+| `Queue<T>` | N/A | N/A | No `get_Item` |
+| Containers without `get_Count` | 0 | N/A | Iterates nothing |
+
+`Dictionary<K,V>` is the worst case: `ObjectEnumerator` gets the correct count (e.g. 414), but `get_Item` expects a typed key, not an `int` index. Every call silently fails and yields `null`. You get 414 nulls with no error.
 
 ```csharp
-// Typed proxy — must unwrap to ManagedObject first
-var saveMgr = API.GetManagedSingletonT<app.SaveServiceManager>();
-var listProxy = saveMgr._ProcessRequests;
+// WORKS: T[] arrays
+var arr = someObj.GetField("_SomeArray") as ManagedObject;
+foreach (var item in (IEnumerable)arr) {
+    var typed = ((ManagedObject)item).As<app.SomeType>();
+    // item is a real object
+}
 
-// Option A: Unwrap via IProxy
-var listMo = ((IProxy)listProxy).GetInstance() as ManagedObject;
-
-// Option B: Read the field directly as ManagedObject
-var listMo2 = API.GetManagedSingleton("app.SaveServiceManager")
-    .GetField("_ProcessRequests") as ManagedObject;
-
-// Now foreach works
-foreach (var item in (IEnumerable)listMo) {
-    var process = ((ManagedObject)item).As<app.SaveServiceManager.Process>();
-    API.LogInfo($"Process: {process}");
+// BROKEN: Dictionary<K,V> — silently yields all null
+var dict = someObj.GetField("_SomeDict") as ManagedObject;
+foreach (var item in (IEnumerable)dict) {
+    // item is ALWAYS null, no error thrown
 }
 ```
 
-> **Warning:** If a type has `get_Count` but no integer-indexed `get_Item`, `ObjectEnumerator` will silently yield `null` values. Always verify the target type has both methods before using `foreach`.
+### Recommended approach for non-array collections
 
-For types that don't support this pattern, fall back to reflection:
+For `Dictionary`, `Queue`, `HashSet`, and other non-indexable collections, use `Call()` directly or access internal backing arrays:
 
 ```csharp
-// Dictionary-like types: use Call() directly
 var dict = saveMgr.GetField("_SaveSlotInfoDict") as ManagedObject;
 var count = (int)(dict as IObject).Call("get_Count");
-// Use the type's own enumeration methods or access the internal arrays
+// Access entries via the dictionary's own API, or drill into _entries array
 ```
 
 ## ValueType and Stack-Allocated Structs

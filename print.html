@@ -4539,13 +4539,13 @@ public class AdditionalSavesPlugin {
 </code></pre>
 <p>Key points:</p>
 <ul>
-<li><strong><code>[PluginEntryPoint]</code></strong> marks the method REFramework calls when the plugin DLL is loaded. Game singletons are typically <em>not</em> available yet at this point -- do not attempt game logic here.</li>
+<li><strong><code>[PluginEntryPoint]</code></strong> marks the method REFramework calls when the plugin DLL is loaded.</li>
 <li><strong><code>[PluginExitPoint]</code></strong> is called on unload (hot-reload or shutdown). Clean up static state so a re-load starts fresh.</li>
 <li>Static fields hold cross-hook state. <code>pendingUnit</code> bridges a pre-hook and its matching post-hook (see <a href="api_cs/examples/additional-save-slots.html#7-prehook--posthook-pattern-onsetup">Section 7</a>).</li>
 </ul>
 <hr />
 <h2 id="3-polling-with-callbacks"><a class="header" href="#3-polling-with-callbacks">3. Polling With Callbacks</a></h2>
-<p>Game singletons like <code>SaveServiceManager</code> are not yet created when your plugin loads. The standard pattern is to register a per-frame callback that polls until the singleton is ready:</p>
+<p>It's possible that game singletons like <code>SaveServiceManager</code> will not yet be created when your plugin loads. The standard pattern is to register a per-frame callback that polls until the singleton is ready:</p>
 <pre><code class="language-csharp">[Callback(typeof(UpdateBehavior), CallbackType.Pre)]
 public static void OnUpdateBehavior() {
     if (initialized) return;
@@ -4562,7 +4562,7 @@ public static void OnUpdateBehavior() {
 }
 </code></pre>
 <p>The <code>[Callback(typeof(UpdateBehavior), CallbackType.Pre)]</code> attribute registers this method to run every frame, <em>before</em> the engine's own update tick. Once <code>initialized</code> is set, the early return makes the per-frame cost negligible.</p>
-<p>This is the idiomatic way to defer initialization. Do <strong>not</strong> spin-wait or sleep in <code>Main()</code> -- the game is single-threaded and you will deadlock.</p>
+<p>This is the idiomatic way to defer initialization. Do <strong>not</strong> spin-wait or sleep in <code>Main()</code> -- the game will freeze.</p>
 <hr />
 <h2 id="4-reading-typed-singletons"><a class="header" href="#4-reading-typed-singletons">4. Reading Typed Singletons</a></h2>
 <pre><code class="language-csharp">var saveMgr = API.GetManagedSingletonT&lt;app.SaveServiceManager&gt;();
@@ -4795,13 +4795,13 @@ public class AdditionalSavesPlugin {
 </code></pre>
 <p>Key points:</p>
 <ul>
-<li><strong><code>[PluginEntryPoint]</code></strong> marks the method REFramework calls when the plugin DLL is loaded. Game singletons are typically <em>not</em> available yet at this point -- do not attempt game logic here.</li>
+<li><strong><code>[PluginEntryPoint]</code></strong> marks the method REFramework calls when the plugin DLL is loaded.</li>
 <li><strong><code>[PluginExitPoint]</code></strong> is called on unload (hot-reload or shutdown). Clean up static state so a re-load starts fresh.</li>
 <li>Static fields hold cross-hook state. <code>pendingUnit</code> bridges a pre-hook and its matching post-hook (see <a href="api_cs/examples/additional-save-slots.html#7-prehook--posthook-pattern-onsetup">Section 7</a>).</li>
 </ul>
 <hr />
 <h2 id="3-polling-with-callbacks-1"><a class="header" href="#3-polling-with-callbacks-1">3. Polling With Callbacks</a></h2>
-<p>Game singletons like <code>SaveServiceManager</code> are not yet created when your plugin loads. The standard pattern is to register a per-frame callback that polls until the singleton is ready:</p>
+<p>It's possible that game singletons like <code>SaveServiceManager</code> will not yet be created when your plugin loads. The standard pattern is to register a per-frame callback that polls until the singleton is ready:</p>
 <pre><code class="language-csharp">[Callback(typeof(UpdateBehavior), CallbackType.Pre)]
 public static void OnUpdateBehavior() {
     if (initialized) return;
@@ -4818,7 +4818,7 @@ public static void OnUpdateBehavior() {
 }
 </code></pre>
 <p>The <code>[Callback(typeof(UpdateBehavior), CallbackType.Pre)]</code> attribute registers this method to run every frame, <em>before</em> the engine's own update tick. Once <code>initialized</code> is set, the early return makes the per-frame cost negligible.</p>
-<p>This is the idiomatic way to defer initialization. Do <strong>not</strong> spin-wait or sleep in <code>Main()</code> -- the game is single-threaded and you will deadlock.</p>
+<p>This is the idiomatic way to defer initialization. Do <strong>not</strong> spin-wait or sleep in <code>Main()</code> -- the game will freeze.</p>
 <hr />
 <h2 id="4-reading-typed-singletons-1"><a class="header" href="#4-reading-typed-singletons-1">4. Reading Typed Singletons</a></h2>
 <pre><code class="language-csharp">var saveMgr = API.GetManagedSingletonT&lt;app.SaveServiceManager&gt;();

@@ -51,5 +51,12 @@
 
 # C# Scripting Reference
 - [Introduction](api_cs/general/README.md)
-    - [Benchmarks](api_cs/general/benchmarks.md)
+    - [Attributes](api_cs/general/attributes.md)
+    - [Method Hooks](api_cs/general/hooks.md)
+    - [Typed Proxies](api_cs/general/typed-proxies.md)
+    - [ManagedObject & IObject](api_cs/general/managed-objects.md)
+    - [Arrays](api_cs/general/arrays.md)
     - [Notes on Threading](api_cs/general/Notes-On-Threading.md)
+    - [Benchmarks](api_cs/general/benchmarks.md)
+- [Examples](api_cs/examples/additional-save-slots.md)
+    - [RE9 Additional Save Slots](api_cs/examples/additional-save-slots.md)

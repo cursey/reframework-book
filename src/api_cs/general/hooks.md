@@ -16,13 +16,14 @@ static PreHookResult MyPreHook(Span<ulong> args) { ... }
 static void MyPostHook(ref ulong retval) { ... }
 ```
 
-The three parameters are:
+There are three required parameters and one optional:
 
 | Parameter | Meaning |
 |-----------|---------|
 | `typeof(T)` | The type that declares the method |
 | `nameof(T.method)` | The method name to hook |
 | `MethodHookType.Pre` or `.Post` | Whether to run before or after the original |
+| `bool skipJmp` *(optional)* | When `true`, skips the initial `jmp` instruction at the function entry. Use when hooking functions that have been patched with a trampoline. Defaults to `false`. |
 
 ## Pre-Hooks
 

@@ -228,9 +228,11 @@ In practice, prefer `.As<T>()` and `API.GetManagedSingletonT<T>()` — they hand
 
 ### Typed Proxies (recommended)
 
-Typed proxies implement `REFrameworkNET.Collections.IDictionary<K,V>`, `IList<T>`, `ICollection<T>`, etc. These interfaces provide idiomatic C# iteration that **works correctly**:
+Typed proxies implement `REFrameworkNET.Collections.IDictionary<K,V>`, `IList<T>`, `ISet<T>`, and `ICollection<T>`. These interfaces provide idiomatic C# iteration with fully typed elements:
 
 ```csharp
+using Col = REFrameworkNET.Collections;
+
 var saveMgr = API.GetManagedSingletonT<app.SaveServiceManager>();
 
 // Dictionary — iterate keys, values, or use indexer
@@ -242,49 +244,69 @@ foreach (var key in handlers.Keys) {
 }
 
 foreach (var val in handlers.Values) {
-    // val is a real GameSlotSaveHandler proxy — not null
+    // val is a typed GameSlotSaveHandler proxy — call methods directly
+    API.LogInfo($"KeyName: {val.KeyName}");
 }
 
 var handler = handlers["CharacterManager"];      // indexer works
 
-// List — direct foreach
-var requests = saveMgr._ProcessRequests;          // IList<Process>
-foreach (var req in requests) {
-    // each req is a real Process proxy
+// List — foreach and indexer
+var charMgr = API.GetManagedSingletonT<app.CharacterManager>();
+Col.IList<app.PlayerContext> players = charMgr.PlayerContextList;
+foreach (var player in players) {
+    API.LogInfo($"Valid: {player.Valid}");        // typed PlayerContext proxy
 }
+var first = players[0];                           // indexer works
+
+// HashSet — foreach, Contains, Count
+var itemMgr = API.GetManagedSingletonT<app.ItemManager>();
+Col.ISet<app.ItemID> acquired = itemMgr._AcquiredIDSet;
+API.LogInfo($"Acquired items: {acquired.Count}"); // 111
+foreach (var itemId in acquired) {
+    // itemId is a typed app.ItemID proxy
+}
+bool has = acquired.Contains(someItem);            // membership check
 ```
 
-Tested live against RE9 with 37 dictionary entries — keys return real `System.String` values, values return real `GameSlotSaveHandler` proxy objects, indexer works.
+The `ISet<T>` interface maps to `HashSet<T>` and `SortedSet<T>` in the game's type database. It provides `Add` (returns `bool`), `Contains`, `Remove`, `Count`, and `foreach` iteration.
 
-> **Important:** Do NOT cast proxies to `System.Collections.IEnumerable`. Proxies implement `REFrameworkNET.Collections.IList<T>` / `IDictionary<K,V>` — these are different interfaces with their own `GetEnumerator()` that dispatches correctly through the proxy system.
+> **Important:** Do NOT cast proxies to `System.Collections.IEnumerable`. Proxies implement `REFrameworkNET.Collections.IList<T>` / `IDictionary<K,V>` / `ISet<T>` — these are different interfaces with their own `GetEnumerator()` that dispatches correctly through the proxy system.
 
-### ManagedObject (fallback)
+### ManagedObject foreach
 
-`ManagedObject` implements `System.Collections.IEnumerable` via `ObjectEnumerator`, which calls `get_Count`/`get_Length` + `get_Item(int)`. This **only works for arrays**:
+`ManagedObject` implements `System.Collections.IEnumerable` via `ObjectEnumerator`, which calls the collection's native `GetEnumerator()` and drives it with `MoveNext()` / `get_Current()`. This works for **all** standard collection types:
 
-| Type | Works via ManagedObject? | Why |
-|------|------------------------|-----|
-| `T[]` (arrays) | **Yes** | Has `get_Length` + `get_Item(int)` |
-| `List<T>` | Untested with data | Has `get_Count` + `get_Item(int)` — should work |
-| `Dictionary<K,V>` | **No — silent nulls** | `get_Item` takes a key, not int; yields N nulls |
-| `CatalogSetDictionary` | **No — silent nulls** | No `get_Item` at all |
-| `Queue<T>`, `HashSet<T>` | **No** | No `get_Item(int)` |
+| Type | Works? | Element type |
+|------|--------|-------------|
+| `T[]` (arrays) | **Yes** | `ManagedObject` |
+| `List<T>` | **Yes** | `ManagedObject` |
+| `Dictionary<K,V>` | **Yes** | `ValueType` (`KeyValuePair<K,V>`) |
+| `HashSet<T>` | **Yes** | `ManagedObject` or `ValueType` (depending on `T`) |
+| Any `IEnumerable` | **Yes** | Depends on enumerator |
 
 ```csharp
-// WORKS: T[] arrays via ManagedObject
+// Array
 var arr = someObj.GetField("_SomeArray") as ManagedObject;
-foreach (var item in (IEnumerable)arr) {
+foreach (var item in arr) {
     var typed = ((ManagedObject)item).As<app.SomeType>();
 }
 
-// BROKEN: Dictionary via ManagedObject — silently yields all null
+// Dictionary — elements are KeyValuePair structs (ValueType)
 var dict = someObj.GetField("_SomeDict") as ManagedObject;
-foreach (var item in (IEnumerable)dict) {
-    // item is ALWAYS null, no error thrown
+foreach (var item in dict) {
+    var kvp = item as IObject;
+    var key = kvp.Call("get_Key");     // string, enum, or ManagedObject
+    var val = kvp.Call("get_Value");   // ManagedObject for ref types
+}
+
+// HashSet
+var set = someObj.GetField("_SomeSet") as ManagedObject;
+foreach (var item in set) {
+    // item is ManagedObject (ref types) or ValueType (value types)
 }
 ```
 
-> **Rule of thumb:** Use typed proxies for collection iteration. Only fall back to `ManagedObject` for arrays or when proxy types aren't available.
+**Typed proxies vs. ManagedObject foreach:** Typed proxies give you typed elements — a `GameSlotSaveHandler` proxy you can call methods on directly. ManagedObject foreach gives you untyped `ManagedObject` / `ValueType` objects that require casting or `IObject.Call()`. Prefer typed proxies when the collection's proxy interface is available.
 
 ## ValueType and Stack-Allocated Structs
 

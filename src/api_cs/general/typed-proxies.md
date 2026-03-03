@@ -226,49 +226,65 @@ In practice, prefer `.As<T>()` and `API.GetManagedSingletonT<T>()` — they hand
 
 ## Iterating Game Collections
 
-`ManagedObject` and `NativeObject` implement `IEnumerable` via `UnifiedObject`. The underlying `ObjectEnumerator` calls `get_Count` (or `get_Length`) and `get_Item(int)` on the object.
+### Typed Proxies (recommended)
 
-> **Typed proxies do NOT implement `IEnumerable`.** You cannot `foreach` directly on a proxy. Unwrap to the underlying `ManagedObject` first — either via `((IProxy)proxy).GetInstance()` or by reading the field with `GetField()` instead of a typed property.
-
-### What actually works
-
-Tested live against RE9 with populated collections:
-
-| Type | Count correct? | Items correct? | Verdict |
-|------|---------------|----------------|---------|
-| `T[]` (native arrays) | Yes | **Yes** | **Works** |
-| `List<T>` | Yes | Yes (tested empty) | **Should work** |
-| `Dictionary<K,V>` | Yes | **All null** | **Broken** |
-| `CatalogSetDictionary<K,V>` | Misleading | **All null** | **Broken** |
-| `Queue<T>` | N/A | N/A | No `get_Item` |
-| Containers without `get_Count` | 0 | N/A | Iterates nothing |
-
-`Dictionary<K,V>` is the worst case: `ObjectEnumerator` gets the correct count (e.g. 414), but `get_Item` expects a typed key, not an `int` index. Every call silently fails and yields `null`. You get 414 nulls with no error.
+Typed proxies implement `REFrameworkNET.Collections.IDictionary<K,V>`, `IList<T>`, `ICollection<T>`, etc. These interfaces provide idiomatic C# iteration that **works correctly**:
 
 ```csharp
-// WORKS: T[] arrays
+var saveMgr = API.GetManagedSingletonT<app.SaveServiceManager>();
+
+// Dictionary — iterate keys, values, or use indexer
+var handlers = saveMgr._GameSlotSaveHandlers;  // IDictionary<string, GameSlotSaveHandler>
+API.LogInfo($"Count: {handlers.Count}");        // 37
+
+foreach (var key in handlers.Keys) {
+    API.LogInfo($"Key: {key}");                  // "AchievementManager", "CharacterManager", ...
+}
+
+foreach (var val in handlers.Values) {
+    // val is a real GameSlotSaveHandler proxy — not null
+}
+
+var handler = handlers["CharacterManager"];      // indexer works
+
+// List — direct foreach
+var requests = saveMgr._ProcessRequests;          // IList<Process>
+foreach (var req in requests) {
+    // each req is a real Process proxy
+}
+```
+
+Tested live against RE9 with 37 dictionary entries — keys return real `System.String` values, values return real `GameSlotSaveHandler` proxy objects, indexer works.
+
+> **Important:** Do NOT cast proxies to `System.Collections.IEnumerable`. Proxies implement `REFrameworkNET.Collections.IList<T>` / `IDictionary<K,V>` — these are different interfaces with their own `GetEnumerator()` that dispatches correctly through the proxy system.
+
+### ManagedObject (fallback)
+
+`ManagedObject` implements `System.Collections.IEnumerable` via `ObjectEnumerator`, which calls `get_Count`/`get_Length` + `get_Item(int)`. This **only works for arrays**:
+
+| Type | Works via ManagedObject? | Why |
+|------|------------------------|-----|
+| `T[]` (arrays) | **Yes** | Has `get_Length` + `get_Item(int)` |
+| `List<T>` | Untested with data | Has `get_Count` + `get_Item(int)` — should work |
+| `Dictionary<K,V>` | **No — silent nulls** | `get_Item` takes a key, not int; yields N nulls |
+| `CatalogSetDictionary` | **No — silent nulls** | No `get_Item` at all |
+| `Queue<T>`, `HashSet<T>` | **No** | No `get_Item(int)` |
+
+```csharp
+// WORKS: T[] arrays via ManagedObject
 var arr = someObj.GetField("_SomeArray") as ManagedObject;
 foreach (var item in (IEnumerable)arr) {
     var typed = ((ManagedObject)item).As<app.SomeType>();
-    // item is a real object
 }
 
-// BROKEN: Dictionary<K,V> — silently yields all null
+// BROKEN: Dictionary via ManagedObject — silently yields all null
 var dict = someObj.GetField("_SomeDict") as ManagedObject;
 foreach (var item in (IEnumerable)dict) {
     // item is ALWAYS null, no error thrown
 }
 ```
 
-### Recommended approach for non-array collections
-
-For `Dictionary`, `Queue`, `HashSet`, and other non-indexable collections, use `Call()` directly or access internal backing arrays:
-
-```csharp
-var dict = saveMgr.GetField("_SaveSlotInfoDict") as ManagedObject;
-var count = (int)(dict as IObject).Call("get_Count");
-// Access entries via the dictionary's own API, or drill into _entries array
-```
+> **Rule of thumb:** Use typed proxies for collection iteration. Only fall back to `ManagedObject` for arrays or when proxy types aren't available.
 
 ## ValueType and Stack-Allocated Structs
 

@@ -51,6 +51,8 @@
 
 # C# Scripting Reference
 - [Introduction](api_cs/general/README.md)
+    - [API, TDB & VM Reference](api_cs/general/api-reference.md)
+    - [Type System (TypeDefinition, Method, Field)](api_cs/general/type-system.md)
     - [Attributes](api_cs/general/attributes.md)
     - [Method Hooks](api_cs/general/hooks.md)
     - [Typed Proxies](api_cs/general/typed-proxies.md)

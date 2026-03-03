@@ -58,7 +58,7 @@ public class AdditionalSavesPlugin {
 
 Key points:
 
-- **`[PluginEntryPoint]`** marks the method REFramework calls when the plugin DLL is loaded. Game singletons are typically *not* available yet at this point -- do not attempt game logic here.
+- **`[PluginEntryPoint]`** marks the method REFramework calls when the plugin DLL is loaded.
 - **`[PluginExitPoint]`** is called on unload (hot-reload or shutdown). Clean up static state so a re-load starts fresh.
 - Static fields hold cross-hook state. `pendingUnit` bridges a pre-hook and its matching post-hook (see [Section 7](#7-prehook--posthook-pattern-onsetup)).
 
@@ -66,7 +66,7 @@ Key points:
 
 ## 3. Polling With Callbacks
 
-Game singletons like `SaveServiceManager` are not yet created when your plugin loads. The standard pattern is to register a per-frame callback that polls until the singleton is ready:
+It's possible that game singletons like `SaveServiceManager` will not yet be created when your plugin loads. The standard pattern is to register a per-frame callback that polls until the singleton is ready:
 
 ```csharp
 [Callback(typeof(UpdateBehavior), CallbackType.Pre)]
@@ -87,7 +87,7 @@ public static void OnUpdateBehavior() {
 
 The `[Callback(typeof(UpdateBehavior), CallbackType.Pre)]` attribute registers this method to run every frame, *before* the engine's own update tick. Once `initialized` is set, the early return makes the per-frame cost negligible.
 
-This is the idiomatic way to defer initialization. Do **not** spin-wait or sleep in `Main()` -- the game is single-threaded and you will deadlock.
+This is the idiomatic way to defer initialization. Do **not** spin-wait or sleep in `Main()` -- the game will freeze.
 
 ---
 

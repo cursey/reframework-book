@@ -1,0 +1,410 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Typed Proxies - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../../object_explorer/object_explorer.html"><strong aria-hidden="true">4.</strong> Object Explorer</a></li><li class="chapter-item expanded "><a href="../../chain_viewer/chain_viewer.html"><strong aria-hidden="true">5.</strong> Chain Viewer</a></li><li class="chapter-item expanded "><a href="../../bhvt_editor/bhvt_editor.html"><strong aria-hidden="true">6.</strong> Behavior Tree/FSM Editor</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../../api/general/index.html"><strong aria-hidden="true">7.</strong> General</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Return-Types.html"><strong aria-hidden="true">7.1.</strong> Notes on Return Types</a></li><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Method-Arguments.html"><strong aria-hidden="true">7.2.</strong> Notes on Method Arguments</a></li><li class="chapter-item expanded "><a href="../../api/general/best-practices.html"><strong aria-hidden="true">7.3.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/index.html"><strong aria-hidden="true">8.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/draw.html"><strong aria-hidden="true">8.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../../api/fs.html"><strong aria-hidden="true">8.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../../api/imgui.html"><strong aria-hidden="true">8.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../../api/imnodes.html"><strong aria-hidden="true">8.4.</strong> imnodes</a></li><li class="chapter-item expanded "><a href="../../api/imguizmo.html"><strong aria-hidden="true">8.5.</strong> imguizmo</a></li><li class="chapter-item expanded "><a href="../../api/json.html"><strong aria-hidden="true">8.6.</strong> json</a></li><li class="chapter-item expanded "><a href="../../api/log.html"><strong aria-hidden="true">8.7.</strong> log</a></li><li class="chapter-item expanded "><a href="../../api/re.html"><strong aria-hidden="true">8.8.</strong> re (Callbacks)</a></li><li class="chapter-item expanded "><a href="../../api/reframework.html"><strong aria-hidden="true">8.9.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../../api/sdk.html"><strong aria-hidden="true">8.10.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../../api/vrmod.html"><strong aria-hidden="true">8.11.</strong> vrmod</a></li><li class="chapter-item expanded "><a href="../../api/object_explorer.html"><strong aria-hidden="true">8.12.</strong> object_explorer</a></li><li class="chapter-item expanded "><a href="../../api/thread.html"><strong aria-hidden="true">8.13.</strong> thread</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/types/index.html"><strong aria-hidden="true">9.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/types/VectorXf.html"><strong aria-hidden="true">9.1.</strong> VectorXf</a></li><li class="chapter-item expanded "><a href="../../api/types/Matrix4x4f.html"><strong aria-hidden="true">9.2.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../../api/types/Quaternion.html"><strong aria-hidden="true">9.3.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../../api/types/REComponent.html"><strong aria-hidden="true">9.4.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../../api/types/REField.html"><strong aria-hidden="true">9.5.</strong> REField</a></li><li class="chapter-item expanded "><a href="../../api/types/REManagedObject.html"><strong aria-hidden="true">9.6.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../../api/types/REMethodDefinition.html"><strong aria-hidden="true">9.7.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETypeDefinition.html"><strong aria-hidden="true">9.8.</strong> RETypeDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETransform.html"><strong aria-hidden="true">9.9.</strong> RETransform</a></li><li class="chapter-item expanded "><a href="../../api/types/REResource.html"><strong aria-hidden="true">9.10.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../../api/types/SystemArray.html"><strong aria-hidden="true">9.11.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../../api/types/ValueType.html"><strong aria-hidden="true">9.12.</strong> ValueType</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">C# Scripting Reference</li><li class="chapter-item expanded "><a href="../../api_cs/general/index.html"><strong aria-hidden="true">10.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/general/api-reference.html"><strong aria-hidden="true">10.1.</strong> API, TDB &amp; VM Reference</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/type-system.html"><strong aria-hidden="true">10.2.</strong> Type System (TypeDefinition, Method, Field)</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/attributes.html"><strong aria-hidden="true">10.3.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/hooks.html"><strong aria-hidden="true">10.4.</strong> Method Hooks</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/typed-proxies.html" class="active"><strong aria-hidden="true">10.5.</strong> Typed Proxies</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/managed-objects.html"><strong aria-hidden="true">10.6.</strong> ManagedObject &amp; IObject</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/arrays.html"><strong aria-hidden="true">10.7.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/Notes-On-Threading.html"><strong aria-hidden="true">10.8.</strong> Notes on Threading</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/benchmarks.html"><strong aria-hidden="true">10.9.</strong> Benchmarks</a></li></ol></li><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.1.</strong> RE9 Additional Save Slots</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book/edit/master/src/api_cs/general/typed-proxies.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="typed-proxies"><a class="header" href="#typed-proxies">Typed Proxies</a></h1>
+<h2 id="what-are-typed-proxies"><a class="header" href="#what-are-typed-proxies">What Are Typed Proxies?</a></h2>
+<p>When REFramework.NET loads, it reads the game's <strong>type database (TDB)</strong> and generates C# reference assemblies that mirror every type in the engine. These assemblies contain interfaces with properties for fields and methods matching the original game types.</p>
+<p>The generated assemblies live in:</p>
+<pre><code>reframework/plugins/managed/generated/
+</code></pre>
+<p>Add them as references in your project to get full IntelliSense, autocomplete, and compile-time type checking against game types. You never write these files — REFramework produces them automatically from the running game.</p>
+<p>Each generated interface corresponds to a game type. When you cast a <code>ManagedObject</code> to one of these interfaces, property accesses and method calls are forwarded to the underlying game object through REFramework's interop layer.</p>
+<h2 id="namespace-mapping"><a class="header" href="#namespace-mapping">Namespace Mapping</a></h2>
+<p>Game type names map directly to C# namespaces and interface names. The namespace separator <code>.</code> in the TDB becomes a C# namespace boundary:</p>
+<table><thead><tr><th>Game TDB type</th><th>C# interface</th></tr></thead><tbody>
+<tr><td><code>app.PlayerManager</code></td><td><code>app.PlayerManager</code></td></tr>
+<tr><td><code>via.Transform</code></td><td><code>via.Transform</code></td></tr>
+<tr><td><code>ace.WeatherManager</code></td><td><code>ace.WeatherManager</code></td></tr>
+<tr><td><code>System.Array</code></td><td><code>_System.Array</code></td></tr>
+<tr><td><code>System.String</code></td><td><code>_System.String</code></td></tr>
+</tbody></table>
+<p>The <code>System</code> namespace is prefixed with an underscore (<code>_System</code>) to avoid conflicts with the real <code>System</code> namespace in .NET. All other namespaces map one-to-one.</p>
+<h2 id="reftype-static-field"><a class="header" href="#reftype-static-field"><code>REFType</code> Static Field</a></h2>
+<p>Every generated interface has a static field:</p>
+<pre><code class="language-csharp">static TypeDefinition REFType
+</code></pre>
+<p>This gives you the <code>TypeDefinition</code> for that game type without string-based lookup.</p>
+<p><strong>Before (reflection):</strong></p>
+<pre><code class="language-csharp">var typeDef = API.GetTDB().FindType(&quot;app.GuiSaveDataInfo&quot;);
+</code></pre>
+<p><strong>After (typed proxy):</strong></p>
+<pre><code class="language-csharp">var typeDef = app.GuiSaveDataInfo.REFType;
+</code></pre>
+<p>From a <code>TypeDefinition</code> you can:</p>
+<pre><code class="language-csharp">// Look up methods
+var method = app.GuiSaveDataInfo.REFType.GetMethod(&quot;someMethod&quot;);
+
+// Create a new instance of the type
+var instance = app.GuiSaveDataInfo.REFType.CreateInstance();
+
+// Create a managed array of the type
+var array = app.GuiSaveDataInfo.REFType.CreateManagedArray(100);
+array.Globalize(); // prevent GC collection if you need to keep it
+</code></pre>
+<h2 id="ast-casting"><a class="header" href="#ast-casting"><code>.As&lt;T&gt;()</code> Casting</a></h2>
+<p>Cast any <code>ManagedObject</code> to a typed proxy interface with <code>.As&lt;T&gt;()</code>:</p>
+<pre><code class="language-csharp">var managedObj = ManagedObject.ToManagedObject(address);
+var typed = managedObj.As&lt;app.SaveSlotPartition&gt;();
+</code></pre>
+<p>The underlying object is unchanged — <code>.As&lt;T&gt;()</code> returns a typed wrapper that gives you property and method access. It returns <code>null</code> if the cast is not valid.</p>
+<pre><code class="language-csharp">var obj = ManagedObject.ToManagedObject(args[1]);
+var player = obj?.As&lt;app.PlayerManager&gt;();
+if (player != null) {
+    // Use typed access
+}
+</code></pre>
+<h2 id="property-access-fields"><a class="header" href="#property-access-fields">Property Access (Fields)</a></h2>
+<p>Generated interfaces expose game object fields as C# get/set properties. Field names are preserved from the TDB, including the underscore prefix convention common in RE Engine types.</p>
+<p><strong>Before (reflection):</strong></p>
+<pre><code class="language-csharp">int count = (int)managedObj.GetField(&quot;_SlotCount&quot;);
+managedObj.SetField(&quot;_SlotCount&quot;, 90);
+</code></pre>
+<p><strong>After (typed proxy):</strong></p>
+<pre><code class="language-csharp">var partition = managedObj.As&lt;app.SaveSlotPartition&gt;();
+int count = partition._SlotCount;   // read
+partition._SlotCount = 90;          // write
+</code></pre>
+<p>Typed property access is cleaner, caught at compile time, and visible in IntelliSense.</p>
+<h2 id="method-calls"><a class="header" href="#method-calls">Method Calls</a></h2>
+<p>Generated interfaces expose game methods directly as C# methods. Property getters/setters in the TDB appear as C# properties.</p>
+<p><strong>Before (reflection):</strong></p>
+<pre><code class="language-csharp">(saveMgr as IObject).Call(&quot;reloadSaveSlotInfo&quot;);
+bool ready = (bool)(saveMgr as IObject).Call(&quot;get_IsInitialized&quot;);
+</code></pre>
+<p><strong>After (typed proxy):</strong></p>
+<pre><code class="language-csharp">var saveMgr = API.GetManagedSingletonT&lt;app.SaveServiceManager&gt;();
+saveMgr.reloadSaveSlotInfo();
+bool ready = saveMgr.IsInitialized;
+</code></pre>
+<p>Method arguments and return types are also typed when the signature is representable in C#.</p>
+<h2 id="enum-types"><a class="header" href="#enum-types">Enum Types</a></h2>
+<p>Game enums from the TDB are generated as real C# enums. Use them instead of magic integers.</p>
+<p><strong>Before (magic constants):</strong></p>
+<pre><code class="language-csharp">if ((int)part.GetField(&quot;_Usage&quot;) == 3) { ... }
+</code></pre>
+<p><strong>After (typed enum):</strong></p>
+<pre><code class="language-csharp">var part = managedObj.As&lt;app.SaveSlotPartition&gt;();
+if (part._Usage == app.SaveSlotCategory.Game) { ... }
+</code></pre>
+<p>Enums work in <code>switch</code> statements, comparisons, and flags operations as expected:</p>
+<pre><code class="language-csharp">switch (part._Usage) {
+    case app.SaveSlotCategory.Game:
+        // handle game save
+        break;
+    case app.SaveSlotCategory.System:
+        // handle system save
+        break;
+}
+</code></pre>
+<h2 id="getting-typed-singletons"><a class="header" href="#getting-typed-singletons">Getting Typed Singletons</a></h2>
+<p>Use <code>API.GetManagedSingletonT&lt;T&gt;()</code> to retrieve a game singleton already cast to its typed proxy:</p>
+<p><strong>Before:</strong></p>
+<pre><code class="language-csharp">var mo = API.GetManagedSingleton(&quot;app.SaveServiceManager&quot;);
+var saveMgr = mo.As&lt;app.SaveServiceManager&gt;();
+</code></pre>
+<p><strong>After:</strong></p>
+<pre><code class="language-csharp">var saveMgr = API.GetManagedSingletonT&lt;app.SaveServiceManager&gt;();
+saveMgr.reloadSaveSlotInfo();
+saveMgr._MaxUseSaveSlotCount = 117;
+</code></pre>
+<p>One call, fully typed from the start.</p>
+<h2 id="when-typed-proxies-dont-work"><a class="header" href="#when-typed-proxies-dont-work">When Typed Proxies Don't Work</a></h2>
+<p>Typed proxies cover the vast majority of game types, but there are cases where you must fall back to reflection-style access through <code>IObject</code> / <code>ManagedObject</code>:</p>
+<ul>
+<li><strong>Generic types</strong> — Types like <code>CatalogSetDictionary&lt;K,V&gt;</code> or <code>List&lt;T&gt;</code> specializations do not have generated typed proxies. Use <code>IObject.Call()</code> and <code>ManagedObject.GetField()</code> instead.</li>
+<li><strong>Complex method signatures</strong> — Some methods with unusual parameter types (pointers, <code>ref</code> structs, nested generics) may not appear on the generated interface.</li>
+<li><strong>Dynamically discovered types</strong> — If you resolve a type at runtime by name, you already have a <code>ManagedObject</code> and may not know the concrete interface at compile time.</li>
+</ul>
+<p>Fallback example for a generic type:</p>
+<pre><code class="language-csharp">var dict = managedObj.As&lt;app.SomeGenericContainer&gt;(); // null — no proxy exists
+// Fall back to reflection
+var mo = managedObj as IObject;
+var count = (int)mo.Call(&quot;get_Count&quot;);
+var value = mo.Call(&quot;get_Item&quot;, key);
+</code></pre>
+<p>You can freely mix typed proxies and reflection on the same object. Use typed access where available and drop to reflection only where necessary.</p>
+<h2 id="proxy-factory-classes"><a class="header" href="#proxy-factory-classes">Proxy Factory Classes</a></h2>
+<p>Under the hood, <code>.As&lt;T&gt;()</code> creates a <code>DispatchProxy</code> that forwards calls to the underlying <code>IObject</code>. Three factory classes are available for advanced scenarios where you need to create proxies manually:</p>
+<table><thead><tr><th>Class</th><th>Underlying type</th><th>Use case</th></tr></thead><tbody>
+<tr><td><code>ManagedProxy&lt;T&gt;</code></td><td><code>ManagedObject</code></td><td>Most game objects (GC-managed)</td></tr>
+<tr><td><code>NativeProxy&lt;T&gt;</code></td><td><code>NativeObject</code></td><td>Native engine objects (not GC-managed)</td></tr>
+<tr><td><code>AnyProxy&lt;T&gt;</code></td><td><code>IObject</code></td><td>When you don't know the object kind</td></tr>
+</tbody></table>
+<p>Each has a static <code>Create(object target)</code> method:</p>
+<pre><code class="language-csharp">// Create proxy manually from a ManagedObject
+var mo = API.GetManagedSingleton(&quot;app.SaveServiceManager&quot;);
+var saveMgr = ManagedProxy&lt;app.SaveServiceManager&gt;.Create(mo);
+</code></pre>
+<p><code>ManagedProxy&lt;T&gt;</code> and <code>NativeProxy&lt;T&gt;</code> also have a convenience method:</p>
+<pre><code class="language-csharp">// Create directly from a singleton name
+var saveMgr = ManagedProxy&lt;app.SaveServiceManager&gt;.CreateFromSingleton(&quot;app.SaveServiceManager&quot;);
+</code></pre>
+<p>In practice, prefer <code>.As&lt;T&gt;()</code> and <code>API.GetManagedSingletonT&lt;T&gt;()</code> — they handle the proxy creation for you. Use the factory classes only when you have a specific need to control the proxy kind.</p>
+<h2 id="iterating-game-collections"><a class="header" href="#iterating-game-collections">Iterating Game Collections</a></h2>
+<h3 id="typed-proxies-recommended"><a class="header" href="#typed-proxies-recommended">Typed Proxies (recommended)</a></h3>
+<p>Typed proxies implement <code>REFrameworkNET.Collections.IDictionary&lt;K,V&gt;</code>, <code>IList&lt;T&gt;</code>, <code>ISet&lt;T&gt;</code>, and <code>ICollection&lt;T&gt;</code>. These interfaces provide idiomatic C# iteration with fully typed elements:</p>
+<pre><code class="language-csharp">using Col = REFrameworkNET.Collections;
+
+var saveMgr = API.GetManagedSingletonT&lt;app.SaveServiceManager&gt;();
+
+// Dictionary — iterate keys, values, or use indexer
+var handlers = saveMgr._GameSlotSaveHandlers;  // IDictionary&lt;string, GameSlotSaveHandler&gt;
+API.LogInfo($&quot;Count: {handlers.Count}&quot;);        // 37
+
+foreach (var key in handlers.Keys) {
+    API.LogInfo($&quot;Key: {key}&quot;);                  // &quot;AchievementManager&quot;, &quot;CharacterManager&quot;, ...
+}
+
+foreach (var val in handlers.Values) {
+    // val is a typed GameSlotSaveHandler proxy — call methods directly
+    API.LogInfo($&quot;KeyName: {val.KeyName}&quot;);
+}
+
+var handler = handlers[&quot;CharacterManager&quot;];      // indexer works
+
+// List — foreach and indexer
+var charMgr = API.GetManagedSingletonT&lt;app.CharacterManager&gt;();
+Col.IList&lt;app.PlayerContext&gt; players = charMgr.PlayerContextList;
+foreach (var player in players) {
+    API.LogInfo($&quot;Valid: {player.Valid}&quot;);        // typed PlayerContext proxy
+}
+var first = players[0];                           // indexer works
+
+// HashSet — foreach, Contains, Count
+var itemMgr = API.GetManagedSingletonT&lt;app.ItemManager&gt;();
+Col.ISet&lt;app.ItemID&gt; acquired = itemMgr._AcquiredIDSet;
+API.LogInfo($&quot;Acquired items: {acquired.Count}&quot;); // 111
+foreach (var itemId in acquired) {
+    // itemId is a typed app.ItemID proxy
+}
+bool has = acquired.Contains(someItem);            // membership check
+</code></pre>
+<p>The <code>ISet&lt;T&gt;</code> interface maps to <code>HashSet&lt;T&gt;</code> and <code>SortedSet&lt;T&gt;</code> in the game's type database. It provides <code>Add</code> (returns <code>bool</code>), <code>Contains</code>, <code>Remove</code>, <code>Count</code>, and <code>foreach</code> iteration.</p>
+<blockquote>
+<p><strong>Important:</strong> Do NOT cast proxies to <code>System.Collections.IEnumerable</code>. Proxies implement <code>REFrameworkNET.Collections.IList&lt;T&gt;</code> / <code>IDictionary&lt;K,V&gt;</code> / <code>ISet&lt;T&gt;</code> — these are different interfaces with their own <code>GetEnumerator()</code> that dispatches correctly through the proxy system.</p>
+</blockquote>
+<h3 id="managedobject-foreach"><a class="header" href="#managedobject-foreach">ManagedObject foreach</a></h3>
+<p><code>ManagedObject</code> implements <code>System.Collections.IEnumerable</code> via <code>ObjectEnumerator</code>, which calls the collection's native <code>GetEnumerator()</code> and drives it with <code>MoveNext()</code> / <code>get_Current()</code>. This works for <strong>all</strong> standard collection types:</p>
+<table><thead><tr><th>Type</th><th>Works?</th><th>Element type</th></tr></thead><tbody>
+<tr><td><code>T[]</code> (arrays)</td><td><strong>Yes</strong></td><td><code>ManagedObject</code></td></tr>
+<tr><td><code>List&lt;T&gt;</code></td><td><strong>Yes</strong></td><td><code>ManagedObject</code></td></tr>
+<tr><td><code>Dictionary&lt;K,V&gt;</code></td><td><strong>Yes</strong></td><td><code>ValueType</code> (<code>KeyValuePair&lt;K,V&gt;</code>)</td></tr>
+<tr><td><code>HashSet&lt;T&gt;</code></td><td><strong>Yes</strong></td><td><code>ManagedObject</code> or <code>ValueType</code> (depending on <code>T</code>)</td></tr>
+<tr><td>Any <code>IEnumerable</code></td><td><strong>Yes</strong></td><td>Depends on enumerator</td></tr>
+</tbody></table>
+<pre><code class="language-csharp">// Array
+var arr = someObj.GetField(&quot;_SomeArray&quot;) as ManagedObject;
+foreach (var item in arr) {
+    var typed = ((ManagedObject)item).As&lt;app.SomeType&gt;();
+}
+
+// Dictionary — elements are KeyValuePair structs (ValueType)
+var dict = someObj.GetField(&quot;_SomeDict&quot;) as ManagedObject;
+foreach (var item in dict) {
+    var kvp = item as IObject;
+    var key = kvp.Call(&quot;get_Key&quot;);     // string, enum, or ManagedObject
+    var val = kvp.Call(&quot;get_Value&quot;);   // ManagedObject for ref types
+}
+
+// HashSet
+var set = someObj.GetField(&quot;_SomeSet&quot;) as ManagedObject;
+foreach (var item in set) {
+    // item is ManagedObject (ref types) or ValueType (value types)
+}
+</code></pre>
+<p><strong>Typed proxies vs. ManagedObject foreach:</strong> Typed proxies give you typed elements — a <code>GameSlotSaveHandler</code> proxy you can call methods on directly. ManagedObject foreach gives you untyped <code>ManagedObject</code> / <code>ValueType</code> objects that require casting or <code>IObject.Call()</code>. Prefer typed proxies when the collection's proxy interface is available.</p>
+<h2 id="valuetype-and-stack-allocated-structs"><a class="header" href="#valuetype-and-stack-allocated-structs">ValueType and Stack-Allocated Structs</a></h2>
+<p>Some game types are value types (structs), not reference types. Use <code>ValueType.New&lt;T&gt;()</code> to create a stack-allocated boxed value:</p>
+<pre><code class="language-csharp">var vec3 = ValueType.New&lt;via.vec3&gt;();
+// Set fields on the value type
+(vec3 as IObject).Call(&quot;set_x&quot;, 1.0f);
+(vec3 as IObject).Call(&quot;set_y&quot;, 2.0f);
+(vec3 as IObject).Call(&quot;set_z&quot;, 3.0f);
+
+// Pass to a method that expects a value type
+transform.Call(&quot;set_Position&quot;, vec3);
+</code></pre>
+<p>You can also create value types from a <code>TypeDefinition</code>:</p>
+<pre><code class="language-csharp">var typeDef = API.GetTDB().FindType(&quot;via.Quaternion&quot;);
+var quat = typeDef.CreateValueType();
+</code></pre>
+<p><code>ValueType</code> wraps a managed byte array sized to the type's <code>ValueTypeSize</code>. It implements <code>IObject</code>, so you can call methods and access fields on it.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../api_cs/general/hooks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../api_cs/general/managed-objects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../api_cs/general/hooks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../api_cs/general/managed-objects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ManagedObject &amp; IObject - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../../object_explorer/object_explorer.html"><strong aria-hidden="true">4.</strong> Object Explorer</a></li><li class="chapter-item expanded "><a href="../../chain_viewer/chain_viewer.html"><strong aria-hidden="true">5.</strong> Chain Viewer</a></li><li class="chapter-item expanded "><a href="../../bhvt_editor/bhvt_editor.html"><strong aria-hidden="true">6.</strong> Behavior Tree/FSM Editor</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../../api/general/index.html"><strong aria-hidden="true">7.</strong> General</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Return-Types.html"><strong aria-hidden="true">7.1.</strong> Notes on Return Types</a></li><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Method-Arguments.html"><strong aria-hidden="true">7.2.</strong> Notes on Method Arguments</a></li><li class="chapter-item expanded "><a href="../../api/general/best-practices.html"><strong aria-hidden="true">7.3.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/index.html"><strong aria-hidden="true">8.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/draw.html"><strong aria-hidden="true">8.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../../api/fs.html"><strong aria-hidden="true">8.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../../api/imgui.html"><strong aria-hidden="true">8.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../../api/imnodes.html"><strong aria-hidden="true">8.4.</strong> imnodes</a></li><li class="chapter-item expanded "><a href="../../api/imguizmo.html"><strong aria-hidden="true">8.5.</strong> imguizmo</a></li><li class="chapter-item expanded "><a href="../../api/json.html"><strong aria-hidden="true">8.6.</strong> json</a></li><li class="chapter-item expanded "><a href="../../api/log.html"><strong aria-hidden="true">8.7.</strong> log</a></li><li class="chapter-item expanded "><a href="../../api/re.html"><strong aria-hidden="true">8.8.</strong> re (Callbacks)</a></li><li class="chapter-item expanded "><a href="../../api/reframework.html"><strong aria-hidden="true">8.9.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../../api/sdk.html"><strong aria-hidden="true">8.10.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../../api/vrmod.html"><strong aria-hidden="true">8.11.</strong> vrmod</a></li><li class="chapter-item expanded "><a href="../../api/object_explorer.html"><strong aria-hidden="true">8.12.</strong> object_explorer</a></li><li class="chapter-item expanded "><a href="../../api/thread.html"><strong aria-hidden="true">8.13.</strong> thread</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/types/index.html"><strong aria-hidden="true">9.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/types/VectorXf.html"><strong aria-hidden="true">9.1.</strong> VectorXf</a></li><li class="chapter-item expanded "><a href="../../api/types/Matrix4x4f.html"><strong aria-hidden="true">9.2.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../../api/types/Quaternion.html"><strong aria-hidden="true">9.3.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../../api/types/REComponent.html"><strong aria-hidden="true">9.4.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../../api/types/REField.html"><strong aria-hidden="true">9.5.</strong> REField</a></li><li class="chapter-item expanded "><a href="../../api/types/REManagedObject.html"><strong aria-hidden="true">9.6.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../../api/types/REMethodDefinition.html"><strong aria-hidden="true">9.7.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETypeDefinition.html"><strong aria-hidden="true">9.8.</strong> RETypeDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETransform.html"><strong aria-hidden="true">9.9.</strong> RETransform</a></li><li class="chapter-item expanded "><a href="../../api/types/REResource.html"><strong aria-hidden="true">9.10.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../../api/types/SystemArray.html"><strong aria-hidden="true">9.11.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../../api/types/ValueType.html"><strong aria-hidden="true">9.12.</strong> ValueType</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">C# Scripting Reference</li><li class="chapter-item expanded "><a href="../../api_cs/general/index.html"><strong aria-hidden="true">10.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/general/api-reference.html"><strong aria-hidden="true">10.1.</strong> API, TDB &amp; VM Reference</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/type-system.html"><strong aria-hidden="true">10.2.</strong> Type System (TypeDefinition, Method, Field)</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/attributes.html"><strong aria-hidden="true">10.3.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/hooks.html"><strong aria-hidden="true">10.4.</strong> Method Hooks</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/typed-proxies.html"><strong aria-hidden="true">10.5.</strong> Typed Proxies</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/managed-objects.html" class="active"><strong aria-hidden="true">10.6.</strong> ManagedObject &amp; IObject</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/arrays.html"><strong aria-hidden="true">10.7.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/Notes-On-Threading.html"><strong aria-hidden="true">10.8.</strong> Notes on Threading</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/benchmarks.html"><strong aria-hidden="true">10.9.</strong> Benchmarks</a></li></ol></li><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.1.</strong> RE9 Additional Save Slots</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book/edit/master/src/api_cs/general/managed-objects.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="managedobject-nativeobject--iobject"><a class="header" href="#managedobject-nativeobject--iobject">ManagedObject, NativeObject &amp; IObject</a></h1>
+<p>This page covers the core object types you interact with in REFramework.NET: <code>ManagedObject</code> for GC-managed engine objects, <code>NativeObject</code> for native engine objects, and the <code>IObject</code> interface for reflection-style access.</p>
+<h2 id="managedobject"><a class="header" href="#managedobject">ManagedObject</a></h2>
+<p><code>ManagedObject</code> represents a garbage-collected object inside the RE Engine's managed runtime. Most game objects you interact with — enemies, save managers, UI elements — are managed objects.</p>
+<h3 id="creating-from-a-raw-address"><a class="header" href="#creating-from-a-raw-address">Creating from a raw address</a></h3>
+<p>In hooks, you receive raw <code>ulong</code> addresses. Convert them to <code>ManagedObject</code> instances:</p>
+<pre><code class="language-csharp">var mo = ManagedObject.ToManagedObject(address);
+if (mo == null) {
+    // address was 0 or invalid
+    return;
+}
+</code></pre>
+<p>This is the primary way to get a <code>ManagedObject</code> in pre-hooks, where <code>args[1]</code> is the <code>this</code> pointer and <code>args[2+]</code> are parameters:</p>
+<pre><code class="language-csharp">[MethodHook(typeof(app.SaveManager), nameof(app.SaveManager.save), MethodHookType.Pre)]
+static PreHookResult OnSavePre(Span&lt;ulong&gt; args) {
+    var self = ManagedObject.ToManagedObject(args[1])?.As&lt;app.SaveManager&gt;();
+    if (self == null) return PreHookResult.Continue;
+
+    API.LogInfo($&quot;Save triggered, slot count: {self._MaxUseSaveSlotCount}&quot;);
+    return PreHookResult.Continue;
+}
+</code></pre>
+<h3 id="casting-to-typed-proxies-with-ast"><a class="header" href="#casting-to-typed-proxies-with-ast">Casting to typed proxies with <code>.As&lt;T&gt;()</code></a></h3>
+<p>Typed proxies give you compile-time access to fields, properties, and methods. Cast with <code>.As&lt;T&gt;()</code>:</p>
+<pre><code class="language-csharp">var mo = ManagedObject.ToManagedObject(address);
+var typed = mo.As&lt;app.SaveServiceManager&gt;();
+
+// Now you get autocomplete, type checking, and direct field access:
+bool ready = typed.IsInitialized;
+typed._MaxUseSaveSlotCount = 117;
+typed.reloadSaveSlotInfo();
+</code></pre>
+<p>The type parameter <code>T</code> must be a generated proxy interface from the TDB reference assemblies (namespaces like <code>app</code>, <code>via</code>, <code>ace</code>, <code>_System</code>). Every generated type has a static <code>REFType</code> field that returns its <code>TypeDefinition</code>:</p>
+<pre><code class="language-csharp">TypeDefinition td = app.SaveServiceManager.REFType;
+</code></pre>
+<h3 id="getting-the-raw-address"><a class="header" href="#getting-the-raw-address">Getting the raw address</a></h3>
+<p>Use <code>.GetAddress()</code> to retrieve the raw <code>ulong</code> address. This is required when modifying a post-hook's return value:</p>
+<pre><code class="language-csharp">[MethodHook(typeof(app.SomeFactory), nameof(app.SomeFactory.create), MethodHookType.Post)]
+static void OnCreatePost(ref ulong retval) {
+    var original = ManagedObject.ToManagedObject(retval);
+    // ... modify or replace ...
+    retval = replacement.GetAddress();
+}
+</code></pre>
+<h3 id="reading-fields-by-name"><a class="header" href="#reading-fields-by-name">Reading fields by name</a></h3>
+<p><code>.GetField(string name)</code> reads a field reflectively. It returns <code>object</code> — a <code>ManagedObject</code> for reference types, or a boxed value for value types (<code>int</code>, <code>float</code>, <code>bool</code>, enums):</p>
+<pre><code class="language-csharp">var mo = ManagedObject.ToManagedObject(address);
+string name = (string)mo.GetField(&quot;_Name&quot;);
+int count = (int)mo.GetField(&quot;_Count&quot;);
+var child = (ManagedObject)mo.GetField(&quot;_ChildRef&quot;);
+</code></pre>
+<p>Prefer typed proxies (<code>.As&lt;T&gt;()</code>) over <code>GetField</code> when the type is available. <code>GetField</code> is useful for types without generated proxies or when working generically.</p>
+<h3 id="getting-the-type-at-runtime"><a class="header" href="#getting-the-type-at-runtime">Getting the type at runtime</a></h3>
+<p><code>.GetTypeDefinition()</code> returns the <code>TypeDefinition</code> for the object's actual runtime type:</p>
+<pre><code class="language-csharp">var mo = ManagedObject.ToManagedObject(address);
+TypeDefinition td = mo.GetTypeDefinition();
+API.LogInfo($&quot;Object type: {td.GetFullName()}&quot;);
+</code></pre>
+<h2 id="iobject-interface"><a class="header" href="#iobject-interface">IObject Interface</a></h2>
+<p><code>IObject</code> is the common interface for reflection-style access. Both <code>ManagedObject</code> and typed proxy interfaces implement it. Use it when typed proxies are unavailable or when you need dynamic dispatch.</p>
+<h3 id="calling-methods-by-name"><a class="header" href="#calling-methods-by-name">Calling methods by name</a></h3>
+<pre><code class="language-csharp">var saveMgr = API.GetManagedSingletonT&lt;app.SaveServiceManager&gt;();
+
+// Reflection-style call via IObject:
+object result = (saveMgr as IObject).Call(&quot;reloadSaveSlotInfo&quot;);
+</code></pre>
+<p>Pass arguments positionally:</p>
+<pre><code class="language-csharp">object result = (obj as IObject).Call(&quot;setValue&quot;, 42, true);
+</code></pre>
+<h3 id="disambiguating-overloaded-methods"><a class="header" href="#disambiguating-overloaded-methods">Disambiguating overloaded methods</a></h3>
+<p>When a type has overloaded methods, include the parameter signature in the method name string:</p>
+<pre><code class="language-csharp">object result = (obj as IObject).Call(&quot;getValue(app.SaveSlotSegmentType)&quot;, segmentValue);
+</code></pre>
+<h3 id="reading-fields-via-iobject"><a class="header" href="#reading-fields-via-iobject">Reading fields via IObject</a></h3>
+<pre><code class="language-csharp">object val = (obj as IObject).GetField(&quot;_Name&quot;);
+</code></pre>
+<h3 id="when-to-use-iobject-over-typed-proxies"><a class="header" href="#when-to-use-iobject-over-typed-proxies">When to use IObject over typed proxies</a></h3>
+<ul>
+<li><strong>Generic code</strong> — operating on objects whose type isn't known at compile time</li>
+<li><strong>Dynamic dispatch</strong> — calling methods determined at runtime</li>
+<li><strong>Types without proxies</strong> — some generic or internal types may not have generated interfaces</li>
+<li><strong>Quick prototyping</strong> — when you don't want to look up the exact proxy type</li>
+</ul>
+<h2 id="nativeobject"><a class="header" href="#nativeobject">NativeObject</a></h2>
+<p><code>NativeObject</code> represents a native (non-GC) engine object. These are C++ objects managed by the engine itself, not by the managed GC. You encounter them less often in typical plugin code.</p>
+<p>Common native singletons include <code>via.Application</code>, <code>via.SceneManager</code>, and other low-level engine services:</p>
+<pre><code class="language-csharp">// Access a native singleton
+var app = API.GetNativeSingletonT&lt;via.Application&gt;();
+</code></pre>
+<p><code>NativeObject</code> supports the same <code>IObject</code> interface for reflection-style access:</p>
+<pre><code class="language-csharp">var sceneMgr = API.GetNativeSingletonT&lt;via.SceneManager&gt;();
+object result = (sceneMgr as IObject).Call(&quot;get_CurrentScene&quot;);
+</code></pre>
+<p>The key difference from <code>ManagedObject</code>: native objects are not garbage-collected, so <code>Globalize()</code> is not relevant for them. Their lifetime is managed by the engine's native memory systems.</p>
+<h2 id="handleinvokemember_internal"><a class="header" href="#handleinvokemember_internal">HandleInvokeMember_Internal</a></h2>
+<p>For edge cases where the normal <code>Call</code> path doesn't work — null <code>this</code> invocations, unusual argument marshaling, or internal method dispatch — use <code>HandleInvokeMember_Internal</code> on a <code>MethodDefinition</code>:</p>
+<pre><code class="language-csharp">// Get the method definition
+var methodDef = app.SomeType.REFType.FindMethod(&quot;processData&quot;);
+
+// Invoke with explicit control
+object result = null;
+methodDef.HandleInvokeMember_Internal(instance, new object[] { arg1, arg2 }, ref result);
+</code></pre>
+<p>This is a low-level escape hatch. Typical use cases:</p>
+<ul>
+<li><strong>Null <code>this</code> calls</strong> — some static-like methods are declared as instance methods but never read <code>this</code>. Pass <code>null</code> as the instance:
+<pre><code class="language-csharp">object result = null;
+methodDef.HandleInvokeMember_Internal(null, new object[] { data }, ref result);
+</code></pre>
+</li>
+<li><strong>Controlled argument marshaling</strong> — when automatic marshaling through <code>Call</code> produces incorrect results</li>
+<li><strong>Debugging invocation issues</strong> — when <code>Call</code> throws and you need to isolate why</li>
+</ul>
+<p>Prefer <code>Call</code> or typed proxy method calls in all normal circumstances.</p>
+<h2 id="lifetime-management"><a class="header" href="#lifetime-management">Lifetime Management</a></h2>
+<p>The RE Engine has its own garbage collector. If you hold a reference to a <code>ManagedObject</code> in C# but the engine's GC doesn't know about it, the engine may collect the underlying object. This causes crashes or silent corruption.</p>
+<h3 id="when-to-call-globalize"><a class="header" href="#when-to-call-globalize">When to call <code>.Globalize()</code></a></h3>
+<p><strong>Globalize any <code>ManagedObject</code> that persists across frames.</strong> This tells the engine's GC to keep the object alive.</p>
+<pre><code class="language-csharp">// REQUIRED: storing in a static field
+static ManagedObject _cachedManager;
+
+[PluginEntryPoint]
+public static void Main() {
+    _cachedManager = API.GetManagedSingleton(&quot;app.SaveServiceManager&quot;);
+    _cachedManager.Globalize();  // prevent engine GC from collecting
+}
+</code></pre>
+<pre><code class="language-csharp">// REQUIRED: storing in a collection
+static List&lt;ManagedObject&gt; _trackedObjects = new();
+
+void TrackObject(ManagedObject obj) {
+    obj.Globalize();
+    _trackedObjects.Add(obj);
+}
+</code></pre>
+<pre><code class="language-csharp">// REQUIRED: arrays you create
+var newArray = app.SomeType.REFType.CreateManagedArray(100);
+newArray.Globalize();
+</code></pre>
+<h3 id="when-globalize-is-not-needed"><a class="header" href="#when-globalize-is-not-needed">When Globalize is NOT needed</a></h3>
+<p><strong>Temporary references within a single hook or callback execution do not need Globalize.</strong> The engine's GC will not run mid-callback:</p>
+<pre><code class="language-csharp">[MethodHook(typeof(app.SaveManager), nameof(app.SaveManager.save), MethodHookType.Pre)]
+static PreHookResult OnSavePre(Span&lt;ulong&gt; args) {
+    // No Globalize needed — these are temporary, used and discarded within this call
+    var self = ManagedObject.ToManagedObject(args[1])?.As&lt;app.SaveManager&gt;();
+    var slotInfo = self._CurrentSlotInfo;
+    API.LogInfo($&quot;Saving slot: {slotInfo._SlotNo}&quot;);
+    return PreHookResult.Continue;
+}
+</code></pre>
+<p><strong>Objects returned by the engine through hooks</strong> are already managed by the engine — you don't need to globalize them unless you store the reference for later.</p>
+<h3 id="summary"><a class="header" href="#summary">Summary</a></h3>
+<table><thead><tr><th>Scenario</th><th>Globalize?</th></tr></thead><tbody>
+<tr><td>Static field / class member</td><td><strong>Yes</strong></td></tr>
+<tr><td>Collection (List, Dictionary, array)</td><td><strong>Yes</strong></td></tr>
+<tr><td>Newly created managed array</td><td><strong>Yes</strong></td></tr>
+<tr><td>Local variable in a hook/callback</td><td>No</td></tr>
+<tr><td>Temporary cast via <code>.As&lt;T&gt;()</code></td><td>No</td></tr>
+<tr><td>Return value you're inspecting but not storing</td><td>No</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../api_cs/general/typed-proxies.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../api_cs/general/arrays.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../api_cs/general/typed-proxies.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../api_cs/general/arrays.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>API, TDB &amp; VM Reference - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../../object_explorer/object_explorer.html"><strong aria-hidden="true">4.</strong> Object Explorer</a></li><li class="chapter-item expanded "><a href="../../chain_viewer/chain_viewer.html"><strong aria-hidden="true">5.</strong> Chain Viewer</a></li><li class="chapter-item expanded "><a href="../../bhvt_editor/bhvt_editor.html"><strong aria-hidden="true">6.</strong> Behavior Tree/FSM Editor</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../../api/general/index.html"><strong aria-hidden="true">7.</strong> General</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Return-Types.html"><strong aria-hidden="true">7.1.</strong> Notes on Return Types</a></li><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Method-Arguments.html"><strong aria-hidden="true">7.2.</strong> Notes on Method Arguments</a></li><li class="chapter-item expanded "><a href="../../api/general/best-practices.html"><strong aria-hidden="true">7.3.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/index.html"><strong aria-hidden="true">8.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/draw.html"><strong aria-hidden="true">8.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../../api/fs.html"><strong aria-hidden="true">8.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../../api/imgui.html"><strong aria-hidden="true">8.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../../api/imnodes.html"><strong aria-hidden="true">8.4.</strong> imnodes</a></li><li class="chapter-item expanded "><a href="../../api/imguizmo.html"><strong aria-hidden="true">8.5.</strong> imguizmo</a></li><li class="chapter-item expanded "><a href="../../api/json.html"><strong aria-hidden="true">8.6.</strong> json</a></li><li class="chapter-item expanded "><a href="../../api/log.html"><strong aria-hidden="true">8.7.</strong> log</a></li><li class="chapter-item expanded "><a href="../../api/re.html"><strong aria-hidden="true">8.8.</strong> re (Callbacks)</a></li><li class="chapter-item expanded "><a href="../../api/reframework.html"><strong aria-hidden="true">8.9.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../../api/sdk.html"><strong aria-hidden="true">8.10.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../../api/vrmod.html"><strong aria-hidden="true">8.11.</strong> vrmod</a></li><li class="chapter-item expanded "><a href="../../api/object_explorer.html"><strong aria-hidden="true">8.12.</strong> object_explorer</a></li><li class="chapter-item expanded "><a href="../../api/thread.html"><strong aria-hidden="true">8.13.</strong> thread</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/types/index.html"><strong aria-hidden="true">9.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/types/VectorXf.html"><strong aria-hidden="true">9.1.</strong> VectorXf</a></li><li class="chapter-item expanded "><a href="../../api/types/Matrix4x4f.html"><strong aria-hidden="true">9.2.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../../api/types/Quaternion.html"><strong aria-hidden="true">9.3.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../../api/types/REComponent.html"><strong aria-hidden="true">9.4.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../../api/types/REField.html"><strong aria-hidden="true">9.5.</strong> REField</a></li><li class="chapter-item expanded "><a href="../../api/types/REManagedObject.html"><strong aria-hidden="true">9.6.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../../api/types/REMethodDefinition.html"><strong aria-hidden="true">9.7.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETypeDefinition.html"><strong aria-hidden="true">9.8.</strong> RETypeDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETransform.html"><strong aria-hidden="true">9.9.</strong> RETransform</a></li><li class="chapter-item expanded "><a href="../../api/types/REResource.html"><strong aria-hidden="true">9.10.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../../api/types/SystemArray.html"><strong aria-hidden="true">9.11.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../../api/types/ValueType.html"><strong aria-hidden="true">9.12.</strong> ValueType</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">C# Scripting Reference</li><li class="chapter-item expanded "><a href="../../api_cs/general/index.html"><strong aria-hidden="true">10.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/general/api-reference.html" class="active"><strong aria-hidden="true">10.1.</strong> API, TDB &amp; VM Reference</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/type-system.html"><strong aria-hidden="true">10.2.</strong> Type System (TypeDefinition, Method, Field)</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/attributes.html"><strong aria-hidden="true">10.3.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/hooks.html"><strong aria-hidden="true">10.4.</strong> Method Hooks</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/typed-proxies.html"><strong aria-hidden="true">10.5.</strong> Typed Proxies</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/managed-objects.html"><strong aria-hidden="true">10.6.</strong> ManagedObject &amp; IObject</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/arrays.html"><strong aria-hidden="true">10.7.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/Notes-On-Threading.html"><strong aria-hidden="true">10.8.</strong> Notes on Threading</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/benchmarks.html"><strong aria-hidden="true">10.9.</strong> Benchmarks</a></li></ol></li><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.1.</strong> RE9 Additional Save Slots</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book/edit/master/src/api_cs/general/api-reference.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="api-tdb--vm--core-static-classes"><a class="header" href="#api-tdb--vm--core-static-classes">API, TDB &amp; VM — Core Static Classes</a></h1>
+<p>These three static classes are the primary entry points for REFramework.NET plugins. They provide logging, singleton access, type database queries, and managed string allocation.</p>
+<h2 id="api-reframeworknetapi"><a class="header" href="#api-reframeworknetapi">API (<code>REFrameworkNET.API</code>)</a></h2>
+<p>All members are static. This is your main interface to the REFramework runtime.</p>
+<h3 id="logging"><a class="header" href="#logging">Logging</a></h3>
+<pre><code class="language-csharp">API.LogInfo(&quot;Player spawned&quot;);
+API.LogWarning(&quot;Config file missing, using defaults&quot;);
+API.LogError(&quot;Failed to resolve singleton&quot;);
+</code></pre>
+<table><thead><tr><th>Method</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>LogInfo(string message)</code></td><td>Log at Info level</td></tr>
+<tr><td><code>LogWarning(string message)</code></td><td>Log at Warning level</td></tr>
+<tr><td><code>LogError(string message)</code></td><td>Log at Error level</td></tr>
+</tbody></table>
+<p>Two static properties control log behavior:</p>
+<table><thead><tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>LogLevel</code></td><td><code>LogLevel</code> enum (<code>Info</code>, <code>Warning</code>, <code>Error</code>)</td><td><code>Info</code></td><td>Minimum severity that gets emitted. Set to <code>Warning</code> to suppress info-level noise.</td></tr>
+<tr><td><code>LogToConsole</code></td><td><code>bool</code></td><td><code>true</code></td><td>When <code>true</code>, log messages are also printed to the REFramework console window.</td></tr>
+</tbody></table>
+<pre><code class="language-csharp">// Suppress info logs during a hot loop
+API.LogLevel = LogLevel.Warning;
+
+// Disable console mirroring
+API.LogToConsole = false;
+</code></pre>
+<h3 id="singleton-access"><a class="header" href="#singleton-access">Singleton access</a></h3>
+<p>Singletons are how you reach into the running game. Most game managers (<code>app.PlayerManager</code>, <code>app.EnemyManager</code>, etc.) are managed singletons; engine subsystems (<code>via.SceneManager</code>, <code>via.Application</code>) are native singletons.</p>
+<h4 id="untyped-access"><a class="header" href="#untyped-access">Untyped access</a></h4>
+<pre><code class="language-csharp">ManagedObject playerMgr = API.GetManagedSingleton(&quot;app.PlayerManager&quot;);
+NativeObject sceneMgr = API.GetNativeSingleton(&quot;via.SceneManager&quot;);
+</code></pre>
+<table><thead><tr><th>Method</th><th>Returns</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>GetManagedSingleton(string name)</code></td><td><code>ManagedObject</code></td><td>Retrieve a managed singleton by its full type name. Returns <code>null</code> if not found.</td></tr>
+<tr><td><code>GetNativeSingleton(string name)</code></td><td><code>NativeObject</code></td><td>Retrieve a native singleton by its full type name. Returns <code>null</code> if not found.</td></tr>
+</tbody></table>
+<h4 id="generic-typed-access"><a class="header" href="#generic-typed-access">Generic typed access</a></h4>
+<p>The generic variants call <code>GetManagedSingleton</code> / <code>GetNativeSingleton</code> under the hood and then cast to a typed proxy via <code>.As&lt;T&gt;()</code>. This is the preferred approach when you have generated proxy types:</p>
+<pre><code class="language-csharp">var playerMgr = API.GetManagedSingletonT&lt;app.PlayerManager&gt;();
+var sceneMgr = API.GetNativeSingletonT&lt;via.SceneManager&gt;();
+
+// playerMgr is already typed — direct property/method access:
+var player = playerMgr.CurrentPlayer;
+</code></pre>
+<table><thead><tr><th>Method</th><th>Returns</th><th>Constraint</th></tr></thead><tbody>
+<tr><td><code>GetManagedSingletonT&lt;T&gt;()</code></td><td><code>T</code></td><td><code>T : ref class</code> (proxy type)</td></tr>
+<tr><td><code>GetNativeSingletonT&lt;T&gt;()</code></td><td><code>T</code></td><td><code>T : ref class</code> (proxy type)</td></tr>
+</tbody></table>
+<p>Both return <code>null</code> (default of <code>T</code>) if the singleton is not found.</p>
+<blockquote>
+<p><strong>Caveat:</strong> <code>NativeSingleton</code> does <strong>not</strong> carry a <code>TypeDefinition</code> — only a <code>TypeInfo</code> handle. This means <code>GetNativeSingleton(name)</code> returns a <code>NativeObject</code> that lacks the typed proxy path. Use <code>GetNativeSingletonT&lt;T&gt;()</code> when you need typed access to native singletons.</p>
+</blockquote>
+<h4 id="enumerating-all-singletons"><a class="header" href="#enumerating-all-singletons">Enumerating all singletons</a></h4>
+<pre><code class="language-csharp">List&lt;ManagedSingleton&gt; managed = API.GetManagedSingletons();
+List&lt;NativeSingleton&gt; native = API.GetNativeSingletons();
+
+foreach (var s in managed) {
+    API.LogInfo($&quot;Managed: {s.Name} @ 0x{s.Instance.GetAddress():X}&quot;);
+}
+</code></pre>
+<table><thead><tr><th>Method</th><th>Returns</th></tr></thead><tbody>
+<tr><td><code>GetManagedSingletons()</code></td><td><code>List&lt;ManagedSingleton&gt;</code> — all currently registered managed singletons</td></tr>
+<tr><td><code>GetNativeSingletons()</code></td><td><code>List&lt;NativeSingleton&gt;</code> — all currently registered native singletons</td></tr>
+</tbody></table>
+<h3 id="gc--localframegc"><a class="header" href="#gc--localframegc">GC — <code>LocalFrameGC()</code></a></h3>
+<pre><code class="language-csharp">API.LocalFrameGC();
+</code></pre>
+<p>Flushes the RE Engine VM's local reference frame. Call this on <strong>custom threads</strong> (not the main game thread) after performing bulk managed allocations or method invocations. Without it, local references accumulate and can crash the managed heap.</p>
+<p>On the main thread, the engine handles this automatically each frame. You only need to call it manually in background workers or long-running loops.</p>
+<h3 id="ui--isdrawingui"><a class="header" href="#ui--isdrawingui">UI — <code>IsDrawingUI()</code></a></h3>
+<pre><code class="language-csharp">if (API.IsDrawingUI()) {
+    ImGui.Text(&quot;Overlay is visible&quot;);
+}
+</code></pre>
+<p>Returns <code>true</code> while REFramework's ImGui overlay is actively rendering. Use this to conditionally draw ImGui elements inside your render callbacks — avoids drawing when the overlay is hidden.</p>
+<h3 id="plugin-directory--getplugindirectoryassembly"><a class="header" href="#plugin-directory--getplugindirectoryassembly">Plugin directory — <code>GetPluginDirectory(Assembly)</code></a></h3>
+<pre><code class="language-csharp">string dir = API.GetPluginDirectory(typeof(MyPlugin).Assembly);
+string configPath = Path.Combine(dir, &quot;config.json&quot;);
+</code></pre>
+<p>Returns the directory containing the calling plugin's <code>.cs</code> source file or <code>.dll</code>. Useful for loading configuration files, assets, or data relative to your plugin without hardcoding paths.</p>
+<h3 id="tdb-shortcut--gettdb"><a class="header" href="#tdb-shortcut--gettdb">TDB shortcut — <code>GetTDB()</code></a></h3>
+<pre><code class="language-csharp">TDB tdb = API.GetTDB();
+</code></pre>
+<p>Equivalent to <code>TDB.Get()</code>. Convenience accessor when you already have <code>API</code> in scope.</p>
+<hr />
+<h2 id="tdb-reframeworknettdb"><a class="header" href="#tdb-reframeworknettdb">TDB (<code>REFrameworkNET.TDB</code>)</a></h2>
+<p>The <strong>Type Database</strong> — REFramework's reflection system over the RE Engine's type metadata. Access it via <code>TDB.Get()</code> or <code>API.GetTDB()</code>.</p>
+<h3 id="type-lookup"><a class="header" href="#type-lookup">Type lookup</a></h3>
+<table><thead><tr><th>Method</th><th>Returns</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>FindType(string name)</code></td><td><code>TypeDefinition</code></td><td>Look up a type by full name (e.g. <code>&quot;app.PlayerManager&quot;</code>). <strong>Not cached</strong> — avoid in hot paths.</td></tr>
+<tr><td><code>GetType(uint index)</code></td><td><code>TypeDefinition</code></td><td>Look up by numeric TDB index.</td></tr>
+<tr><td><code>GetType(string name)</code></td><td><code>TypeDefinition</code></td><td>Alias for <code>FindType</code>.</td></tr>
+<tr><td><code>FindTypeByFqn(uint fqn)</code></td><td><code>TypeDefinition</code></td><td>Look up by FQN hash.</td></tr>
+<tr><td><code>GetTypeT&lt;T&gt;()</code></td><td><code>TypeDefinition</code></td><td><strong>Cached</strong> lookup using the proxy type's compile-time metadata. <strong>Prefer this on hot paths.</strong></td></tr>
+</tbody></table>
+<pre><code class="language-csharp">var tdb = TDB.Get();
+
+// One-off lookup (fine in init code):
+TypeDefinition td = tdb.FindType(&quot;app.PlayerManager&quot;);
+
+// Hot-path lookup (cached, no string allocation):
+TypeDefinition td2 = tdb.GetTypeT&lt;app.PlayerManager&gt;();
+</code></pre>
+<h3 id="method-and-field-lookup"><a class="header" href="#method-and-field-lookup">Method and field lookup</a></h3>
+<pre><code class="language-csharp">Method m = tdb.FindMethod(&quot;app.PlayerManager&quot;, &quot;get_CurrentPlayer&quot;);
+Field f = tdb.FindField(&quot;app.EnemyContext&quot;, &quot;_ConditionDamageList&quot;);
+</code></pre>
+<table><thead><tr><th>Method</th><th>Returns</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>FindMethod(string typeName, string methodName)</code></td><td><code>Method</code></td><td>Find a method by type name and method name.</td></tr>
+<tr><td><code>FindField(string typeName, string fieldName)</code></td><td><code>Field</code></td><td>Find a field by type name and field name.</td></tr>
+</tbody></table>
+<h3 id="metadata-counts"><a class="header" href="#metadata-counts">Metadata counts</a></h3>
+<pre><code class="language-csharp">var tdb = TDB.Get();
+API.LogInfo($&quot;Types: {tdb.GetNumTypes()}, Methods: {tdb.GetNumMethods()}, &quot; +
+            $&quot;Fields: {tdb.GetNumFields()}, Properties: {tdb.GetNumProperties()}&quot;);
+</code></pre>
+<table><thead><tr><th>Method</th><th>Returns</th></tr></thead><tbody>
+<tr><td><code>GetNumTypes()</code></td><td><code>uint</code> — total type count in the TDB</td></tr>
+<tr><td><code>GetNumMethods()</code></td><td><code>uint</code> — total method count</td></tr>
+<tr><td><code>GetNumFields()</code></td><td><code>uint</code> — total field count</td></tr>
+<tr><td><code>GetNumProperties()</code></td><td><code>uint</code> — total property count</td></tr>
+</tbody></table>
+<h3 id="iterating-all-types"><a class="header" href="#iterating-all-types">Iterating all types</a></h3>
+<p>The <code>Types</code> property returns an iterable collection of every <code>TypeDefinition</code> in the database:</p>
+<pre><code class="language-csharp">foreach (var td in TDB.Get().Types) {
+    if (td.GetFullName().Contains(&quot;Enemy&quot;)) {
+        API.LogInfo($&quot;Found: {td.GetFullName()} (index {td.GetIndex()})&quot;);
+    }
+}
+</code></pre>
+<blockquote>
+<p><strong>Performance note:</strong> This iterates the entire TDB. Use <code>FindType</code> or <code>GetTypeT&lt;T&gt;</code> for targeted lookups.</p>
+</blockquote>
+<hr />
+<h2 id="vm-reframeworknetvm"><a class="header" href="#vm-reframeworknetvm">VM (<code>REFrameworkNET.VM</code>)</a></h2>
+<p>Low-level access to the RE Engine's managed virtual machine.</p>
+<h3 id="createstringstring--systemstring"><a class="header" href="#createstringstring--systemstring"><code>CreateString(string)</code> → <code>SystemString</code></a></h3>
+<p>Allocates a <code>System.String</code> on the RE Engine's managed GC heap. Use this when you need to pass a string argument to a game method via reflection:</p>
+<pre><code class="language-csharp">var greeting = VM.CreateString(&quot;Hello, Hunter!&quot;);
+method.Invoke(obj, new object[] { greeting });
+</code></pre>
+<p>The returned <code>SystemString</code> is a <code>ManagedObject</code>. It is subject to the engine's garbage collector — if you need to store it beyond the current frame, call <code>Globalize()</code> to prevent collection:</p>
+<pre><code class="language-csharp">var persistent = VM.CreateString(&quot;Cached label&quot;);
+persistent.Globalize();
+// Safe to store in a static field now
+</code></pre>
+<blockquote>
+<p><strong>When do you need this?</strong> Whenever you call a game method that expects a managed <code>System.String</code> parameter. Passing a raw C# <code>string</code> will not work — the engine expects its own heap-allocated string object.</p>
+</blockquote>
+<p><code>SystemString</code> extends <code>ManagedObject</code> and overrides <code>ToString()</code>, so you can read engine strings back to C#:</p>
+<pre><code class="language-csharp">// Reading a string field from a game object
+var nameField = someObj.GetField(&quot;_Name&quot;);
+string name = nameField?.ToString(); // calls SystemString.ToString()
+</code></pre>
+<hr />
+<h2 id="quick-reference"><a class="header" href="#quick-reference">Quick reference</a></h2>
+<pre><code class="language-csharp">// Logging
+API.LogInfo(&quot;message&quot;);
+API.LogLevel = LogLevel.Warning;
+
+// Singletons (typed)
+var mgr = API.GetManagedSingletonT&lt;app.PlayerManager&gt;();
+
+// Type database
+var td = TDB.Get().FindType(&quot;app.EnemyManager&quot;);
+var m  = TDB.Get().FindMethod(&quot;app.EnemyManager&quot;, &quot;getEnemyCount&quot;);
+
+// String allocation
+var s = VM.CreateString(&quot;text&quot;);
+
+// Plugin-relative paths
+var dir = API.GetPluginDirectory(typeof(MyPlugin).Assembly);
+
+// GC on custom threads
+API.LocalFrameGC();
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../api_cs/general/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../api_cs/general/type-system.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../api_cs/general/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../api_cs/general/type-system.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

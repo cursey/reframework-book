@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Attributes - REFramework</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Troubleshooting</li><li class="chapter-item expanded "><a href="../../troubleshooting/VR-Troubleshooting.html"><strong aria-hidden="true">1.</strong> VR Troubleshooting</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="../../examples/Example-Scripts.html"><strong aria-hidden="true">2.</strong> Example Scripts</a></li><li class="chapter-item expanded "><a href="../../examples/Example-Snippets.html"><strong aria-hidden="true">3.</strong> Example Snippets</a></li><li class="chapter-item expanded affix "><li class="part-title">Tools</li><li class="chapter-item expanded "><a href="../../object_explorer/object_explorer.html"><strong aria-hidden="true">4.</strong> Object Explorer</a></li><li class="chapter-item expanded "><a href="../../chain_viewer/chain_viewer.html"><strong aria-hidden="true">5.</strong> Chain Viewer</a></li><li class="chapter-item expanded "><a href="../../bhvt_editor/bhvt_editor.html"><strong aria-hidden="true">6.</strong> Behavior Tree/FSM Editor</a></li><li class="chapter-item expanded affix "><li class="part-title">Lua Scripting Reference</li><li class="chapter-item expanded "><a href="../../api/general/index.html"><strong aria-hidden="true">7.</strong> General</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Return-Types.html"><strong aria-hidden="true">7.1.</strong> Notes on Return Types</a></li><li class="chapter-item expanded "><a href="../../api/general/Notes-on-Method-Arguments.html"><strong aria-hidden="true">7.2.</strong> Notes on Method Arguments</a></li><li class="chapter-item expanded "><a href="../../api/general/best-practices.html"><strong aria-hidden="true">7.3.</strong> Best Practices</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/index.html"><strong aria-hidden="true">8.</strong> APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/draw.html"><strong aria-hidden="true">8.1.</strong> draw</a></li><li class="chapter-item expanded "><a href="../../api/fs.html"><strong aria-hidden="true">8.2.</strong> fs</a></li><li class="chapter-item expanded "><a href="../../api/imgui.html"><strong aria-hidden="true">8.3.</strong> imgui</a></li><li class="chapter-item expanded "><a href="../../api/imnodes.html"><strong aria-hidden="true">8.4.</strong> imnodes</a></li><li class="chapter-item expanded "><a href="../../api/imguizmo.html"><strong aria-hidden="true">8.5.</strong> imguizmo</a></li><li class="chapter-item expanded "><a href="../../api/json.html"><strong aria-hidden="true">8.6.</strong> json</a></li><li class="chapter-item expanded "><a href="../../api/log.html"><strong aria-hidden="true">8.7.</strong> log</a></li><li class="chapter-item expanded "><a href="../../api/re.html"><strong aria-hidden="true">8.8.</strong> re (Callbacks)</a></li><li class="chapter-item expanded "><a href="../../api/reframework.html"><strong aria-hidden="true">8.9.</strong> reframework</a></li><li class="chapter-item expanded "><a href="../../api/sdk.html"><strong aria-hidden="true">8.10.</strong> sdk</a></li><li class="chapter-item expanded "><a href="../../api/vrmod.html"><strong aria-hidden="true">8.11.</strong> vrmod</a></li><li class="chapter-item expanded "><a href="../../api/object_explorer.html"><strong aria-hidden="true">8.12.</strong> object_explorer</a></li><li class="chapter-item expanded "><a href="../../api/thread.html"><strong aria-hidden="true">8.13.</strong> thread</a></li></ol></li><li class="chapter-item expanded "><a href="../../api/types/index.html"><strong aria-hidden="true">9.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api/types/VectorXf.html"><strong aria-hidden="true">9.1.</strong> VectorXf</a></li><li class="chapter-item expanded "><a href="../../api/types/Matrix4x4f.html"><strong aria-hidden="true">9.2.</strong> Matrix4x4f</a></li><li class="chapter-item expanded "><a href="../../api/types/Quaternion.html"><strong aria-hidden="true">9.3.</strong> Quaternion</a></li><li class="chapter-item expanded "><a href="../../api/types/REComponent.html"><strong aria-hidden="true">9.4.</strong> REComponent</a></li><li class="chapter-item expanded "><a href="../../api/types/REField.html"><strong aria-hidden="true">9.5.</strong> REField</a></li><li class="chapter-item expanded "><a href="../../api/types/REManagedObject.html"><strong aria-hidden="true">9.6.</strong> REManagedObject</a></li><li class="chapter-item expanded "><a href="../../api/types/REMethodDefinition.html"><strong aria-hidden="true">9.7.</strong> REMethodDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETypeDefinition.html"><strong aria-hidden="true">9.8.</strong> RETypeDefinition</a></li><li class="chapter-item expanded "><a href="../../api/types/RETransform.html"><strong aria-hidden="true">9.9.</strong> RETransform</a></li><li class="chapter-item expanded "><a href="../../api/types/REResource.html"><strong aria-hidden="true">9.10.</strong> REResource</a></li><li class="chapter-item expanded "><a href="../../api/types/SystemArray.html"><strong aria-hidden="true">9.11.</strong> SystemArray</a></li><li class="chapter-item expanded "><a href="../../api/types/ValueType.html"><strong aria-hidden="true">9.12.</strong> ValueType</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">C# Scripting Reference</li><li class="chapter-item expanded "><a href="../../api_cs/general/index.html"><strong aria-hidden="true">10.</strong> Introduction</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/general/api-reference.html"><strong aria-hidden="true">10.1.</strong> API, TDB &amp; VM Reference</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/type-system.html"><strong aria-hidden="true">10.2.</strong> Type System (TypeDefinition, Method, Field)</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/attributes.html" class="active"><strong aria-hidden="true">10.3.</strong> Attributes</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/hooks.html"><strong aria-hidden="true">10.4.</strong> Method Hooks</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/typed-proxies.html"><strong aria-hidden="true">10.5.</strong> Typed Proxies</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/managed-objects.html"><strong aria-hidden="true">10.6.</strong> ManagedObject &amp; IObject</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/arrays.html"><strong aria-hidden="true">10.7.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/Notes-On-Threading.html"><strong aria-hidden="true">10.8.</strong> Notes on Threading</a></li><li class="chapter-item expanded "><a href="../../api_cs/general/benchmarks.html"><strong aria-hidden="true">10.9.</strong> Benchmarks</a></li></ol></li><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.</strong> Examples</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../api_cs/examples/additional-save-slots.html"><strong aria-hidden="true">11.1.</strong> RE9 Additional Save Slots</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">REFramework</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/cursey/reframework-book/edit/master/src/api_cs/general/attributes.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="attributes"><a class="header" href="#attributes">Attributes</a></h1>
+<p>REFramework.NET uses attributes from <code>REFrameworkNET.Attributes</code> and <code>REFrameworkNET.Callbacks</code> to declaratively wire your plugin into the engine. This page covers all four.</p>
+<h2 id="pluginentrypoint"><a class="header" href="#pluginentrypoint"><code>[PluginEntryPoint]</code></a></h2>
+<p>Marks the plugin entry point. The decorated method <strong>must</strong> be <code>public static void</code> with no parameters. It is called exactly once when the plugin loads.</p>
+<p><strong>Namespace:</strong> <code>REFrameworkNET.Attributes</code></p>
+<pre><code class="language-csharp">using REFrameworkNET;
+using REFrameworkNET.Attributes;
+
+public class MyPlugin
+{
+    [PluginEntryPoint]
+    public static void Main()
+    {
+        API.LogInfo(&quot;MyPlugin loaded&quot;);
+    }
+}
+</code></pre>
+<p>Only one method per assembly should carry this attribute.</p>
+<h2 id="pluginexitpoint"><a class="header" href="#pluginexitpoint"><code>[PluginExitPoint]</code></a></h2>
+<p>Marks a cleanup method called when the plugin unloads — either during a hot-reload cycle or when the game exits. Use it to:</p>
+<ul>
+<li>Null out static references to game objects</li>
+<li>Cancel background threads or timers</li>
+<li>Reset any global state your plugin modified</li>
+</ul>
+<p><strong>Namespace:</strong> <code>REFrameworkNET.Attributes</code></p>
+<p><strong>Signature:</strong> <code>public static void</code>, no parameters.</p>
+<pre><code class="language-csharp">[PluginExitPoint]
+public static void OnUnload()
+{
+    _cachedManager = null;
+    _cts?.Cancel();
+    API.LogInfo(&quot;MyPlugin unloaded&quot;);
+}
+</code></pre>
+<p>If you skip this and your plugin is hot-reloaded, stale references to old managed objects will cause crashes.</p>
+<h2 id="methodhook"><a class="header" href="#methodhook"><code>[MethodHook]</code></a></h2>
+<p>Hooks a game method so your code runs before (pre) or after (post) the original.</p>
+<p><strong>Namespace:</strong> <code>REFrameworkNET.Attributes</code></p>
+<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>type</code></td><td><code>Type</code></td><td>The type containing the method, e.g. <code>typeof(app.SomeType)</code></td></tr>
+<tr><td><code>methodName</code></td><td><code>string</code></td><td>Method name. Use <code>nameof(app.SomeType.someMethod)</code> with typed proxies.</td></tr>
+<tr><td><code>hookType</code></td><td><code>MethodHookType</code></td><td><code>MethodHookType.Pre</code> or <code>MethodHookType.Post</code></td></tr>
+<tr><td><code>skipJmp</code></td><td><code>bool</code> <em>(optional)</em></td><td>When <code>true</code>, the hook skips the initial <code>jmp</code> instruction at the function entry point. Set this to <code>true</code> when hooking functions that have been patched with a trampoline by another mod or by the game itself. Defaults to <code>false</code>.</td></tr>
+</tbody></table>
+<h3 id="pre-hook"><a class="header" href="#pre-hook">Pre-hook</a></h3>
+<p><strong>Signature:</strong> <code>static PreHookResult Method(Span&lt;ulong&gt; args)</code></p>
+<p>The <code>args</code> span contains raw pointers:</p>
+<table><thead><tr><th>Index</th><th>Value</th></tr></thead><tbody>
+<tr><td><code>args[0]</code></td><td>Thread context (internal, rarely needed)</td></tr>
+<tr><td><code>args[1]</code></td><td><code>this</code> pointer of the instance the method was called on</td></tr>
+<tr><td><code>args[2+]</code></td><td>Method parameters in declaration order</td></tr>
+</tbody></table>
+<p>Return <code>PreHookResult.Continue</code> to let the original method execute, or <code>PreHookResult.Skip</code> to suppress it entirely (the post-hook still fires).</p>
+<pre><code class="language-csharp">[MethodHook(typeof(app.SaveServiceManager), nameof(app.SaveServiceManager.reloadSaveSlotInfo), MethodHookType.Pre)]
+static PreHookResult OnPreReload(Span&lt;ulong&gt; args)
+{
+    var self = ManagedObject.ToManagedObject(args[1])?.As&lt;app.SaveServiceManager&gt;();
+    if (self == null)
+        return PreHookResult.Continue;
+
+    API.LogInfo($&quot;reloadSaveSlotInfo called, max slots = {self._MaxUseSaveSlotCount}&quot;);
+    return PreHookResult.Continue;
+}
+</code></pre>
+<p>For <strong>static methods</strong>, there is no <code>this</code> pointer — parameters start at <code>args[1]</code> instead of <code>args[2]</code>:</p>
+<pre><code class="language-csharp">[MethodHook(typeof(app.WeaponDef), nameof(app.WeaponDef.Attack), MethodHookType.Pre)]
+static PreHookResult OnPreAttack(Span&lt;ulong&gt; args)
+{
+    // Static method: args[0] = thread context, args[1] = first param, args[2] = second param
+    int wpType = (int)args[1];
+    int wpId = (int)args[2];
+    return PreHookResult.Continue;
+}
+</code></pre>
+<p>The optional <code>skipJmp</code> parameter is unrelated to static methods — it controls hook installation behavior:</p>
+<pre><code class="language-csharp">// Hook a function that has a jmp trampoline at its entry point
+[MethodHook(typeof(app.SomeType), nameof(app.SomeType.patchedMethod), MethodHookType.Pre, true)]
+static PreHookResult OnPre(Span&lt;ulong&gt; args) =&gt; PreHookResult.Continue;
+</code></pre>
+<h3 id="post-hook"><a class="header" href="#post-hook">Post-hook</a></h3>
+<p><strong>Signature:</strong> <code>static void Method(ref ulong retval)</code></p>
+<p><code>retval</code> holds the return value as a raw address (for reference types) or a value (for value types). You can read it, or replace it to change what the caller receives.</p>
+<pre><code class="language-csharp">[MethodHook(typeof(app.SaveServiceManager), nameof(app.SaveServiceManager.getMaxSaveSlotNum), MethodHookType.Post)]
+static void OnPostGetMax(ref ulong retval)
+{
+    // Override the return value to increase max save slots
+    retval = 117;
+}
+</code></pre>
+<p>To replace a reference-type return value:</p>
+<pre><code class="language-csharp">[MethodHook(typeof(app.SomeType), nameof(app.SomeType.getName), MethodHookType.Post)]
+static void OnPostGetName(ref ulong retval)
+{
+    var original = ManagedObject.ToManagedObject(retval);
+    // ... build replacement ...
+    retval = replacement.GetAddress();
+}
+</code></pre>
+<h2 id="callback"><a class="header" href="#callback"><code>[Callback]</code></a></h2>
+<p>Registers a method to run on an engine callback — most commonly the per-frame update tick.</p>
+<p><strong>Namespace:</strong> <code>REFrameworkNET.Callbacks</code></p>
+<h3 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h3>
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>type</code></td><td><code>Type</code></td><td>Callback source type, e.g. <code>typeof(UpdateBehavior)</code></td></tr>
+<tr><td><code>callbackType</code></td><td><code>CallbackType</code></td><td><code>CallbackType.Pre</code> or <code>CallbackType.Post</code></td></tr>
+</tbody></table>
+<p><strong>Signature:</strong> <code>public static void Method()</code> — no parameters.</p>
+<pre><code class="language-csharp">using REFrameworkNET.Callbacks;
+
+[Callback(typeof(UpdateBehavior), CallbackType.Pre)]
+public static void OnUpdate()
+{
+    // Runs every frame before the engine update
+}
+</code></pre>
+<p><code>CallbackType.Pre</code> fires before the engine processes the callback; <code>CallbackType.Post</code> fires after.</p>
+<h3 id="common-callback-types"><a class="header" href="#common-callback-types">Common callback types</a></h3>
+<p>All callback classes live in <code>REFrameworkNET.Callbacks</code>. There are hundreds corresponding to engine lifecycle stages. The most commonly used:</p>
+<table><thead><tr><th>Callback</th><th>When it fires</th></tr></thead><tbody>
+<tr><td><code>UpdateBehavior</code></td><td>Per-frame game logic update (most common)</td></tr>
+<tr><td><code>LateUpdateBehavior</code></td><td>After per-frame update</td></tr>
+<tr><td><code>UpdateMotion</code></td><td>Animation/motion update</td></tr>
+<tr><td><code>UpdateGUI</code></td><td>GUI update</td></tr>
+<tr><td><code>PreupdateGUI</code></td><td>Before GUI update</td></tr>
+<tr><td><code>UpdatePhysics</code></td><td>Physics tick</td></tr>
+<tr><td><code>BeginRendering</code></td><td>Start of rendering frame</td></tr>
+<tr><td><code>EndRendering</code></td><td>End of rendering frame</td></tr>
+<tr><td><code>ImGuiRender</code></td><td>ImGui overlay rendering</td></tr>
+<tr><td><code>ImGuiDrawUI</code></td><td>ImGui UI rendering</td></tr>
+<tr><td><code>Initialize</code></td><td>Engine initialization (runs once)</td></tr>
+<tr><td><code>Setup</code></td><td>Post-initialization setup (runs once)</td></tr>
+<tr><td><code>Start</code></td><td>After setup completes (runs once)</td></tr>
+</tbody></table>
+<p>For a complete list, see the <code>GENERATE_POCKET_CLASS</code> macros in <code>Callbacks.hpp</code> in the REFramework source.</p>
+<h2 id="complete-example"><a class="header" href="#complete-example">Complete Example</a></h2>
+<p>A minimal plugin using all four attributes:</p>
+<pre><code class="language-csharp">using REFrameworkNET;
+using REFrameworkNET.Attributes;
+using REFrameworkNET.Callbacks;
+
+public class ExamplePlugin
+{
+    private static app.SaveServiceManager _saveMgr;
+
+    [PluginEntryPoint]
+    public static void Main()
+    {
+        API.LogInfo(&quot;ExamplePlugin loaded&quot;);
+    }
+
+    [PluginExitPoint]
+    public static void OnUnload()
+    {
+        _saveMgr = null;
+        API.LogInfo(&quot;ExamplePlugin unloaded&quot;);
+    }
+
+    [Callback(typeof(UpdateBehavior), CallbackType.Pre)]
+    public static void OnUpdate()
+    {
+        if (_saveMgr == null)
+            _saveMgr = API.GetManagedSingletonT&lt;app.SaveServiceManager&gt;();
+    }
+
+    [MethodHook(typeof(app.SaveServiceManager),
+                nameof(app.SaveServiceManager.getMaxSaveSlotNum),
+                MethodHookType.Pre)]
+    static PreHookResult OnPreGetMax(Span&lt;ulong&gt; args)
+    {
+        API.LogInfo(&quot;getMaxSaveSlotNum called&quot;);
+        return PreHookResult.Continue;
+    }
+
+    [MethodHook(typeof(app.SaveServiceManager),
+                nameof(app.SaveServiceManager.getMaxSaveSlotNum),
+                MethodHookType.Post)]
+    static void OnPostGetMax(ref ulong retval)
+    {
+        retval = 117;
+    }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../api_cs/general/type-system.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../api_cs/general/hooks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../api_cs/general/type-system.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../api_cs/general/hooks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

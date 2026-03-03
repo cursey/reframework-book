@@ -70,6 +70,8 @@ var player = playerMgr.get_CurrentPlayer();
 
 Both return `null` (default of `T`) if the singleton is not found.
 
+> **Caveat:** `NativeSingleton` does **not** carry a `TypeDefinition` — only a `TypeInfo` handle. This means `GetNativeSingleton(name)` returns a `NativeObject` that lacks the typed proxy path. Use `GetNativeSingletonT<T>()` when you need typed access to native singletons.
+
 #### Enumerating all singletons
 
 ```csharp
@@ -214,6 +216,14 @@ persistent.Globalize();
 ```
 
 > **When do you need this?** Whenever you call a game method that expects a managed `System.String` parameter. Passing a raw C# `string` will not work — the engine expects its own heap-allocated string object.
+
+`SystemString` extends `ManagedObject` and overrides `ToString()`, so you can read engine strings back to C#:
+
+```csharp
+// Reading a string field from a game object
+var nameField = someObj.GetField("_Name");
+string name = nameField?.ToString(); // calls SystemString.ToString()
+```
 
 ---
 

@@ -195,3 +195,74 @@ var value = mo.Call("get_Item", key);
 ```
 
 You can freely mix typed proxies and reflection on the same object. Use typed access where available and drop to reflection only where necessary.
+
+
+## Proxy Factory Classes
+
+Under the hood, `.As<T>()` creates a `DispatchProxy` that forwards calls to the underlying `IObject`. Three factory classes are available for advanced scenarios where you need to create proxies manually:
+
+| Class | Underlying type | Use case |
+|---|---|---|
+| `ManagedProxy<T>` | `ManagedObject` | Most game objects (GC-managed) |
+| `NativeProxy<T>` | `NativeObject` | Native engine objects (not GC-managed) |
+| `AnyProxy<T>` | `IObject` | When you don't know the object kind |
+
+Each has a static `Create(object target)` method:
+
+```csharp
+// Create proxy manually from a ManagedObject
+var mo = API.GetManagedSingleton("app.SaveServiceManager");
+var saveMgr = ManagedProxy<app.SaveServiceManager>.Create(mo);
+```
+
+`ManagedProxy<T>` and `NativeProxy<T>` also have a convenience method:
+
+```csharp
+// Create directly from a singleton name
+var saveMgr = ManagedProxy<app.SaveServiceManager>.CreateFromSingleton("app.SaveServiceManager");
+```
+
+In practice, prefer `.As<T>()` and `API.GetManagedSingletonT<T>()` — they handle the proxy creation for you. Use the factory classes only when you have a specific need to control the proxy kind.
+
+## Iterating Game Collections
+
+Many game types expose `get_Count` and `get_Item(int)` patterns for their collections. REFramework.NET's `UnifiedObject` base class implements `IEnumerable`, so you can use `foreach` on any object that follows this pattern:
+
+```csharp
+var saveMgr = API.GetManagedSingletonT<app.SaveServiceManager>();
+var partitions = saveMgr._SaveSlotPartitionList;
+
+// ObjectEnumerator uses get_Count / get_Item internally
+foreach (var partition in (IEnumerable)partitions) {
+    var typed = ((ManagedObject)partition).As<app.SaveSlotPartition>();
+    API.LogInfo($"Partition: {typed._Usage}, slots: {typed._SlotCount}");
+}
+```
+
+The enumerator also falls back to `get_Length` if `get_Count` is not available (e.g., for native array-like types).
+
+> **Note:** This uses `ObjectEnumerator` internally, which calls `get_Item` in a loop. For performance-critical paths with thousands of elements, consider using `_System.Array` indexing or direct field offset access instead.
+
+## ValueType and Stack-Allocated Structs
+
+Some game types are value types (structs), not reference types. Use `ValueType.New<T>()` to create a stack-allocated boxed value:
+
+```csharp
+var vec3 = ValueType.New<via.vec3>();
+// Set fields on the value type
+(vec3 as IObject).Call("set_x", 1.0f);
+(vec3 as IObject).Call("set_y", 2.0f);
+(vec3 as IObject).Call("set_z", 3.0f);
+
+// Pass to a method that expects a value type
+transform.Call("set_Position", vec3);
+```
+
+You can also create value types from a `TypeDefinition`:
+
+```csharp
+var typeDef = API.GetTDB().FindType("via.Quaternion");
+var quat = typeDef.CreateValueType();
+```
+
+`ValueType` wraps a managed byte array sized to the type's `ValueTypeSize`. It implements `IObject`, so you can call methods and access fields on it.

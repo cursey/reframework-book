@@ -231,21 +231,34 @@ In practice, prefer `.As<T>()` and `API.GetManagedSingletonT<T>()` — they hand
 - `get_Count()` or `get_Length()` returning an integer
 - `get_Item(int index)` accepting an integer index
 
+> **Typed proxies do NOT implement `IEnumerable`.** You cannot `foreach` directly on a proxy. Unwrap to the underlying `ManagedObject` first — either via `((IProxy)proxy).GetInstance()` or by reading the field with `GetField()` instead of a typed property.
+
 In practice, this limits `foreach` to:
 
 | Type | Works? | Why |
 |------|--------|-----|
 | `System.Collections.Generic.List<T>` | Yes | Has `get_Count` + `get_Item(int)` |
 | `System.Array` / `T[]` | Yes | Has `get_Length` + `get_Item(int)` |
+| `Queue<T>` | **No** | Has `get_Count` but no `get_Item(int)` |
 | `Dictionary<K,V>`, `CatalogSetDictionary<K,V>` | **No** | `get_Item` takes a key, not an int index |
 | Custom containers with `get_Item` but no `get_Count` | **No** | `GetItemCount()` returns 0, iterates nothing |
 
 ```csharp
-// Works: List<T> has get_Count + get_Item(int)
-var list = saveMgr.GetField("_ProcessRequests") as ManagedObject;
-foreach (var item in (IEnumerable)list) {
-    var typed = ((ManagedObject)item).As<app.SaveServiceManager.Process>();
-    API.LogInfo($"Process: {typed}");
+// Typed proxy — must unwrap to ManagedObject first
+var saveMgr = API.GetManagedSingletonT<app.SaveServiceManager>();
+var listProxy = saveMgr._ProcessRequests;
+
+// Option A: Unwrap via IProxy
+var listMo = ((IProxy)listProxy).GetInstance() as ManagedObject;
+
+// Option B: Read the field directly as ManagedObject
+var listMo2 = API.GetManagedSingleton("app.SaveServiceManager")
+    .GetField("_ProcessRequests") as ManagedObject;
+
+// Now foreach works
+foreach (var item in (IEnumerable)listMo) {
+    var process = ((ManagedObject)item).As<app.SaveServiceManager.Process>();
+    API.LogInfo($"Process: {process}");
 }
 ```
 

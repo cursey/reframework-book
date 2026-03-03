@@ -226,22 +226,39 @@ In practice, prefer `.As<T>()` and `API.GetManagedSingletonT<T>()` — they hand
 
 ## Iterating Game Collections
 
-Many game types expose `get_Count` and `get_Item(int)` patterns for their collections. REFramework.NET's `UnifiedObject` base class implements `IEnumerable`, so you can use `foreach` on any object that follows this pattern:
+`ManagedObject` and `NativeObject` both implement `IEnumerable` via `UnifiedObject`. The underlying `ObjectEnumerator` calls `get_Count` (or `get_Length`) and `get_Item(int)` on the object. This means `foreach` works **only** on types that have both:
+
+- `get_Count()` or `get_Length()` returning an integer
+- `get_Item(int index)` accepting an integer index
+
+In practice, this limits `foreach` to:
+
+| Type | Works? | Why |
+|------|--------|-----|
+| `System.Collections.Generic.List<T>` | Yes | Has `get_Count` + `get_Item(int)` |
+| `System.Array` / `T[]` | Yes | Has `get_Length` + `get_Item(int)` |
+| `Dictionary<K,V>`, `CatalogSetDictionary<K,V>` | **No** | `get_Item` takes a key, not an int index |
+| Custom containers with `get_Item` but no `get_Count` | **No** | `GetItemCount()` returns 0, iterates nothing |
 
 ```csharp
-var saveMgr = API.GetManagedSingletonT<app.SaveServiceManager>();
-var partitions = saveMgr._SaveSlotPartitionList;
-
-// ObjectEnumerator uses get_Count / get_Item internally
-foreach (var partition in (IEnumerable)partitions) {
-    var typed = ((ManagedObject)partition).As<app.SaveSlotPartition>();
-    API.LogInfo($"Partition: {typed._Usage}, slots: {typed._SlotCount}");
+// Works: List<T> has get_Count + get_Item(int)
+var list = saveMgr.GetField("_ProcessRequests") as ManagedObject;
+foreach (var item in (IEnumerable)list) {
+    var typed = ((ManagedObject)item).As<app.SaveServiceManager.Process>();
+    API.LogInfo($"Process: {typed}");
 }
 ```
 
-The enumerator also falls back to `get_Length` if `get_Count` is not available (e.g., for native array-like types).
+> **Warning:** If a type has `get_Count` but no integer-indexed `get_Item`, `ObjectEnumerator` will silently yield `null` values. Always verify the target type has both methods before using `foreach`.
 
-> **Note:** This uses `ObjectEnumerator` internally, which calls `get_Item` in a loop. For performance-critical paths with thousands of elements, consider using `_System.Array` indexing or direct field offset access instead.
+For types that don't support this pattern, fall back to reflection:
+
+```csharp
+// Dictionary-like types: use Call() directly
+var dict = saveMgr.GetField("_SaveSlotInfoDict") as ManagedObject;
+var count = (int)(dict as IObject).Call("get_Count");
+// Use the type's own enumeration methods or access the internal arrays
+```
 
 ## ValueType and Stack-Allocated Structs
 

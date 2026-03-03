@@ -59,8 +59,8 @@ The generic variants call `GetManagedSingleton` / `GetNativeSingleton` under the
 var playerMgr = API.GetManagedSingletonT<app.PlayerManager>();
 var sceneMgr = API.GetNativeSingletonT<via.SceneManager>();
 
-// playerMgr is already typed — direct field/method access:
-var player = playerMgr.get_CurrentPlayer();
+// playerMgr is already typed — direct property/method access:
+var player = playerMgr.CurrentPlayer;
 ```
 
 | Method | Returns | Constraint |

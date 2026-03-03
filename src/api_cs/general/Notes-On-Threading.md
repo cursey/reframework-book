@@ -25,7 +25,7 @@ static PreHookResult Pre(Span<ulong> args) {
 
     Bench(() => {
         for (int i = 0; i < 10000; ++i) {
-            var gameobj = hitController.get_GameObject();
+            var gameobj = hitController.GameObject;
             if (gameobj != null) {
             }
         }

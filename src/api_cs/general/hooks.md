@@ -220,7 +220,7 @@ static PreHookResult OnGetSlotNo(Span<ulong> args) {
 
     // Safe to proceed
     var info = self.As<app.SaveSlotInfo>();
-    API.LogInfo($"SlotNo accessed: {info.get_SlotNo()}");
+    API.LogInfo($"SlotNo accessed: {info.SlotNo}");
     return PreHookResult.Continue;
 }
 ```

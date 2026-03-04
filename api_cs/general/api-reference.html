@@ -294,6 +294,26 @@ var nameField = someObj.GetField(&quot;_Name&quot;);
 string name = nameField?.ToString(); // calls SystemString.ToString()
 </code></pre>
 <hr />
+<h2 id="performance-tips"><a class="header" href="#performance-tips">Performance Tips</a></h2>
+<h3 id="cache-typemethodfield-lookups-in-hot-paths"><a class="header" href="#cache-typemethodfield-lookups-in-hot-paths">Cache type/method/field lookups in hot paths</a></h3>
+<p><code>TDB.FindType(string)</code>, <code>IObject.Call(string, ...)</code>, and <code>IObject.GetField(string)</code> all perform string-based hashmap lookups on every call. In init code this is fine, but in hooks or frame callbacks that fire hundreds of times per second, the overhead adds up.</p>
+<p><strong>Typed proxies</strong> handle this automatically — the generated code caches method resolution internally. This is one of their biggest advantages over reflection-style access.</p>
+<p>For reflection paths, cache <code>MethodDefinition</code> and <code>FieldDefinition</code> objects in static fields:</p>
+<pre><code class="language-csharp">// Cache at load time
+static MethodDefinition s_getHealth = app.cHunterHealth.REFType.GetMethod(&quot;get_Health&quot;);
+static FieldDefinition s_maxHp = app.cHunterHealth.REFType.GetField(&quot;_MaxHealth&quot;);
+
+// Use in hot path
+[Callback(typeof(app.SomeManager), nameof(app.SomeManager.update), CallbackType.Pre)]
+static PreHookResult OnUpdate(Span&lt;ulong&gt; args) {
+    var obj = ManagedObject.ToManagedObject(args[1]);
+    // Fast: uses cached definitions
+    float hp = (float)s_getHealth.Invoke(obj, null);
+    float maxHp = (float)s_maxHp.GetDataBoxed(obj);
+    return PreHookResult.Continue;
+}
+</code></pre>
+<hr />
 <h2 id="quick-reference"><a class="header" href="#quick-reference">Quick reference</a></h2>
 <pre><code class="language-csharp">// Logging
 API.LogInfo(&quot;message&quot;);

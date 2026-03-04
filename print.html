@@ -3344,6 +3344,26 @@ var nameField = someObj.GetField(&quot;_Name&quot;);
 string name = nameField?.ToString(); // calls SystemString.ToString()
 </code></pre>
 <hr />
+<h2 id="performance-tips"><a class="header" href="#performance-tips">Performance Tips</a></h2>
+<h3 id="cache-typemethodfield-lookups-in-hot-paths"><a class="header" href="#cache-typemethodfield-lookups-in-hot-paths">Cache type/method/field lookups in hot paths</a></h3>
+<p><code>TDB.FindType(string)</code>, <code>IObject.Call(string, ...)</code>, and <code>IObject.GetField(string)</code> all perform string-based hashmap lookups on every call. In init code this is fine, but in hooks or frame callbacks that fire hundreds of times per second, the overhead adds up.</p>
+<p><strong>Typed proxies</strong> handle this automatically — the generated code caches method resolution internally. This is one of their biggest advantages over reflection-style access.</p>
+<p>For reflection paths, cache <code>MethodDefinition</code> and <code>FieldDefinition</code> objects in static fields:</p>
+<pre><code class="language-csharp">// Cache at load time
+static MethodDefinition s_getHealth = app.cHunterHealth.REFType.GetMethod(&quot;get_Health&quot;);
+static FieldDefinition s_maxHp = app.cHunterHealth.REFType.GetField(&quot;_MaxHealth&quot;);
+
+// Use in hot path
+[Callback(typeof(app.SomeManager), nameof(app.SomeManager.update), CallbackType.Pre)]
+static PreHookResult OnUpdate(Span&lt;ulong&gt; args) {
+    var obj = ManagedObject.ToManagedObject(args[1]);
+    // Fast: uses cached definitions
+    float hp = (float)s_getHealth.Invoke(obj, null);
+    float maxHp = (float)s_maxHp.GetDataBoxed(obj);
+    return PreHookResult.Continue;
+}
+</code></pre>
+<hr />
 <h2 id="quick-reference"><a class="header" href="#quick-reference">Quick reference</a></h2>
 <pre><code class="language-csharp">// Logging
 API.LogInfo(&quot;message&quot;);
@@ -3814,8 +3834,11 @@ static PreHookResult OnWriteSave(Span&lt;ulong&gt; args) {
 <h3 id="return-value"><a class="header" href="#return-value">Return value</a></h3>
 <table><thead><tr><th>Return</th><th>Effect</th></tr></thead><tbody>
 <tr><td><code>PreHookResult.Continue</code></td><td>Proceed to the original method (and any post-hooks)</td></tr>
-<tr><td><code>PreHookResult.Skip</code></td><td>Skip the original method entirely. Post-hooks still run.</td></tr>
+<tr><td><code>PreHookResult.Skip</code></td><td>Skip the original method entirely. Post-hooks <strong>still run</strong>, but <code>retval</code> is uninitialized — see warning below.</td></tr>
 </tbody></table>
+<blockquote>
+<p><strong>Warning:</strong> When a pre-hook returns <code>Skip</code>, the post-hook still fires, but <code>retval</code> contains garbage. If your post-hook reads or forwards the return value, you must check whether Skip was used and set <code>retval</code> explicitly. A common pattern is to store a flag in a <code>[ThreadStatic]</code> field in the pre-hook and check it in the post-hook.</p>
+</blockquote>
 <h3 id="modifying-arguments"><a class="header" href="#modifying-arguments">Modifying arguments</a></h3>
 <p>Because <code>args</code> is a <code>Span&lt;ulong&gt;</code>, writes are visible to the original method:</p>
 <pre><code class="language-csharp">[MethodHook(typeof(app.EnemyDamageParam), nameof(app.EnemyDamageParam.calcDamage), MethodHookType.Pre)]
@@ -3932,6 +3955,43 @@ static PreHookResult OnGetSlotNo(Span&lt;ulong&gt; args) {
 </ul>
 <h3 id="avoid-heavy-work-in-hooks"><a class="header" href="#avoid-heavy-work-in-hooks">Avoid heavy work in hooks</a></h3>
 <p>Hooks run inline with the game's execution. Long-running operations (file I/O, network calls) will stall the game thread. Offload heavy work to a background task if needed.</p>
+<p>For hooks that fire every frame on every entity (e.g. <code>update</code> functions), even moderate per-call overhead compounds quickly. Consider staggering work across frames, or caching results that don't change every tick.</p>
+<h3 id="byref--out-parameters"><a class="header" href="#byref--out-parameters">ByRef / out parameters</a></h3>
+<p>If a hooked method has <code>ref</code> or <code>out</code> parameters, the corresponding <code>args[N]</code> slot contains a <strong>pointer to the value</strong>, not the value itself. You must dereference it to read the actual argument:</p>
+<pre><code class="language-csharp">// For a method like: void Foo(ref int count)
+// args[2] is a pointer to the int, not the int itself
+unsafe {
+    int* countPtr = (int*)args[2];
+    int count = *countPtr;
+    API.LogInfo($&quot;count = {count}&quot;);
+
+    // Modify the ref parameter:
+    *countPtr = 99;
+}
+</code></pre>
+<p>For <code>out</code> parameters that are only valid after the method runs, capture the pointer in the pre-hook and dereference it in the post-hook:</p>
+<pre><code class="language-csharp">[ThreadStatic] static ulong pendingOutPtr;
+
+[MethodHook(typeof(app.SomeType), nameof(app.SomeType.TryGetValue), MethodHookType.Pre)]
+static PreHookResult OnPre(Span&lt;ulong&gt; args) {
+    pendingOutPtr = args[3]; // save pointer to out param
+    return PreHookResult.Continue;
+}
+
+[MethodHook(typeof(app.SomeType), nameof(app.SomeType.TryGetValue), MethodHookType.Post)]
+static void OnPost(ref ulong retval) {
+    if (pendingOutPtr != 0) {
+        unsafe {
+            var result = ManagedObject.ToManagedObject(*(ulong*)pendingOutPtr);
+            // result is the out parameter value
+        }
+        pendingOutPtr = 0;
+    }
+}
+</code></pre>
+<h3 id="not-all-methods-are-hookable"><a class="header" href="#not-all-methods-are-hookable">Not all methods are hookable</a></h3>
+<p>Some methods — especially simple property accessors or thin native wrappers — may be inlined by the IL2CPP compiler so aggressively that the original function body no longer exists as a distinct call target. Hooking these will either silently do nothing, or fire on unrelated call sites (see <a href="api_cs/general/hooks.html#inlined-property-accessors">Inlined property accessors</a>).</p>
+<p>If a hook seems to never fire, check the method's disassembly in the Object Explorer. If the function body is just a <code>jmp</code> to another function or a single <code>mov</code> + <code>ret</code>, it may not be hookable.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="typed-proxies"><a class="header" href="#typed-proxies">Typed Proxies</a></h1>
 <h2 id="what-are-typed-proxies"><a class="header" href="#what-are-typed-proxies">What Are Typed Proxies?</a></h2>
 <p>When REFramework.NET loads, it reads the game's <strong>type database (TDB)</strong> and generates C# reference assemblies that mirror every type in the engine. These assemblies contain interfaces with properties for fields and methods matching the original game types.</p>

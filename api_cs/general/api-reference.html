@@ -223,6 +223,10 @@ string configPath = Path.Combine(dir, &quot;config.json&quot;);
 <pre><code class="language-csharp">TDB tdb = API.GetTDB();
 </code></pre>
 <p>Equivalent to <code>TDB.Get()</code>. Convenience accessor when you already have <code>API</code> in scope.</p>
+<h3 id="resourcemanager--getresourcemanager"><a class="header" href="#resourcemanager--getresourcemanager">ResourceManager — <code>GetResourceManager()</code></a></h3>
+<pre><code class="language-csharp">ResourceManager mgr = API.GetResourceManager();
+</code></pre>
+<p>Returns the engine's <code>ResourceManager</code>, used to create resources and userdata objects. See the <a href="#resourcemanager-reframeworknetresourcemanager">ResourceManager section</a> below.</p>
 <hr />
 <h2 id="tdb-reframeworknettdb"><a class="header" href="#tdb-reframeworknettdb">TDB (<code>REFrameworkNET.TDB</code>)</a></h2>
 <p>The <strong>Type Database</strong> — REFramework's reflection system over the RE Engine's type metadata. Access it via <code>TDB.Get()</code> or <code>API.GetTDB()</code>.</p>
@@ -294,6 +298,44 @@ var nameField = someObj.GetField(&quot;_Name&quot;);
 string name = nameField?.ToString(); // calls SystemString.ToString()
 </code></pre>
 <hr />
+<h2 id="resourcemanager-reframeworknetresourcemanager"><a class="header" href="#resourcemanager-reframeworknetresourcemanager">ResourceManager (<code>REFrameworkNET.ResourceManager</code>)</a></h2>
+<p>The engine's resource factory. Obtain via <code>API.GetResourceManager()</code>.</p>
+<h3 id="createresourcestring-typename-string-name--resource"><a class="header" href="#createresourcestring-typename-string-name--resource"><code>CreateResource(string typeName, string name)</code> → <code>Resource</code></a></h3>
+<p>Creates a new resource from a PAK path. The <code>typeName</code> is a <code>via.typeinfo.TypeInfo</code> name (the runtime type system name, <strong>not</strong> a <code>TypeDefinition</code> name). The <code>name</code> is the resource path inside the game's PAK archives.</p>
+<pre><code class="language-csharp">var mgr = API.GetResourceManager();
+var tex = mgr.CreateResource(&quot;via.render.Texture&quot;, &quot;enemy/em0100/texture/body_BM.tex&quot;);
+</code></pre>
+<p>Returns <code>null</code> if the type is not found or creation fails.</p>
+<h3 id="createuserdatastring-typename-string-name--managedobject"><a class="header" href="#createuserdatastring-typename-string-name--managedobject"><code>CreateUserData(string typeName, string name)</code> → <code>ManagedObject</code></a></h3>
+<p>Creates a userdata <code>ManagedObject</code>. Userdata objects are engine-managed data containers typically backed by a <code>.user</code> file in the PAK. Like <code>CreateResource</code>, the <code>typeName</code> is a <code>via.typeinfo.TypeInfo</code> name.</p>
+<pre><code class="language-csharp">var mgr = API.GetResourceManager();
+var userData = mgr.CreateUserData(&quot;app.ItemUserData&quot;, &quot;data/app/item/item_data.user&quot;);
+</code></pre>
+<p>Returns <code>null</code> if the type is not found or creation fails.</p>
+<blockquote>
+<p><strong>TypeInfo names vs TypeDefinition names:</strong> Both methods take <code>via.typeinfo.TypeInfo</code> names, which are the runtime names the engine uses internally. These usually match <code>TypeDefinition</code> full names, but not always — some types have different runtime representations. If a call returns <code>null</code> unexpectedly, verify the name against the runtime type system rather than the TDB.</p>
+</blockquote>
+<hr />
+<h2 id="resource-reframeworknetresource"><a class="header" href="#resource-reframeworknetresource">Resource (<code>REFrameworkNET.Resource</code>)</a></h2>
+<p>Wraps a native RE Engine resource handle. Returned by <code>ResourceManager.CreateResource()</code>.</p>
+<h3 id="reference-counting"><a class="header" href="#reference-counting">Reference counting</a></h3>
+<p>Resources are reference-counted by the engine. If you store a resource beyond the scope where it was created, you must manage its lifetime:</p>
+<pre><code class="language-csharp">var resource = mgr.CreateResource(&quot;via.render.Texture&quot;, &quot;path/to/texture.tex&quot;);
+resource.AddRef();  // prevent engine from releasing it
+// ... use resource ...
+resource.Release(); // when done
+</code></pre>
+<table><thead><tr><th>Method</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>AddRef()</code></td><td>Increment the native reference count</td></tr>
+<tr><td><code>Release()</code></td><td>Decrement the native reference count</td></tr>
+</tbody></table>
+<h3 id="createholderstring-typename--managedobject"><a class="header" href="#createholderstring-typename--managedobject"><code>CreateHolder(string typeName)</code> → <code>ManagedObject</code></a></h3>
+<p>Creates a resource holder — a managed wrapper object the engine uses to reference a loaded resource. The <code>typeName</code> here is a <strong>TypeDefinition</strong> name (unlike <code>ResourceManager</code> methods which take TypeInfo names).</p>
+<pre><code class="language-csharp">var tex = mgr.CreateResource(&quot;via.render.Texture&quot;, &quot;path/to/texture.tex&quot;);
+var holder = tex.CreateHolder(&quot;via.render.TextureResource&quot;);
+</code></pre>
+<p>Returns <code>null</code> if the type is not found or creation fails.</p>
+<hr />
 <h2 id="performance-tips"><a class="header" href="#performance-tips">Performance Tips</a></h2>
 <h3 id="cache-typemethodfield-lookups-in-hot-paths"><a class="header" href="#cache-typemethodfield-lookups-in-hot-paths">Cache type/method/field lookups in hot paths</a></h3>
 <p><code>TDB.FindType(string)</code>, <code>IObject.Call(string, ...)</code>, and <code>IObject.GetField(string)</code> all perform string-based hashmap lookups on every call. In init code this is fine, but in hooks or frame callbacks that fire hundreds of times per second, the overhead adds up.</p>
@@ -325,6 +367,10 @@ var mgr = API.GetManagedSingletonT&lt;app.PlayerManager&gt;();
 // Type database
 var td = TDB.Get().FindType(&quot;app.EnemyManager&quot;);
 var m  = TDB.Get().FindMethod(&quot;app.EnemyManager&quot;, &quot;getEnemyCount&quot;);
+
+// Resource creation
+var resMgr = API.GetResourceManager();
+var userdata = resMgr.CreateUserData(&quot;app.SomeData&quot;, &quot;data/some_data.user&quot;);
 
 // String allocation
 var s = VM.CreateString(&quot;text&quot;);

@@ -73,7 +73,9 @@ Value-type parameters (`int`, `float`, `bool`, enums) are stored directly in the
 | Return | Effect |
 |--------|--------|
 | `PreHookResult.Continue` | Proceed to the original method (and any post-hooks) |
-| `PreHookResult.Skip` | Skip the original method entirely. Post-hooks still run. |
+| `PreHookResult.Skip` | Skip the original method entirely. Post-hooks **still run**, but `retval` is uninitialized — see warning below. |
+
+> **Warning:** When a pre-hook returns `Skip`, the post-hook still fires, but `retval` contains garbage. If your post-hook reads or forwards the return value, you must check whether Skip was used and set `retval` explicitly. A common pattern is to store a flag in a `[ThreadStatic]` field in the pre-hook and check it in the post-hook.
 
 ### Modifying arguments
 
@@ -233,3 +235,51 @@ static PreHookResult OnGetSlotNo(Span<ulong> args) {
 ### Avoid heavy work in hooks
 
 Hooks run inline with the game's execution. Long-running operations (file I/O, network calls) will stall the game thread. Offload heavy work to a background task if needed.
+
+For hooks that fire every frame on every entity (e.g. `update` functions), even moderate per-call overhead compounds quickly. Consider staggering work across frames, or caching results that don't change every tick.
+
+### ByRef / out parameters
+
+If a hooked method has `ref` or `out` parameters, the corresponding `args[N]` slot contains a **pointer to the value**, not the value itself. You must dereference it to read the actual argument:
+
+```csharp
+// For a method like: void Foo(ref int count)
+// args[2] is a pointer to the int, not the int itself
+unsafe {
+    int* countPtr = (int*)args[2];
+    int count = *countPtr;
+    API.LogInfo($"count = {count}");
+
+    // Modify the ref parameter:
+    *countPtr = 99;
+}
+```
+
+For `out` parameters that are only valid after the method runs, capture the pointer in the pre-hook and dereference it in the post-hook:
+
+```csharp
+[ThreadStatic] static ulong pendingOutPtr;
+
+[MethodHook(typeof(app.SomeType), nameof(app.SomeType.TryGetValue), MethodHookType.Pre)]
+static PreHookResult OnPre(Span<ulong> args) {
+    pendingOutPtr = args[3]; // save pointer to out param
+    return PreHookResult.Continue;
+}
+
+[MethodHook(typeof(app.SomeType), nameof(app.SomeType.TryGetValue), MethodHookType.Post)]
+static void OnPost(ref ulong retval) {
+    if (pendingOutPtr != 0) {
+        unsafe {
+            var result = ManagedObject.ToManagedObject(*(ulong*)pendingOutPtr);
+            // result is the out parameter value
+        }
+        pendingOutPtr = 0;
+    }
+}
+```
+
+### Not all methods are hookable
+
+Some methods — especially simple property accessors or thin native wrappers — may be inlined by the IL2CPP compiler so aggressively that the original function body no longer exists as a distinct call target. Hooking these will either silently do nothing, or fire on unrelated call sites (see [Inlined property accessors](#inlined-property-accessors)).
+
+If a hook seems to never fire, check the method's disassembly in the Object Explorer. If the function body is just a `jmp` to another function or a single `mov` + `ret`, it may not be hookable.

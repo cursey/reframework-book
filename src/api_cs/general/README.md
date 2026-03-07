@@ -16,7 +16,7 @@ REFramework.NET is a C# scripting API that lets you build mods and plugins for R
 
 * [.NET 10.0 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) installed on your system
 * [REFramework nightly build](https://github.com/praydog/REFramework-nightly/releases) with .NET support
-* `csharp-api.zip` from the [same releases page](https://github.com/praydog/REFramework-nightly/releases), extracted into your game's `reframework/` folder
+* `csharp-api.zip` from the [same releases page](https://github.com/praydog/REFramework-nightly/releases), extracted into your game's root directory.
 
 ### Source Plugins (recommended for development)
 
